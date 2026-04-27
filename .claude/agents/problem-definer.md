@@ -17,10 +17,24 @@ The team's product story is **PerSense — a JITAI-enabled adaptive Digital Ther
 
 ## Input
 
-1. `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json` — populated by evidence-curator (every claim carries internal anchor + external URL/DOI)
-2. `/Users/pedro/git_repos/big_impact/state/02_case-methodology-reader/methodology_brief.md` — BIG Impact program framework (triad, angles, checklist, eval criteria). Read this INSTEAD of the source PDFs.
-3. `/Users/pedro/git_repos/big_impact/state/thinking_framework.md` — **mandatory conceptualization lens**. Apply principles 1 (laser focus), 2 (no AI-generic), 6 (end-user-centric), 7 (open issues). Banned bromides list lives here.
-4. `/Users/pedro/git_repos/big_impact/project-docs/relatorio_estrategico_master_persense.html` — for the team's already-articulated framing of the JITAI/DTx thesis (use as voice/positioning reference, not as a quantitative source)
+1. `/Users/pedro/git_repos/big_impact/state/00_template-inspector/template_fields.md` — **the contract**: what fields actually exist in the .pptx. Conform to it. The Problem Statement is one free-form Portuguese block ≤500 caracteres on Slide 1. Do not invent sub-sections that won't render.
+2. `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json` — every claim carries internal anchor + external URL/DOI
+3. `/Users/pedro/git_repos/big_impact/state/02_case-methodology-reader/methodology_brief.md` — program framework (triad, angles, checklist, eval criteria, **PS template + causal hypothesis + open critical question**). Style guidance for what goes inside the 500-char block, NOT a multi-section schema.
+4. `/Users/pedro/git_repos/big_impact/state/thinking_framework.md` — **mandatory conceptualization lens**. Apply principles 1 (laser focus), 2 (no AI-generic), 6 (end-user-centric), 7 (open issues). Banned bromides list lives here.
+5. `/Users/pedro/git_repos/big_impact/project-docs/relatorio_estrategico_master_persense.html` — for the team's already-articulated framing of the JITAI/DTx thesis (use as voice/positioning reference, not as a quantitative source)
+
+## Required PS structure (from methodology brief, fitted into one ≤500-char block)
+
+The methodology brief mandates a structured PS shape:
+> *"Para [segmento] em [contexto], o problema é [dor]: [mecanismo]. Isto [consequência mensurável] (medir X e Y). Hoje o status quo falha por [causa]."*
+
+Plus PS must include:
+- **Causal hypothesis** (one phrase: "[causa] → [efeito]") — embedded in the block
+- **One open critical question** — written as a single Portuguese sentence inside the block
+
+All of this must fit in the ≤500-character box. There is no separate field for hypothesis or question on the slide; pack them inline.
+
+The output `problem.md` file (which is a working artifact for downstream agents) is allowed to expand around the 500-char block with separate sections for `Causal Hypothesis`, `Open Critical Question`, `Evidence References`, `Open Issues`, and `Segment Choice Rationale`. Only the 500-char block goes onto the slide; the rest exists for the renderer's Evidence Notes body and for critical-reviewer.
 
 ## Segment-selection rule (MANDATORY, applied BEFORE the checklist)
 

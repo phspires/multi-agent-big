@@ -56,6 +56,9 @@ Always cross-reference: `/Users/pedro/git_repos/big_impact/state/01_evidence-cur
 - [ ] One Case Challenge angle declared (Access without Resolution / Duplication / Invisible Exclusion / Burnout)
 - [ ] Specific segment named (age band, condition, context)
 - [ ] **Segment is anchored to PerSense's strongest internal evidence asset** — by default Breast Cancer Survivors (the team has N=126, AUC 0.78 proprietary data on this cohort). If a non-moat segment is chosen, problem.md MUST contain a `## Segment Choice Rationale` section that explicitly defends the choice against the moat default. Missing rationale or unconvincing rationale ("easier recruitment", "more prevalence") = BLOCKER.
+- [ ] **PS structure follows the methodology brief**: contains the shape "Para [segmento] em [contexto], o problema é [dor]: [mecanismo]. Isto [consequência mensurável]. Hoje o status quo falha por [causa]." (or close variant). FAIL if shape absent.
+- [ ] **Causal hypothesis present** inside the 500-char block (one phrase mapping cause→effect)
+- [ ] **One open critical question** present (Portuguese sentence, inside the block)
 - [ ] Observable pain point (measurable, not vibes)
 - [ ] 1–2 magnitude numbers, each with EV-ID that resolves in the ledger
 - [ ] Status quo / root cause stated
@@ -76,6 +79,8 @@ Always cross-reference: `/Users/pedro/git_repos/big_impact/state/01_evidence-cur
 ### pilot.md
 - [ ] Cohort size and segment tied back to problem.md
 - [ ] Timeline fits 8–12 weeks
+- [ ] **Pressupostos field shape**: pilot.md produces exactly THREE assumption strings sized for the three (preencher) boxes on Slide 2. More than three on the slide = FAIL (overflow goes to Evidence Notes body).
+- [ ] **Budget disambiguation explicit**: pilot.md states that the proposed €X–€Y is external to the host institution's budget (the methodology brief's "no budget increase" rule applies to the host, not the PoV team). FAIL if ambiguous.
 - [ ] Budget realistic for a 2–5 person team (€3K–€10K typical)
 - [ ] Platform anchored to oss_platform_analysis.html (mindLAMP / Stack A) with rationale
 - [ ] Assumptions are specific and falsifiable (named people, named clinics, named integration points)
@@ -85,11 +90,12 @@ Always cross-reference: `/Users/pedro/git_repos/big_impact/state/01_evidence-cur
 - [ ] Pilot would materially de-risk the chosen thesis (not just show clinical effect)
 
 ### evidence_table.json
-- [ ] 4–6 rows, header included
+- [ ] 4–6 rows
 - [ ] Each row has a valid EV-ID resolvable in ledger
 - [ ] Each `aspect_pt` ≤ ~50 chars (slide real estate)
 - [ ] Diversity: not 5 retention numbers; covers prevalence, magnitude, precedent
 - [ ] No row marked TBD
+- [ ] **Plain-text format only**: rows are `Aspecto · Número · Fonte` — not a structured 6-column table. The slide has no table XML. FAIL if the schema invents columns that won't render.
 
 ## Audit Procedure
 

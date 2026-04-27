@@ -13,9 +13,10 @@ You are designing the **Pilot** for Slide 2. This is the operative plan: what wi
 
 ## Input
 
-1. `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json`
-2. `/Users/pedro/git_repos/big_impact/state/02_case-methodology-reader/methodology_brief.md`
-2a. `/Users/pedro/git_repos/big_impact/state/thinking_framework.md` — **mandatory lens**. Apply principle 5 (risks must be shown solvable, with EV-anchored mitigations or named falsifiable checks), 4 (buyer empathy: pilot delivers something the buyer can act on), 7 (Open Issues sub-section is required).
+1. `/Users/pedro/git_repos/big_impact/state/00_template-inspector/template_fields.md` — **the contract**. Slide 2 has: ONE `(preencher)` for Pilot Sketch, ONE for Budget Range, **THREE separate** `(preencher)` boxes for Pressupostos. Produce content shaped exactly to these fields. Anything extra goes to Evidence Notes body.
+2. `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json`
+3. `/Users/pedro/git_repos/big_impact/state/02_case-methodology-reader/methodology_brief.md` — pilot non-negotiables: 8–12 weeks, **no host-institution budget increase**, **no new hires for the host**, privacy-first, must fit the real system. External PoV-team funding is OK; state this explicitly so reviewers don't block on ambiguity.
+4. `/Users/pedro/git_repos/big_impact/state/thinking_framework.md` — **mandatory lens**. Apply principle 5 (risks must be shown solvable, with EV-anchored mitigations or named falsifiable checks), 4 (buyer empathy: pilot delivers something the buyer can act on), 7 (Open Issues sub-section is required).
 3. `/Users/pedro/git_repos/big_impact/state/03_problem-definer/problem.md` and `/state/06_value-hypothesis/value.md`
 4. `/Users/pedro/git_repos/big_impact/state/05_thesis-selector/chosen_thesis.md` — the pilot's success criteria MUST include the items listed under "What this thesis demands of the PoV pilot" in this file. If the chosen thesis says "≥2 university counseling units issue LOI at ≥€X/seat/month", that must appear as a secondary success metric in the pilot.
 5. `/Users/pedro/git_repos/big_impact/project-docs/oss_platform_analysis.html` — identifies Stack A (mindLAMP) as MVP.
@@ -31,12 +32,12 @@ A wellness-app pilot would fail this brief. The pilot design must make these ele
 - **Regulatory awareness**: pilot is non-CE-marked research-mode but the data architecture is MDR-Class-IIa-compatible (cite EV-IDs for MDR cost/timeline so reviewers see the team understands the path).
 - **Buyer / WTP signal aligned to chosen_thesis.md**: secondary success metric must be a *commercial* signal — Letter of Intent, paid follow-on commitment, or DiGA-grade dossier readiness — not just clinical numbers. Without this, the pilot proves a feature, not a business.
 
-## Pilot Sketch Components
+## Pilot Sketch Components (per template_fields.md)
 
-Slide 2 requires filling:
-- **Pilot Sketch** (preencher): brief narrative of what will happen
-- **Budget Range** (preencher): estimated cost bracket (e.g., €2K–€5K or equivalent)
-- **Pressupostos** (Assumptions): critical unproven assumptions for the pilot
+Slide 2 fields:
+- **Pilot Sketch** — ONE `(preencher)` text box: brief narrative of what will happen (cohort, channel, timeline, primary metric, partner site if known).
+- **Budget Range** — ONE `(preencher)` text box: cost bracket (e.g., "€3K–€7K, externo ao orçamento da instituição-anfitriã").
+- **Pressupostos** — **THREE separate** `(preencher)` text boxes. Produce exactly three assumption strings, each one Portuguese sentence, ranked by criticality. Anything beyond three goes into the working `pilot.md` for Evidence Notes, NOT onto the slide.
 
 ## Task
 

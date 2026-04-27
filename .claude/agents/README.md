@@ -2,6 +2,15 @@
 
 Orchestration map for the Phase 1 PoV deliverable (deadline **2026-04-29**). Product thesis: **JITAI-enabled adaptive Digital Therapeutic** (PerSense), built on the team's existing research in `project-docs/` and verified against external authoritative sources. **Business model is explored explicitly** — multiple revenue theses are generated, scored, and the chosen one drives the pilot's success criteria.
 
+## What changed in v6
+
+1. **`template-inspector` (new, haiku)** — runs first. Unzips the .pptx and .docx, lists every actual placeholder + label, writes `state/00_template-inspector/template_fields.md`. This file is the **contract**: every drafting agent reads it and is forbidden from inventing fields the templates don't have.
+2. **Resolved a class of mismatches** between the methodology brief (which references a teaching-case full pitch deck with Slide 9 PS template + Slide 11 6-column evidence table) and the actual deliverable (a 2-slide PoV Review .pptx with no table XML, plus a .docx with two name/contact placeholders + free-form body). Rule: **template_fields.md wins for what fields exist; methodology_brief.md wins for how to write inside them**.
+3. **Problem-definer** now packs the methodology brief's PS template (causal hypothesis + open critical question) inside the 500-char block. Multi-section schemas live in the working `problem.md` for downstream consumption, NOT on the slide.
+4. **Pilot-designer** now produces exactly three assumption strings for the three Pressupostos `(preencher)` boxes (the slide actually has three, not one). Disambiguates the methodology brief's "no budget increase" rule: applies to the host institution, not the PoV team's external budget.
+5. **Evidence-table-builder** produces 4–6 plain-text lines (`Aspecto · Número · Fonte`), not a structured table. The .pptx has no table XML to fill.
+6. **Critical-reviewer** added template-fidelity checks across all four artifact types.
+
 ## What changed in v5
 
 1. **Segment-defaulting rule** in `problem-definer.md`: when multiple segments are plausible, the segment with PerSense's strongest internal evidence wins by default. For this project that is **Breast Cancer Survivors** (N=126 cohort, AUC 0.78). Choosing a non-moat segment (e.g., university students) requires a written `Segment Choice Rationale` defending the deviation. `critical-reviewer` blocks on missing/weak rationale.

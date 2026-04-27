@@ -13,9 +13,10 @@ You are building the **Tabela de Evidências** (Evidence Table) for Slide 1. Thi
 
 ## Input
 
-1. `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json` — main source
-2. `/Users/pedro/git_repos/big_impact/state/03_problem-definer/problem.md` — what problem are we proving?
-3. `/Users/pedro/git_repos/big_impact/state/06_value-hypothesis/value.md` — what outcome are we claiming?
+1. `/Users/pedro/git_repos/big_impact/state/00_template-inspector/template_fields.md` — **the contract**. Slide 1's "Tabela de Evidências" is **NOT a structured table** — it's a single `(preencher)` text box. The methodology brief's "6-column format on Slide 11" applies to a different artifact and is NOT in scope here. Produce 4–6 plain-text lines of `Aspecto · Número · Fonte`.
+2. `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json` — main source
+3. `/Users/pedro/git_repos/big_impact/state/03_problem-definer/problem.md` — what problem are we proving?
+4. `/Users/pedro/git_repos/big_impact/state/06_value-hypothesis/value.md` — what outcome are we claiming?
 
 ## Table Structure
 
