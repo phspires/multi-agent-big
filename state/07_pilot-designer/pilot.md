@@ -1,77 +1,132 @@
-# Pilot Sketch (Draft)
+# Pilot Sketch (Draft) — BCS JITAI PoV, BT-03 anchor
 
-## Pilot Design
+## Operational hypothesis (one sentence)
 
-**Operational Hypothesis**: If estudantes universitários portugueses (18–25) em primeiro contacto via canal digital SNS / linha municipal forem onboardados num fluxo de check-ins adaptativos (EMA + JITAI) entregue via mindLAMP (Stack A) com triagem ligeira mediada por psicólogo do SASU/serviço de aconselhamento, então a retenção entre 1.º contacto e 2.ª interacção clínica útil às 4 semanas será ≥70% (vs. baseline 47% derivado de EV-042), com compliance EMA ≥45% (EV-040) e redução média GAD-7/PHQ-9 ≥20% à semana 8 (EV-023, EV-031).
+Se implementarmos monitorização passiva + EMA breve com alertas clinician-mediated via mindLAMP (Stack A) numa coorte de 30–50 BCS PT 0–24 meses pós-tratamento em senologia privada durante 12 semanas, então (i) replicamos AUC ≥0.72 hold-out na deteção de deterioração entre consultas, (ii) observamos delta clínico PHQ-9 ≥3 / GAD-7 ≥2 e (iii) obtemos ≥2 LOIs hospitalares a ≥€200/mês — falsificando ou validando BT-03.
 
-**Objectives**:
-1. Recrutar coorte de 40 estudantes (18–25) em primeiro contacto digital, configurar mindLAMP self-hosted (Hetzner DE/GDPR), e operar protocolo de check-ins adaptativos durante 10 semanas.
-2. Medir a métrica principal de retenção (1.º→2.º contacto útil @4 semanas) e métricas de suporte (compliance EMA, GAD-7/PHQ-9 @baseline e wk 8).
-3. Recolher feedback estruturado de 2–3 psicólogos referenciadores sobre a viabilidade do fluxo (≥2 declarariam pagar ≥€200/mês — proxy EV-047).
+---
 
-## Cohort & Recruiting
+## Slide 2 — campos para preencher
 
-- **N = 40 participantes** (alvo enrol; mínimo viável N=30 para sinal estatístico em retenção binária com baseline 47%).
-- **Source**: Serviços de aconselhamento psicológico universitários (SASU / GAPsi-equivalentes). To confirm: parceria primária com **GAPsi FCUL/IST/FMUL** ou **SAS Universidade de Coimbra** (rácios de espera elevados na região Centro, EV-003); parceria de reserva com linha municipal "Consulta Agora" (EV-018).
-- **Inclusion**: 18–25, estudante inscrito, primeiro contacto via formulário digital ou linha telefónica, sintomas ligeiros-moderados (PHQ-9 5–14 / GAD-7 5–14), smartphone Android ou iOS, consentimento informado.
-- **Exclusion**: Risco suicidário activo, perturbação grave em tratamento, ideação activa (encaminhamento directo).
+### Pilot Sketch — `(preencher)` (ONE text box)
 
-## Timeline (10 semanas)
+> **Piloto 12 semanas, mindLAMP Stack A, N=30–50 BCS 0–24 meses pós-tratamento ativo, recrutadas em consulta de senologia privada PT (CUF Oncologia primário; Lusíadas e Luz Saúde paralelos; IPO backup). Onboarding mediado pela equipa de senologia (modelo Limbic, EV-026). EMA PHQ-9/GAD-7 nas semanas 0/4/8/12 + sensing passivo + alertas priorizados ao dashboard de senologia (≤2/clínico/semana). Endpoint principal: delta PHQ-9 ≥3 / GAD-7 ≥2 e replicação AUC ≥0.72 em hold-out PT independente face a EV-043 (AUC 0.78, internal_only). Endpoint comercial: ≥2 LOIs hospitalares a ≥€200/clínico/mês [EV-047]. DPIA GDPR co-assinado com DPO hospitalar [EV-062]. Custo €5–10K externo ao orçamento da instituição-anfitriã [EV-046]; orçamento hospitalar €0 e zero novas contratações.**
 
-| Sem | Actividade | Entregável |
-|-----|-----------|------------|
-| –2 a 0 | Setup mindLAMP em Hetzner; CE-internal review; protocolo ético submetido à Comissão de Ética da universidade parceira; scripts de check-in adaptativo (regras, não ML) | Plataforma online, parecer ético, manual do clínico |
-| 1–2 | Recrutamento + onboarding (target 40 enrolled); baseline GAD-7/PHQ-9 | N enrolled, baseline data |
-| 3–8 | Protocolo activo: 3 EMA/semana + JITAI rule-based; triagem semanal pelo psicólogo referenciador (≤30 min/semana); evento "2.º contacto clínico útil" registado | Logs semanais, retention checkpoint @sem 4 |
-| 9–10 | Endpoint GAD-7/PHQ-9 wk 8; entrevistas semi-estruturadas com 8–10 utentes + 2–3 clínicos; análise | Relatório final + métricas |
+### Budget Range — `(preencher)` (ONE text box)
 
-## Success Criteria
+> **€5–10K, externo ao orçamento da instituição-anfitriã (host hospitalar €0, sem novas contratações). Anchor: EV-046 — desenvolvedor 30h €3–6K + infra mindLAMP Hetzner 3m €120 [EV-038] + 10 Fitbits reutilizáveis €2–3K + DPIA/contingência. Comparável: iNNOVSensing custou €120K para output estratégico equivalente [EV-048].**
 
-**Primary** (mirrors value.md): Taxa de retenção entre 1.º contacto digital e 2.ª interacção clínica útil às 4 semanas ≥70% (baseline 47% via EV-042).
+### Pressupostos — **EXACTLY 3** `(preencher)` strings (slide order = ranked by criticality)
 
-**Secondary**:
-- Compliance EMA/JITAI ≥45% (≥3 respostas/semana por utilizador activo) — EV-040.
-- Redução média GAD-7/PHQ-9 ≥20% wk 8; ≥50% dos completers com Δ ≥4 pontos — EV-023, EV-031, EV-036.
-- ≥70% dos dados esperados em ≥80% dos participantes (proxy EV-047).
-- ≥2 clínicos referenciadores afirmam que pagariam ≥€200/mês pelo dashboard (EV-047).
+1. **A equipa de senologia de pelo menos um hospital privado PT (CUF / Lusíadas / Luz Saúde) refere ≥50% das BCS elegíveis ao piloto e absorve ≤2 alertas/clínico/semana sem novas contratações nem aumento de orçamento hospitalar.**
 
-## Technology Stack
+2. **A AUC 0.78 da deteção de depressão em BCS [EV-043, internal_only, N=126] replica em hold-out PT independente a ≥0.72, com EMA-compliance ≥50% e mix iOS/Android documentado [EV-039, EV-040].**
 
-**Platform**: mindLAMP (Stack A — oss_platform_analysis.html). Self-hosted Docker em Hetzner DE (GDPR-compliant), €30–50/mês (EV-038). Configuração: EMA scheduler + adaptive prompts (rule-based, sem ML — ML fica fora do scope MVP), dashboard clínico, exportação CSV.
+3. **Pelo menos 2 unidades de senologia privada PT assinam LOI ou piloto pago a ≥€200/clínico/mês até semana 12 [EV-047], com DPIA GDPR co-assinado pelo DPO hospitalar para neutralizar o risco precedente de €2.3M [EV-062].**
 
-**Sensing**: Passive engagement logs apenas (app open, response latency); **sem wearables** nesta iteração para baixar fricção de consentimento (lição EV-041: 34% consent iNNOVSensing). iOS background sensing limitado (EV-039) é aceitável dado que sensing passivo não é primário.
+---
 
-**Integration**: Stand-alone — sem integração EHR. Encaminhamentos manuais via psicólogo referenciador.
+## Working detail (Evidence Notes body, NOT slide)
 
-## Budget Estimate
+### Cohort, recruitment, setting
+
+- **Segment**: BCS, 0–24 meses pós-tratamento ativo, follow-up senologia/oncologia hospitalar privada PT (alinha com problem.md).
+- **N**: 30–50 consentidas (target 40). Triagem 80–100 elegíveis assumindo screen-fail de 52.7% [EV-042, internal_only] e taxa de consentimento alvo ≥50% (lift sobre 34% baseline iNNOVSensing [EV-041, internal_only], suportado pela mediação clínica modelo Limbic [EV-026]).
+- **Sites primários**: CUF Oncologia (primário — maior volume senologia privada PT); Lusíadas Saúde (paralelo); Luz Saúde (paralelo).
+- **Backup site**: IPO Lisboa / IPO Porto (público) caso 0/3 sites privados confirmem ≥2 LOIs até semana 8 — o modelo de revenue muda mas o sinal clínico mantém-se.
+- **Recrutamento**: clinician-mediated em consulta de senologia agendada (não auto-onboarding). Fluxo Limbic-style [EV-026]. Onboarding presencial mediado por enfermeiro de senologia mais consent rate > triagem digital fria.
+
+### Timeline (12 semanas)
+
+| Semana | Atividade | Deliverable |
+|---|---|---|
+| -2 a 0 | DPIA + contratos + LOI prospects + onboarding equipa senologia | DPIA assinado por ≥1 DPO; mindLAMP Stack A em produção em Hetzner DE (€30–50/mês [EV-038]); 3 sites contactados |
+| 1–2 | Recrutamento + onboarding pacientes + baseline PHQ-9/GAD-7 | N=30–50 consentidas; consent rate medido; mix iOS/Android reportado |
+| 3–8 | EMA semanal + sensing passivo contínuo + alertas priorizados ao dashboard senologia + intermediate PHQ-9/GAD-7 (semana 4, 8) | Logs de adaptação; alert volume/clínico/semana; engagement weekly active |
+| 9–11 | Endpoint PHQ-9/GAD-7 (semana 12) + AUC hold-out + LOI conversion | Delta clínico; AUC out-of-sample; LOIs assinadas |
+| 12 | Análise + relatório + entrega de dashboard + 2-3 entrevistas qualitativas com BCS (signal end-user) | Relatório final + 2 LOIs ≥€200/mês ou pivot documentado |
+
+### Success metrics (full)
+
+**Principal** (verbatim de value.md):
+- Redução média PHQ-9 ≥3 e GAD-7 ≥2 às 12 semanas; replicação AUC ≥0.72 em hold-out PT independente face a EV-043 (AUC 0.78, internal_only).
+
+**Suporte 1** (clinical detection quality):
+- Precisão ≥0.70, recall ≥0.65 contra avaliação clínica (PHQ-9/GAD-7 ≥10 confirmatório).
+- Volume de alertas ≤2/clínico/semana — bound contratualizado pré-piloto com a equipa de senologia (resolve open issue 3 de problem.md).
+
+**Suporte 2** (WTP signal — BT-03 demand):
+- ≥2 unidades de senologia privada PT assinam LOI ou piloto pago a ≥€200/clínico/mês até semana 12 [EV-047].
+- DPIA GDPR co-assinado por ≥1 DPO hospitalar [EV-062].
+
+**Operational secondary** (não na slide, mas medidos):
+- Consent rate ≥50% das BCS elegíveis abordadas (lift vs 34% [EV-041]).
+- Engagement: ≥60% weekly active across 8+ weeks (anchor: Limbic 33% NHS [EV-026]).
+- ≥70% dados esperados em ≥80% participantes [EV-047].
+- ≥1 sinal qualitativo end-user (entrevista breve, NPS, ou in-app feedback — principle 6).
+
+### Budget breakdown (anchored to EV-046)
 
 | Categoria | Custo | Notas |
-|-----------|-------|-------|
-| Developer / config mindLAMP (~40h) | €4.000–6.000 | Por analogia EV-046 |
-| Hosting Hetzner (3 meses) | €120–150 | EV-038 |
-| Tempo clínico psicólogos (2 × ~5h/sem × 10 sem @ €30/h) | €3.000 | Acordo com SASU; pode ser in-kind |
-| Comissão de ética + materiais consentimento | €0–500 | Geralmente sem custo em universidade pública |
-| Incentivos participantes (€10 voucher × 40) | €400 | |
-| Contingência (~15%) | €1.000 | |
-| **TOTAL** | **€8.500–11.000** | Alinhado com banda EV-046 (€5–10K) acrescida de tempo clínico; ~10× mais barato que iNNOVSensing €120K (EV-048) |
+|---|---|---|
+| Developer time (30h) | €3–6K | EV-046 |
+| mindLAMP Hetzner DE 3m | €120 | EV-038 (€30–50/mês) |
+| 10 Fitbits (reutilizáveis) | €2–3K | EV-046 |
+| DPIA / consentimento PT | €0–500 | leveraged hospital DPO time, no cash to host |
+| Contingência (~20%) | €500–1K | |
+| **Total** | **€5–10K** | externo ao orçamento da instituição-anfitriã; **host hospitalar €0**; sem novas contratações |
 
-## Constraints
+**Disambiguation (verbatim)**: *"€5–10K externo ao orçamento da instituição-anfitriã (host hospitalar €0, sem novas contratações)."* Compatível com não-negociáveis BIG Impact e methodology brief: o team PoV financia externamente; o hospital não contrata FTE nem desbloqueia capex.
 
-1. **Recrutamento**: Atingir N=40 em 2 semanas via SASU exige protocolo aprovado e fluxo de referenciamento já operacional — risco de atraso ético/administrativo (mitigar: pré-engagement antes da semana –2).
-2. **Capacidade clínica**: Psicólogo referenciador precisa de ~5h/semana × 10 sem; só viável se houver compromisso institucional escrito (to confirm: 1 FTE-equivalente partilhado entre 2 psicólogos do SASU).
-3. **Privacidade & consentimento**: GDPR + RGPD-saúde + parecer da Comissão de Ética da universidade. Multa precedente €2,3M (EV-062) reforça rigor; auto-hospedagem em Hetzner DE mitiga (EV-038).
+### Top 3 risks + EV-anchored mitigations (principle 5)
 
-## Critical Assumptions (specific & falsifiable)
+| # | Risco | EV-anchor / falsifiable check | Mitigação |
+|---|---|---|---|
+| 1 | **AUC 0.78 não replica em hold-out PT independente** (modelo treinado N=126, 2 hospitais [EV-043, internal_only]) — colapso parcial da métrica principal. | Falsifiable check intra-piloto: hold-out de ≥30% da coorte mantido fora do treino; AUC reportada à semana 11. SMD agregado mHealth -0.49 / -0.68 [EV-023] e Untire d=0.32 QoL [EV-024] sustentam que o delta PHQ-9/GAD-7 pode existir mesmo se AUC cair. | Reportar AUC + delta clínico em separado — falha parcial (AUC <0.72 mas delta atingido) ainda valida a tese DTx; falha total pivota para BT-04 (consórcio EU). |
+| 2 | **Consent rate fica ≤34% e equipa de senologia não absorve carga de alertas >2/clínico/semana** — buyer story colapsa. | EV-anchor: Limbic 33% NHS adoption via referral pathway [EV-026]; Ksana >70% em onboarding hospitalar [EV-034]. Falsifiable check: medir consent na semana 2; renegociar protocolo (EMA mais curta, Fitbit opcional) se <40%. | Bound de 2 alertas/clínico/semana negociado e contratualizado por escrito antes do kickoff — se equipa não assinar, é open issue antes do piloto, não risco oculto. |
+| 3 | **0–1 LOIs assinadas até semana 12** — BT-03 falha → pivot para BT-04 ou downgrade para BT-01 Yr3+. | EV-anchor: EV-047 estabelece ≥2 buyers @ €200/mês como threshold de PoV; EV-084 €500–2K/mês é o anchor de pricing realista. Falsifiable check: 3 reuniões executivas (CUF, Lusíadas, Luz) até semana 4; se 0/3 mostram sinal, ativar IPO backup imediatamente. | LOI templates + DPIA pre-cooked para reduzir fricção de assinatura; pricing inicial €200/mês (chão EV-047, não €800–1500 BT-03 target) para maximizar conversão; backup IPO mantém validação clínica mesmo se BT-03 falha. |
 
-1. **Referência institucional**: To confirm — pelo menos um SASU (alvo: GAPsi FCUL ou SAS Coimbra) atribui 1 psicólogo coordenador + 1 psicólogo referenciador com ≥5h/sem disponíveis durante 10 semanas. Falsificável por carta de compromisso pré-semana –2.
-2. **Volume de fluxo**: O canal digital do parceiro recebe ≥80 primeiros-contactos elegíveis em 2 semanas (necessário para 50% conversion → N=40). Falsificável por dados históricos do parceiro (to confirm: pedir baseline mensal de novos contactos 18–25).
-3. **Adesão à plataforma adaptativa mediada**: Coorte mediada por clínico atingirá ≥60% adoption (EV-021 baseline 60–70% para clinician-mediated) — i.e., ≥24/40 instalam mindLAMP e completam ≥1 EMA na semana 1.
-4. **Ausência de ML no MVP não compromete o sinal**: Regras determinísticas (frequência, latência, score-based prompts) são suficientes para entregar dose terapêutica equivalente a 43% compliance literatura (EV-040).
-5. **GAD-7/PHQ-9 self-report às 8 semanas é mensurável** sem perda >25% (drop-off realista para coorte universitária com incentivo).
+### Technology stack — Stack A (mindLAMP) justification
 
-## Risk Mitigations
+- mindLAMP é Stack A do oss_platform_analysis.html: MVP-grade, Docker Hetzner DE €30–50/mês [EV-038], GDPR-aligned.
+- Beiwe-style sensing layer; EMA configurável; alertas para dashboard customizado.
+- Não-CE-marked research-mode mas arquitetura de dados MDR Class-IIa-compatible (anchor: EV-057 €300–700K, EV-058 24–36m — declarado para mostrar que o team conhece o pathway sem compromisso de capex).
 
-- Coorte de reserva: linha "Consulta Agora" municipal (EV-018) se SASU primário falhar.
-- Fallback SMS-only via mindLAMP messaging se adopção da app for <50% na semana 2.
-- Pulse semanal de retenção: se @sem 2 retenção projectada <55%, accionar revisão de protocolo (cadência, copy).
-- Encaminhamento de risco: protocolo pré-definido para escalonamento clínico se PHQ-9 ≥15 ou ideação positiva.
+### Buyer empathy (principle 4) — what the head of senology gets at week 12
+
+- Dashboard quality-report-ready: alertas caught vs missed, time-to-intervention, PHQ-9/GAD-7 trajectory, consent/engagement métricas.
+- Custo zero ao orçamento hospitalar; bound de carga clínica documentado.
+- Pricing pós-piloto €800–1500/hospital/mês [EV-084] ≈ ACV €10–18K — ~5× mais barato que FTE psico-oncologista €60–80K/ano não-aprovável.
+
+### End-user benefit (principle 6)
+
+Para a sobrevivente: deteção de recaída emocional semanas antes da próxima consulta agendada (3–6m), abrindo janela de intervenção curta e contextual. Operacionalmente: dias até contacto clínico útil reduzem-se vs status quo. Pelo menos 1 sinal qualitativo (entrevista breve / NPS in-app) recolhido na semana 12.
+
+---
+
+## Open Issues / Não Resolvido
+
+1. **Bound de alertas/clínico/semana ainda não assinado pela equipa de senologia** — proposto a 2/semana; sem assinatura por escrito, o pressuposto 1 fica aspiracional. Resolver antes do kickoff (semana -2).
+2. **Nenhuma LOI pré-existente de CUF/Lusíadas/Luz Saúde** — pricing €200/mês é threshold mínimo [EV-047]; sem prospect concreto até semana 4, ativar IPO backup. Pressuposto 3 é a aposta comercial central.
+3. **Definição operacional de "contacto clínico útil"** — telefone clínico, mensagem segura, ou consulta antecipada? A definir no protocolo na semana -1 (herda de problem.md open issue 4).
+4. **iOS sensing penalty** [EV-039] — cobertura de sensores iOS 40–50% vs Android pode enviesar a coorte; mitigação: report estratificado iOS/Android.
+5. **EMA compliance baseline 43%** [EV-040] — denominator-risk em precisão/recall; mitigação: report intent-to-treat + respondent-only.
+6. **Hold-out design para AUC** — não decidido se random hold-out ou novo hospital (mais defensável mas mais lento). Decidir na semana -1 com biostat advisor.
+7. **Backup IPO altera modelo de revenue** (BT-04 consórcio EU vez de BT-03 SaaS) — se ativado, o piloto valida ciência mas não tese comercial; necessário gate explícito na semana 4.
+
+---
+
+## Validation Checklist
+
+- [x] 8–12 semanas (12)
+- [x] Cohort 30–50 BCS 0–24m PT senology privada (CUF/Lusíadas/Luz primary; IPO backup)
+- [x] Stack A mindLAMP justificado, Hetzner DE [EV-038]
+- [x] Budget ≤€10K externo ao host; host €0; no new hires — disambiguation explícita verbatim
+- [x] EV-046 anchor para budget; EV-048 comparable
+- [x] Métrica principal verbatim de value.md (PHQ-9 ≥3 / GAD-7 ≥2 + AUC ≥0.72)
+- [x] Métricas suporte 1 (precisão/recall + ≤2 alerts/clínico/sem) e suporte 2 (≥2 LOIs ≥€200/mês) cobrem demands de BT-03
+- [x] Top 3 risks com EV-anchor ou falsifiable check (principle 5)
+- [x] EXACTLY 3 Pressupostos strings, ranked by criticality
+- [x] Open Issues / Não Resolvido sub-section presente (principle 7)
+- [x] Buyer pain referenciado (principle 4) + end-user signal qualitativo (principle 6)
+- [x] Internal_only EVs (EV-041/042/043) flagged honestly
