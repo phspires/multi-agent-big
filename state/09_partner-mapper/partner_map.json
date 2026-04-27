@@ -1,756 +1,618 @@
 {
-  "generated_at": "2026-04-27T00:00:00Z",
-  "wedge_anchor": "Breast Cancer Survivors (BCS) in first 24 months post-active-treatment, PT senology / oncology follow-up",
-  "thesis_anchor": "BT-03 (PT private oncology white-label) primary; BT-04 (IPO + EU-funded research) parallel; BT-02 (pharma) and BT-01 (DiGA) downstream expansion",
-  "scoring_legend": {
-    "axes": ["pov_fit", "speed_to_loi", "multiplier_potential", "evidence_strength"],
-    "scale": "1-5 each; composite = sum (max 20)"
-  },
-  "categories_present": [
-    "private_hospital", "public_health", "academic_research", "foundation",
-    "bigimpact_named", "pharma", "international", "insurer", "sector_body", "accelerator"
-  ],
   "metadata": {
-    "previous_run_anchor": "PT university students 18-25 (deprecated)",
-    "this_run_anchor": "BCS post-treatment, PT senology",
-    "ranking_calibrated_to_thesis": "BT-03",
-    "research_method": "WebSearch budget not used in this run; entries assembled from prior strategic report + sector knowledge. Every entry where program existence / URL / cycle could not be web-confirmed has explicit open_issues flag per framework principle 7."
+    "wedge": "BCS first 24 months post-active-treatment, PT senology/oncology hospital follow-up",
+    "chosen_thesis": "BT-03 — PT private oncology white-label (CUF / Lusíadas / Luz Saúde)",
+    "ranking_calibration": "Ranking biased to BT-03 PoV needs: 2 PT private senology LOIs by week 12, EUR 800–1500/hospital/month, GDPR DPIA co-signed, Class I MDR pathway",
+    "thesis_present": true,
+    "frameworks_applied": ["thinking_framework principle 1 (named programs)", "principle 2 (PerSense-specific anchors)", "principle 4 (buyer-empathic asks)", "principle 7 (open issues per entry)"],
+    "total_entries": 22,
+    "top5_recommended_first_contact": ["PA-001", "PA-002", "PA-003", "PA-004", "PA-005"],
+    "category_breakdown": {
+      "private_hospital": 3,
+      "public_health": 4,
+      "academic_research": 3,
+      "foundation": 1,
+      "bigimpact_named": 4,
+      "pharma": 2,
+      "international_eu": 2,
+      "insurer": 1,
+      "sector_body": 2
+    }
   },
-  "partners": [
+  "entries": [
     {
       "id": "PA-001",
       "name": "CUF Oncologia — Centro de Senologia (CUF Descobertas / CUF Tejo)",
       "category": "private_hospital",
       "country": "PT",
+      "recommended_first_contact": true,
       "relevant_program": {
-        "name": "CUF Centro de Senologia (multidisciplinary breast unit, includes survivorship follow-up)",
-        "url": "https://www.cuf.pt/areas-de-saude/oncologia",
-        "deadline_or_cycle": "rolling — JMS innovation pipeline runs continuously; no public cycle for digital-health pilots",
-        "focus": "Diagnosis, treatment, survivorship follow-up of breast cancer; psycho-oncology embedded in some units"
+        "name": "CUF Centros de Senologia (multidisciplinary breast unit, includes psycho-oncology referral)",
+        "url": "https://www.cuf.pt/oncologia/centros-de-senologia",
+        "deadline_or_cycle": "Rolling — procurement managed at CUF central direction (José de Mello Saúde) plus unit director sign-off",
+        "focus": "Breast cancer multidisciplinary care, follow-up months 0–24, NPS/quality differentiation vs SNS"
       },
       "fit_to_thesis": {
         "wedge_match": "high",
-        "rationale": "Largest PT private senology footprint with explicit BCS survivorship pathway and dedicated psycho-oncology slots. Buyer (service-line director) has the exact pain BT-03 monetizes: <20% psych-support coverage in cohort with 30-40% clinical anxiety/depression.",
-        "expansion_match": "Winning one CUF unit unlocks the José de Mello Saúde group (~17 hospitals/clinics) — pure BT-03 multiplication. Dataset feeds BT-01 DiGA and BT-02 pharma."
+        "rationale": "Anchor buyer for BT-03. CUF runs a flagship Centro de Senologia at Descobertas/Tejo with a structured BCS follow-up pathway and a quality director who already reports survivorship metrics; the <20% psych-support gap [EV-016] is exactly their competitive blind spot.",
+        "expansion_match": "Wins one CUF unit → multiplies across the CUF group (8+ senology-active sites); reference site for BT-02 pharma research-services."
       },
-      "what_we_offer_them": "Between-visit visibility on the BCS cohort the senology director already feels they are losing. AUC 0.78 depression-risk flag [EV-043] surfaces the 1-2 patients/month a clinician should call back. Reduces escalation to ER/external psychiatry and protects the €2-5K/yr private follow-up revenue per BCS patient. Fits a clinical-quality KPI dashboard the director can show the group medical board.",
-      "what_we_ask_them": "12-week PoV at one unit (CUF Descobertas or CUF Tejo): N=20-30 BCS, 1 senologist + 1 psycho-oncologist, signed LOI stating willingness to subscribe at >=200 EUR/clinician/month [EV-047] if PoV hits >=70% data completeness.",
+      "what_we_offer_them": "A senology-team dashboard that turns the <20% psych-support gap into a measured, accreditation-ready number — alerts caught vs missed, time-to-intervention, PHQ-9/GAD-7 trajectory — at EUR 800–1500/hospital/month [EV-084], ~5x cheaper than the psycho-oncologist FTE the head cannot hire [EV-019]. DPIA co-signed with their DPO; Class I self-cert; bounded alert budget per clinician contracted as success criterion.",
+      "what_we_ask_them": "(a) LOI to host the 8–12-week PoV at one CUF Senology Centre with ≥30 BCS, (b) introduction to CUF central oncology direction for group-wide expansion, (c) DPO co-design of the DPIA, (d) commitment to quality-report co-authorship at week 12.",
       "contact_path": {
-        "preferred_channel": "warm intro via existing PerSense clinical PIs at the 2 hospitals already deployed [EV-043]; secondary: direct to CUF Oncologia service-line director",
+        "preferred_channel": "Warm intro via PerSense's existing iNNOVSensing collaborators; fallback: direct email to CUF Oncologia direction + LinkedIn to head of CUF Senologia",
+        "named_person_or_team": null,
+        "time_to_first_contact_days": 5,
+        "time_to_loi_estimate_weeks": 6
+      },
+      "evidence_anchors": ["EV-016", "EV-019", "EV-041", "EV-043", "EV-084"],
+      "score": {"pov_fit": 5, "speed_to_loi": 4, "multiplier_potential": 5, "evidence_strength": 4, "composite": 18},
+      "open_issues": [
+        "Named senology unit director / head of oncology operations not yet identified — must confirm before week 1",
+        "Whether procurement decision sits at unit level or at José de Mello Saúde central oncology direction is unverified",
+        "No prior signed CUF LOI in the file — pricing anchor is EV-084, not a CUF signature"
+      ],
+      "next_action": "This week: identify the head of CUF Senologia at Descobertas/Tejo via LinkedIn + Sociedade Portuguesa de Senologia member directory; draft a 1-page buyer-facing brief framing the <20% gap as their NPS risk."
+    },
+    {
+      "id": "PA-002",
+      "name": "Lusíadas Saúde — Centro Mama (Lusíadas Lisboa / Porto)",
+      "category": "private_hospital",
+      "country": "PT",
+      "recommended_first_contact": true,
+      "relevant_program": {
+        "name": "Lusíadas Centro Mama (breast unit with structured follow-up and psychology link)",
+        "url": "https://www.lusiadas.pt/unidades-clinicas/centro-mama",
+        "deadline_or_cycle": "Rolling; procurement runs through Lusíadas medical direction with clinical-director endorsement",
+        "focus": "Breast cancer dx + treatment + follow-up; differentiation on patient experience vs CUF/Luz"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "high",
+        "rationale": "Second of three named BT-03 buyers. Lusíadas explicitly markets the Centro Mama as integrated multidisciplinary care — a survivorship dashboard reporting PHQ-9/GAD-7 trajectory and time-to-intervention is a direct fit for their public differentiation narrative.",
+        "expansion_match": "One LOI here = competitive pressure on CUF/Luz and a second reference site that de-risks BT-02 pharma research-services."
+      },
+      "what_we_offer_them": "A buyer-facing dashboard usable in their patient-experience reporting; the same SaaS price (EUR 800–1500/mo) at ~5x discount to a psycho-oncologist FTE; clinician burden capped as a contractual PoV success criterion (problem.md OI3).",
+      "what_we_ask_them": "(a) LOI to co-host the PoV (single-site or paired with CUF), (b) intro to medical direction, (c) hospital DPO time for DPIA, (d) right to publish anonymised aggregate alert/intervention metrics in the Evidence Notes.",
+      "contact_path": {
+        "preferred_channel": "Direct email to Lusíadas Centro Mama clinical lead + warm intro via Sociedade Portuguesa de Senologia",
         "named_person_or_team": null,
         "time_to_first_contact_days": 7,
         "time_to_loi_estimate_weeks": 8
       },
-      "evidence_anchors": ["EV-016", "EV-019", "EV-020", "EV-043", "EV-047", "EV-083", "EV-084"],
-      "score": {"pov_fit": 5, "speed_to_loi": 4, "multiplier_potential": 5, "evidence_strength": 3, "composite": 17},
+      "evidence_anchors": ["EV-016", "EV-019", "EV-026", "EV-084"],
+      "score": {"pov_fit": 5, "speed_to_loi": 3, "multiplier_potential": 4, "evidence_strength": 3, "composite": 15},
       "open_issues": [
-        "Specific named CUF senology director / psycho-oncology coordinator not in evidence ledger — needs LinkedIn / direct call to identify.",
-        "No public CUF digital-health pilot URL; deadline/cycle is rolling but unconfirmed.",
-        "Procurement cycle in JMS group can be 3-9 months — the LOI estimate assumes department-level, not group-level, sign-off.",
-        "Whether 200 EUR/clinician/mo is floor or ceiling at CUF is not benchmarked."
+        "Centro Mama clinical lead name not confirmed",
+        "Lusíadas internal procurement policy on SaaS sub-EUR-20K contracts unverified",
+        "No prior PerSense relationship at Lusíadas in the ledger"
       ],
-      "next_action": "This week: ask the existing PerSense PIs to nominate the most senior senology contact at CUF Descobertas; draft a 1-page PoV brief framed around 'between-visit BCS visibility for 12 weeks'.",
-      "recommended_first_contact": true
-    },
-    {
-      "id": "PA-002",
-      "name": "IPO Lisboa Francisco Gentil — Servico de Psico-Oncologia / Unidade de Mama",
-      "category": "public_health",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Unidade de Mama + Servico de Psico-Oncologia (institutional survivorship cohort)",
-        "url": "https://www.ipolisboa.min-saude.pt/",
-        "deadline_or_cycle": "rolling research-collaboration submissions; FCT/COMPETE 2030 cycles annual",
-        "focus": "Largest PT BCS institutional cohort; active research and survivorship clinic"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "high",
-        "rationale": "IPO Lisboa is the canonical PT BCS institutional buyer for BT-04 (research-services + grant-funded). Psycho-oncology service exists but is under-resourced relative to cohort size — the exact gap statement.",
-        "expansion_match": "Winning IPO Lisboa creates a credibility chain to IPO Porto and IPO Coimbra (inter-IPO research network) and unlocks FCT/COMPETE 2030 / Horizon Mission Cancer consortium roles. Plus: IPO endpoint data is the credibility seed for BT-01 DiGA."
-      },
-      "what_we_offer_them": "A turnkey BCS digital-survivorship cohort that makes the PI competitive for FCT/EIC/Horizon Mission Cancer calls without consuming clinician time. PerSense brings 5-10K EUR pilot cost vs 120K iNNOVSensing precedent [EV-046, EV-048]. Co-authorship + dataset access for the psycho-oncology lead.",
-      "what_we_ask_them": "Institutional research-collaboration agreement covering a 12-week PoV (N=30-40 BCS), with named PI in psycho-oncology + senology, plus letter of support for an FCT/COMPETE 2030 consortium application within 6 months.",
-      "contact_path": {
-        "preferred_channel": "direct to Servico de Psico-Oncologia coordinator + Unidade de Mama director; parallel via Conselho de Administracao for institutional cover",
-        "named_person_or_team": null,
-        "time_to_first_contact_days": 14,
-        "time_to_loi_estimate_weeks": 10
-      },
-      "evidence_anchors": ["EV-019", "EV-020", "EV-043", "EV-044", "EV-046", "EV-048", "EV-066", "EV-079"],
-      "score": {"pov_fit": 5, "speed_to_loi": 3, "multiplier_potential": 5, "evidence_strength": 4, "composite": 17},
-      "open_issues": [
-        "Named IPO Lisboa psycho-oncology coordinator not in ledger — outreach must identify.",
-        "IPO IRB / ethics cycles historically 3-6 months; LOI estimate may slip.",
-        "Conversion path from research-services to a recurring license post-grant is unproven for IPO.",
-        "Whether IPO Lisboa would expect the tool gratis as 'academic deliverable' is unanswered."
-      ],
-      "next_action": "This week: send a 2-page institutional brief framed as 'BCS survivorship FCT/Horizon-readiness pilot' to the Servico de Psico-Oncologia secretariat; cc Unidade de Mama.",
-      "recommended_first_contact": true
+      "next_action": "This week: cold-email Centro Mama clinical lead with a one-paragraph pain statement (the <20% gap, their NPS exposure) and a request for a 30-min intro call — explicitly NOT a pitch."
     },
     {
       "id": "PA-003",
-      "name": "Lusiadas Saude — Centro Mama / Oncologia (Lusiadas Lisboa, Lusiadas Porto)",
+      "name": "Hospital da Luz — Centro Clínico da Mama (Luz Saúde / Fidelidade)",
       "category": "private_hospital",
       "country": "PT",
+      "recommended_first_contact": true,
       "relevant_program": {
-        "name": "Lusiadas Centro Mama (multidisciplinary breast unit)",
-        "url": "https://www.lusiadas.pt/especialidades/oncologia",
-        "deadline_or_cycle": "rolling; no public digital-health partnership cycle published",
-        "focus": "Senology + oncology + survivorship follow-up; smaller scale than CUF but more concentrated decision-making"
+        "name": "Hospital da Luz Centro Clínico da Mama (multidisciplinary breast care, Lisboa flagship)",
+        "url": "https://www.hospitaldaluz.pt/lisboa/pt/unidades-e-servicos/centro-clinico-da-mama",
+        "deadline_or_cycle": "Rolling; Luz Saúde innovation programs occasionally run through Fidelidade-side digital-health calls",
+        "focus": "Breast cancer integrated pathway; Luz Saúde markets innovation/digital differentiation"
       },
       "fit_to_thesis": {
         "wedge_match": "high",
-        "rationale": "Direct BT-03 buyer; Lusiadas has historically moved faster than CUF on individual-unit pilots due to flatter decision structure. Same buyer pain (BCS psycho-oncology gap) and same purchase model (department subscription).",
-        "expansion_match": "Lusiadas group ~14 units; one unit unlocks group."
+        "rationale": "Third named BT-03 buyer. Luz Saúde (owned by Fidelidade) has an explicit innovation/digital-health posture, lowering procurement friction for a sub-EUR-20K-ACV SaaS dashboard and creating a natural bridge to BT-05 via Fidelidade.",
+        "expansion_match": "Fidelidade ownership = potential bridge to insurer co-sponsorship of survivorship benefits (BT-05)."
       },
-      "what_we_offer_them": "Differentiated 'continuous survivorship care' service line that Lusiadas can market as a competitive feature vs CUF/Luz Saude. Clinician-retention angle: psycho-oncologist load is lighter when JITAI flags triage.",
-      "what_we_ask_them": "12-week PoV at Lusiadas Lisboa Centro Mama; LOI at >=200 EUR/clinician/mo conditional on data-completeness >=70%. Preference: combined LOI with CUF as parallel, so PoV is multi-site from day 1.",
+      "what_we_offer_them": "Same dashboard + JITAI sensing layer; PLUS a defensible insurer-readable outcome dataset (alert volume, intervention timeliness, PHQ-9/GAD-7 deltas) that Fidelidade-side stakeholders can use later in benefit-design discussions.",
+      "what_we_ask_them": "(a) LOI for PoV at Centro Clínico da Mama, (b) intro to Luz Saúde innovation team and to Fidelidade health stakeholder, (c) DPIA co-design.",
       "contact_path": {
-        "preferred_channel": "direct outreach to Centro Mama clinical lead + Oncologia service-line director",
+        "preferred_channel": "Direct outreach to Luz Saúde innovation team + Centro Clínico da Mama clinical director",
         "named_person_or_team": null,
-        "time_to_first_contact_days": 10,
+        "time_to_first_contact_days": 7,
         "time_to_loi_estimate_weeks": 8
       },
-      "evidence_anchors": ["EV-016", "EV-019", "EV-020", "EV-043", "EV-047", "EV-083"],
-      "score": {"pov_fit": 5, "speed_to_loi": 4, "multiplier_potential": 4, "evidence_strength": 3, "composite": 16},
+      "evidence_anchors": ["EV-016", "EV-019", "EV-084"],
+      "score": {"pov_fit": 5, "speed_to_loi": 3, "multiplier_potential": 4, "evidence_strength": 3, "composite": 15},
       "open_issues": [
-        "Named clinical lead at Lusiadas Centro Mama not in ledger.",
-        "Whether Lusiadas runs psycho-oncology in-house or via referral is uncertain — affects buyer identity.",
-        "Group-level digital-health gatekeeper (CIO / Innovation) not mapped."
+        "Luz Saúde innovation program name/URL not verified for an active 2025–2026 cycle that fits a survivorship pilot",
+        "Decision rights between hospital-side clinical director and Luz Saúde central innovation are unclear",
+        "No PerSense prior contact in ledger"
       ],
-      "next_action": "This week: LinkedIn search for Lusiadas Centro Mama coordinator + cold email with the same 1-page PoV brief used for CUF.",
-      "recommended_first_contact": true
+      "next_action": "This week: search Luz Saúde news/press for any 2024–2026 digital-health pilot announcements; if none, go direct to the Centro Clínico da Mama clinical lead."
     },
     {
       "id": "PA-004",
-      "name": "Hospital da Luz — Centro Clinico da Mama (Luz Saude / Fidelidade)",
-      "category": "private_hospital",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Centro Clinico da Mama, Hospital da Luz Lisboa",
-        "url": "https://www.hospitaldaluz.pt/lisboa/pt/servicos-clinicos/centro-clinico-da-mama",
-        "deadline_or_cycle": "rolling",
-        "focus": "Multidisciplinary breast cancer center with survivorship and psycho-oncology consults"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "high",
-        "rationale": "Third major PT private group with named breast unit. Owned by Fidelidade — natural bridge to Multicare insurer (BT-05) once BT-03 lands.",
-        "expansion_match": "BT-03 -> BT-05 cross-sell: Luz Saude + Multicare common ownership creates a single buyer that could subscribe both clinically (hospital seat) and as insurer rider (PMPM)."
-      },
-      "what_we_offer_them": "Same dashboard-and-flag value as CUF/Lusiadas, plus an explicit Multicare-channel pitch: 'a benefit your owner-insurer can underwrite'.",
-      "what_we_ask_them": "12-week PoV at Centro Clinico da Mama Hospital da Luz Lisboa; LOI at >=200 EUR/clinician/mo plus an exploratory meeting with Multicare oncology product team.",
-      "contact_path": {
-        "preferred_channel": "direct to Centro Clinico da Mama coordinator; secondary: Luz Saude Innovation / Digital Health",
-        "named_person_or_team": null,
-        "time_to_first_contact_days": 10,
-        "time_to_loi_estimate_weeks": 10
-      },
-      "evidence_anchors": ["EV-016", "EV-019", "EV-020", "EV-043", "EV-047"],
-      "score": {"pov_fit": 4, "speed_to_loi": 3, "multiplier_potential": 4, "evidence_strength": 3, "composite": 14},
-      "open_issues": [
-        "Named coordinator unknown.",
-        "Whether Luz has a formal digital-health innovation function with budget authority is unclear.",
-        "Coordination Luz<->Multicare for the dual-pitch is hypothesized, not validated."
-      ],
-      "next_action": "Identify Centro Clinico da Mama medical coordinator; queue email after CUF/Lusiadas first-contact wave (week 2).",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-005",
-      "name": "Trofa Saude — Oncologia (Norte)",
-      "category": "private_hospital",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Trofa Saude Oncologia (regional Norte network)",
-        "url": "https://www.trofasaude.pt/",
-        "deadline_or_cycle": "rolling",
-        "focus": "Oncology service across Norte hospitals; senology presence varies by site"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "medium",
-        "rationale": "Smaller BCS volume than the big-3, but Norte regional concentration complements Lisboa-centric CUF/Lusiadas/Luz Saude — geographical breadth for a multi-site PoV story.",
-        "expansion_match": "BT-03 PT private expansion; modest multiplier."
-      },
-      "what_we_offer_them": "A way to compete with Sao Joao / IPO Porto on continuity of survivorship care; small-group decision speed.",
-      "what_we_ask_them": "Light-touch single-site 12-week PoV; LOI conditional on PoV success.",
-      "contact_path": {"preferred_channel": "direct email to Oncologia coordinator", "named_person_or_team": null, "time_to_first_contact_days": 21, "time_to_loi_estimate_weeks": 12},
-      "evidence_anchors": ["EV-016", "EV-019", "EV-020"],
-      "score": {"pov_fit": 3, "speed_to_loi": 3, "multiplier_potential": 2, "evidence_strength": 2, "composite": 10},
-      "open_issues": [
-        "Whether Trofa Saude has a dedicated breast unit with psycho-oncology capacity not confirmed.",
-        "BCS cohort volume per Trofa unit unknown."
-      ],
-      "next_action": "Defer to wave 2 unless a warm intro emerges.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-006",
-      "name": "IPO Porto — Servico de Psico-Oncologia / Clinica de Mama",
-      "category": "public_health",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Clinica de Mama IPO Porto + Psico-Oncologia",
-        "url": "https://www.ipoporto.pt/",
-        "deadline_or_cycle": "rolling research-collaboration; FCT/COMPETE 2030 annual",
-        "focus": "Major Norte BCS institutional cohort; active in EU oncology research consortia"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "high",
-        "rationale": "Parallel to IPO Lisboa for BT-04. Often a faster mover on research collaborations than IPO Lisboa.",
-        "expansion_match": "Inter-IPO network (Lisboa-Porto-Coimbra). One IPO LOI is the lever for the other two within 3-6 months. Strong Horizon EU consortium eligibility."
-      },
-      "what_we_offer_them": "FCT/Horizon Mission Cancer-readiness data pack; co-authorship; dataset asset for the psycho-oncology research line.",
-      "what_we_ask_them": "Institutional collaboration agreement for 12-week PoV; commit to co-PI on next FCT call.",
-      "contact_path": {"preferred_channel": "direct to Psico-Oncologia + Clinica de Mama coordinators", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 10},
-      "evidence_anchors": ["EV-019", "EV-020", "EV-043", "EV-044", "EV-066", "EV-079"],
-      "score": {"pov_fit": 5, "speed_to_loi": 3, "multiplier_potential": 5, "evidence_strength": 4, "composite": 17},
-      "open_issues": [
-        "Named psycho-oncology PI not in ledger.",
-        "Coordination overhead if running IPO Lisboa + IPO Porto in parallel may strain the 4-FTE PerSense team."
-      ],
-      "next_action": "Send the institutional brief in parallel with IPO Lisboa; mark internally which lands first.",
-      "recommended_first_contact": true
-    },
-    {
-      "id": "PA-007",
-      "name": "IPO Coimbra — Servico de Psico-Oncologia",
-      "category": "public_health",
-      "country": "PT",
-      "relevant_program": {
-        "name": "IPO Coimbra Senologia + Psico-Oncologia",
-        "url": "https://www.ipocoimbra.pt/",
-        "deadline_or_cycle": "rolling",
-        "focus": "Centro region BCS cohort; smaller than Lisboa/Porto but with strong research links to FMUC / CHUC"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "medium",
-        "rationale": "Completes the inter-IPO triangle. Lower priority while IPO Lisboa and Porto are active.",
-        "expansion_match": "Bridges to CHUC and FMUC academic research."
-      },
-      "what_we_offer_them": "Membership in the BCS-survivorship FCT consortium PerSense is anchoring with IPO Lisboa/Porto.",
-      "what_we_ask_them": "Letter of support to join the consortium; PoV optional in wave 2.",
-      "contact_path": {"preferred_channel": "direct via Psico-Oncologia coordinator", "named_person_or_team": null, "time_to_first_contact_days": 28, "time_to_loi_estimate_weeks": 14},
-      "evidence_anchors": ["EV-019", "EV-020", "EV-066", "EV-079"],
-      "score": {"pov_fit": 3, "speed_to_loi": 3, "multiplier_potential": 3, "evidence_strength": 3, "composite": 12},
-      "open_issues": [
-        "PI not identified.",
-        "Adding a third IPO may slow the consortium more than it accelerates."
-      ],
-      "next_action": "Wave 2 outreach; include in FCT consortium pitch only after IPO Lisboa/Porto signal.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-008",
-      "name": "Liga Portuguesa Contra o Cancro — Movimento Vencer e Viver / Nucleos Regionais",
-      "category": "sector_body",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Movimento Vencer e Viver (national BCS peer-support program); Nucleos Regionais Norte/Centro/Sul",
-        "url": "https://www.ligacontracancro.pt/movimento-vencer-e-viver/",
-        "deadline_or_cycle": "ongoing peer-support program; periodic project calls",
-        "focus": "Largest BCS peer-support and advocacy network in PT; convenes survivors for support groups, education, advocacy"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "high",
-        "rationale": "Direct end-user channel to the BCS cohort across PT; legitimacy with patients (recruitment + ethics framing) and a credible patient-voice partner for any DiGA dossier later.",
-        "expansion_match": "LPCC endorsement is the patient-advocacy pillar that BT-01 DiGA dossiers and BT-02 pharma RWE programs both demand."
-      },
-      "what_we_offer_them": "A digital adjunct that supports their own mission (mental-health between visits) without requiring LPCC volunteer time. Co-branded data on BCS survivorship distress that LPCC can use in advocacy with DGS.",
-      "what_we_ask_them": "Endorsement letter; help recruiting BCS for PoV across nucleos regionais; future co-authorship on patient-experience publications.",
-      "contact_path": {"preferred_channel": "direct via LPCC Direcao Nacional + Movimento Vencer e Viver coordinator", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 8},
-      "evidence_anchors": ["EV-016", "EV-019", "EV-020"],
-      "score": {"pov_fit": 4, "speed_to_loi": 4, "multiplier_potential": 4, "evidence_strength": 3, "composite": 15},
-      "open_issues": [
-        "LPCC's policy on digital-health endorsements not confirmed — may require LPCC ethics review.",
-        "Movimento Vencer e Viver coordinator name not in ledger.",
-        "Whether endorsement = recruitment access is uncertain."
-      ],
-      "next_action": "Email LPCC Direcao Nacional with a 1-page patient-impact brief and request a 30-min meeting.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-009",
-      "name": "Champalimaud Foundation — Breast Unit / Champalimaud Clinical Centre",
-      "category": "academic_research",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Breast Unit, Champalimaud Clinical Centre",
-        "url": "https://www.fchampalimaud.org/champalimaud-clinical-centre/breast-unit",
-        "deadline_or_cycle": "rolling research collaborations; internal innovation funds periodic",
-        "focus": "Highly specialized BCS treatment + research; international referral patients"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "medium",
-        "rationale": "Prestigious anchor for evidence credibility (DiGA dossier later), but cohort is smaller and more affluent — not representative of the PT BCS volume play.",
-        "expansion_match": "Champalimaud halo helps BT-01 DiGA narrative and BT-02 pharma framing more than BT-03 hospital revenue."
-      },
-      "what_we_offer_them": "Co-authored publication on BCS digital survivorship with PerSense AUC 0.78 model; visibility of Champalimaud Breast Unit as adopter in international DTx narratives.",
-      "what_we_ask_them": "Pilot site (smaller N) framed as scientific collaboration; co-authorship.",
-      "contact_path": {"preferred_channel": "via existing Lisboa academic network; direct to Breast Unit Director", "named_person_or_team": null, "time_to_first_contact_days": 21, "time_to_loi_estimate_weeks": 12},
-      "evidence_anchors": ["EV-019", "EV-020", "EV-043"],
-      "score": {"pov_fit": 3, "speed_to_loi": 2, "multiplier_potential": 3, "evidence_strength": 3, "composite": 11},
-      "open_issues": [
-        "Champalimaud's affluent international cohort may not match the BT-03 buyer pain.",
-        "Internal innovation funding cycles not public."
-      ],
-      "next_action": "Lower priority than CUF/Lusiadas; queue as 'evidence credibility partner' for DiGA Phase-2.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-010",
-      "name": "CHULN — Hospital de Santa Maria — Unidade de Patologia Mamaria",
-      "category": "public_health",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Unidade de Patologia Mamaria + Psico-Oncologia, CHULN",
-        "url": "https://www.chuln.min-saude.pt/",
-        "deadline_or_cycle": "rolling research-collaboration; FCT/COMPETE 2030",
-        "focus": "Major university-hospital BCS cohort tied to FMUL"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "high",
-        "rationale": "Public university hospital with high BCS volume and strong academic ties (FMUL / iMM). Buyer overlaps BT-04 grant model.",
-        "expansion_match": "CHULN-FMUL-iMM triangle; Horizon Mission Cancer + ENESM-aligned positioning."
-      },
-      "what_we_offer_them": "Research collaboration that supports the senology unit's academic output; turnkey BCS digital-survivorship cohort for FMUL theses; FCT-readiness.",
-      "what_we_ask_them": "PoV at the Unidade de Patologia Mamaria (N=20-30); IRB submission; co-PI from FMUL / iMM.",
-      "contact_path": {"preferred_channel": "via FMUL / NOVA Medical academic network", "named_person_or_team": null, "time_to_first_contact_days": 21, "time_to_loi_estimate_weeks": 14},
-      "evidence_anchors": ["EV-019", "EV-020", "EV-043", "EV-044"],
-      "score": {"pov_fit": 4, "speed_to_loi": 2, "multiplier_potential": 4, "evidence_strength": 3, "composite": 13},
-      "open_issues": [
-        "IRB at CHULN can be 4-6 months — may slip the PoV timeline.",
-        "Named coordinator unknown.",
-        "Whether existing PerSense 2-hospital deployment overlaps with CHULN [EV-043] is unspecified."
-      ],
-      "next_action": "Confirm whether one of PerSense's existing 2 hospital sites is CHULN — if yes, big shortcut.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-011",
-      "name": "Centro Hospitalar Universitario Sao Joao — Unidade de Mama",
-      "category": "public_health",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Unidade de Mama, CHUSJ",
-        "url": "https://portal-chsj.min-saude.pt/",
-        "deadline_or_cycle": "rolling",
-        "focus": "Norte university-hospital BCS cohort, strong research output via FMUP / i3S / CINTESIS"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "high",
-        "rationale": "Public Norte equivalent of CHULN; complements IPO Porto for BT-04. Strong FMUP psycho-oncology research line.",
-        "expansion_match": "CHUSJ-FMUP-i3S-CINTESIS-ISPUP cluster — one of the densest research multipliers in PT."
-      },
-      "what_we_offer_them": "Same FCT/Horizon-readiness pitch as IPO; appeals to institutional KPI of grant capture.",
-      "what_we_ask_them": "Institutional research collaboration; co-PI from FMUP psico-oncologia; PoV at Unidade de Mama.",
-      "contact_path": {"preferred_channel": "via FMUP / ISPUP academic network", "named_person_or_team": null, "time_to_first_contact_days": 21, "time_to_loi_estimate_weeks": 14},
-      "evidence_anchors": ["EV-019", "EV-020", "EV-043", "EV-044"],
-      "score": {"pov_fit": 4, "speed_to_loi": 2, "multiplier_potential": 4, "evidence_strength": 3, "composite": 13},
-      "open_issues": [
-        "IRB cycle unknown.",
-        "Named PI not in ledger.",
-        "Possible overlap with PerSense's existing deployment [EV-043] — needs confirmation."
-      ],
-      "next_action": "Coordinate with IPO Porto outreach to avoid duplicate PI requests in Norte.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-012",
-      "name": "CHUC — Coimbra — Unidade de Patologia Mamaria",
-      "category": "public_health",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Unidade de Patologia Mamaria, CHUC",
-        "url": "https://www.chuc.min-saude.pt/",
-        "deadline_or_cycle": "rolling",
-        "focus": "Centro region university-hospital BCS cohort; ties to FMUC"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "medium",
-        "rationale": "Completes geographic triangle (Lisboa/Norte/Centro) for grant-narrative. Lower BCS volume than the other two.",
-        "expansion_match": "FMUC + IPO Coimbra + CHUC bundle for the Centro consortium leg."
-      },
-      "what_we_offer_them": "Centro region representation in BCS-survivorship national consortium.",
-      "what_we_ask_them": "Letter of support; PoV optional in wave 3.",
-      "contact_path": {"preferred_channel": "via FMUC academic network", "named_person_or_team": null, "time_to_first_contact_days": 28, "time_to_loi_estimate_weeks": 16},
-      "evidence_anchors": ["EV-019", "EV-020"],
-      "score": {"pov_fit": 3, "speed_to_loi": 2, "multiplier_potential": 3, "evidence_strength": 2, "composite": 10},
-      "open_issues": [
-        "PI not identified.",
-        "Lower urgency given resource constraints."
-      ],
-      "next_action": "Wave 3.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-013",
-      "name": "ISPUP — Instituto de Saude Publica UPorto (Psycho-Oncology / Cancer Epi line)",
-      "category": "academic_research",
-      "country": "PT",
-      "relevant_program": {
-        "name": "ISPUP cancer epidemiology and quality-of-life research lines (NEON-BC cohort lineage)",
-        "url": "https://ispup.up.pt/",
-        "deadline_or_cycle": "rolling collaborations; FCT cycles annual",
-        "focus": "PT-leading institute on BCS quality-of-life, psychological distress, and survivorship epidemiology"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "high",
-        "rationale": "ISPUP holds the canonical PT BCS QoL/distress evidence and method credibility — co-authorship strengthens DiGA narrative and de-risks BT-04 grant applications.",
-        "expansion_match": "ISPUP is the bridge between IPO Porto + CHUSJ + i3S + CINTESIS — all four become more reachable through ISPUP."
-      },
-      "what_we_offer_them": "Methodologically-rich BCS-cohort dataset (EMA + sensor + AUC 0.78 model) that complements ISPUP's existing QoL questionnaires; strong co-publication potential.",
-      "what_we_ask_them": "Methodological co-PI on PoV; co-application on FCT/Horizon Mission Cancer; ethics review support.",
-      "contact_path": {"preferred_channel": "direct to BCS QoL research line lead", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 8},
-      "evidence_anchors": ["EV-019", "EV-020", "EV-043"],
-      "score": {"pov_fit": 4, "speed_to_loi": 4, "multiplier_potential": 4, "evidence_strength": 4, "composite": 16},
-      "open_issues": [
-        "Specific BCS QoL PI not named in ledger; needs identification.",
-        "Whether ISPUP would co-PI a non-investigator-initiated platform pilot is uncertain."
-      ],
-      "next_action": "Identify ISPUP BCS QoL PI; send methodological-collaboration proposal in parallel with IPO Porto.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-014",
-      "name": "NOVA Medical School / CHRC — Comprehensive Health Research Centre",
-      "category": "academic_research",
-      "country": "PT",
-      "relevant_program": {
-        "name": "CHRC Cancer / Mental Health research lines, NOVA Medical School",
-        "url": "https://www.chrc.unl.pt/",
-        "deadline_or_cycle": "FCT / Horizon cycles",
-        "focus": "Cancer epidemiology + mental-health translational research"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "medium",
-        "rationale": "Lisboa-side academic counterpart to ISPUP; strengthens BT-04 grant credibility and is naturally adjacent to Nova SBE Health Lab (cross-faculty).",
-        "expansion_match": "Bridges into Nova SBE HEM and into IPO Lisboa via shared research clusters."
-      },
-      "what_we_offer_them": "Cohort + methodology partnership for FCT/Horizon Mission Cancer.",
-      "what_we_ask_them": "Co-PI; ethics-pathway support.",
-      "contact_path": {"preferred_channel": "via NOVA Medical academic network", "named_person_or_team": null, "time_to_first_contact_days": 21, "time_to_loi_estimate_weeks": 12},
-      "evidence_anchors": ["EV-019", "EV-020", "EV-043"],
-      "score": {"pov_fit": 3, "speed_to_loi": 3, "multiplier_potential": 3, "evidence_strength": 3, "composite": 12},
-      "open_issues": [
-        "Specific BCS line at CHRC not confirmed.",
-        "Risk of overlap with Champalimaud / IPO Lisboa research catchment."
-      ],
-      "next_action": "Wave 2.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-015",
-      "name": "Roche Portugal — Medical Affairs (Breast Oncology)",
-      "category": "pharma",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Roche Medical Affairs / Real-World Evidence programs (BCS-relevant: Phesgo, Kadcyla, Perjeta)",
-        "url": "https://www.roche.pt/",
-        "deadline_or_cycle": "ongoing investigator-initiated and medical-affairs RWE budgets; annual cycle",
-        "focus": "Largest breast-oncology pharma in PT; active in adjuvant/early-breast-cancer survivorship outcomes"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "high",
-        "rationale": "Roche PT Medical Affairs is the most plausible first pharma anchor for BT-02. BCS adjuvant adherence + affective trajectories on Phesgo/Kadcyla is an unsolved RWE gap.",
-        "expansion_match": "One Roche PT contract = template for Roche EU; bridges to BT-02 multi-country expansion."
-      },
-      "what_we_offer_them": "BCS-specific RWE on adherence + affective state at 3-5x lower cost than CRO equivalent. AUC 0.78 depression model adds an actuarial-style claim Roche MA finds appealing.",
-      "what_we_ask_them": "40-80K EUR initial scoping contract; named MA champion; introduction to global BCS franchise.",
-      "contact_path": {"preferred_channel": "via PT oncology KOL network (IPO Lisboa, Champalimaud); secondary direct", "named_person_or_team": null, "time_to_first_contact_days": 30, "time_to_loi_estimate_weeks": 16},
-      "evidence_anchors": ["EV-025", "EV-043", "EV-050", "EV-073"],
-      "score": {"pov_fit": 3, "speed_to_loi": 2, "multiplier_potential": 5, "evidence_strength": 3, "composite": 13},
-      "open_issues": [
-        "No documented Roche relationship in PerSense.",
-        "Pharma exclusivity asks could lock out BT-01 DiGA path.",
-        "PT MA budget for RWE not benchmarked."
-      ],
-      "next_action": "Hold for Phase-2 of BT-03 (after first hospital LOI). Use that LOI as the credibility door-opener with Roche MA.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-016",
-      "name": "Pfizer Portugal — Oncology / Patient Programs",
-      "category": "pharma",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Pfizer PT Oncology Patient Support / Ibrance survivorship engagement",
-        "url": "https://www.pfizer.pt/",
-        "deadline_or_cycle": "ongoing patient-support funding",
-        "focus": "CDK4/6 inhibitor (Ibrance) BCS adjuvant cohort — adherence is the canonical pharma pain"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "high",
-        "rationale": "Ibrance long-term adherence in HR+ HER2- BCS is a documented industry pain perfectly matched by PerSense JITAI + sensor stack.",
-        "expansion_match": "BT-02 channel into Pfizer global oncology RWE."
-      },
-      "what_we_offer_them": "Adherence + affective-state co-data for Ibrance survivorship; lower cost than CRO.",
-      "what_we_ask_them": "40-80K EUR scoping contract; introduction to global Ibrance medical lead.",
-      "contact_path": {"preferred_channel": "via PT oncology KOL", "named_person_or_team": null, "time_to_first_contact_days": 30, "time_to_loi_estimate_weeks": 18},
-      "evidence_anchors": ["EV-025", "EV-043", "EV-050", "EV-073"],
-      "score": {"pov_fit": 3, "speed_to_loi": 2, "multiplier_potential": 4, "evidence_strength": 3, "composite": 12},
-      "open_issues": [
-        "No Pfizer PT relationship documented.",
-        "Patient-support program structure in PT not confirmed."
-      ],
-      "next_action": "Phase-2 (after first hospital LOI).",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-017",
-      "name": "Novartis Portugal — Oncology / Kisqali survivorship",
-      "category": "pharma",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Novartis PT Oncology Medical Affairs (Kisqali, Piqray)",
-        "url": "https://www.novartis.com/pt-pt/",
-        "deadline_or_cycle": "ongoing MA / patient-support",
-        "focus": "Kisqali HR+ HER2- BCS — same adjuvant adherence pain as Ibrance"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "medium",
-        "rationale": "Functionally equivalent to Pfizer Ibrance opportunity; second-place priority unless a champion appears.",
-        "expansion_match": "BT-02 backup channel."
-      },
-      "what_we_offer_them": "Adherence + affective RWE on Kisqali cohort.",
-      "what_we_ask_them": "Scoping conversation, then 40-80K EUR contract.",
-      "contact_path": {"preferred_channel": "via PT oncology KOL", "named_person_or_team": null, "time_to_first_contact_days": 45, "time_to_loi_estimate_weeks": 20},
-      "evidence_anchors": ["EV-025", "EV-043", "EV-050", "EV-073"],
-      "score": {"pov_fit": 3, "speed_to_loi": 2, "multiplier_potential": 3, "evidence_strength": 2, "composite": 10},
-      "open_issues": [
-        "No documented relationship.",
-        "Lower priority than Roche/Pfizer for BCS-specific adherence."
-      ],
-      "next_action": "Phase-2.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-018",
-      "name": "AstraZeneca Portugal — Oncology / Enhertu, Lynparza",
-      "category": "pharma",
-      "country": "PT",
-      "relevant_program": {
-        "name": "AZ PT Medical Affairs (Enhertu, Lynparza in BRCA+ BCS)",
-        "url": "https://www.astrazeneca.pt/",
-        "deadline_or_cycle": "ongoing",
-        "focus": "Enhertu (HER2-low/positive) and Lynparza (BRCA+) survivorship cohorts"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "medium",
-        "rationale": "Smaller PT cohort but high-value; AZ has a more mature digital-health investment thesis than peers in some markets.",
-        "expansion_match": "BT-02 alt channel."
-      },
-      "what_we_offer_them": "Affective + adherence RWE on a high-value BCS sub-cohort.",
-      "what_we_ask_them": "Scoping contract.",
-      "contact_path": {"preferred_channel": "via PT oncology KOL", "named_person_or_team": null, "time_to_first_contact_days": 45, "time_to_loi_estimate_weeks": 20},
-      "evidence_anchors": ["EV-025", "EV-043", "EV-073"],
-      "score": {"pov_fit": 2, "speed_to_loi": 2, "multiplier_potential": 3, "evidence_strength": 2, "composite": 9},
-      "open_issues": [
-        "No relationship documented.",
-        "BCS sub-cohort small in PT."
-      ],
-      "next_action": "Phase-2 backup.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-019",
-      "name": "EIT Health (Portugal node — InnoStars / RIS Hub)",
-      "category": "international",
-      "country": "EU",
-      "relevant_program": {
-        "name": "EIT Health Accelerator + RIS Hub Portugal (BCS / oncology survivorship eligible)",
-        "url": "https://eithealth.eu/programmes/",
-        "deadline_or_cycle": "annual; calls Q1-Q2 typically",
-        "focus": "EU digital-health acceleration with PT InnoStars/RIS hub; explicitly mission-cancer-aligned"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "high",
-        "rationale": "Direct fit for non-dilutive funding + visibility + EU clinical-partner network — supports BT-04 grant story and BT-01 DiGA EU narrative.",
-        "expansion_match": "EIT Health network includes DE / FR clinical sites — opens BT-01 DiGA pre-flight partnerships."
-      },
-      "what_we_offer_them": "A BCS-specific PT-anchored DTx with internal pilot data and a clear DiGA expansion plan — fits Mission Cancer + RIS narrative.",
-      "what_we_ask_them": "Acceptance into EIT Health Accelerator / Catapult; introductions to DE/FR clinical partners; matchmaking with Roche EU MA.",
-      "contact_path": {"preferred_channel": "EIT Health InnoStars PT lead; open application", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 12},
-      "evidence_anchors": ["EV-027", "EV-066", "EV-079"],
-      "score": {"pov_fit": 4, "speed_to_loi": 3, "multiplier_potential": 5, "evidence_strength": 3, "composite": 15},
-      "open_issues": [
-        "Specific 2026 cycle deadline not confirmed in this run.",
-        "InnoStars PT named contact not in ledger.",
-        "Whether PerSense already applied in prior cycles is undocumented here."
-      ],
-      "next_action": "Confirm next EIT Health Accelerator deadline and InnoStars PT contact; prepare a 2-page application brief framed on BCS survivorship + DiGA path.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-020",
-      "name": "Casa do Impacto (Santa Casa da Misericordia de Lisboa) — Health-Track Cohort",
-      "category": "bigimpact_named",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Casa do Impacto social-innovation accelerator (health-track cohorts; MAZE-backed)",
-        "url": "https://casadoimpacto.santacasa.pt/",
-        "deadline_or_cycle": "annual cohort calls; varies",
-        "focus": "Social-impact ventures including health"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "medium",
-        "rationale": "BCS survivorship has a clear social-impact narrative (women's health, equity of access, <20% receiving support). Casa do Impacto's network into Santa Casa social services may unlock low-income BCS recruitment for the PoV.",
-        "expansion_match": "Casa do Impacto cohort = MAZE follow-on; aligns with BIG Impact's mandated ecosystem."
-      },
-      "what_we_offer_them": "A health-equity story with hard PT numbers (<20% access [EV-016]); a women's-health venture for the cohort gender mix.",
-      "what_we_ask_them": "Cohort acceptance; introduction to Santa Casa social-services BCS adjacency; mentor matching for clinical-payer go-to-market.",
-      "contact_path": {"preferred_channel": "open cohort application + warm intro via BIG Impact", "named_person_or_team": null, "time_to_first_contact_days": 7, "time_to_loi_estimate_weeks": 8},
-      "evidence_anchors": ["EV-016", "EV-019", "EV-020"],
-      "score": {"pov_fit": 3, "speed_to_loi": 4, "multiplier_potential": 3, "evidence_strength": 2, "composite": 12},
-      "open_issues": [
-        "Whether the current cohort window is open/closed not confirmed.",
-        "Santa Casa social-services BCS pathway is hypothesized; not validated.",
-        "Casa do Impacto's typical health-cohort funding size unknown."
-      ],
-      "next_action": "Confirm 2026 cohort cycle dates; prep a BCS-survivorship-as-health-equity 1-pager.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-021",
-      "name": "Nova SBE — Health Economics & Management Knowledge Center (HEM)",
-      "category": "bigimpact_named",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Nova SBE Health Economics & Management Knowledge Center (HEM)",
-        "url": "https://www.novasbe.unl.pt/research-units/health-economics-management/",
-        "deadline_or_cycle": "rolling research / exec-ed",
-        "focus": "PT health economics, payer modeling, hospital management; positioned to co-author the BT-03 cost-effectiveness story"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "high",
-        "rationale": "BT-03 buyer (private hospital director) cares about EUR/clinician/mo vs avoided escalation. Nova SBE HEM produces exactly this kind of cost-effectiveness analysis with PT-credible voice.",
-        "expansion_match": "HEM analysis becomes a sales asset for BT-03 across CUF/Lusiadas/Luz; later for BT-05 insurer claims-avoidance argument."
-      },
-      "what_we_offer_them": "A live PT digital-health case study (BCS) with internal data — high-impact teaching case + applied-research output.",
-      "what_we_ask_them": "Co-authored cost-effectiveness brief on BCS survivorship JITAI; potential MBA project; BIG Impact mentorship continuity.",
-      "contact_path": {"preferred_channel": "via BIG Impact + direct to HEM director", "named_person_or_team": null, "time_to_first_contact_days": 7, "time_to_loi_estimate_weeks": 6},
-      "evidence_anchors": ["EV-019", "EV-020", "EV-043", "EV-074", "EV-076"],
-      "score": {"pov_fit": 4, "speed_to_loi": 4, "multiplier_potential": 3, "evidence_strength": 3, "composite": 14},
-      "open_issues": [
-        "HEM director name not in ledger.",
-        "Whether HEM has a current applied-research budget for digital-health case studies is unconfirmed.",
-        "Output timeline (3-6 mo) may slip past the PoV window."
-      ],
-      "next_action": "Use the BIG Impact channel to request a 30-min meeting with the HEM director; bring a 1-page CEA scope.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-022",
-      "name": "Fundacao Mendes Goncalves — Social Innovation / Health initiatives",
-      "category": "bigimpact_named",
-      "country": "PT",
-      "relevant_program": {
-        "name": "FMG funding programs (social innovation; BIG Impact umbrella)",
-        "url": "https://fundacaomendesgoncalves.pt/",
-        "deadline_or_cycle": "varies — BIG Impact mandate",
-        "focus": "Social-innovation funding via BIG Impact partnership"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "low",
-        "rationale": "Indirect to BCS wedge; relevant only as BIG Impact umbrella partner. No specific BCS/oncology grant cycle confirmed.",
-        "expansion_match": "Continuation of BIG Impact mentorship."
-      },
-      "what_we_offer_them": "A clear BCS-focused social-impact KPI: percentage-points reduction in unmet psychological-support need.",
-      "what_we_ask_them": "Continued BIG Impact mentorship + non-dilutive top-up if program exists.",
-      "contact_path": {"preferred_channel": "via BIG Impact program manager", "named_person_or_team": null, "time_to_first_contact_days": 7, "time_to_loi_estimate_weeks": 12},
-      "evidence_anchors": ["EV-019", "EV-020"],
-      "score": {"pov_fit": 2, "speed_to_loi": 3, "multiplier_potential": 2, "evidence_strength": 2, "composite": 9},
-      "open_issues": [
-        "FMG-specific health funding cycles not confirmed in this run.",
-        "Direct fit to BCS wedge is weak."
-      ],
-      "next_action": "Ask BIG Impact PM whether any FMG cycle could underwrite PoV recruitment costs.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-023",
-      "name": "Siemens Healthineers Portugal — Digital Health / Oncology imaging adjacency",
-      "category": "bigimpact_named",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Siemens Healthineers Innovation Think Tank / digital-health pilot framework",
-        "url": "https://www.siemens-healthineers.com/innovation-think-tank",
-        "deadline_or_cycle": "rolling",
-        "focus": "Digital-health innovation, particularly imaging-led oncology workflows"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "low",
-        "rationale": "Siemens Healthineers' BCS adjacency is in imaging/diagnosis, not psychosocial follow-up — weak fit. Corporate philanthropy / employee-wellness angle (women's health) is plausible but not directly BCS-monetizable.",
-        "expansion_match": "Imaging->follow-up data integration is a long-horizon expansion vector, not a PoV partner."
-      },
-      "what_we_offer_them": "A women's-health digital-companion narrative for corporate-philanthropy or innovation-think-tank visibility.",
-      "what_we_ask_them": "Innovation-track cohort participation; in-kind compute / cloud / IoT support.",
-      "contact_path": {"preferred_channel": "via BIG Impact + Siemens PT", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 14},
-      "evidence_anchors": ["EV-019", "EV-020"],
-      "score": {"pov_fit": 1, "speed_to_loi": 2, "multiplier_potential": 2, "evidence_strength": 2, "composite": 7},
-      "open_issues": [
-        "BCS fit for Siemens is structurally weak.",
-        "Innovation Think Tank PT presence not confirmed.",
-        "Risk of forced-fit narrative to honor BIG Impact partner list."
-      ],
-      "next_action": "Keep on the map for BIG Impact mandate; do not invest sales cycles unless a specific imaging-follow-up integration emerges.",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-024",
-      "name": "Medis (Ageas Seguros) — Oncologia rider",
-      "category": "insurer",
-      "country": "PT",
-      "relevant_program": {
-        "name": "Medis Oncologia / Medis Rede coverage including psychological support",
-        "url": "https://www.medis.pt/",
-        "deadline_or_cycle": "internal product cycles",
-        "focus": "PT private health insurer with explicit oncology coverage tier"
-      },
-      "fit_to_thesis": {
-        "wedge_match": "medium",
-        "rationale": "BT-05 anchor: rider already mentions psychological support but underdelivers; BCS sub-cohort is identifiable.",
-        "expansion_match": "PT insurer template -> ES insurers (Sanitas, Adeslas)."
-      },
-      "what_we_offer_them": "Per-life-covered psycho-oncology benefit that visibly increases rider value while reducing high-cost MH-claim escalation in BCS cohort.",
-      "what_we_ask_them": "Scoping conversation with Oncologia product team; pilot proposal for next product cycle.",
-      "contact_path": {"preferred_channel": "direct to Medis Oncologia product owner", "named_person_or_team": null, "time_to_first_contact_days": 30, "time_to_loi_estimate_weeks": 24},
-      "evidence_anchors": ["EV-019", "EV-020", "EV-036", "EV-072", "EV-083"],
-      "score": {"pov_fit": 2, "speed_to_loi": 2, "multiplier_potential": 3, "evidence_strength": 2, "composite": 9},
-      "open_issues": [
-        "No Medis relationship documented.",
-        "Actuarial savings claim for BT-05 not yet generated.",
-        "Insurer sales cycles 12+ months — not aligned with PoV urgency."
-      ],
-      "next_action": "Phase-2 (after first hospital LOI gives credibility).",
-      "recommended_first_contact": false
-    },
-    {
-      "id": "PA-025",
       "name": "Sociedade Portuguesa de Senologia (SPS)",
       "category": "sector_body",
       "country": "PT",
+      "recommended_first_contact": true,
       "relevant_program": {
-        "name": "SPS scientific society — annual congress + clinical-guideline working groups",
+        "name": "SPS Congresso Nacional de Senologia + Working Groups (psycho-oncology/survivorship subgroup)",
         "url": "https://www.spsenologia.pt/",
-        "deadline_or_cycle": "annual congress; rolling working groups",
-        "focus": "Largest PT senology professional body — clinical-guideline credibility for survivorship pathways"
+        "deadline_or_cycle": "Annual congress (typically Q1–Q2); working groups year-round",
+        "focus": "Portuguese senology professional body — reaches CUF/Lusíadas/Luz/IPO/Champalimaud senologists in one room"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "high",
+        "rationale": "SPS is the multiplication play. Endorsement or a working-group slot puts BT-03 in front of every senologist at every PT private group plus IPO and university hospitals — the entire BT-03 + BT-04 buyer pool — in one outreach motion.",
+        "expansion_match": "One SPS endorsement unlocks warm intros across all BT-03 hospital groups + IPO + Champalimaud + university hospitals."
+      },
+      "what_we_offer_them": "A working-group-ready evidence package on the survivorship psych-support gap (<20% [EV-016], 30–40% [EV-019]) and a co-authorship/co-presentation slot at the next congress on between-consultation detection — PerSense brings the data, SPS brings clinical credibility.",
+      "what_we_ask_them": "(a) Introduction to the senology heads at CUF/Lusíadas/Luz, (b) endorsement letter or working-group inclusion for the PoV protocol, (c) congress slot for week-12 results presentation.",
+      "contact_path": {
+        "preferred_channel": "Direct contact via SPS board email + warm intro through any current PerSense clinical collaborator who is an SPS member",
+        "named_person_or_team": null,
+        "time_to_first_contact_days": 5,
+        "time_to_loi_estimate_weeks": 4
+      },
+      "evidence_anchors": ["EV-016", "EV-019", "EV-022"],
+      "score": {"pov_fit": 4, "speed_to_loi": 5, "multiplier_potential": 5, "evidence_strength": 3, "composite": 17},
+      "open_issues": [
+        "Current SPS board / psycho-oncology working group lead not yet named here",
+        "SPS endorsement is reputational, not contractual — must not be over-counted as an LOI"
+      ],
+      "next_action": "This week: pull the current SPS board from spsenologia.pt and email the president + closest psycho-oncology working-group lead with a 1-page brief; ask for a 20-min call, not a slot."
+    },
+    {
+      "id": "PA-005",
+      "name": "IPO Lisboa Francisco Gentil — Psico-oncologia & Sobrevivência",
+      "category": "public_health",
+      "country": "PT",
+      "recommended_first_contact": true,
+      "relevant_program": {
+        "name": "IPO Lisboa Serviço de Psico-Oncologia + Programa de Sobrevivência",
+        "url": "https://www.ipolisboa.min-saude.pt/",
+        "deadline_or_cycle": "Rolling clinical research collaborations; FCT and EU-funded calls intermittently",
+        "focus": "Psycho-oncology and survivorship clinics; reference centre for breast cancer in PT public oncology"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "high",
+        "rationale": "Backup PoV site if private channel does not convert by week 4. IPO has the clinical credibility and patient volume; a public-channel pilot also builds the BT-04 expansion case (EU consortium, Mission Cancer).",
+        "expansion_match": "Unlocks BT-04 (EU/FCT-funded consortium) and adds the public-system credibility needed for BT-01 (DiGA) dossier later."
+      },
+      "what_we_offer_them": "Co-investigator role on a BCS between-consultation detection protocol; PerSense AUC 0.78 [EV-043, internal_only] replicated in a public PT cohort = a publishable result IPO can claim; no paid SaaS pressure.",
+      "what_we_ask_them": "(a) LOI as PoV research site if private fallback triggers, (b) co-authorship on the protocol, (c) ethics committee fast-track via existing IPO research office.",
+      "contact_path": {
+        "preferred_channel": "Direct contact with IPO Lisboa Psico-Oncologia service via existing PerSense academic collaborators (iNNOVSensing network)",
+        "named_person_or_team": null,
+        "time_to_first_contact_days": 7,
+        "time_to_loi_estimate_weeks": 10
+      },
+      "evidence_anchors": ["EV-016", "EV-019", "EV-024", "EV-043"],
+      "score": {"pov_fit": 4, "speed_to_loi": 3, "multiplier_potential": 4, "evidence_strength": 4, "composite": 15},
+      "open_issues": [
+        "IPO ethics committee timelines are typically 8–16 weeks — may not fit the 8–12-week PoV window",
+        "IPO contracts are not BT-03 SaaS revenue; tagging as PoV-site backup, not as a buyer signature",
+        "Specific psico-oncologia service head not named here"
+      ],
+      "next_action": "This week: identify the current head of IPO Lisboa Psico-Oncologia and email a 1-page research-collaboration framing; in parallel, ask about ethics-committee timelines so the team knows by week 4 whether IPO is realistic as a fallback."
+    },
+    {
+      "id": "PA-006",
+      "name": "IPO Porto — Psico-oncologia / Survivorship Research",
+      "category": "public_health",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "IPO Porto research collaborations + psico-oncologia clinical service",
+        "url": "https://www.ipoporto.pt/",
+        "deadline_or_cycle": "Rolling research collaborations",
+        "focus": "Oncology reference + research; close to ISPUP / U.Porto research network"
       },
       "fit_to_thesis": {
         "wedge_match": "medium",
-        "rationale": "SPS endorsement carries weight with private-hospital senology directors (BT-03 buyers). Congress visibility = warm-intro factory.",
-        "expansion_match": "Once endorsed, SPS connections accelerate cross-hospital BT-03 expansion. Also opens OPP psycho-oncology section dialogue."
+        "rationale": "Secondary public-channel option; useful as a north-region site if Lisboa-centric private channel runs into ethics delays.",
+        "expansion_match": "Bridges to ISPUP and U.Porto BT-04 EU-grant capabilities."
       },
-      "what_we_offer_them": "Congress abstract / symposium on BCS survivorship digital companion; co-authored clinical-pathway recommendation.",
-      "what_we_ask_them": "Abstract acceptance; symposium slot; SPS endorsement letter conditional on PoV outcomes.",
-      "contact_path": {"preferred_channel": "abstract submission + Direcao contact", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 16},
-      "evidence_anchors": ["EV-019", "EV-020", "EV-043"],
-      "score": {"pov_fit": 3, "speed_to_loi": 3, "multiplier_potential": 4, "evidence_strength": 2, "composite": 12},
-      "open_issues": [
-        "Congress 2026 abstract deadline not confirmed in this run.",
-        "Whether SPS endorses commercial digital products is uncertain (typically endorses guidelines, not vendors)."
-      ],
-      "next_action": "Confirm 2026 congress abstract deadline; prepare submission.",
-      "recommended_first_contact": false
+      "what_we_offer_them": "Same as IPO Lisboa: research co-investigator role, AUC 0.78 replication on a fresh cohort, publishable outcome.",
+      "what_we_ask_them": "Research-site LOI if Porto channel is needed; protocol co-authorship.",
+      "contact_path": {"preferred_channel": "Warm intro via ISPUP", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 12},
+      "evidence_anchors": ["EV-019", "EV-043"],
+      "score": {"pov_fit": 3, "speed_to_loi": 2, "multiplier_potential": 3, "evidence_strength": 3, "composite": 11},
+      "open_issues": ["Lisboa-centric pilot logistics make Porto a backup-of-a-backup", "No named head of psico-oncologia identified"],
+      "next_action": "Park until week 4; if both private and IPO Lisboa stall, re-activate via ISPUP intro."
+    },
+    {
+      "id": "PA-007",
+      "name": "IPO Coimbra — Psico-oncologia",
+      "category": "public_health",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "IPO Coimbra clinical research + survivorship program",
+        "url": "https://www.ipocoimbra.min-saude.pt/",
+        "deadline_or_cycle": "Rolling",
+        "focus": "Central-region oncology reference"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "low",
+        "rationale": "Coverage option if Lisboa+Porto fail; weaker BT-03 fit.",
+        "expansion_match": "BT-04 only."
+      },
+      "what_we_offer_them": "Research collaboration; AUC 0.78 external replication.",
+      "what_we_ask_them": "Backup PoV site LOI.",
+      "contact_path": {"preferred_channel": "Direct email", "named_person_or_team": null, "time_to_first_contact_days": 21, "time_to_loi_estimate_weeks": 14},
+      "evidence_anchors": ["EV-019", "EV-043"],
+      "score": {"pov_fit": 2, "speed_to_loi": 2, "multiplier_potential": 2, "evidence_strength": 3, "composite": 9},
+      "open_issues": ["Geographic distance from current PerSense team", "No prior IPO Coimbra relationship in ledger"],
+      "next_action": "Defer to month 2."
+    },
+    {
+      "id": "PA-008",
+      "name": "Liga Portuguesa Contra o Cancro — Núcleos Regionais & MAMA / Vencer e Viver",
+      "category": "foundation",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "Movimento Vencer e Viver / Núcleo Regional do Sul (apoio a sobreviventes de cancro da mama)",
+        "url": "https://www.ligacontracancro.pt/",
+        "deadline_or_cycle": "Continuous community programs; small grants intermittent",
+        "focus": "Patient-side BCS support, awareness, peer-to-peer survivor networks"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "medium",
+        "rationale": "Patient-recruitment amplifier and patient-side validation channel; not a paying buyer for BT-03 but a credibility multiplier and recruitment funnel for the PoV.",
+        "expansion_match": "Patient advocacy backing supports BT-05 (insurer benefit) and BT-04 (EU public-impact narrative)."
+      },
+      "what_we_offer_them": "Aggregated, consented insight into BCS post-treatment emotional trajectories — the kind of data the Liga has never had, framed for their advocacy reports.",
+      "what_we_ask_them": "(a) Endorsement of the PoV, (b) recruitment support via Vencer e Viver groups, (c) participation in patient-side advisory.",
+      "contact_path": {"preferred_channel": "Núcleo Regional do Sul direct contact + Movimento Vencer e Viver coordinators", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 10},
+      "evidence_anchors": ["EV-016", "EV-019"],
+      "score": {"pov_fit": 3, "speed_to_loi": 3, "multiplier_potential": 4, "evidence_strength": 3, "composite": 13},
+      "open_issues": ["Current Movimento Vencer e Viver national coordinator not named", "Patient-advocacy backing must not be confused with a hospital LOI"],
+      "next_action": "Month 1: contact Núcleo Regional do Sul as a patient-advisory and recruitment partner."
+    },
+    {
+      "id": "PA-009",
+      "name": "CHULN — Hospital de Santa Maria, Centro de Senologia",
+      "category": "public_health",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "CHULN Senologia + Psico-oncologia (Hospital Santa Maria)",
+        "url": "https://www.chln.min-saude.pt/",
+        "deadline_or_cycle": "Rolling research collaborations; ethics committee 8–14 weeks",
+        "focus": "Public-system reference for breast cancer; teaching hospital linked to FMUL"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "medium",
+        "rationale": "Public-system PoV-site option with FMUL academic anchor for BT-04. Slower procurement than private; not the BT-03 first-revenue path.",
+        "expansion_match": "BT-04 (EU consortium) and academic publication base."
+      },
+      "what_we_offer_them": "PT-public reference site for a JITAI BCS protocol; co-authorship; research-grade dataset.",
+      "what_we_ask_them": "Research-site LOI if needed; ethics committee accelerated review.",
+      "contact_path": {"preferred_channel": "Warm intro via NOVA Medical or FMUL PerSense academic contacts", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 14},
+      "evidence_anchors": ["EV-019", "EV-043"],
+      "score": {"pov_fit": 3, "speed_to_loi": 2, "multiplier_potential": 3, "evidence_strength": 3, "composite": 11},
+      "open_issues": ["Ethics committee timeline incompatible with 8–12-week PoV window unless pre-approval already exists"],
+      "next_action": "Defer; useful if BT-04 grant work activates."
+    },
+    {
+      "id": "PA-010",
+      "name": "Champalimaud Foundation — Breast Unit",
+      "category": "academic_research",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "Champalimaud Breast Unit (clinical care + research)",
+        "url": "https://www.fchampalimaud.org/champalimaud-clinical-centre/breast-unit",
+        "deadline_or_cycle": "Rolling research; internal funding cycles via Champalimaud Foundation",
+        "focus": "Premium BCS care + neuroscience-adjacent research"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "high",
+        "rationale": "High clinical credibility; the Breast Unit's research orientation aligns with PerSense's AUC 0.78 [EV-043] replication ambition. A Champalimaud co-author massively strengthens the BT-01 DiGA dossier and BT-04 EU consortium.",
+        "expansion_match": "BT-01 (DiGA dossier credibility), BT-04 (EU grant lead)."
+      },
+      "what_we_offer_them": "Research co-author position on between-consultation BCS detection; publishable AUC replication; access to PerSense iNNOVSensing dataset for joint analysis.",
+      "what_we_ask_them": "Co-investigator role; protocol review; reference letter for EU grant applications.",
+      "contact_path": {"preferred_channel": "Direct outreach to Breast Unit research lead", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 12},
+      "evidence_anchors": ["EV-024", "EV-043", "EV-050"],
+      "score": {"pov_fit": 4, "speed_to_loi": 2, "multiplier_potential": 4, "evidence_strength": 4, "composite": 14},
+      "open_issues": ["Champalimaud is research-heavy and may not function as a paying BT-03 buyer", "Procurement model unclear — likely grant-funded, not SaaS-funded"],
+      "next_action": "Month 1: contact Breast Unit research lead about a research collaboration on between-consultation detection."
+    },
+    {
+      "id": "PA-011",
+      "name": "NOVA Medical School / CHRC — Comprehensive Health Research Centre",
+      "category": "academic_research",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "CHRC research lines incl. mental health & oncology survivorship",
+        "url": "https://www.chrc.nms.unl.pt/",
+        "deadline_or_cycle": "Rolling; FCT calls + EU Mission Cancer windows",
+        "focus": "Translational health research at NOVA Medical School"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "medium",
+        "rationale": "Academic anchor for BT-04 EU grants and dossier credibility; strong link to CHULN for ethics.",
+        "expansion_match": "BT-04 (EU consortium lead)."
+      },
+      "what_we_offer_them": "Co-PI position on EU grant submissions using PoV data; access to a real-world cohort.",
+      "what_we_ask_them": "Co-PI commitment; ethics support; methodology review.",
+      "contact_path": {"preferred_channel": "Direct contact via CHRC oncology / mental-health research line leads", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 10},
+      "evidence_anchors": ["EV-022", "EV-043"],
+      "score": {"pov_fit": 3, "speed_to_loi": 3, "multiplier_potential": 3, "evidence_strength": 3, "composite": 12},
+      "open_issues": ["Specific research-line lead not named", "BT-04 timelines (12–18 mo) do not help BT-03 first-revenue"],
+      "next_action": "Month 1–2: align with CHRC for BT-04 EU grant submission window."
+    },
+    {
+      "id": "PA-012",
+      "name": "ISPUP — Instituto de Saúde Pública, Universidade do Porto",
+      "category": "academic_research",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "ISPUP psycho-oncology + EPIPorto cohort research",
+        "url": "https://www.ispup.up.pt/",
+        "deadline_or_cycle": "Rolling research; FCT cycles",
+        "focus": "Population-health research; psycho-oncology and survivorship"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "medium",
+        "rationale": "Academic depth in psycho-oncology; useful for BT-04 EU consortium.",
+        "expansion_match": "BT-04 (EU grant), BT-01 (DiGA dossier)."
+      },
+      "what_we_offer_them": "Co-author position on between-consultation detection paper; access to a fresh PT cohort for replication of AUC 0.78 [EV-043].",
+      "what_we_ask_them": "Co-investigator role; methodology peer review; intro to IPO Porto.",
+      "contact_path": {"preferred_channel": "Direct outreach to ISPUP psycho-oncology line", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 10},
+      "evidence_anchors": ["EV-022", "EV-043"],
+      "score": {"pov_fit": 3, "speed_to_loi": 3, "multiplier_potential": 3, "evidence_strength": 3, "composite": 12},
+      "open_issues": ["Specific psycho-oncology lead not named"],
+      "next_action": "Month 1–2."
+    },
+    {
+      "id": "PA-013",
+      "name": "Roche Portugal — Medical Affairs (Breast Oncology)",
+      "category": "pharma",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "Roche Portugal Medical Affairs — breast oncology portfolio (Kadcyla, Phesgo, Perjeta)",
+        "url": "https://www.roche.pt/",
+        "deadline_or_cycle": "Investigator-initiated study (IIS) and medical-grant calls run on internal cycles",
+        "focus": "Breast oncology medical affairs; adherence and patient-experience outcomes"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "medium",
+        "rationale": "Roche is the pharma BT-02 anchor: breast-onc lead + interest in survivorship-adherence outcomes. Pre-PoV, this is a relationship-build, not a contract.",
+        "expansion_match": "BT-02 (research-services EUR 100–300K/study)."
+      },
+      "what_we_offer_them": "A real-world cohort and an outcome dataset (PHQ-9/GAD-7 trajectory + treatment-adherence proxy) usable in IIS proposals.",
+      "what_we_ask_them": "(a) Medical Affairs intro call once PoV results land; (b) IIS submission window timing; (c) reference for BT-04 EU grant if applicable.",
+      "contact_path": {"preferred_channel": "Direct outreach to Roche PT Medical Affairs breast-onc lead", "named_person_or_team": null, "time_to_first_contact_days": 30, "time_to_loi_estimate_weeks": 26},
+      "evidence_anchors": ["EV-024", "EV-050", "EV-073"],
+      "score": {"pov_fit": 2, "speed_to_loi": 1, "multiplier_potential": 4, "evidence_strength": 3, "composite": 10},
+      "open_issues": ["Pharma procurement is 6–12 mo and dependent on PoV evidence existing first", "No PerSense prior Roche contact in ledger"],
+      "next_action": "Month 3 onward, after PoV interim results."
+    },
+    {
+      "id": "PA-014",
+      "name": "AstraZeneca / Novartis Portugal — Oncology Medical Affairs",
+      "category": "pharma",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "AstraZeneca / Novartis PT Oncology Medical Affairs — IIS / medical grant programs",
+        "url": "https://www.astrazeneca.pt/ ; https://www.novartis.com/pt-pt",
+        "deadline_or_cycle": "Internal IIS cycles",
+        "focus": "Breast-onc + supportive-care outcomes"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "low",
+        "rationale": "Diversification on BT-02 alongside Roche; breast-onc presence at AZ (PARP inhibitors) and Novartis (CDK4/6) is strong but a step behind Roche's mainline BCS portfolio for survivorship-adherence framing.",
+        "expansion_match": "BT-02."
+      },
+      "what_we_offer_them": "Same: real-world adherence + survivorship dataset.",
+      "what_we_ask_them": "IIS conversation post-PoV.",
+      "contact_path": {"preferred_channel": "Direct outreach to Medical Affairs Oncology", "named_person_or_team": null, "time_to_first_contact_days": 45, "time_to_loi_estimate_weeks": 30},
+      "evidence_anchors": ["EV-073"],
+      "score": {"pov_fit": 1, "speed_to_loi": 1, "multiplier_potential": 3, "evidence_strength": 2, "composite": 7},
+      "open_issues": ["Less direct breast-onc fit than Roche for BCS-survivorship specifically", "Two firms bundled — separate before outreach"],
+      "next_action": "Month 6+; before reaching out, split into one row each."
+    },
+    {
+      "id": "PA-015",
+      "name": "EIT Health Portugal node + RIS Hub / InnoStars",
+      "category": "international_eu",
+      "country": "EU/PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "EIT Health InnoStars / RIS Innovation Call (PT-eligible)",
+        "url": "https://eithealth.eu/programmes/",
+        "deadline_or_cycle": "Annual calls — typically Q1 open, Q2 close; check current cycle",
+        "focus": "Health-innovation acceleration; matchmaking with hospital partners and EU grants"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "medium",
+        "rationale": "Non-dilutive funding + warm intros to other EU hospitals (BT-04 expansion). Not a buyer; a multiplier.",
+        "expansion_match": "BT-04 (EU consortium), BT-01 (DiGA dossier credibility)."
+      },
+      "what_we_offer_them": "A live PoV with PT private-hospital partners and a defensible AUC 0.78 internal benchmark — a fundable story.",
+      "what_we_ask_them": "(a) Application support for the next InnoStars/RIS cycle, (b) intros to EU breast-cancer survivorship clinicians.",
+      "contact_path": {"preferred_channel": "EIT Health PT node liaison + InnoStars programme manager", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 16},
+      "evidence_anchors": ["EV-024", "EV-043", "EV-050"],
+      "score": {"pov_fit": 2, "speed_to_loi": 2, "multiplier_potential": 4, "evidence_strength": 3, "composite": 11},
+      "open_issues": ["Current cycle deadlines not verified in this brief — unverified deadline", "EIT Health funding is non-dilutive but slow vs BT-03 6-mo timeline"],
+      "next_action": "Month 1: confirm current InnoStars/RIS deadlines and PT-node liaison."
+    },
+    {
+      "id": "PA-016",
+      "name": "EU Mission Cancer / Horizon Europe — Survivorship calls",
+      "category": "international_eu",
+      "country": "EU",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "Horizon Europe Mission Cancer — survivorship and quality-of-life topics",
+        "url": "https://research-and-innovation.ec.europa.eu/funding/funding-opportunities/funding-programmes-and-open-calls/horizon-europe/eu-missions-horizon-europe/eu-mission-cancer_en",
+        "deadline_or_cycle": "Annual work-programme cycles; 2026 calls being scoped",
+        "focus": "Cancer prevention, treatment, and quality-of-life for survivors"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "medium",
+        "rationale": "BT-04 funding line. Requires a multi-country consortium — depends on Champalimaud / NOVA / IPO PT participation + 1–2 EU partners.",
+        "expansion_match": "BT-04."
+      },
+      "what_we_offer_them": "PT BCS cohort + JITAI sensing layer + PerSense AUC 0.78 internal benchmark.",
+      "what_we_ask_them": "Co-applicant slots; consortium-formation introductions.",
+      "contact_path": {"preferred_channel": "EU NCP PT (via FCT) + EIT Health match-making", "named_person_or_team": null, "time_to_first_contact_days": 30, "time_to_loi_estimate_weeks": 26},
+      "evidence_anchors": ["EV-024", "EV-043", "EV-050", "EV-063"],
+      "score": {"pov_fit": 2, "speed_to_loi": 1, "multiplier_potential": 4, "evidence_strength": 3, "composite": 10},
+      "open_issues": ["EIC Accelerator success rate ~5.9% [EV-063]; Mission Cancer broadly similar — not a near-term cash line", "No consortium partners signed"],
+      "next_action": "Month 2–3 once academic anchors (Champalimaud / NOVA / ISPUP) are aligned."
+    },
+    {
+      "id": "PA-017",
+      "name": "Casa do Impacto (SCML) — Health track / MAZE-backed cohort",
+      "category": "bigimpact_named",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "Casa do Impacto incubation / acceleration cohorts (health-impact track)",
+        "url": "https://www.casadoimpacto.pt/",
+        "deadline_or_cycle": "Annual cohort intake (typically Q1)",
+        "focus": "Social-impact ventures; SCML backing; MAZE-linked"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "medium",
+        "rationale": "BIG Impact named partner. Useful for impact-narrative packaging (BCS social-cost framing) and warm intros to SCML-network hospitals; not directly a BT-03 buyer.",
+        "expansion_match": "BT-04 (impact-funding narrative); BIG Impact cohort signal."
+      },
+      "what_we_offer_them": "An impact story with concrete numbers (BCS treatment gap [EV-016/EV-019], AUC 0.78 detection capability [EV-043], PoV pilot site count) usable in SCML reporting.",
+      "what_we_ask_them": "(a) Cohort acceptance, (b) intros to SCML-network and MAZE health investors, (c) impact-measurement framework support.",
+      "contact_path": {"preferred_channel": "Casa do Impacto direct application + BIG Impact program coordinator", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 12},
+      "evidence_anchors": ["EV-016", "EV-019", "EV-025"],
+      "score": {"pov_fit": 2, "speed_to_loi": 3, "multiplier_potential": 3, "evidence_strength": 2, "composite": 10},
+      "open_issues": ["Current health-track program details and 2026 cohort cycle not verified — unverified program existence in current cycle", "Casa do Impacto support is reputational/intro, not a BT-03 LOI"],
+      "next_action": "Month 1: verify current cohort cycle dates with BIG Impact program coordinator."
+    },
+    {
+      "id": "PA-018",
+      "name": "Nova SBE — Health Economics & Management Knowledge Center",
+      "category": "bigimpact_named",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "Nova SBE Health Economics & Management Knowledge Center",
+        "url": "https://www.novasbe.unl.pt/en/faculty-research/research/research-knowledge-centers/health-economics-management-knowledge-center",
+        "deadline_or_cycle": "Rolling research collaborations; executive education cycles",
+        "focus": "Health economics, hospital management, value-based healthcare"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "medium",
+        "rationale": "BIG Impact named partner. Provides the cost-of-care framing that BT-03 buyers (and later BT-05 insurers) will demand: psycho-oncologist-FTE-equivalence math, NPS-impact modelling.",
+        "expansion_match": "BT-05 (insurer business case); BT-03 buyer-pitch credibility."
+      },
+      "what_we_offer_them": "A live PT pilot dataset for hospital-economics analysis; co-authorship on a BCS survivorship cost paper.",
+      "what_we_ask_them": "(a) Health-economics framework for the buyer pitch, (b) co-authorship on a PT BCS survivorship cost study, (c) intros to CUF/Lusíadas/Luz alumni in management roles.",
+      "contact_path": {"preferred_channel": "BIG Impact program coordinator → Nova SBE Health KC", "named_person_or_team": null, "time_to_first_contact_days": 7, "time_to_loi_estimate_weeks": 8},
+      "evidence_anchors": ["EV-016", "EV-019", "EV-074", "EV-084"],
+      "score": {"pov_fit": 3, "speed_to_loi": 3, "multiplier_potential": 4, "evidence_strength": 3, "composite": 13},
+      "open_issues": ["Specific Health KC senior researcher not named", "Output is academic, not a hospital LOI — must not be over-counted"],
+      "next_action": "Week 1–2: ask BIG Impact coordinator for a Nova SBE Health KC intro to discuss the BCS survivorship cost framing."
+    },
+    {
+      "id": "PA-019",
+      "name": "Fundação Mendes Gonçalves",
+      "category": "bigimpact_named",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "Fundação Mendes Gonçalves social-impact program (BIG Impact partner)",
+        "url": "https://www.fundacaomendesgoncalves.pt/",
+        "deadline_or_cycle": "Annual social-impact cycle (BIG Impact)",
+        "focus": "Social-impact, education, health social initiatives"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "low",
+        "rationale": "BIG Impact named partner. Limited direct BCS-survivorship program fit; primary value is BIG-Impact-cohort signalling and any small-grant matching.",
+        "expansion_match": "BIG Impact cohort credibility only."
+      },
+      "what_we_offer_them": "A measurable social-impact metric (BCS women monitored, alerts intercepted, treatment-gap closure %).",
+      "what_we_ask_them": "(a) Confirmation of any health-aligned grant cycle, (b) BIG Impact cohort visibility.",
+      "contact_path": {"preferred_channel": "BIG Impact program coordinator", "named_person_or_team": null, "time_to_first_contact_days": 7, "time_to_loi_estimate_weeks": 12},
+      "evidence_anchors": ["EV-019"],
+      "score": {"pov_fit": 1, "speed_to_loi": 2, "multiplier_potential": 2, "evidence_strength": 2, "composite": 7},
+      "open_issues": ["No verified specific health-funding program at Mendes Gonçalves Foundation surfaced in this brief — unverified program existence for BCS-fit", "Likely a generic foundation, not a health-specialised funder"],
+      "next_action": "Week 1–2: ask BIG Impact program coordinator whether Mendes Gonçalves has any health-aligned grant cycle in 2026."
+    },
+    {
+      "id": "PA-020",
+      "name": "Siemens Healthineers Portugal — Innovation",
+      "category": "bigimpact_named",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "Siemens Healthineers innovation challenges / digital-health partnerships (PT operations)",
+        "url": "https://www.siemens-healthineers.com/pt",
+        "deadline_or_cycle": "Internal innovation cycles; case-by-case partnerships",
+        "focus": "Imaging + diagnostic + digital-health; entry into oncology software is exploratory"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "low",
+        "rationale": "BIG Impact named partner. Healthineers' core is imaging, not psycho-oncology DTx; their BCS lens overlaps mainly via mammography workflow integration, which is adjacent — not BT-03's PoV core.",
+        "expansion_match": "Possible long-tail: integration with imaging-driven follow-up workflows in BT-03 hospitals."
+      },
+      "what_we_offer_them": "Optionality on a survivorship dashboard that complements imaging-driven follow-up at private senology centres.",
+      "what_we_ask_them": "(a) Innovation-team meeting via BIG Impact, (b) low-effort co-marketing or co-pilot conversation if a CUF/Luz site is shared.",
+      "contact_path": {"preferred_channel": "BIG Impact program coordinator", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 20},
+      "evidence_anchors": ["EV-050"],
+      "score": {"pov_fit": 1, "speed_to_loi": 1, "multiplier_potential": 2, "evidence_strength": 2, "composite": 6},
+      "open_issues": ["Healthineers PT-specific oncology-software innovation cycle not verified — unverified program existence", "Adjacency is weak; the JITAI + survivorship dashboard does not naturally bolt onto Healthineers' imaging stack"],
+      "next_action": "Defer; revisit only if a BT-03 hospital partner mentions a Healthineers contract overlap."
+    },
+    {
+      "id": "PA-021",
+      "name": "Médis (Ageas) — Programa de Oncologia",
+      "category": "insurer",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "Médis Programa de Oncologia (case management for oncology beneficiaries)",
+        "url": "https://www.medis.pt/",
+        "deadline_or_cycle": "Insurer-product cycles (slow); innovation conversations rolling",
+        "focus": "Oncology benefit management; case-management programs"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "low",
+        "rationale": "BT-05 future. PoV does not produce the cost-of-care delta insurers need (per chosen_thesis BT-05 rationale) — relationship-build only until BT-03 evidence exists.",
+        "expansion_match": "BT-05."
+      },
+      "what_we_offer_them": "Future visibility into a survivorship benefit usable in their NPS / oncology-benefit narrative.",
+      "what_we_ask_them": "Quarterly catch-up while PoV runs.",
+      "contact_path": {"preferred_channel": "Médis innovation/partnerships team direct", "named_person_or_team": null, "time_to_first_contact_days": 30, "time_to_loi_estimate_weeks": 52},
+      "evidence_anchors": ["EV-019", "EV-074"],
+      "score": {"pov_fit": 1, "speed_to_loi": 1, "multiplier_potential": 3, "evidence_strength": 2, "composite": 7},
+      "open_issues": ["BT-05 explicitly deferred in chosen_thesis", "PoV does not produce the actuarial outcome insurers need"],
+      "next_action": "Month 6+."
+    },
+    {
+      "id": "PA-022",
+      "name": "Ordem dos Psicólogos Portugueses (OPP) — Núcleo Psicologia da Saúde / Psico-oncologia",
+      "category": "sector_body",
+      "country": "PT",
+      "recommended_first_contact": false,
+      "relevant_program": {
+        "name": "OPP Núcleo de Psicologia da Saúde / psico-oncologia",
+        "url": "https://www.ordemdospsicologos.pt/",
+        "deadline_or_cycle": "Continuous; annual psychology congress",
+        "focus": "Professional regulation and standards for PT psychologists; psico-oncologia subgroup"
+      },
+      "fit_to_thesis": {
+        "wedge_match": "medium",
+        "rationale": "Endorsement reduces clinician-side resistance to JITAI alerts and supports the buyer-empathy story (alert volume bounded, psychologist-aligned escalation pathway).",
+        "expansion_match": "BT-03 buyer-pitch credibility; future BT-05 standard-setting."
+      },
+      "what_we_offer_them": "A protocol that respects clinician scope-of-practice (alerts trigger clinician-mediated outreach, not automated therapy) + transparent alert-volume budget.",
+      "what_we_ask_them": "(a) Endorsement letter on the alert-pathway design, (b) intro to the psico-oncologia working group lead.",
+      "contact_path": {"preferred_channel": "OPP direct via Núcleo de Psicologia da Saúde", "named_person_or_team": null, "time_to_first_contact_days": 14, "time_to_loi_estimate_weeks": 10},
+      "evidence_anchors": ["EV-016", "EV-019"],
+      "score": {"pov_fit": 2, "speed_to_loi": 3, "multiplier_potential": 3, "evidence_strength": 2, "composite": 10},
+      "open_issues": ["Current psico-oncologia subgroup lead not named here", "Endorsement is reputational, not contractual"],
+      "next_action": "Month 1–2: contact OPP Núcleo de Psicologia da Saúde."
     }
   ]
 }
