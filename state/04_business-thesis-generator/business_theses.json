@@ -1,203 +1,204 @@
 {
-  "generated_at": "2026-04-27T15:30:00Z",
+  "generated_at": "2026-04-27T00:00:00Z",
   "thesis_count": 5,
   "recommended_id": "BT-03",
-  "recommendation_rationale": "BT-03 (PT private oncology center / hospital group) has the best composite under PoV constraints: it is the thesis whose required pilot is closest to what is already feasible (≥2 hospital buyers @ ≥€200/mo, EV-047), shortest time to first revenue (~6–9 months), and produces exactly the data asset (hospital deployment + GAD-7/PHQ-9 endpoints in BCS) that unlocks BT-01 (DiGA) and BT-02 (pharma) downstream. It honors the Trojan Horse: narrow BCS wedge in PT private senology, then expand to oncology survivorship cohorts and DiGA-grade dossiers.",
+  "recommendation_rationale": "BT-03 (PT private oncology white-label, CUF/Lusiadas/Luz Saude) is the highest-composite, fastest-to-revenue option whose required pilot most closely matches the existing 8-12w PoV in BCS senology follow-up: it consumes problem.md v2's causal hypothesis (triagem episodica -> sintomas escalam) directly, the buyer (head of senology / oncology operations) has a budgeted line, and EV-047 already pre-validates the price point (>=2 hospitals @ >=EUR 200/mo). It also generates the clinical evidence and proprietary BCS data asset that unlock BT-01 (DiGA) and BT-04 (pharma) later, satisfying the Trojan-Horse-with-expansion test.",
+  "wedge_summary": "BCS in months 0-24 post active treatment, in PT hospital senology/oncology follow-up, between scheduled consultations - the exact friction window where the causal hypothesis 'triagem episodica -> sintomas escalam sem detecao' bites, and where PerSense's N=126 / AUC 0.78 moat applies.",
   "theses": [
     {
       "id": "BT-01",
-      "name": "DiGA companion-DTx for BCS survivorship (DE first, then EU)",
-      "one_line": "List a Class IIa BCS-survivorship adaptive DTx in the German DiGA Verzeichnis, reimbursed €200–600/patient/year by GKV, with PerSense's AUC 0.78 depression model as the clinical claim.",
-      "customer": "Statutory Health Insurance funds (GKV, 73M insureds [EV-061]); secondary EU payers via DiGA-equivalent pathways (FR PECAN, BE).",
-      "buyer_user_split": "GKV pays; oncologist or psycho-oncologist prescribes (DiGA can be physician-prescribed); BCS patient uses.",
-      "revenue_model": "Per-prescription, ~90-day activation, billed annually per active patient.",
-      "price_point_hypothesis": {"value": "€350/patient/year (mid-low band)", "evidence_ids": ["EV-060"], "note": "DiGA reimbursement band €200–600/patient/year [EV-060]; 42% of approved DiGAs are mental health [EV-035]; HelloBetter precedent [EV-027]."},
+      "name": "DiGA companion-DTx for BCS survivorship (DE -> EU)",
+      "one_line": "BfArM-listed adaptive DTx that detects between-consultation affective relapse in breast-cancer survivors, reimbursed per prescription by German GKV.",
+      "customer": "Statutory Health Insurance funds (GKV, 73M insured) [EV-061]",
+      "buyer_user_split": "GKV pays; oncologist/senologist or GP prescribes; BCS patient uses; hospital senology service refers",
+      "revenue_model": "Per-prescription, 90-day prescription cycle, reimbursed annually per active patient",
+      "price_point_hypothesis": {"value": "EUR 350/patient/year", "evidence_ids": ["EV-060"], "note": "lower-mid band of EV-060 EUR 200-600/patient/year DiGA reimbursement; conservative for an oncology-survivorship indication where 42% of approved DiGA are mental-health [EV-035] and Zanadio precedent exists [EV-032]"},
       "tam_serviceable": {
-        "value_eur": "~€26M/yr serviceable revenue at 10% penetration of EU BCS survivors",
-        "calc": "750K BCS survivors EU [EV-020] × 10% reachable via DiGA-equivalent reimbursement (DE+FR initially) × €350/yr = €26.25M. Conservative DE-only cut: ~150K BCS survivors in DE × 10% × €350 = €5.25M.",
-        "evidence_ids": ["EV-020", "EV-060", "EV-061", "EV-035"]
+        "value_eur": "EUR 26-79M/yr serviceable across DE+EU expansion",
+        "calc": "DE BCS prevalent survivors first 24mo ~125-150K (scaled from EU 750K [EV-020] x DE pop share ~17%) x 30-40% with clinical anxiety/depression [EV-019] = 37.5K-60K addressable. Assume 20-35% prescription penetration over 3 yr (anchored on Limbic 33% NHS adoption [EV-026]) = 7.5K-21K active patients/yr. At EUR 350/pt/yr [EV-060] => EUR 2.6-7.4M Yr3 DE-only run-rate; full DE ceiling EUR 13-21M; including EU expansion to 750K BCS [EV-020] same conversion => EUR 26-79M/yr serviceable",
+        "evidence_ids": ["EV-020", "EV-019", "EV-060", "EV-061", "EV-026", "EV-035"]
       },
       "time_to_first_revenue_months": 30,
       "regulatory_path": {
         "path": "MDR Class IIa + DiGA Fast-Track (BfArM)",
         "evidence_ids": ["EV-057", "EV-058", "EV-059"],
-        "cost_eur": "€300–700K MDR + €20–50K DiGA submission",
-        "timeline_months": "24–36 MDR + 3 mo DiGA provisional"
+        "cost_eur": "MDR EUR 300-700K [EV-057] + DiGA submission EUR 20-50K [EV-059]",
+        "timeline_months": "MDR 24-36 [EV-058] + DiGA provisional 3 mo [EV-059]"
       },
       "capital_intensity": "high",
-      "defensibility": "Clinical evidence (AUC 0.78 depression in BCS, N=126, 2 hospitals [EV-043]) + DiGA listing as regulatory moat + BCS-specific JITAI dataset (no competitor has BCS-cohort sensing data at this scale). HelloBetter-class barrier; takes a clone 2–3 years and €500K+ to replicate.",
-      "pov_pilot_fit": "Pilot must produce GAD-7/PHQ-9 endpoints + DiGA-grade data architecture (mindLAMP Hetzner GDPR [EV-038]) + audit-ready consent flow in BCS cohort. The current PoV's clinical-endpoint design is partially aligned but 8–12 weeks is too short for DiGA's required RCT-style evidence — pilot is feasibility/de-risking, not the DiGA dossier study itself. Mark as land-and-expand: BT-03 produces the seed data, BT-01 is the 24–36 mo Phase 2.",
-      "wedge": "BCS survivors in DE post-active-treatment, prescribed by university-hospital senology/psycho-oncology units that already engage with DiGA-listed apps (HelloBetter precedent, EV-027).",
-      "expansion_path": "Once the DiGA dossier proves clinical effect in BCS, expand the same DiGA listing to (a) other oncology survivorship cohorts (colorectal, gynecologic — EV-006), and (b) non-oncology chronic disease survivorship (cardiac rehab) under MDR Class IIa amendments. Adjacent buyer: French PECAN, then NL/BE payer equivalents.",
-      "buyer_pain": "GKV's monetizable pain: untreated post-cancer mental health drives downstream costs (recurrence-related psychosomatic GP visits, antidepressant escalation). EU mental-health burden >€100B/yr [EV-078]; Swiss Re/Wysa precedent showed -30% depression KPI for insurer [EV-036]. A €350/yr prescription that prevents one €1.5K psychiatry referral per 5 patients is positive ROI.",
+      "defensibility": "BCS-specific labelled training data (PerSense N=126 AUC 0.78 [EV-043]) + DiGA listing acts as a regulatory moat; 42% of approved DiGA are mental-health [EV-035] but none are BCS-specific; HelloBetter shows 30+ RCT evidence floor is the German norm [EV-027]",
+      "pov_pilot_fit": "PoV must produce DiGA-grade endpoints (PHQ-9/GAD-7 change scores, between-consultation alert precision, consent >=50% lifting the 34% iNNOVSensing baseline [EV-041]). The current 8-12w PoV in PT senology generates these signals, but DiGA evidence threshold ultimately needs an RCT - PoV is a *necessary precursor* not the dossier itself.",
+      "wedge": "BCS in DE oncology-aftercare (Nachsorge) clinics, months 0-24 post active treatment, prescribed at the 2nd post-treatment senology visit when patient is most at risk of unobserved affective relapse [problem.md v2 causal hypothesis].",
+      "expansion_path": "1) Once DE-listed, fast-follow EU mutual recognition into PT (private oncology), ES (CAGR 18.5% [EV-076]), FR (EUR 0.7B mkt [EV-055]). 2) Extend label to colorectal and other solid-tumour survivorship using same JITAI mechanism, multiplying TAM 3-5x without retraining the regulatory pathway.",
+      "buyer_pain": "GKV: untreated post-cancer depression escalates to long-term sick leave / disability claims. Oncology = EUR 810M most-funded segment of EU digital health 2024 [EV-050] precisely because payers see survivorship cost spiral. <20% of BCS receive formal psych support today [EV-016] = ~30K untreated cases/yr in DE alone, each plausibly costing GKV 4-5 figures in unscheduled care.",
       "top_risks": [
-        "MDR Class IIa cost/timeline (€300–700K, 24–36 mo) burns runway before revenue [EV-057, EV-058] — Pear Therapeutics/Mindstrong cautionary tales [EV-068, EV-069].",
-        "JITAI meta-analysis effect size is small (g=0.15 [EV-022]) — DiGA evaluation may demand stronger BCS-specific RCT.",
-        "Germany-first requires German clinical sites and DE-language adaptation; PerSense's evidence base is PT-anchored."
+        "Pear/Mindstrong precedent: scaling before evidence destroyed $160M [EV-069] / $1.6B [EV-068]; DiGA may not survive an underpowered RCT.",
+        "MDR IIa cost EUR 300-700K + 24-36mo [EV-057, EV-058] requires bridging financing; Kintsugi burned $16M / 4yr in FDA [EV-070].",
+        "DE oncology-aftercare prescriber adoption is unproven for an algorithmic JITAI; HelloBetter precedent is for self-guided CBT, not adaptive sensing."
       ],
       "open_issues": [
-        "AUC 0.78 [EV-043] is internal_only N=126; not yet a regulator-grade clinical claim — needs external replication.",
-        "No BCS-specific RCT in the ledger that connects JITAI effect size to BCS depression outcomes — DiGA reviewer may reject extrapolation.",
-        "DE clinical partner not yet identified; HelloBetter expansion to FR is the only adjacent precedent [EV-027]."
+        "AUC 0.78 [EV-043, internal_only] generalisation to a DE cohort unknown.",
+        "DiGA evidence requirements for an adaptive/ML product (vs static CBT) are evolving - acceptance of a learning algorithm not guaranteed.",
+        "No DE clinical partner currently identified."
       ],
-      "score": {"evidence_strength": 4, "time_to_revenue": 1, "capital_efficiency": 2, "defensibility": 5, "pov_alignment": 3, "composite": 15},
-      "evidence_refs": ["EV-019", "EV-020", "EV-022", "EV-027", "EV-035", "EV-038", "EV-043", "EV-057", "EV-058", "EV-059", "EV-060", "EV-061", "EV-068", "EV-069", "EV-078"]
+      "score": {"evidence_strength": 5, "time_to_revenue": 1, "capital_efficiency": 2, "defensibility": 5, "pov_alignment": 3, "composite": 16},
+      "evidence_refs": ["EV-016", "EV-019", "EV-020", "EV-022", "EV-024", "EV-025", "EV-027", "EV-032", "EV-035", "EV-041", "EV-042", "EV-043", "EV-050", "EV-053", "EV-055", "EV-057", "EV-058", "EV-059", "EV-060", "EV-061", "EV-068", "EV-069", "EV-070", "EV-076"]
     },
     {
       "id": "BT-02",
-      "name": "Pharma companion / BCS survivorship grant (Roche, Pfizer, Novartis)",
-      "one_line": "License PerSense as a digital companion to a pharma sponsor's BCS portfolio (e.g., Roche Kadcyla/Phesgo, Pfizer Ibrance, Novartis Kisqali) for survivorship engagement and real-world evidence on adherence + affective trajectories.",
-      "customer": "Pharma medical-affairs / digital-health innovation arms (Roche, Pfizer, Novartis, Lilly breast-oncology divisions).",
-      "buyer_user_split": "Pharma sponsor pays research-services contract; oncologist enrolls; BCS patient uses; data flows back to pharma (pseudonymized RWE on adherence, PROs, affective state).",
-      "revenue_model": "Multi-year research-services contract per cohort/study; €20–60K per contract milestone, scaling to €200K–€1M for multi-site registry.",
-      "price_point_hypothesis": {"value": "€40K initial pilot contract; €250K–€1M multi-year RWE registry", "evidence_ids": ["EV-073"], "note": "Anchor: pharma research-services contracts €20–60K [EV-073]; scaled by N=200–500 BCS multi-year registry."},
+      "name": "Pharma companion / BCS adherence research-services",
+      "one_line": "Sell PerSense as a deployed sensing+EMA platform to oncology pharma (Roche/Pfizer/Novartis/AstraZeneca) for adjuvant-therapy adherence and PRO-collection in BCS post-treatment cohorts.",
+      "customer": "Oncology pharma medical-affairs / RWE / clinical-development teams (Roche, Pfizer, Novartis, AstraZeneca)",
+      "buyer_user_split": "Pharma sponsor pays research-services contract; hospital is study site; BCS patient consents as study participant",
+      "revenue_model": "Fee-per-contract (per-study), milestone-based; recurring once first contract lands",
+      "price_point_hypothesis": {"value": "EUR 40K/contract initial, scaling to EUR 150-300K/multi-site study", "evidence_ids": ["EV-073"], "note": "EV-073 EUR 20-60K/contract entry research services; multi-site oncology studies command 3-5x"},
       "tam_serviceable": {
-        "value_eur": "~€3–8M/yr serviceable",
-        "calc": "Top-4 breast-oncology pharma × 1–2 cohort contracts/yr × €250K–€1M = €1M–€8M; conservative early-stage €3M.",
+        "value_eur": "EUR 6-12M/yr serviceable (5-15 contracts/yr globally)",
+        "calc": "Top 4 oncology pharma each run 5-10 BCS adjuvant or survivorship studies/yr EU-wide. Capture 1-3 contracts/sponsor at EUR 100-300K avg => EUR 0.4-3.6M/sponsor; portfolio of 5-15 contracts/yr realistic => EUR 6-12M serviceable. Anchored on EV-073 (EUR 20-60K) and EV-050 (EUR 810M oncology = most-funded segment 2024)",
         "evidence_ids": ["EV-073", "EV-050"]
       },
-      "time_to_first_revenue_months": 12,
+      "time_to_first_revenue_months": 9,
       "regulatory_path": {
-        "path": "None for research-services (data processor under sponsor's protocol); MDR Class I if branded as a wellness adjunct",
-        "evidence_ids": ["EV-062"],
-        "cost_eur": "€0–80K (GDPR/DPA + light QMS)",
-        "timeline_months": "0–6"
+        "path": "MDR Class I as research tool / GCP-aligned data collection; no DTx claim required initially",
+        "evidence_ids": ["EV-038", "EV-062"],
+        "cost_eur": "EUR 30-60K (mindLAMP/Beiwe deployment + GDPR compliance); GDPR liability EUR 2.3M precedent [EV-062]",
+        "timeline_months": "3-6"
       },
       "capital_intensity": "low",
-      "defensibility": "BCS-specific JITAI dataset + AUC 0.78 depression model [EV-043] is uniquely valuable to pharma seeking PRO/affective signals adjacent to drug adherence. Oncology is the most-funded EU digital-health segment ($810M in 2024 [EV-050]). Jasper Health raised $31.8M on a similar thesis [EV-025].",
-      "pov_pilot_fit": "Pilot must demonstrate (a) consent rate above the 34% iNNOVSensing baseline [EV-041], (b) data completeness ≥70% [EV-047], (c) at least one affective-state signal correlating with adherence proxies. Current PoV design is well-aligned IF a pharma observer is invited to scope.",
-      "wedge": "BCS survivors on adjuvant CDK4/6-inhibitor or anti-HER2 therapy in PT IPO/university hospitals — sponsor cares about adherence drop-off in months 6–24 (well-documented industry pain).",
-      "expansion_path": "Once one BCS pharma contract is signed, expand to (a) other tumor types in same sponsor's portfolio (lung, GI), (b) CNS pharma (Lundbeck, Otsuka) for SSRI-adherence — bridging into the broader mental-health pharma RWE market. Adjacent buyer: CRO partnerships (IQVIA, Parexel) as channel multipliers.",
-      "buyer_pain": "Pharma medical-affairs pain: post-launch RWE generation costs $500K–$2M per study; affective-state PROs in BCS adjuvant therapy are essentially uncollected. A €250K JITAI-based registry that produces 12 months of EMA + sensor data on N=200 is 3–5× cheaper than a CRO equivalent.",
+      "defensibility": "PerSense BCS-specific cohort + AUC 0.78 [EV-043] differentiates vs generic ePRO/Beiwe deployments; 2-hospital iNNOVSensing channel in PT is the network moat; PT validation 50% cheaper than NHS [EV-080]",
+      "pov_pilot_fit": "PoV directly de-risks: shows the platform collects high-fidelity sensing+EMA in BCS at >=70% completeness [EV-047], which is exactly the SLA pharma buys. The 8-12w pilot becomes the reference deployment for pharma RFP responses.",
+      "wedge": "First contract: a single PT- or EU-based oncology pharma medical-affairs study on adjuvant endocrine-therapy adherence in BCS months 0-24, where PerSense provides the passive sensing + adherence-EMA layer the sponsor cannot easily build in-house.",
+      "expansion_path": "1) Once 1 contract delivers, expand to multi-cohort surveillance (colorectal, prostate) within same sponsor. 2) Use accumulated cross-sponsor RWE to underwrite a pharma-funded RCT that doubles as the DiGA dossier (BT-01) - pharma de-risks BT-01.",
+      "buyer_pain": "Pharma medical-affairs pain: adjuvant endocrine-therapy adherence in BCS is ~50% at 5 yr; every 10pp of adherence loss costs sponsor measurable revenue + harms outcomes. PerSense gives them context-sensitive adherence data the EMR doesn't capture. PT validation 50% cheaper than NHS (EUR 80-150K vs EUR 300K) [EV-080].",
       "top_risks": [
-        "Pharma sales cycles are 12–18 months and require named champion; PerSense has no documented pharma LOI.",
-        "Pharma may demand exclusivity that locks out BT-01 DiGA path or BT-03 hospital expansion.",
-        "Reputational risk if a pharma-funded study is perceived as marketing rather than clinical evidence — credibility for DiGA dossier could be compromised."
+        "Pharma sales cycles are 6-12mo and procurement-heavy; no warm intro yet documented.",
+        "Commoditisation: Beiwe ($3.50-80/participant/mo [EV-037]) and mindLAMP (EUR 30-50/mo [EV-038]) are open-source substitutes; differentiation must rest on BCS labelled-data + service delivery.",
+        "GDPR liability EUR 2.3M precedent [EV-062] - any breach is existential."
       ],
       "open_issues": [
-        "No named pharma champion in the strategic report — outreach plan unwritten.",
-        "Whether PerSense's data architecture meets pharma SDTM/CDISC requirements is unverified.",
-        "Pricing anchor [EV-073] is broad; specific per-patient-month rate for BCS adherence registries not benchmarked."
+        "No named pharma counterparty yet (Roche/Lundbeck only mentioned generically in EV-073).",
+        "Whether AUC 0.78 [EV-043] is a sellable proof-point for adherence (not just depression detection).",
+        "Whether team has BD bandwidth for pharma sales cycles in parallel with PoV execution."
       ],
-      "score": {"evidence_strength": 3, "time_to_revenue": 4, "capital_efficiency": 4, "defensibility": 3, "pov_alignment": 3, "composite": 17},
-      "evidence_refs": ["EV-019", "EV-020", "EV-025", "EV-041", "EV-043", "EV-047", "EV-050", "EV-062", "EV-073"]
+      "score": {"evidence_strength": 3, "time_to_revenue": 4, "capital_efficiency": 5, "defensibility": 3, "pov_alignment": 4, "composite": 19},
+      "evidence_refs": ["EV-019", "EV-020", "EV-037", "EV-038", "EV-043", "EV-047", "EV-050", "EV-062", "EV-073", "EV-080"]
     },
     {
       "id": "BT-03",
-      "name": "PT private oncology center / hospital group white-label (CUF, Lusíadas, Luz Saúde)",
-      "one_line": "Sell the PerSense BCS survivorship dashboard + JITAI app as a white-label clinical service to PT private oncology lines (CUF Oncologia, Lusíadas, Luz Saúde), priced as an annual hospital subscription, with senology/psycho-oncology directors as the buyers.",
-      "customer": "Private hospital group oncology service-line directors and psycho-oncology coordinators in PT (CUF, Lusíadas, Luz Saúde, Hospital da Luz).",
-      "buyer_user_split": "Hospital department pays subscription; senologist/oncologist refers; psycho-oncologist or specialist nurse monitors dashboard; BCS patient uses app between visits.",
-      "revenue_model": "Annual hospital subscription + per-clinician seat. €15–30K/year base + €100–300/clinician/month, with €5–10K setup.",
-      "price_point_hypothesis": {"value": "€20K/year hospital base + €200/clinician/month", "evidence_ids": ["EV-083", "EV-084", "EV-047"], "note": "White-label B2B band €15–50K/yr [EV-083]; PerSense Phase-2 dashboard €500–2K/mo [EV-084]; PoV threshold ≥2 buyers @ ≥€200/mo [EV-047]."},
+      "name": "PT private oncology white-label (CUF / Lusiadas / Luz Saude)",
+      "one_line": "Subscription dashboard + JITAI sensing layer for BCS senology follow-up, sold per-hospital to PT private oncology operators that already differentiate on patient experience.",
+      "customer": "PT private hospital groups: head of oncology / senology / quality (CUF Oncologia, Lusiadas, Luz Saude)",
+      "buyer_user_split": "Hospital pays SaaS; senology team uses dashboard; BCS patient uses app; oncologist remains accountable physician",
+      "revenue_model": "SaaS per-hospital, monthly subscription + light setup; optional per-active-case overage",
+      "price_point_hypothesis": {"value": "EUR 800-1500/hospital/month base", "evidence_ids": ["EV-084", "EV-083", "EV-047"], "note": "Anchored on PerSense Phase-2 hospital subscription EUR 500-2K/mo [EV-084], white-label B2B benchmark EUR 15-50K/yr [EV-083], and PoV success threshold of >=2 buyers @ >=EUR 200/mo [EV-047]; private oncology pays the upper band because the buyer is a margin centre"},
       "tam_serviceable": {
-        "value_eur": "~€1.5–3M/yr PT serviceable",
-        "calc": "~30 PT private + IPO oncology service lines treating BCS × ~50% addressable in 24 mo × ~€20K base + 3 clinician seats × €200/mo × 12 = ~€32K/site/yr; 15 sites × €32K = €480K/yr early; expanded to 50 sites EU-PT/ES → €1.5M+. Spain mental-health digital market €420M [EV-076] supports cross-border expansion.",
-        "evidence_ids": ["EV-019", "EV-020", "EV-083", "EV-084", "EV-076"]
+        "value_eur": "EUR 0.5-1.0M/yr PT serviceable",
+        "calc": "PT private oncology = ~3 large groups (CUF, Lusiadas, Luz) x avg 8 senology-active sites = ~24 hospital-units. Capture 30-50% over 3 yr = 7-12 active sites @ EUR 800-1500/mo = EUR 67K-216K/yr Yr2; full PT private TAM EUR 0.5-1M/yr including overages and module expansion. PT digital-mental-health market EUR 40-60M [EV-074] gives ceiling sanity.",
+        "evidence_ids": ["EV-074", "EV-083", "EV-084", "EV-047", "EV-019"]
       },
-      "time_to_first_revenue_months": 9,
+      "time_to_first_revenue_months": 6,
       "regulatory_path": {
-        "path": "MDR Class I (clinical decision support, non-diagnostic) initially; Class IIa upgrade once expansion to DiGA",
-        "evidence_ids": ["EV-057", "EV-062"],
-        "cost_eur": "€20–50K initial QMS + DPIA/GDPR",
-        "timeline_months": "3–6"
+        "path": "MDR Class I as wellness/triage decision-support (no diagnostic claim) initially; upgrade to Class IIa once revenue funds it",
+        "evidence_ids": ["EV-057", "EV-058", "EV-062"],
+        "cost_eur": "Class I self-certification + GDPR <EUR 30K initially; Class IIa upgrade EUR 300-700K [EV-057]",
+        "timeline_months": "Class I 3-6; IIa upgrade 24-36 [EV-058]"
       },
       "capital_intensity": "low",
-      "defensibility": "Existing 2-hospital deployment + N=126 BCS dataset + AUC 0.78 model [EV-043] = no PT competitor can demonstrate BCS-specific track record. Local language, GDPR-on-Hetzner [EV-038], existing relationships with senology/psycho-oncology PIs. SilverCloud-style hospital lock-in [EV-033]: once integrated into the survivorship pathway, switching cost is high.",
-      "pov_pilot_fit": "Direct fit. The PoV success metrics are explicitly written to validate this thesis: ≥2 hospitals say they would pay ≥€200/mo [EV-047]; ≥70% data completeness; ≥50% eligibility approached. Pilot cost €5–10K [EV-046]. Run at IPO + 1 private hospital BCS clinic; outcome converts directly to LOI/contract.",
-      "wedge": "BCS survivors in first 24 months post-active-treatment seen at PT private senology clinics (CUF Oncologia BCS line, Lusíadas mama-unit) — buyer has visible psycho-oncology capacity gap and pays a flat monthly price to extend monitoring between consultations.",
-      "expansion_path": "Once 5+ PT BCS sites are paying, expand on three vectors: (a) other oncology survivorship cohorts in the same hospital groups (colorectal, gynecologic — EV-006); (b) ES private hospital groups (Quirón, HM, Vithas) leveraging ES market [EV-076]; (c) the dashboard + GAD-7/PHQ-9 longitudinal dataset becomes the seed for BT-01 DiGA dossier and BT-02 pharma RWE contracts.",
-      "buyer_pain": "Senology/psycho-oncology director's monetizable pain: <20% of BCS receive psychological support [EV-016] yet 30–40% have clinical anxiety/depression [EV-019] — director cannot scale 1:1 psycho-oncology to the cohort and lacks visibility on between-visit deterioration. A €200/clinician/mo dashboard that flags high-risk patients (AUC 0.78 [EV-043]) avoids ~1 escalated psychiatric referral/month/clinician (~€500–1K cost externalized to family or SNS), improves retention in private oncology follow-up (revenue protection per BCS patient ~€2–5K/yr in private follow-up).",
+      "defensibility": "PerSense N=126 / AUC 0.78 [EV-043] is unique in PT BCS; iNNOVSensing relationships at 2 PT hospitals are the channel head-start; PT cost-of-validation 50% lower than NHS [EV-080] makes evidence accumulation cheap",
+      "pov_pilot_fit": "Highest fit: the 8-12w PoV [EV-046] is *literally* a pilot deployment at PT senology hospital(s). The PoV success metric (>=2 hospitals/therapists pay >=EUR 200/mo [EV-047]) is the exact contract-conversion test for this thesis. No re-design required.",
+      "wedge": "One CUF or Luz senology unit, BCS in months 0-24 post-treatment, between scheduled consultations - the exact friction in problem.md v2 ('triagem episodica -> sintomas escalam'). Buyer signs because <20% of their BCS receive formal psych support [EV-016] and the gap is visible in their NPS / quality reporting.",
+      "expansion_path": "1) Once 2-3 senology units live, layer pharma research-services contracts (BT-02) on the same deployment - same data, second buyer. 2) Once 6-12 mo of clinical evidence is accumulated cheaply [EV-080], it underwrites the BT-01 DiGA dossier in DE - hospital revenue funds regulatory.",
+      "buyer_pain": "Private oncology head: BCS retention/NPS is the differentiator vs SNS; an undetected affective relapse = churned patient + complaint. <20% of BCS get formal psych support today [EV-016]; head can't add a psycho-oncologist FTE (~EUR 60-80K/yr) but can pay EUR 10-18K/yr for a SaaS that catches the same signal earlier.",
       "top_risks": [
-        "Private hospital procurement cycles can stall (3–9 mo); mitigation: signed LOI from IPO and 1 private partner before pilot kickoff.",
-        "Preference for in-person support documented in iNNOVSensing [EV-042] — buyer may want hybrid not pure-digital.",
-        "PT-only TAM is small (~€40–60M total digital MH market [EV-074]); cross-border expansion is required, not optional."
+        "PT private market is small (3 groups); concentration risk - losing one buyer halves the TAM.",
+        "Free-rider clinicians: dashboards adopted but not used; engagement collapses (Limbic-style integration into referral pathway [EV-026] required).",
+        "Regulatory drift: as evidence claims grow, MDR Class IIa becomes mandatory and capex returns."
       ],
       "open_issues": [
-        "No signed LOI from CUF/Lusíadas/Luz Saúde yet — assumed willingness based on market structure, not validated.",
-        "Whether the €200/clinician/mo price is a ceiling or a floor in PT private hospitals is not benchmarked.",
-        "MDR Class I scope is defensible only if the JITAI is positioned as monitoring, not diagnostic — line is fuzzy and may be challenged by Notified Body."
+        "Buyer-side number for clinician burden: how many alerts/week senology can absorb without new hires (problem.md v2 open issue 3).",
+        "Whether CUF/Lusiadas/Luz procurement actually closes within 6 mo - no signed LOI yet.",
+        "Whether BCS month-0-24 follow-up is sufficiently standardised across the 3 groups to deploy a single product."
       ],
-      "score": {"evidence_strength": 4, "time_to_revenue": 4, "capital_efficiency": 5, "defensibility": 3, "pov_alignment": 5, "composite": 21},
-      "evidence_refs": ["EV-016", "EV-019", "EV-020", "EV-033", "EV-038", "EV-042", "EV-043", "EV-046", "EV-047", "EV-057", "EV-074", "EV-076", "EV-083", "EV-084"]
+      "score": {"evidence_strength": 4, "time_to_revenue": 5, "capital_efficiency": 5, "defensibility": 4, "pov_alignment": 5, "composite": 23},
+      "evidence_refs": ["EV-016", "EV-019", "EV-020", "EV-026", "EV-041", "EV-042", "EV-043", "EV-046", "EV-047", "EV-057", "EV-058", "EV-062", "EV-074", "EV-080", "EV-083", "EV-084"]
     },
     {
       "id": "BT-04",
-      "name": "IPO / public oncology centers via institutional collaboration + EU-funded research",
-      "one_line": "Anchor PerSense in IPO Lisboa/Porto/Coimbra and university hospital BCS survivorship programs as the institutional digital-survivorship layer, funded by EU/PT non-dilutive (COMPETE 2030, EIC, Horizon, FCT) — research-services revenue + platform-licensing once mature.",
-      "customer": "IPO institutional research/clinical leadership; university hospital senology departments; co-funded by COMPETE 2030 / EIC / Horizon EU consortia.",
-      "buyer_user_split": "Public hospital signs research-collaboration agreement; PI is the formal buyer; grant funds underwrite revenue; BCS patients enrolled via standard-of-care.",
-      "revenue_model": "Grant-funded research-services contracts (€80–300K per project); transition to per-site licensing fee (~€10–20K/yr) post-grant.",
-      "price_point_hypothesis": {"value": "€150K average research-services contract; €15K/yr post-grant license", "evidence_ids": ["EV-080", "EV-066", "EV-079", "EV-044"], "note": "PT validation studies €80–150K vs €300K NHS [EV-080]; PerSense FCT €300K precedent [EV-044]; COMPETE 2030 €3.9B pool [EV-066]."},
+      "name": "IPO / public oncology + EU-funded research consortium",
+      "one_line": "Deploy PerSense in PT public oncology (IPO Lisboa/Porto/Coimbra) under EU/PT non-dilutive funding (COMPETE 2030, EIC Transition, PRR) as a research-anchored revenue line.",
+      "customer": "IPO institutions and university hospitals as research-grant co-applicants; ultimate funder = COMPETE 2030 / EIC / FCT",
+      "buyer_user_split": "Grant pays the consortium; PerSense is paid project-line subcontractor; IPO is study site; BCS patient is research participant",
+      "revenue_model": "Project-based grant subcontracts; recurring via stacked grant cycles",
+      "price_point_hypothesis": {"value": "EUR 200-500K/grant cycle (3-yr project)", "evidence_ids": ["EV-044", "EV-045", "EV-066", "EV-079", "EV-065"], "note": "Anchored on PerSense FCT EUR 300K [EV-044], PRODROMUS EUR 300K FLAD [EV-045], COMPETE 2030 / PRR up to EUR 4M [EV-079], EIC Transition EUR 2.5M [EV-065]"},
       "tam_serviceable": {
-        "value_eur": "~€0.8–2M/yr serviceable",
-        "calc": "5–8 IPO/university hospital sites × €150K avg multi-year contract amortized = ~€500K–€1.2M/yr; plus 1–2 EU consortium memberships at €200–500K each.",
-        "evidence_ids": ["EV-044", "EV-063", "EV-066", "EV-079", "EV-080"]
+        "value_eur": "EUR 0.6-1.5M/yr smoothed",
+        "calc": "1-2 active grants at any time x EUR 300K-500K/grant amortised over 2-3 yr => EUR 200-500K/yr. Stretch to EUR 1-1.5M/yr with EIC Transition [EV-065] or COMPETE 2030 [EV-066] win. COMPETE 2030 dotation EUR 3.9B [EV-066] gives ceiling sanity.",
+        "evidence_ids": ["EV-044", "EV-045", "EV-063", "EV-064", "EV-065", "EV-066", "EV-079"]
       },
-      "time_to_first_revenue_months": 9,
+      "time_to_first_revenue_months": 12,
       "regulatory_path": {
-        "path": "Research-grade (no MDR for non-product use); MDR Class I for any clinical-deployment expansion",
+        "path": "Research-only (ethics committee approval); no MDR required while research-only",
         "evidence_ids": ["EV-062"],
-        "cost_eur": "€10–30K (DPIA + ethics)",
-        "timeline_months": "3–6"
+        "cost_eur": "<EUR 20K (ethics + GDPR)",
+        "timeline_months": "3-6"
       },
       "capital_intensity": "low",
-      "defensibility": "FCT €300K [EV-044] + PRODROMUS €300K FLAD [EV-045] precedents show grant-stacking competence. PT cost advantage (validation €80–150K vs NHS €300K [EV-080]) creates a structural moat for EU consortia seeking lean BCS sites. Existing 2-hospital footprint [EV-043] makes IPO/university expansion credible.",
-      "pov_pilot_fit": "PoV doubles as feasibility data for the next FCT/COMPETE/EIC grant. Pilot cost €5–10K [EV-046] vs iNNOVSensing €120K [EV-048] is a strong pitch for grant reviewers. Alignment is good but slightly tangential — pilot is optimized for buyer-LOI evidence, not grant-narrative evidence.",
-      "wedge": "BCS survivors in IPO Lisboa/Porto/Coimbra senology/onco-psychology programs — institutional cohort with 36K PT BCS [EV-020] gives a defensible PT-centric grant story.",
-      "expansion_path": "Once 1–2 EU consortium grants land, expand to (a) other oncology cohorts within the same IPO institutional access; (b) Horizon EU multi-country BCS consortium with DE/ES/FR partners (de facto regulatory soft-launch for BT-01 DiGA); (c) pharma sponsorship layered onto a grant-funded registry (BT-02 hybrid).",
-      "buyer_pain": "IPO institutional pain: research output and grant capture are KPIs; psycho-oncology has poor visibility despite being a ministry priority. PerSense provides a turnkey BCS digital-survivorship cohort that makes the PI competitive for FCT/EIC. Monetizable: a €300K FCT win = ~€100K to PerSense, ~€200K to PI/institution.",
+      "defensibility": "PerSense BCS dataset + 2-hospital iNNOVSensing track record + active FCT [EV-044] make the consortium credible; competitors without a PT clinical anchor cannot bid into IPO-led calls",
+      "pov_pilot_fit": "PoV outputs (consent rate, data completeness, AUC replication) directly populate the next grant proposal. But pilot does not by itself produce revenue - first grant pays 9-15mo later. PoV-alignment moderate.",
+      "wedge": "BCS at IPO-Lisboa senology, replication of AUC 0.78 [EV-043] in a 3rd hospital under a PerSense-led FCT/COMPETE 2030 follow-on grant - same causal hypothesis (triagem episodica) but now with public-system buyer narrative.",
+      "expansion_path": "1) Grant data feeds DiGA (BT-01) and pharma (BT-02) evidence dossiers at marginal cost. 2) Public-system success unlocks SNS contracting once a public-DTx pathway exists in PT (currently absent - acknowledged risk).",
+      "buyer_pain": "IPO directors: consortium-grade research output and EU programme participation are KPIs in their own right; SNS waiting times for psychology >300 days in some regions [EV-013] but no budget for solutions. Grants relieve the budget constraint.",
       "top_risks": [
-        "Grant cycles are non-recurring revenue and lumpy — can't sustain a 4-FTE team alone.",
-        "EIC Accelerator success rate ~5.9% [EV-063]; can't rely on any single application.",
-        "IPO procurement and IRB cycles are slow (6–12 mo); thesis hides behind grant-funded research mode rather than product-market fit."
+        "EIC Accelerator success rate ~5.9% [EV-063] - statistically most grants fail.",
+        "Grant revenue is lumpy and time-bounded; not a true commercial business.",
+        "PT lacks a public DTx reimbursement pathway [EV-074]; expansion to recurring SNS revenue is structurally blocked today."
       ],
       "open_issues": [
-        "Conversion path from grant-funded research to recurring license is unproven — many academic-spinout DTx fail at this transition.",
-        "No EU consortium partner identified; HelloBetter's FR expansion [EV-027] is the kind of partner needed.",
-        "Whether IPO will pay for a license post-grant or expect the tool gratis as an academic deliverable is unanswered."
+        "Whether team has bandwidth to write 2-3 grant proposals in parallel with commercial PoV.",
+        "Whether IPO PIs are committed (no signed LoI documented).",
+        "Whether grant cashflow can sustain MDR investment without dilutive top-up."
       ],
-      "score": {"evidence_strength": 4, "time_to_revenue": 4, "capital_efficiency": 5, "defensibility": 3, "pov_alignment": 4, "composite": 20},
-      "evidence_refs": ["EV-019", "EV-020", "EV-043", "EV-044", "EV-045", "EV-046", "EV-048", "EV-062", "EV-063", "EV-066", "EV-079", "EV-080"]
+      "score": {"evidence_strength": 4, "time_to_revenue": 3, "capital_efficiency": 5, "defensibility": 3, "pov_alignment": 3, "composite": 18},
+      "evidence_refs": ["EV-013", "EV-019", "EV-043", "EV-044", "EV-045", "EV-062", "EV-063", "EV-064", "EV-065", "EV-066", "EV-074", "EV-079", "EV-080"]
     },
     {
       "id": "BT-05",
-      "name": "Insurer survivorship benefit (Médis, Multicare oncology riders)",
-      "one_line": "Embed PerSense as a survivorship mental-health benefit in PT private health insurance oncology riders (Médis Oncologia, Multicare, AdvanceCare), priced per-life-covered, justified by avoided downstream MH claims.",
-      "customer": "PT private health insurers (Médis/Ageas, Multicare/Fidelidade, AdvanceCare/Generali) and reinsurer co-packagers (Swiss Re).",
-      "buyer_user_split": "Insurer pays per-life-covered fee; insured BCS patient activates app via app-store + insurer code; oncologist optional touchpoint.",
-      "revenue_model": "Per-member-per-month (PMPM) for activated BCS-survivor lives, €5–15/user/mo, plus a fixed program fee €20–50K/yr.",
-      "price_point_hypothesis": {"value": "€8/active-user/month + €30K/yr program fee", "evidence_ids": ["EV-083", "EV-036", "EV-072"], "note": "Per-user €5–15/mo [EV-083]; Swiss Re/Wysa precedent showed -30% depression KPI [EV-036]; 40% of new MH partnerships now insurer-led [EV-072]."},
+      "name": "Insurer survivorship benefit (Medis Oncologia / Multicare / AdvanceCare)",
+      "one_line": "PT private health insurer adds PerSense as a covered benefit inside oncology / survivorship plans, paying per-active-life to reduce escalation cost in BCS post-treatment.",
+      "customer": "PT private health insurers: Medis (Ageas), Multicare (Fidelidade), AdvanceCare",
+      "buyer_user_split": "Insurer pays per covered life; insured BCS patient enrols via oncology benefit; treating oncologist signs off",
+      "revenue_model": "Per-member-per-month (PMPM) for enrolled BCS lives, optionally outcomes-linked",
+      "price_point_hypothesis": {"value": "EUR 8-12/active BCS life/month", "evidence_ids": ["EV-083", "EV-072", "EV-036"], "note": "Anchored on EV-083 EUR 5-15/active user/mo and Swiss Re/Wysa precedent [EV-036] of insurer-grade pricing; 40% of new mental-health partnerships are insurer-led [EV-072]"},
       "tam_serviceable": {
-        "value_eur": "~€1–2.5M/yr serviceable PT",
-        "calc": "PT private insurers cover ~3M lives; ~5K BCS survivors among insured × 30% activation × €8/mo × 12 = ~€144K/yr per insurer; 3 insurers × scaled 3–5× over 36 mo = €1.5–2M.",
-        "evidence_ids": ["EV-020", "EV-072", "EV-083"]
+        "value_eur": "EUR 0.4-0.9M/yr PT serviceable",
+        "calc": "PT private health insurance covers ~2.5M lives. BCS prevalence in working-age covered population ~0.3-0.5% => 7.5K-12.5K BCS covered lives. Of those, ~30-40% have clinical anxiety/depression [EV-019] = 2.3K-5K addressable. Insurer enrols 30-50% = 700-2500 active. At EUR 10/mo => EUR 84K-300K/yr per insurer; sum across 3 insurers and outcomes uplift => EUR 0.4-0.9M/yr. EU expansion (Medis-equivalents, German PKV) multiplies 10-20x.",
+        "evidence_ids": ["EV-019", "EV-020", "EV-036", "EV-072", "EV-083"]
       },
       "time_to_first_revenue_months": 15,
       "regulatory_path": {
-        "path": "MDR Class I (wellness benefit framing); Class IIa if clinical claim escalates",
-        "evidence_ids": ["EV-057", "EV-062"],
-        "cost_eur": "€20–80K",
-        "timeline_months": "6–12"
+        "path": "MDR Class I (wellness) initially; GDPR critical given insurer data flow",
+        "evidence_ids": ["EV-062"],
+        "cost_eur": "EUR 30-60K initial",
+        "timeline_months": "6-9"
       },
       "capital_intensity": "medium",
-      "defensibility": "Insurer contracts include lock-in via integration with their member portal/claims system. AUC 0.78 model [EV-043] is the actuarial pitch (predict who'll escalate). Wysa/Swiss Re precedent [EV-036] is the public proof. Limbic AI's NHS 33% adoption [EV-026] shows mediated channel works.",
-      "pov_pilot_fit": "PoV would need at least one insurer observer + a defined claims-cost-avoided model; current PoV is hospital-buyer focused so alignment is partial. An insurer-track variant of the PoV would diverge — recommend keeping BT-05 as Phase-2 expansion, not the wedge.",
-      "wedge": "BCS survivors covered by Médis Oncologia rider in first 24 months post-active-treatment — narrow, identifiable, and the rider already contemplates psychological support but underdelivers it.",
-      "expansion_path": "Once one PT insurer signs, expand to (a) Spanish insurers (Sanitas, Adeslas) — €420M ES MH market [EV-076]; (b) other covered oncology cohorts; (c) employer wellness programs leveraging the insurer channel (Unmind-style [EV-071]).",
-      "buyer_pain": "Insurer pain: BCS rider holders escalate to high-cost MH claims (€2–5K/yr per case in PT private psych); 30–40% prevalence [EV-019] × 5K BCS insured × €3K avoided escalation in 20% of cases = €3M actuarial savings per insurer pool. A €30K + €8 PMPM program is breakeven at ~30 escalations avoided.",
+      "defensibility": "Once one insurer signs an exclusive oncology-benefit, it locks the others out for 12-24 months; PerSense BCS-specific evidence [EV-043] differentiates vs Wysa/Limbic generic offerings",
+      "pov_pilot_fit": "PoV in hospital gives utilization + clinical-endpoint signal but does NOT produce the cost-of-care reduction figure insurers ultimately want. To convert this thesis would require an additional insurer-side data exercise post-PoV. Moderate alignment.",
+      "wedge": "Medis Oncologia (existing dedicated oncology product line) - smallest distance from current Medis offering to a covered DTx benefit; BCS post-treatment cohort is already segmented in their product structure.",
+      "expansion_path": "1) From BCS extend to all-cancer survivorship in same insurer. 2) Cross-sell to corporate/group plans with employer pain (burnout EU EUR 600B/yr [EV-077]) - generalises PerSense beyond oncology.",
+      "buyer_pain": "Insurer actuarial pain: cost-of-care for untreated BCS depression escalates to ER, sick-leave, claims; Wysa/Swiss Re showed -30% depression rates [EV-036] - insurer-grade KPI. Health insurers are the most active partner type globally (40% of new mental-health partnerships in 2024 [EV-072]).",
       "top_risks": [
-        "PT insurer market is small and conservative; sales cycles 12+ months with no documented PerSense relationship.",
-        "Actuarial savings claim depends on a quasi-experimental study showing claims reduction — not yet generated.",
-        "PMPM model requires high activation; iNNOVSensing's 34% consent [EV-041] is below typical insurer activation thresholds and would compress unit economics."
+        "PT insurer procurement is slow and politically sensitive; integration into claims systems is a 9-12mo IT effort.",
+        "No outcome data linking JITAI specifically to BCS cost-of-care reduction (extrapolation from Wysa generic [EV-031, EV-036]).",
+        "Insurer may demand exclusivity that blocks BT-03 hospital channel."
       ],
       "open_issues": [
-        "No insurer LOI or even named champion in the strategic report.",
-        "Whether claims-cost-avoidance can be measured in PT given fragmented MH-claims data is unverified.",
-        "Activation/consent uplift from insurer-mediated onboarding (vs research consent baseline) is unknown for BCS specifically."
+        "No PT insurer counterparty engaged.",
+        "Cost-of-care delta for untreated BCS depression in PT private market is not quantified.",
+        "Whether BCS-specific benefit is actuarially viable at the small PT covered-lives base."
       ],
       "score": {"evidence_strength": 3, "time_to_revenue": 3, "capital_efficiency": 3, "defensibility": 3, "pov_alignment": 2, "composite": 14},
-      "evidence_refs": ["EV-019", "EV-020", "EV-026", "EV-036", "EV-041", "EV-043", "EV-057", "EV-062", "EV-071", "EV-072", "EV-076", "EV-083"]
+      "evidence_refs": ["EV-019", "EV-020", "EV-031", "EV-036", "EV-043", "EV-062", "EV-072", "EV-077", "EV-083"]
     }
   ]
 }
