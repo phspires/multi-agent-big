@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise de Mercado — Saúde Mental Digital</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #444;
+    --ink-muted: #888;
+    --paper: #faf9f6;
+    --paper-warm: #f4f1eb;
+    --rule: #e0ddd5;
+    --accent: #1f3a5f;
+    --accent-light: #dce8f5;
+    --green: #1a4d35;
+    --green-light: #d6ede3;
+    --amber: #7a4f00;
+    --amber-light: #fdf0d0;
+    --red: #7a1a1a;
+    --red-light: #fde8e8;
+    --purple: #3d1f6e;
+    --purple-light: #ede8f8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.75;
+    padding: 0;
+  }
+
+  /* COVER */
+  .cover {
+    background: var(--accent);
+    color: white;
+    padding: 72px 80px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 100px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+  .cover-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 24px;
+  }
+  .cover h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    line-height: 1.15;
+    font-weight: 400;
+    margin-bottom: 16px;
+    max-width: 600px;
+  }
+  .cover h1 em { font-style: italic; opacity: 0.85; }
+  .cover-sub {
+    font-size: 16px;
+    opacity: 0.75;
+    margin-bottom: 48px;
+    max-width: 500px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .cover-meta-item { font-size: 12px; opacity: 0.6; }
+  .cover-meta-item strong { display: block; font-size: 14px; opacity: 1; font-weight: 500; margin-bottom: 2px; }
+
+  /* LAYOUT */
+  .doc { max-width: 900px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* TOC */
+  .toc {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 32px 36px;
+    margin: 48px 0;
+  }
+  .toc-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 20px;
+  }
+  .toc-list { list-style: none; }
+  .toc-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--rule);
+    font-size: 14px;
+  }
+  .toc-list li:last-child { border-bottom: none; }
+  .toc-list a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .toc-list a:hover { text-decoration: underline; }
+  .toc-num { color: var(--ink-muted); font-size: 12px; }
+
+  /* SECTION HEADINGS */
+  .section { margin: 64px 0 0; }
+  .section-num {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.2;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 32px;
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 24px 0 8px;
+  }
+
+  p { margin-bottom: 14px; color: var(--ink-soft); }
+  p strong { color: var(--ink); font-weight: 600; }
+
+  /* EVIDENCE TAGS */
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .tag-solid { background: var(--green-light); color: var(--green); }
+  .tag-emerging { background: var(--amber-light); color: var(--amber); }
+  .tag-speculative { background: var(--red-light); color: var(--red); }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-left: 4px solid;
+  }
+  .callout-warning { background: var(--amber-light); border-color: var(--amber); }
+  .callout-info { background: var(--accent-light); border-color: var(--accent); }
+  .callout-success { background: var(--green-light); border-color: var(--green); }
+  .callout-danger { background: var(--red-light); border-color: var(--red); }
+  .callout p { margin: 0; font-size: 14px; }
+  .callout-title { font-weight: 600; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+
+  /* COMPETITOR CARDS */
+  .competitor-grid {
+    display: grid;
+    gap: 24px;
+    margin: 32px 0;
+  }
+  .competitor-card {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+  }
+  .competitor-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .competitor-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .competitor-tagline { font-size: 13px; color: var(--ink-muted); }
+  .competitor-badges { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; flex-shrink: 0; }
+  .badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .badge-active { background: var(--green-light); color: var(--green); }
+  .badge-failed { background: var(--red-light); color: var(--red); }
+  .badge-acquired { background: var(--purple-light); color: var(--purple); }
+  .badge-stealth { background: var(--paper-warm); color: var(--ink-muted); border: 1px solid var(--rule); }
+  .badge-eu { background: var(--accent-light); color: var(--accent); }
+  .badge-us { background: #fff0e8; color: #7a3500; }
+  .competitor-body { padding: 20px 24px; }
+  .competitor-grid-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 32px;
+    margin-bottom: 16px;
+  }
+  .competitor-field-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+  .competitor-field-value { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+  .competitor-field-value strong { color: var(--ink); font-weight: 600; }
+  .competitor-insight {
+    background: var(--paper-warm);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 12px;
+  }
+  .competitor-insight strong { color: var(--accent); font-weight: 600; }
+
+  /* FUNDING BAR */
+  .funding-bar-wrap { margin: 4px 0 2px; }
+  .funding-bar {
+    height: 6px;
+    background: var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .funding-bar-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+
+  /* CERTIFICATION STEPS */
+  .cert-phase {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    margin: 24px 0;
+    overflow: hidden;
+    background: white;
+  }
+  .cert-phase-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .cert-phase-num {
+    width: 36px; height: 36px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .cert-phase-title { font-weight: 600; font-size: 16px; }
+  .cert-phase-meta { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  .cert-phase-body { padding: 20px 24px; }
+  .cert-step-list { list-style: none; }
+  .cert-step-list li {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14px;
+    align-items: flex-start;
+  }
+  .cert-step-list li:last-child { border-bottom: none; }
+  .cert-step-num {
+    width: 22px; height: 22px;
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .cert-step-content { flex: 1; }
+  .cert-step-content strong { color: var(--ink); display: block; margin-bottom: 2px; font-weight: 600; font-size: 14px; }
+  .cert-step-content span { color: var(--ink-soft); font-size: 13px; line-height: 1.5; }
+  .cert-deliverable {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-top: 6px;
+  }
+
+  /* STANDARDS TABLE */
+  .standards-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px 0;
+    font-size: 13px;
+  }
+  .sg-head {
+    background: var(--accent);
+    color: white;
+    padding: 10px 16px;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .sg-row {
+    display: contents;
+  }
+  .sg-row > div {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--rule);
+    background: white;
+    vertical-align: top;
+  }
+  .sg-row:nth-child(even) > div { background: var(--paper-warm); }
+  .sg-row:last-child > div { border-bottom: none; }
+  .sg-code { font-weight: 600; color: var(--accent); font-family: monospace; white-space: nowrap; }
+  .sg-req { font-size: 12px; color: var(--ink-soft); }
+  .sg-mandatory { color: var(--green); font-weight: 600; font-size: 11px; }
+  .sg-recommended { color: var(--amber); font-weight: 600; font-size: 11px; }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding: 0 0 0 40px;
+    margin: 24px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 8px; bottom: 8px;
+    width: 2px;
+    background: var(--rule);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 24px;
+    padding: 16px 20px;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 18px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--paper);
+  }
+  .tl-phase {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .tl-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+  .tl-duration { font-size: 12px; color: var(--ink-muted); }
+  .tl-cost { 
+    float: right;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: var(--paper-warm);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+  }
+
+  /* DATA TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 20px 0;
+  }
+  th {
+    background: var(--accent);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    color: var(--ink-soft);
+  }
+  tr:nth-child(even) td { background: var(--paper-warm); }
+  tr:last-child td { border-bottom: none; }
+  td strong { color: var(--ink); font-weight: 600; }
+
+  /* KEY FINDING */
+  .key-finding {
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 32px 0;
+    position: relative;
+  }
+  .key-finding-label {
+    position: absolute;
+    top: -11px;
+    left: 20px;
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 2px 10px;
+    border-radius: 3px;
+  }
+  .key-finding p { margin: 0; font-size: 15px; color: var(--ink-soft); }
+
+  /* DIVIDER */
+  hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--paper-warm);
+    border-top: 1px solid var(--rule);
+    padding: 32px 40px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 80px;
+  }
+
+  /* SMALL NOTE */
+  .note { font-size: 12px; color: var(--ink-muted); font-style: italic; margin-top: 8px; }
+
+  @media print {
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-label">Relatório de Inteligência de Mercado · Versão 2.0 · Abril 2026</div>
+  <h1>Saúde Mental Digital<br><em>Fenotipagem, Predição & JITAIs</em></h1>
+  <p class="cover-sub">Análise aprofundada de mercado, competidores e roteiro de certificação regulatória para startup europeia</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><strong>Domínios</strong>Digital Phenotyping · JITAIs · SaMD</div>
+    <div class="cover-meta-item"><strong>Geografias</strong>EU · Portugal · Ibéria</div>
+    <div class="cover-meta-item"><strong>Regulação</strong>MDR · AI Act · GDPR</div>
+    <div class="cover-meta-item"><strong>Fontes</strong>Evidência clínica · VC data · Regulatory docs</div>
+  </div>
+</div>
+
+<div class="doc">
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">Índice</div>
+  <ul class="toc-list">
+    <li><a href="#s1">1. Panorama do Mercado Global</a> <span class="toc-num">§ 1</span></li>
+    <li><a href="#s2">2. Análise Competitiva Detalhada</a> <span class="toc-num">§ 2</span></li>
+    <li><a href="#s3">3. Contexto Regulatório Europeu</a> <span class="toc-num">§ 3</span></li>
+    <li><a href="#s4">4. Guia Completo de Certificação MDR + AI Act</a> <span class="toc-num">§ 4</span></li>
+    <li><a href="#s5">5. Modelos de Negócio</a> <span class="toc-num">§ 5</span></li>
+    <li><a href="#s6">6. Financiamento</a> <span class="toc-num">§ 6</span></li>
+    <li><a href="#s7">7. Factores Críticos de Sucesso e Falha</a> <span class="toc-num">§ 7</span></li>
+    <li><a href="#s8">8. Portugal e Mercado Ibérico</a> <span class="toc-num">§ 8</span></li>
+  </ul>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section" id="s1">
+  <div class="section-num">Secção 01</div>
+  <h2>Panorama do Mercado Global</h2>
+
+  <h3>Dimensão e trajectória de crescimento</h3>
+  <p>O mercado global de saúde mental digital apresenta uma das taxas de crescimento mais elevadas no sector da saúde, com convergência entre múltiplas firmas de análise numa CAGR de 14–19% até 2034. Os números absolutos variam consoante a definição adoptada — se incluem apenas plataformas clínicas ou também wellness e telepsiquiatria — mas o consenso situa o mercado em <strong>27–28 mil milhões de dólares em 2024</strong> e projecta <strong>150–180 mil milhões até 2034</strong>.</p>
+
+  <div class="callout callout-warning">
+    <div class="callout-title">⚠ Calibração necessária</div>
+    <p>Estes números agregam telepsiquiatria, apps de meditação e diagnóstico clínico num único "mercado". O segmento específico de <strong>fenotipagem digital + predição clínica + JITAIs</strong> representa uma fracção muito menor — actualmente ainda maioritariamente em fase de investigação. Não existem dados segmentados fiáveis publicamente disponíveis para este nicho.</p>
+  </div>
+
+  <h3>Segmentos por relevância para esta startup</h3>
+
+  <table>
+    <tr>
+      <th>Segmento</th>
+      <th>Maturidade clínica</th>
+      <th>Maturidade comercial</th>
+      <th>Relevância</th>
+    </tr>
+    <tr>
+      <td><strong>Monitorização contínua / fenotipagem passiva</strong></td>
+      <td>TRL 5–7 (vários estudos de prova de conceito, poucos RCTs)</td>
+      <td>Baixa — maioria em piloto</td>
+      <td><span class="tag tag-solid">Núcleo</span></td>
+    </tr>
+    <tr>
+      <td><strong>Predição de recaída</strong></td>
+      <td>TRL 4–6 (dados promissores para depressão e bipolar)</td>
+      <td>Muito baixa — nenhum produto com CE mark</td>
+      <td><span class="tag tag-solid">Núcleo</span></td>
+    </tr>
+    <tr>
+      <td><strong>Predição de resposta ao tratamento</strong></td>
+      <td>TRL 3–5 (maioritariamente académico)</td>
+      <td>Nascente</td>
+      <td><span class="tag tag-emerging">Relevante</span></td>
+    </tr>
+    <tr>
+      <td><strong>JITAIs (intervenções adaptativas)</strong></td>
+      <td>TRL 4–6 (5 JITAIs com estudos publicados, efeitos pequenos-moderados)</td>
+      <td>Muito baixa</td>
+      <td><span class="tag tag-solid">Núcleo</span></td>
+    </tr>
+    <tr>
+      <td><strong>Biomarkers vocais</strong></td>
+      <td>TRL 5–7 (vários estudos, Kintsugi com FDA submission)</td>
+      <td>Baixa — Kintsugi fechou, mercado volátil</td>
+      <td><span class="tag tag-emerging">Complementar</span></td>
+    </tr>
+    <tr>
+      <td><strong>CBT digital / chatbots clínicos</strong></td>
+      <td>Alta — vários RCTs e aprovações regulatórias</td>
+      <td>Alta — SilverCloud, Big Health, Limbic</td>
+      <td><span class="tag tag-emerging">Adjacente</span></td>
+    </tr>
+  </table>
+
+  <h3>Evidência clínica: estado da arte em JITAIs</h3>
+  <p>Uma meta-análise de 2025 (K=23 estudos, N=2563 participantes) quantificou pela primeira vez a eficácia agregada das JITAIs: o efeito entre grupos foi pequeno (g=0,15, IC 95% 0,05–0,26) mas estatisticamente significativo, com benefícios que se mantêm até 6 meses após o período de intervenção. Uma revisão qualitativa sistemática de JITAIs especificamente para saúde mental identificou apenas 5 JITAIs com estudos publicados (bulimia nervosa ×2, depressão ×1, insónia ×2, stress pré-natal ×1) — o que ilustra a imaturidade do campo.</p>
+
+  <div class="key-finding">
+    <div class="key-finding-label">Implicação estratégica</div>
+    <p>O campo de JITAIs clínicos é suficientemente imaturo para que uma startup com rigor científico e parceiros clínicos fortes possa genuinamente contribuir para o estado da arte — não apenas aplicar tecnologia existente. Isto é um argumento de diferenciação real, mas também um risco de timeline: "somos os primeiros" implica que ainda há muito para provar.</p>
+  </div>
+
+  <h3>Geografias: dados concretos</h3>
+
+  <table>
+    <tr>
+      <th>Mercado</th>
+      <th>Tamanho 2025</th>
+      <th>CAGR</th>
+      <th>Maturidade regulatória DTx</th>
+      <th>Notas</th>
+    </tr>
+    <tr>
+      <td><strong>EUA</strong></td>
+      <td>$7,5B</td>
+      <td>20%</td>
+      <td>Alta (FDA De Novo, CMS reimbursement desde Jan 2025)</td>
+      <td>Maior mercado, maior competição, custo de entrada elevado</td>
+    </tr>
+    <tr>
+      <td><strong>Alemanha</strong></td>
+      <td>~€1,2B (est.)</td>
+      <td>15%</td>
+      <td>Líder europeu — DiGA pathway activo, 11+ DTx aprovadas</td>
+      <td>Melhor porta de entrada europeia para reembolso</td>
+    </tr>
+    <tr>
+      <td><strong>Reino Unido</strong></td>
+      <td>~€0,9B (est.)</td>
+      <td>16%</td>
+      <td>Alta — NICE EVA process, NHS Apps Library</td>
+      <td>NHS como cliente/parceiro; Limbic como benchmark</td>
+    </tr>
+    <tr>
+      <td><strong>França</strong></td>
+      <td>~€0,7B (est.)</td>
+      <td>14%</td>
+      <td>Média — PECAN programme emergente</td>
+      <td>Forte apoio público à investigação em saúde digital</td>
+    </tr>
+    <tr>
+      <td><strong>Portugal</strong></td>
+      <td>~€40–60M (est.)</td>
+      <td>12–15%</td>
+      <td>Baixa — sem pathway de reembolso para DTx</td>
+      <td>Valor como site de investigação, não como mercado primário</td>
+    </tr>
+    <tr>
+      <td><strong>Espanha</strong></td>
+      <td>~€200–300M (est.)</td>
+      <td>13%</td>
+      <td>Baixa-média — sem DiGA equivalente</td>
+      <td>Ecosistema de saúde digital em crescimento, Nina Capital activa</td>
+    </tr>
+  </table>
+  <p class="note">* Estimativas para Portugal e Espanha baseadas em proporção do PIB e PIB per capita vs mercados com dados publicados. Não existem dados segmentados fiáveis publicamente disponíveis para estes mercados.</p>
+
+</div>
+
+<!-- SECTION 2 -->
+<div class="section" id="s2">
+  <div class="section-num">Secção 02</div>
+  <h2>Análise Competitiva Detalhada</h2>
+
+  <p>O espaço de fenotipagem digital e JITAIs clínicos tem um número limitado de players directamente comparáveis. A análise que se segue distingue três camadas: <strong>concorrentes directos</strong> (fenotipagem + predição + intervenção), <strong>adjacentes</strong> (fenotipagem sem JITAI, ou JITAI sem fenotipagem), e <strong>casos de estudo de falha</strong> (igualmente instrutivos).</p>
+
+  <h3>Concorrentes Directos — Fenotipagem + Predição Clínica</h3>
+
+  <div class="competitor-grid">
+
+    <!-- KOA HEALTH -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div>
+          <div class="competitor-name">Koa Health</div>
+          <div class="competitor-tagline">Fenotipagem digital + DTx multi-produto · Barcelona / Londres</div>
+        </div>
+        <div class="competitor-badges">
+          <span class="badge badge-active">Activo</span>
+          <span class="badge badge-eu">Europa</span>
+        </div>
+      </div>
+      <div class="competitor-body">
+        <div class="competitor-grid-inner">
+          <div>
+            <div class="competitor-field-label">Tecnologia core</div>
+            <div class="competitor-field-value">Fenotipagem passiva via smartphone (sensores de sono, actividade, interacção social). CBT digital adaptativa (Koa Perspectives). Monitorização de sintomas por fenotipagem (Koa Habits). Patentes em métodos de preservação de privacidade e personalização de planos de tratamento.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Modelo de negócio</div>
+            <div class="competitor-field-value">B2B com sistemas de saúde e seguradoras. Incubada 5 anos por Telefónica / Telefónica Alpha (antes de 2021) — acesso a capital sem VC tracking público. Actualmente independente com receitas de contratos B2B.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Financiamento</div>
+            <div class="competitor-field-value"><strong>Não divulgado</strong> — modelo de incubação corporativa. Parcerias académicas com Wellcome Trust, King's College London e Harvard/Massachusetts General Hospital.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Validação clínica</div>
+            <div class="competitor-field-value">Múltiplos estudos publicados em peer review. Colaborações com investigadores de referência (ex: prof. Thomas H. Insel). Longa lista de publicações em fenotipagem digital (2019–2024).</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Regulação</div>
+            <div class="competitor-field-value"><strong>Koa Mindset: wellness device</strong> (não CE mark / FDA cleared como dispositivo médico). Posicionamento deliberado fora de MDR para velocidade de mercado.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Lacunas / pontos fracos</div>
+            <div class="competitor-field-value">Ausência de CE mark reduz credibilidade clínica em contextos hospitalares. Portfolio de produtos diverso pode diluir o foco. Receita e escala não são públicas.</div>
+          </div>
+        </div>
+        <div class="competitor-insight"><strong>Insight estratégico:</strong> Koa Health é o player europeu mais próximo do espaço desta startup. A escolha de não registar como dispositivo médico é uma trade-off estratégica consciente — acelera o go-to-market mas cria um tecto de vidro com pagadores clínicos e sistemas de saúde.</div>
+      </div>
+    </div>
+
+    <!-- LIMBIC AI -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div>
+          <div class="competitor-name">Limbic AI</div>
+          <div class="competitor-tagline">IA clínica para triagem e suporte entre sessões · Londres</div>
+        </div>
+        <div class="competitor-badges">
+          <span class="badge badge-active">Activo</span>
+          <span class="badge badge-eu">EU/UK</span>
+        </div>
+      </div>
+      <div class="competitor-body">
+        <div class="competitor-grid-inner">
+          <div>
+            <div class="competitor-field-label">Tecnologia core</div>
+            <div class="competitor-field-value">Chatbot de saúde mental com IA para triagem e encaminhamento. Software de avaliação clínica automatizada. Análise de risco em tempo real com escalada para clínicos. NLP para avaliação de estado clínico entre sessões.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Modelo de negócio</div>
+            <div class="competitor-field-value">B2B com serviços de saúde públicos (NHS) e privados. Contratos de licenciamento com Talking Therapies services. Modelo de receita por utente/mês. Em expansão para EUA (Kaiser Permanente evaluation).</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Financiamento</div>
+            <div class="competitor-field-value"><strong>$14M Series A (2024)</strong> — liderado pela Khosla Ventures (Silicon Valley), com Gaingels e Illusian (Supercell founder). Total levantado: ~$14M+ (rounds anteriores não públicos).</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Validação clínica</div>
+            <div class="competitor-field-value">Estudo de 64,862 pacientes em 9 serviços NHS: Limbic Access reduz tempo de avaliação clínica. 179% aumento em utilizadores não-binários. 29% aumento em minorías étnicas. Publicação em peer review em 2024.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Regulação</div>
+            <div class="competitor-field-value"><strong>UKCA Classe IIa</strong> — primeiro chatbot de saúde mental a obter esta certificação. Benchmark europeu para este tipo de produto. Em processo de equivalência CE mark MDR.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Lacunas / pontos fracos</div>
+            <div class="competitor-field-value">Foco em triagem/eficiência, não em fenotipagem passiva ou predição de recaída. Dependência da relação NHS pode limitar expansão internacional. Produto mais "workflow tool" do que "clinical prediction engine".</div>
+          </div>
+        </div>
+        <div class="competitor-insight"><strong>Insight estratégico:</strong> Limbic demonstrou que um chatbot clínico com certificação Classe IIa pode escalar em sistemas de saúde públicos. É o benchmark mais relevante para qualquer startup europeia com ambições clínicas. O caminho UKCA → CE mark MDR é documentado e reproduzível.</div>
+      </div>
+    </div>
+
+    <!-- KSANA HEALTH -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div>
+          <div class="competitor-name">Ksana Health</div>
+          <div class="competitor-tagline">Fenotipagem digital pediátrica · Portland, Oregon (EUA)</div>
+        </div>
+        <div class="competitor-badges">
+          <span class="badge badge-active">Activo</span>
+          <span class="badge badge-us">EUA</span>
+        </div>
+      </div>
+      <div class="competitor-body">
+        <div class="competitor-grid-inner">
+          <div>
+            <div class="competitor-field-label">Tecnologia core</div>
+            <div class="competitor-field-value">Plataforma de fenotipagem digital focada em adolescentes e crianças. Dados passivos de smartphone (comportamento, sono, actividade, interacção social). Colaboração com Children's Wisconsin anunciada em Junho 2025 para transformar cuidados de saúde comportamental pediátrica.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Modelo de negócio</div>
+            <div class="competitor-field-value">B2B com sistemas de saúde pediátrica. Parcerias com hospitais universitários como sites de validação e clientes.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Financiamento</div>
+            <div class="competitor-field-value">Dados não públicos. Apoio de NIH grants (modelo académico-startup). Fundado por investigadores da Oregon Health & Science University.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Validação clínica</div>
+            <div class="competitor-field-value">Múltiplos estudos em populações pediátricas. Publicações em JMIR Mental Health. Colaboração com investigadores como Nicholas Allen (fundador) com track record de fenotipagem digital.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Regulação</div>
+            <div class="competitor-field-value">Não classificado como FDA device (posicionamento como research/wellness tool). Sem CE mark.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Lacunas</div>
+            <div class="competitor-field-value">Foco exclusivo em pediatria pode limitar TAM. Ausência de produto de intervenção (só monitorização). Geograficamente focado nos EUA sem presença europeia.</div>
+          </div>
+        </div>
+        <div class="competitor-insight"><strong>Insight estratégico:</strong> Ksana é o player mais especializado em fenotipagem passiva com validação pediátrica. Se a startup-alvo quiser diferenciação em populações específicas (jovens adultos, adolescentes), este é o competidor mais directo a monitorizar.</div>
+      </div>
+    </div>
+
+    <!-- FEEL THERAPEUTICS -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div>
+          <div class="competitor-name">Feel Therapeutics</div>
+          <div class="competitor-tagline">Wearables + biomarkers + DTx para MDD/GAD · San Francisco</div>
+        </div>
+        <div class="competitor-badges">
+          <span class="badge badge-active">Activo</span>
+          <span class="badge badge-us">EUA</span>
+        </div>
+      </div>
+      <div class="competitor-body">
+        <div class="competitor-grid-inner">
+          <div>
+            <div class="competitor-field-label">Tecnologia core</div>
+            <div class="competitor-field-value">Pulseira com sensores integrados que medem bio-sinais fisiológicos contínuos. App conectada com recomendações personalizadas e coaching. Biomarkers fisiológicos e digitais para MDD e GAD. Algoritmos de precisão de medicina digital. Anteriormente: Myfeel, depois Sentio Solutions.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Modelo de negócio</div>
+            <div class="competitor-field-value">DTC (pacientes com MDD/GAD) + B2B com farmacêuticas para ensaios clínicos (RWE e estratégias de comercialização). Modelo dual: produto de consumo + licenciamento de dados/tecnologia a pharma.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Financiamento</div>
+            <div class="competitor-field-value">Dados parcialmente públicos. Fundada 2015. Parceria com empresas farmacêuticas como modelo de receita alternativo ao pure-play B2C.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Validação clínica</div>
+            <div class="competitor-field-value">Estudos de validação de biomarkers fisiológicos para MDD/GAD. Abordagem de "precision medicine digital" com algoritmos proprietários.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Regulação</div>
+            <div class="competitor-field-value">Posicionamento como wellness/research tool. Sem FDA clearance ou CE mark como dispositivo médico diagnóstico.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Lacunas</div>
+            <div class="competitor-field-value">Hardware (pulseira) cria barreira de adoption e custo adicional. Modelo DTC tem economics difíceis. Sem presença europeia documentada.</div>
+          </div>
+        </div>
+        <div class="competitor-insight"><strong>Insight estratégico:</strong> Feel Therapeutics explorou o modelo dual (consumidor + pharma) que pode ser relevante para financiar a fase de validação. O uso de hardware proprietário é uma trade-off com vantagens de dados mas desvantagens de escalabilidade — informativo para decisões de arquitectura técnica.</div>
+      </div>
+    </div>
+
+    <!-- CUMULUS NEUROSCIENCE -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div>
+          <div class="competitor-name">Cumulus Neuroscience</div>
+          <div class="competitor-tagline">EEG at-home + biomarkers cognitivos para ensaios clínicos · Belfast/UK</div>
+        </div>
+        <div class="competitor-badges">
+          <span class="badge badge-active">Activo</span>
+          <span class="badge badge-eu">EU/UK</span>
+        </div>
+      </div>
+      <div class="competitor-body">
+        <div class="competitor-grid-inner">
+          <div>
+            <div class="competitor-field-label">Tecnologia core</div>
+            <div class="competitor-field-value">Plataforma NeuLogiq™: EEG headset com sensores secos + tablet-based cognitive testing. Machine learning para decoding de estados cognitivos. Validado em Alzheimer (dados mais sensíveis que ADAS-Cog). Construído com input de 10 grandes empresas farmacêuticas.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Modelo de negócio</div>
+            <div class="competitor-field-value">B2B exclusivamente com empresas farmacêuticas para ensaios clínicos. Biomarkers digitais como endpoints clínicos para CNS drug development. Não orientado para cuidados de saúde directos (hospitais, seguradoras).</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Financiamento</div>
+            <div class="competitor-field-value"><strong>£3,25M (Julho 2025)</strong>. Nomeada pela Fast Company como uma das empresas de medical devices mais inovadoras de 2024. Foco em biopharma como cliente primário.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Validação clínica</div>
+            <div class="competitor-field-value">Estudo CNS-101: medições longitudinais em casa mais sensíveis a progressão de demência que gold standard clínico (ADAS-Cog). Biomarkers EEG passivos tão poderosos como ADAS-Cog para detectar progressão.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Regulação</div>
+            <div class="competitor-field-value">EEG headset com FDA clearance. Plataforma NeuLogiq™ como research use tool para trials. Não como dispositivo de diagnóstico clínico directo.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Relevância para startup</div>
+            <div class="competitor-field-value">Modelo de parceria pharma potencialmente replicável. EEG pode ser modalidade complementar a sensores de smartphone se a startup considerar multimodalidade.</div>
+          </div>
+        </div>
+        <div class="competitor-insight"><strong>Insight estratégico:</strong> Cumulus demonstra que o canal pharma B2B (endpoints para ensaios clínicos) é viável para biomarkers digitais CNS na Europa. É um modelo de receita alternativo que permite financiar R&D sem depender de healthcare systems — relevante para a fase pré-CE mark.</div>
+      </div>
+    </div>
+
+    <!-- THYMIA -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div>
+          <div class="competitor-name">Thymia</div>
+          <div class="competitor-tagline">Jogos digitais como avaliação de saúde mental · Londres</div>
+        </div>
+        <div class="competitor-badges">
+          <span class="badge badge-active">Activo</span>
+          <span class="badge badge-eu">Europa</span>
+        </div>
+      </div>
+      <div class="competitor-body">
+        <div class="competitor-grid-inner">
+          <div>
+            <div class="competitor-field-label">Tecnologia core</div>
+            <div class="competitor-field-value">App-based games com machine learning para avaliação de condições de saúde mental. Análise trimodal: voz + vídeo (microexpressões, posição da cabeça, gaze) + comportamento no jogo. Detecta padrões comportamentais associados a depressão. Fundada por investigadora do MIT.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Modelo de negócio</div>
+            <div class="competitor-field-value">B2B com farmacêuticas e sistemas de saúde. Avaliação clínica objectiva como alternativa a escalas subjectivas. Monitização via licenciamento de tecnologia de avaliação.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Financiamento</div>
+            <div class="competitor-field-value">Seed funding (valores não públicos). Apoio de InHealth Ventures (UK). Early stage mas com trajectory de crescimento.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Validação clínica</div>
+            <div class="competitor-field-value">Estudos em peer review em andamento. MHRA autorizou ensaio clínico para BlueSkeye AI (tecnologia similar — análise facial) em mulheres grávidas (Dezembro 2023). Metodologia de gamificação para aumentar compliance.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Regulação</div>
+            <div class="competitor-field-value">Em processo de certificação como dispositivo médico no UK (UKCA). Análise de expressão facial sob Anexo III do AI Act (potencial de dupla regulação).</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Relevância</div>
+            <div class="competitor-field-value">Abordagem de gamificação pode resolver o problema de compliance com fenotipagem activa. Multimodalidade voz+vídeo+comportamento é uma direcção técnica a monitorizar.</div>
+          </div>
+        </div>
+        <div class="competitor-insight"><strong>Insight estratégico:</strong> Thymia representa uma abordagem de fenotipagem activa (jogos) em vez de passiva (sensores). Pode ser complementar ou concorrente dependendo de como a startup-alvo define a sua arquitectura de dados. A utilização de facial analysis cria complexidade regulatória adicional sob o AI Act.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <h3>Casos de Estudo de Falha — Lições Críticas</h3>
+
+  <div class="competitor-grid">
+
+    <!-- MINDSTRONG -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div>
+          <div class="competitor-name">Mindstrong Health</div>
+          <div class="competitor-tagline">O benchmark de fenotipagem digital — e a maior falha do sector</div>
+        </div>
+        <div class="competitor-badges">
+          <span class="badge badge-failed">Fechou 2023</span>
+          <span class="badge badge-acquired">Adquirida Teladoc 2025</span>
+        </div>
+      </div>
+      <div class="competitor-body">
+        <div class="competitor-grid-inner">
+          <div>
+            <div class="competitor-field-label">O que construíram</div>
+            <div class="competitor-field-value">App que capturava passivamente padrões de interacção com smartphone (typing latency, scroll intervals, touch patterns) como proxies de função cognitiva e estado de humor. Biomarkers digitais para diagnóstico e monitorização de saúde mental. Fundada por Tom Insel (ex-director NIMH) e Paul Dagum.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Financiamento</div>
+            <div class="competitor-field-value"><strong>$160M+</strong> levantados entre 2017–2021. $14M (Série A, 2017) → $15M + $31M add-on (Série B, 2018–19) → $100M (Série C, 2020). Adquirida pela Teladoc em 2025 por valor não divulgado após encerrar operações em 2023.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Razões documentadas de falha</div>
+            <div class="competitor-field-value">Pressão para comercializar antes de a ciência estar sólida (reconhecido pelos próprios fundadores). Publicações insuficientes para justificar claims clínicos. Modelo B2C com altos CAC e baixa retenção. Dificuldade em demonstrar outcomes clínicos (não apenas correlações). Modelo de negócio com seguradoras que nunca fechou economicamente.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">O que funcionou (tecnicamente)</div>
+            <div class="competitor-field-value">Prova de conceito robusta: 3 estudos clínicos com 200+ person-years de dados. Correlações entre padrões de smartphone e função cognitiva documentadas. Predição de deterioração clínica em casos individuais (estudo de caso bipolar documentado). Tecnologia adquirida pela Teladoc — valor técnico reconhecido.</div>
+          </div>
+        </div>
+        <div class="competitor-insight"><strong>Lição principal:</strong> A falha da Mindstrong não foi técnica — foi de sequenciação. Levantaram $160M antes de ter evidência clínica suficiente para justificar as promessas de produto. A startup-alvo deve inverter esta sequência: evidência científica primeiro, escala depois. A Teladoc adquirir a tecnologia em 2025 confirma que o conceito tem valor — o problema era o modelo de negócio e a timeline regulatória.</div>
+      </div>
+    </div>
+
+    <!-- KINTSUGI -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div>
+          <div class="competitor-name">Kintsugi Voice</div>
+          <div class="competitor-tagline">Biomarkers vocais para triagem de depressão/ansiedade — FDA odyssey</div>
+        </div>
+        <div class="competitor-badges">
+          <span class="badge badge-failed">Fechou Fev 2026</span>
+          <span class="badge badge-us">EUA</span>
+        </div>
+      </div>
+      <div class="competitor-body">
+        <div class="competitor-grid-inner">
+          <div>
+            <div class="competitor-field-label">O que construíram</div>
+            <div class="competitor-field-value">API de biomarker vocal — 20 segundos de fala livre para detectar sinais de depressão e ansiedade. Sensibilidade 71,9% / Especificidade 71,8% para depressão moderada-severa (estudo 2025, Annals of Family Medicine). Primeiro estudo prospectivo cego comparado com SCID-5 em FDA De Novo submission.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Financiamento</div>
+            <div class="competitor-field-value"><strong>$28M total</strong>: $8M seed (2021) + $20M Series A (2022). NSF SBIR grants adicionais. Ao fechar, o CEO reportou ter gasto $16M em 4 anos de trabalho regulatório para FDA — e estar "muito perto do finish line".</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Razões documentadas de falha</div>
+            <div class="competitor-field-value">Custo e duração do processo FDA De Novo tornaram o modelo VC insustentável. "Timing e sorte" — mercado ainda não estava pronto para reembolso de voice biomarkers. Janela de oportunidade comercial esgotou-se antes de aprovação regulatória. Expansão para deepfake detection (diversificação desesperada) não salvou a empresa.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">O que é valioso</div>
+            <div class="competitor-field-value">Ao encerrar, libertaram os modelos e metodologia em open source — recurso técnico disponível. Demonstraram que voice biomarkers têm clinical validity. Criaram o precedente para FDA De Novo em voice-based mental health screening.</div>
+          </div>
+        </div>
+        <div class="competitor-insight"><strong>Lição principal:</strong> Kintsugi demonstra o "regulatory timing problem" — o custo regulatório pode exceder o capital disponível mesmo quando o produto funciona. Para uma startup europeia: a via MDR CE mark (Classe IIa) é significativamente mais rápida e económica do que o processo FDA De Novo para o mesmo tipo de produto. A tecnologia open-source da Kintsugi é agora acessível como recurso de I&D.</div>
+      </div>
+    </div>
+
+    <!-- PEAR THERAPEUTICS -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div>
+          <div class="competitor-name">Pear Therapeutics</div>
+          <div class="competitor-tagline">Terapêuticas digitais com FDA clearance — falha de modelo de negócio</div>
+        </div>
+        <div class="competitor-badges">
+          <span class="badge badge-failed">Falência Abr 2023</span>
+          <span class="badge badge-us">EUA</span>
+        </div>
+      </div>
+      <div class="competitor-body">
+        <div class="competitor-grid-inner">
+          <div>
+            <div class="competitor-field-label">O que construíram</div>
+            <div class="competitor-field-value">Terapêuticas digitais com FDA clearance para adição (reSET, reSET-O) e insónia (Somryst). Valuation de $1,6B no pico. Primeiro DTx para SUD com FDA 510(k) clearance. Produto de referência do sector em 2018–2022.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Razões documentadas de falha</div>
+            <div class="competitor-field-value">FDA clearance não criou automaticamente pathway de reembolso. Medicare/Medicaid não cobriam DTx em 2022–2023. Penetração de mercado muito baixa mesmo com aprovação regulatória. Evidência clínica questionada (ICER report 2020). Custo de distribuição e acquisition de prescritores era insustentável.</div>
+          </div>
+          <div>
+            <div class="competitor-field-label">Lição para DTx europeus</div>
+            <div class="competitor-field-value">Aprovação regulatória ≠ reembolso ≠ adoption. Na Europa, a Alemanha (DiGA) é a única via com reembolso automático após aprovação — mas exige DIGA-spezifische evidência. No SNS português, não existe qualquer pathway semelhante actualmente.</div>
+          </div>
+        </div>
+        <div class="competitor-insight"><strong>Lição principal:</strong> Uma startup deve ter a estratégia de reembolso definida ANTES de investir em certificação. Qualquer que seja o mercado europeu prioritário, deve haver um mecanismo de pagamento claro — DiGA na Alemanha, NHS commissioning no UK, contrato directo com seguradora — antes de comprometer recursos regulatórios.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <h3>Players Adjacentes Relevantes</h3>
+
+  <table>
+    <tr>
+      <th>Empresa</th>
+      <th>País</th>
+      <th>Foco</th>
+      <th>Diferenciação</th>
+      <th>Relevância</th>
+    </tr>
+    <tr>
+      <td><strong>Ellipsis Health</strong></td>
+      <td>EUA</td>
+      <td>Voice biomarkers (depressão/ansiedade)</td>
+      <td>$26M levantados, integração em EHR workflows</td>
+      <td>Competidor potencial se startup adoptar voice analytics</td>
+    </tr>
+    <tr>
+      <td><strong>Sonde Health</strong></td>
+      <td>EUA</td>
+      <td>Voice biomarkers (wellness, não clínico)</td>
+      <td>Posicionamento "early warning system", não diagnóstico</td>
+      <td>Modelo de não-dispositivo médico como alternativa regulatória</td>
+    </tr>
+    <tr>
+      <td><strong>Blueskeye AI</strong></td>
+      <td>UK</td>
+      <td>Análise facial/vocal para saúde mental perinatal</td>
+      <td>MHRA autorizou trial clínico (Dez 2023)</td>
+      <td>Benchmark para processo UKCA em análise multimodal</td>
+    </tr>
+    <tr>
+      <td><strong>Spring Health</strong></td>
+      <td>EUA</td>
+      <td>Precision mental healthcare (AI treatment matching)</td>
+      <td>$466M levantados, 10M+ vidas cobertas</td>
+      <td>Modelo B2B empresarial validado; competition indireta se startup expandir para EUA</td>
+    </tr>
+    <tr>
+      <td><strong>Wysa</strong></td>
+      <td>UK/India</td>
+      <td>AI chatbot CBT (ansiedade/depressão)</td>
+      <td>30% redução GAD-7; parceria MassMutual; NHS integrated</td>
+      <td>Benchmark para evidence generation em chatbots clínicos</td>
+    </tr>
+    <tr>
+      <td><strong>SilverCloud (Amwell)</strong></td>
+      <td>IRL/EUA</td>
+      <td>CBT digital guiada (depressão/ansiedade)</td>
+      <td>NHS Apps Library; maior base de evidência clínica em CBT digital europeu</td>
+      <td>Demonstra que plataformas CBT europeia com evidência sólida podem ser adquiridas por US incumbentes</td>
+    </tr>
+    <tr>
+      <td><strong>Behavidence</strong></td>
+      <td>Nascente</td>
+      <td>Fenotipagem digital via smartphone interactions (PHQ-9, GAD-7, ASRS)</td>
+      <td>Combina fenotipagem passiva com questionários digitais activos</td>
+      <td>Concorrente directo conceptualmente; maturidade comercial baixa</td>
+    </tr>
+  </table>
+
+  <h3>Mapa de Posicionamento Competitivo</h3>
+  <p>Analisando os players ao longo de dois eixos — <strong>Rigor clínico/regulatório</strong> (do wellness ao dispositivo médico certificado) e <strong>Maturidade da intervenção</strong> (de monitorização pura a loop fechado com JITAI) — identificam-se quatro quadrantes:</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">Quadrante de oportunidade</div>
+    <p><strong>Alto rigor clínico + Alta maturidade de intervenção (JITAI + fenotipagem + loop fechado)</strong> — Este quadrante está essencialmente vazio. Nenhum player tem actualmente um produto com CE mark que integre fenotipagem passiva + predição + JITAI adaptativa num sistema clínico validado. Esta é a proposta de valor de diferenciação máxima — e também o caminho mais longo e custoso.</p>
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-title">Risco de "terra de ninguém"</div>
+    <p>O quadrante de alto rigor clínico + monitorização sem intervenção (onde actualmente vivem Koa Habits e Ksana) tem o problema inverso: boa ciência mas sem proposta de valor clara para o pagador ("o que faço com este dado?"). Uma startup que não feche o loop até à intervenção arrisca ficar neste limbo.</p>
+  </div>
+
+</div>
+
+<!-- SECTION 3 -->
+<div class="section" id="s3">
+  <div class="section-num">Secção 03</div>
+  <h2>Contexto Regulatório Europeu</h2>
+
+  <h3>Os quatro pilares regulatórios</h3>
+  <p>Uma startup de fenotipagem digital + predição clínica + JITAIs na Europa enfrenta, em simultâneo, quatro enquadramentos regulatórios distintos que se intersectam de formas complexas:</p>
+
+  <table>
+    <tr>
+      <th>Regulação</th>
+      <th>Aplicabilidade</th>
+      <th>Data-chave</th>
+      <th>Impacto no produto</th>
+    </tr>
+    <tr>
+      <td><strong>MDR (EU 2017/745)</strong></td>
+      <td>Se o software tem finalidade médica (diagnóstico, monitorização, predição, tratamento)</td>
+      <td>Aplicação plena: Maio 2021. Deadline Class IIa: Dez 2028 para legados; novos produtos imediatamente</td>
+      <td>CE mark obrigatório. Notified Body necessário (Classe IIa+). QMS ISO 13485. Technical Documentation completa.</td>
+    </tr>
+    <tr>
+      <td><strong>AI Act (EU 2024/1689)</strong></td>
+      <td>Qualquer sistema de IA — inclui algoritmos de ML para predição e decisão terapêutica</td>
+      <td>Em vigor Ago 2024. GPAI obligations: Ago 2025. High-risk (medical devices): Ago 2027</td>
+      <td>Dual compliance com MDR: data governance, transparência, human oversight, registo na EU AI database.</td>
+    </tr>
+    <tr>
+      <td><strong>GDPR (EU 2016/679)</strong></td>
+      <td>Dados de saúde (Artigo 9.º) — inclui dados de fenotipagem que revelem informação de saúde</td>
+      <td>Em vigor desde 2018. Fines activos (€2,3M a desenvolvedor de mental health app em Irlanda)</td>
+      <td>Consentimento explícito. DPIA obrigatória. Privacy by design. DPO se processamento em larga escala de dados de saúde.</td>
+    </tr>
+    <tr>
+      <td><strong>IVDR (EU 2017/746)</strong></td>
+      <td>Se o software gera resultados que informam decisões clínicas baseadas em amostras biológicas ou dados in vitro</td>
+      <td>Aplicação desde 2022</td>
+      <td>Menos relevante para fenotipagem digital pura, mas pode ser aplicável a certos biomarkers. Requer análise caso a caso.</td>
+    </tr>
+  </table>
+
+  <h3>Classificação como dispositivo médico: Rule 11 aplicada</h3>
+  <p>A Regra 11 do Anexo VIII do MDR é a chave para classificar SaMD (Software as a Medical Device). Para uma startup de fenotipagem + predição + JITAI, a aplicação depende crucialmente do "intended purpose" declarado:</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">Como Rule 11 se aplica ao seu produto</div>
+    <p><strong>Cenário A — Software de fenotipagem que "fornece informação usada para tomar decisões de diagnóstico ou terapêuticas":</strong> → Classe IIa (requer Notified Body). Exemplos: predição de risco de recaída, recomendação de intensificação de tratamento.<br><br>
+    <strong>Cenário B — Software de monitorização de processos fisiológicos:</strong> → Classe IIa (requer NB), excepto se monitoriza parâmetros vitais com variações que podem resultar em perigo imediato → Classe IIb.<br><br>
+    <strong>Cenário C — Software de "prevenção" de risco de doenças:</strong> → Interpretação MDCG 2025: prevenção é reinterpretada como diagnóstico → Classe IIa.<br><br>
+    <strong>Cenário D — Software de arquivo, armazenamento ou apresentação de dados sem interpretação:</strong> → Classe I (auto-declaração, sem NB). Não aplicável a sistemas de predição ou intervenção.</p>
+  </div>
+
+  <div class="callout callout-danger">
+    <div class="callout-title">⚠ Armadilha frequente</div>
+    <p>Tentar classificar como Classe I para evitar o Notified Body é um erro regulatório grave. O MDCG 2019-11 Rev.1 (2025) confirma que qualquer software com finalidade médica segue o caminho MDR completo. Um erro de classificação para Classe I numa ferramenta de predição clínica pode resultar em ordem de retirada do mercado e responsabilidade legal significativa.</p>
+  </div>
+
+  <h3>Dual compliance MDR + AI Act: o que muda em 2027</h3>
+  <p>A partir de Agosto de 2027, dispositivos MDR Classe IIa+ que incluam sistemas de IA ficam sujeitos a <strong>dual compliance</strong> — MDR e AI Act em simultâneo. Os requisitos adicionais do AI Act para high-risk AI incluem:</p>
+  <p><strong>1. Data governance robusta</strong> — documentação de datasets de treino, validação e teste; representatividade da população; gestão de data drift. <strong>2. Transparência e explicabilidade</strong> — o sistema deve ser capaz de explicar as suas decisões/recomendações em linguagem compreensível para utilizadores e supervisores. <strong>3. Human oversight mechanisms</strong> — o clínico deve poder intervir, overrider ou desactivar o sistema. <strong>4. Registo no EU AI Database</strong> — equivalente ao EUDAMED para AI systems. <strong>5. Monitorização contínua pós-market</strong> — vigilância de performance, desvios e incidentes.</p>
+
+</div>
+
+<!-- SECTION 4 -->
+<div class="section" id="s4">
+  <div class="section-num">Secção 04</div>
+  <h2>Guia Completo de Certificação MDR + AI Act</h2>
+
+  <p>O que se segue é um roteiro detalhado, passo a passo, do processo de certificação CE mark MDR para um produto de Classe IIa SaMD com componente de IA — directamente aplicável a um sistema de fenotipagem digital + predição clínica + JITAIs. O roteiro inclui estimativas de tempo e custo baseadas em dados de mercado para PMEs europeias (2024–2025).</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">Estimativas de tempo e custo</div>
+    <p>Para uma startup new-to-market a construir do zero um dispositivo Classe IIa SaMD: <strong>24–36 meses</strong> do início do processo regulatório ao CE mark. Custo total estimado: <strong>€300,000–€700,000</strong> (consultores regulatórios, Notified Body fees, auditorias, geração de evidência clínica, certificação ISO). O range amplo reflecte a complexidade da indicação e a maturidade da evidência clínica disponível.</p>
+  </div>
+
+  <!-- FASE 0 -->
+  <div class="cert-phase">
+    <div class="cert-phase-header">
+      <div class="cert-phase-num">0</div>
+      <div>
+        <div class="cert-phase-title">Fase de Preparação Estratégica</div>
+        <div class="cert-phase-meta">Duração estimada: 1–3 meses &nbsp;|&nbsp; Custo: €10,000–€30,000</div>
+      </div>
+    </div>
+    <div class="cert-phase-body">
+      <ul class="cert-step-list">
+        <li>
+          <div class="cert-step-num">1</div>
+          <div class="cert-step-content">
+            <strong>Definir o "Intended Purpose" com precisão cirúrgica</strong>
+            <span>Esta é a decisão mais importante do processo regulatório. O intended purpose determina a classificação MDR, os requisitos de evidência clínica, e o percurso de conformidade. Deve ser redigido em 1–2 frases precisas que descrevam: (a) o utilizador pretendido (clínico, paciente, cuidador), (b) a condição clínica alvo, (c) o que o software faz (monitoriza, prevê, recomenda), (d) como os outputs são usados nas decisões clínicas. Uma vez submetido ao Notified Body, é difícil de alterar sem reiniciar o processo.</span>
+            <span class="cert-deliverable">Documento: Intended Purpose Statement v1.0</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">2</div>
+          <div class="cert-step-content">
+            <strong>Análise de qualificação e classificação (Rule 11)</strong>
+            <span>Determinar formalmente se o produto é um Medical Device Software (MDSW) sob MDR, e em que classe. Usar o MDCG 2019-11 Rev.1 (2025) como referência primária. Documentar o raciocínio classificativo detalhado — será escrutinado pelo Notified Body. Para fenotipagem + predição clínica: esperar Classe IIa como resultado mais provável.</span>
+            <span class="cert-deliverable">Documento: Justificação de Classificação (Regra 11)</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">3</div>
+          <div class="cert-step-content">
+            <strong>AI Act applicability assessment</strong>
+            <span>Verificar se o sistema de IA é "high-risk" sob o AI Act. Para dispositivos MDR Classe IIa+, a resposta é tipicamente sim. Documentar a análise. Iniciar planeamento de dual compliance (MDR + AI Act) desde o início — é muito mais custoso retrofitar do que construir para conformidade desde o design.</span>
+            <span class="cert-deliverable">Documento: AI Act Applicability Assessment</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">4</div>
+          <div class="cert-step-content">
+            <strong>Seleccionar e contactar Notified Body precocemente</strong>
+            <span>Existem actualmente ~25 Notified Bodies designados para MDR na EU. Capacidade é escassa — listas de espera de 6–18 meses. Bodies relevantes para SaMD: TÜV SÜD, TÜV Rheinland, BSI, DNV, DEKRA, Intertek. Pedir uma "pre-submission meeting" (pré-análise informal) para validar a abordagem antes de investir em documentação completa. Esta reunião custa tipicamente €2,000–€5,000 mas pode poupar meses de trabalho na direcção errada.</span>
+            <span class="cert-deliverable">Acção: Shortlist de NBs + Pre-submission meeting agendada</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FASE 1 -->
+  <div class="cert-phase">
+    <div class="cert-phase-header">
+      <div class="cert-phase-num">1</div>
+      <div>
+        <div class="cert-phase-title">Quality Management System (QMS)</div>
+        <div class="cert-phase-meta">Duração estimada: 4–8 meses &nbsp;|&nbsp; Custo: €50,000–€120,000 (implementação + auditoria)</div>
+      </div>
+    </div>
+    <div class="cert-phase-body">
+      <ul class="cert-step-list">
+        <li>
+          <div class="cert-step-num">1</div>
+          <div class="cert-step-content">
+            <strong>Implementar ISO 13485:2016 — QMS para dispositivos médicos</strong>
+            <span>O ISO 13485 é o standard de qualidade obrigatório para fabricantes de dispositivos médicos na UE. Cobre: gestão de design e desenvolvimento, controlo de documentação, gestão de não-conformidades, rastreabilidade de componentes, e processos de produção. Para software, requer processos formais de software lifecycle (tipicamente implementados via IEC 62304).</span>
+            <span class="cert-deliverable">Certificação: ISO 13485 (por organismo acreditado)</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">2</div>
+          <div class="cert-step-content">
+            <strong>Implementar IEC 62304 — Software lifecycle para medical devices</strong>
+            <span>Standard técnico para desenvolvimento de software de dispositivos médicos. Define: software safety classification (Classe A, B, C), software development planning, requirements management, architecture, unit testing, integration testing, regression testing, maintenance, e problem resolution. Para software de IA/ML, adicionar processos específicos para gestão de datasets de treino, validação de modelos, e monitorização de performance em produção.</span>
+            <span class="cert-deliverable">Processo: Software Development Lifecycle compliant com IEC 62304</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">3</div>
+          <div class="cert-step-content">
+            <strong>Implementar ISO 14971:2019 — Gestão de risco</strong>
+            <span>Obrigatório sob MDR. Inclui: identificação de hazards, estimativa e avaliação de riscos, implementação de medidas de controlo, avaliação de eficácia das medidas, e processo de revisão contínua. Para sistemas de IA de saúde mental: incluir riscos específicos de automation bias, erros de predição com impacto clínico, privacidade de dados sensíveis, e utilização indevida por não-profissionais.</span>
+            <span class="cert-deliverable">Documento: Risk Management File (completo e actualizado)</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">4</div>
+          <div class="cert-step-content">
+            <strong>Considerações AI Act no QMS: AI-specific data governance</strong>
+            <span>O AI Act exige gestão específica de dados de treino, validação e teste: documentação de datasets, análise de viés, monitorização de data drift. Integrar estes requisitos no QMS existente para evitar duplicação. Usar o MDCG 2025-6/AIB 2025-1 guidance document como referência para harmonização MDR-AI Act.</span>
+            <span class="cert-deliverable">Documento: AI Data Governance Framework</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">5</div>
+          <div class="cert-step-content">
+            <strong>Auditoria de QMS pelo Notified Body</strong>
+            <span>O NB audita o QMS antes de avançar para revisão do Technical File. Esta auditoria pode ser presencial ou remota. São verificados: existência e implementação de todos os procedimentos QMS, rastreabilidade de registos, competências do pessoal, e plano de post-market surveillance. Não-conformidades identificadas devem ser resolvidas antes de continuar.</span>
+            <span class="cert-deliverable">Certificado: ISO 13485 emitido pelo NB ou organismo acreditado</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FASE 2 -->
+  <div class="cert-phase">
+    <div class="cert-phase-header">
+      <div class="cert-phase-num">2</div>
+      <div>
+        <div class="cert-phase-title">Technical Documentation</div>
+        <div class="cert-phase-meta">Duração estimada: 6–12 meses (em paralelo com QMS) &nbsp;|&nbsp; Custo: €80,000–€200,000 (incluindo consultores)</div>
+      </div>
+    </div>
+    <div class="cert-phase-body">
+      <ul class="cert-step-list">
+        <li>
+          <div class="cert-step-num">1</div>
+          <div class="cert-step-content">
+            <strong>Device Description and Specifications (Anexo II, Secção 1)</strong>
+            <span>Descrição técnica detalhada: arquitectura de software, componentes de hardware (se existirem), algoritmos, modelos de IA (com descrição das técnicas de ML, dados de treino, validação), interfaces com outros sistemas/dispositivos, e especificações de performance. Para sistemas de fenotipagem: descrever todos os sensores/fontes de dados, frequência de amostragem, e pipeline de processamento de sinal.</span>
+            <span class="cert-deliverable">Documento: Device Description and Specifications</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">2</div>
+          <div class="cert-step-content">
+            <strong>Design and Manufacturing Information (Anexo II, Secção 2)</strong>
+            <span>Para SaMD: plano de desenvolvimento de software, arquitectura, rastreabilidade de requisitos, design reviews, verificação e validação de software (SOUP management), test cases e resultados, version control e change management. Os artefactos de IEC 62304 alimentam directamente esta secção.</span>
+            <span class="cert-deliverable">Documento: Software Architecture + V&V Documentation</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">3</div>
+          <div class="cert-step-content">
+            <strong>General Safety and Performance Requirements (GSPRs) — Anexo I</strong>
+            <span>Demonstrar conformidade com cada GSPR aplicável. Para SaMD de saúde mental: GSPR 1 (safety/performance), GSPR 6 (shelf life), GSPR 14 (devices with measuring function), GSPR 16 (information supplied by the device), GSPR 17 (cybersecurity). Cada GSPR deve ter: justificação de aplicabilidade, standard(s) usados para cumprir, e evidência de conformidade.</span>
+            <span class="cert-deliverable">Documento: GSPR Checklist com rastreabilidade completa</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">4</div>
+          <div class="cert-step-content">
+            <strong>Benefit-Risk Analysis e Risk Management File</strong>
+            <span>Demostração de que o rácio benefício/risco é aceitável. Inclui: residual risks após implementação de controlos, justificação de que os benefícios superam os riscos, e rastreabilidade entre hazards, controlos, e resultados de testes. Para sistemas de predição de saúde mental: incluir análise de riscos de falsos positivos e falsos negativos e o seu impacto clínico.</span>
+            <span class="cert-deliverable">Documento: Risk Management Report (output do processo ISO 14971)</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">5</div>
+          <div class="cert-step-content">
+            <strong>Cybersecurity Documentation</strong>
+            <span>Obrigatório sob MDR GSPR 17 e reforçado pelo AI Act. Usar o MDCG 2019-16 guidance (cybersecurity) como referência. Para dados de saúde mental: encriptação end-to-end, autenticação robusta, penetration testing, patch management process, e incident response plan. Para sensores passivos: análise de riscos de re-identificação de utilizadores a partir de padrões comportamentais.</span>
+            <span class="cert-deliverable">Documento: Cybersecurity Plan + Penetration Test Report</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">6</div>
+          <div class="cert-step-content">
+            <strong>Usability Engineering — IEC 62366-1</strong>
+            <span>Análise de use errors e consequências de segurança. Para sistemas de suporte à decisão clínica: avaliação de como clínicos interpretam e actuam com base nos outputs do algoritmo. Formative e summative usability studies. Importante para demonstrar que o produto não induz erros clínicos perigosos (automation bias).</span>
+            <span class="cert-deliverable">Documento: Usability Engineering File + Summative Study Report</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">7</div>
+          <div class="cert-step-content">
+            <strong>Post-Market Surveillance (PMS) Plan</strong>
+            <span>Plano proactivo de recolha e análise de dados pós-comercialização: feedback de utilizadores, incidentes clínicos, literatura científica relevante, registos de dispositivos, dados de segurança. Para sistemas de ML: incluir monitorização de data drift e degradação de performance dos modelos ao longo do tempo. Alimenta o Periodic Safety Update Report (PSUR) obrigatório.</span>
+            <span class="cert-deliverable">Documento: PMS Plan + PMCF Plan (Post-Market Clinical Follow-up)</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">8</div>
+          <div class="cert-step-content">
+            <strong>Labelling e Instructions for Use (IFU)</strong>
+            <span>Todos os materiais de comunicação ao utilizador (clínico e/ou paciente). Para SaMD: inclui interface do software, mensagens de alerta, limitações do sistema, e formação necessária. Linguagem deve ser validada com utilizadores reais. Específico para IA: o AI Act exige que os utilizadores saibam que estão a interagir com um sistema de IA e que a decisão final é do clínico.</span>
+            <span class="cert-deliverable">Documento: Labels + IFU validada com utilizadores</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FASE 3 -->
+  <div class="cert-phase">
+    <div class="cert-phase-header">
+      <div class="cert-phase-num">3</div>
+      <div>
+        <div class="cert-phase-title">Evidência Clínica (Clinical Evaluation)</div>
+        <div class="cert-phase-meta">Duração estimada: 12–24 meses &nbsp;|&nbsp; Custo: €100,000–€300,000+ (depende fortemente do design de estudo)</div>
+      </div>
+    </div>
+    <div class="cert-phase-body">
+      <p style="font-size:14px; color: var(--ink-soft); margin-bottom: 16px;">Esta é tipicamente a fase mais longa e custosa — e onde a maioria das startups subestima os recursos necessários. O MDR exige evidência clínica que demonstre safety e performance para o intended purpose declarado.</p>
+      <ul class="cert-step-list">
+        <li>
+          <div class="cert-step-num">1</div>
+          <div class="cert-step-content">
+            <strong>Clinical Evaluation Plan (CEP)</strong>
+            <span>Documento estratégico que define: como a evidência clínica será gerada e avaliada, que literatura será usada (estado da arte), que estudos clínicos são necessários, e que métricas de performance são aceitáveis (clinical performance, safety endpoints). O NB deve aprovar o CEP antes de a empresa investir em estudos clínicos.</span>
+            <span class="cert-deliverable">Documento: Clinical Evaluation Plan (MEDDEV 2.7.1 rev.4)</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">2</div>
+          <div class="cert-step-content">
+            <strong>Literature Review sistemática</strong>
+            <span>Revisão sistemática da literatura científica relevante para o produto e a indicação. Para fenotipagem digital: identificar estado da arte em acurácia preditiva, segurança, e outcomes clínicos. Esta revisão alimenta tanto o Clinical Evaluation Report como o background do intended purpose. Para JITAIs: meta-análises disponíveis (2025) são um ponto de partida mas o campo é imaturo.</span>
+            <span class="cert-deliverable">Documento: Systematic Literature Review (PRISMA-compliant)</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">3</div>
+          <div class="cert-step-content">
+            <strong>Clinical Investigation (se literatura insuficiente)</strong>
+            <span>Para dispositivos novos sem equivalente documentado, o MDR tipicamente requer um estudo clínico prospectivo. Para Classe IIa SaMD de saúde mental: um estudo de performance diagnóstica ou de eficácia clínica com N ≥100–300 pacientes, comparado com gold standard clínico (ex: entrevista clínica estruturada). O design de estudo deve ser aprovado pelo NB antes de iniciar. Requer também aprovação de Comissão de Ética e compliance com GDPR/ICH-GCP.</span>
+            <span class="cert-deliverable">Protocolo: Clinical Investigation Protocol + CEC approval</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">4</div>
+          <div class="cert-step-content">
+            <strong>Clinical Performance Studies (para SaMD diagnóstico/predição)</strong>
+            <span>Demonstrar: sensibilidade, especificidade, PPV, NPV vs. comparador clínico; reprodutibilidade inter-rater; performance em subpopulações relevantes (sexo, idade, etnia — AI Act exige análise de equidade); e ausência de viés sistemático. Para algoritmos de predição: calibração, discriminação (AUC), e análise de impacto clínico (decision curve analysis).</span>
+            <span class="cert-deliverable">Relatório: Clinical Performance Study Report</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">5</div>
+          <div class="cert-step-content">
+            <strong>Clinical Evaluation Report (CER)</strong>
+            <span>Documento central que sintetiza toda a evidência clínica: literatura, dados de performance, análise benefício-risco, e conclusão sobre adequação para o intended purpose. Deve ser assinado por um clínico qualificado (MEDDEV 2.7.1 rev.4 define requisitos de qualificação do avaliador clínico). É revisto pelo NB e pode resultar em Major Non-Conformities que exigem evidência adicional.</span>
+            <span class="cert-deliverable">Documento: Clinical Evaluation Report (final)</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">6</div>
+          <div class="cert-step-content">
+            <strong>Post-Market Clinical Follow-up (PMCF) Plan</strong>
+            <span>Plano de recolha contínua de evidência clínica após colocação no mercado. Para SaMD inovador com evidência inicial limitada, o NB pode exigir um plano de PMCF robusto como condição para o CE mark. Inclui: registos de pacientes, estudos de registry, recolha sistemática de adverse events, e actualização periódica do CER.</span>
+            <span class="cert-deliverable">Documento: PMCF Plan (aprovado pelo NB)</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FASE 4 -->
+  <div class="cert-phase">
+    <div class="cert-phase-header">
+      <div class="cert-phase-num">4</div>
+      <div>
+        <div class="cert-phase-title">Conformity Assessment pelo Notified Body</div>
+        <div class="cert-phase-meta">Duração estimada: 6–18 meses &nbsp;|&nbsp; Custo NB fees: €30,000–€80,000</div>
+      </div>
+    </div>
+    <div class="cert-phase-body">
+      <ul class="cert-step-list">
+        <li>
+          <div class="cert-step-num">1</div>
+          <div class="cert-step-content">
+            <strong>Submissão do Technical File ao Notified Body</strong>
+            <span>Submissão formal de toda a documentação técnica e clínica. O NB confirma completude antes de iniciar a revisão substantiva. Documentação incompleta resulta em atraso imediato. Checklist do Notified Body deve ser usada para garantir completude antes da submissão.</span>
+            <span class="cert-deliverable">Acção: Submissão formal + confirmação de completude pelo NB</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">2</div>
+          <div class="cert-step-content">
+            <strong>Technical Documentation Review</strong>
+            <span>O NB revê o Technical File contra os requisitos do MDR. Pode emitir: (a) Requests for Information (RFI) — questões que requerem esclarecimento; (b) Minor Non-Conformities — questões menores que podem ser resolvidas sem reiniciar o processo; (c) Major Non-Conformities — problemas substantivos que podem exigir evidência adicional ou redesign do produto. Cada MNC suspende o processo até resolução.</span>
+            <span class="cert-deliverable">Processo iterativo: RFIs + NCRs resolvidos</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">3</div>
+          <div class="cert-step-content">
+            <strong>QMS Audit pelo Notified Body</strong>
+            <span>Auditoria presencial ou remota do QMS implementado. Verificação de que os processos documentados são efectivamente praticados. Para startups: o NB pode exigir evidência de que o QMS está "live" (registos reais, não apenas documentação) antes de emitir o CE mark.</span>
+            <span class="cert-deliverable">Relatório: QMS Audit Report (sem Major NCs)</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">4</div>
+          <div class="cert-step-content">
+            <strong>Decision e emissão do CE Certificate</strong>
+            <span>Se todas as non-conformities foram resolvidas, o NB emite o CE Certificate, que especifica: fabricante, dispositivo, intended purpose, data de validade (normalmente 3–5 anos), e condições de validade. O fabricante pode então apor a marca CE no produto e colocá-lo no mercado da UE. O CE Certificate requer vigilância, relatórios periódicos (PSUR), e renovação.</span>
+            <span class="cert-deliverable">Certificado: CE mark MDR emitido</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">5</div>
+          <div class="cert-step-content">
+            <strong>Registo no EUDAMED</strong>
+            <span>O EUDAMED (European Database on Medical Devices) está a tornar-se progressivamente obrigatório (módulo a módulo desde 2025–2026). Registar o fabricante, o dispositivo (UDI), e o CE Certificate. O registo é público e reforça a credibilidade comercial.</span>
+            <span class="cert-deliverable">Registo: EUDAMED completo</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FASE 5 -->
+  <div class="cert-phase">
+    <div class="cert-phase-header">
+      <div class="cert-phase-num">5</div>
+      <div>
+        <div class="cert-phase-title">Obrigações Pós-Mercado (Ongoing)</div>
+        <div class="cert-phase-meta">Contínuo &nbsp;|&nbsp; Custo anual estimado: €20,000–€50,000</div>
+      </div>
+    </div>
+    <div class="cert-phase-body">
+      <ul class="cert-step-list">
+        <li>
+          <div class="cert-step-num">1</div>
+          <div class="cert-step-content">
+            <strong>Post-Market Surveillance (PMS) — execução contínua</strong>
+            <span>Recolha e análise sistemática de dados pós-comercialização: feedback clínico, eventos adversos, near-misses, literatura científica, dados de vigilância de competidores. Para SaMD de IA: incluir monitorização de performance dos modelos em produção (desvio do dataset de treino, degradação de acurácia, equidade por subgrupos).</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">2</div>
+          <div class="cert-step-content">
+            <strong>Periodic Safety Update Report (PSUR)</strong>
+            <span>Para Classe IIa: PSUR obrigatório de 2 em 2 anos (ou anualmente se o NB requerer). Sintetiza evidência de segurança pós-mercado, avaliação benefício-risco actualizada, e conclusão sobre continuidade de conformidade com MDR.</span>
+            <span class="cert-deliverable">Relatório: PSUR (cada 2 anos)</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">3</div>
+          <div class="cert-step-content">
+            <strong>Vigilância e reporte de incidentes</strong>
+            <span>Obrigação de reportar às autoridades competentes (INFARMED em Portugal, BfArM na Alemanha, etc.) qualquer incidente grave que envolva o dispositivo. Para sistemas de predição clínica: erro de predição que conduza a decisão clínica inadequada pode qualificar como "serious incident" sob MDR Artigo 87.</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">4</div>
+          <div class="cert-step-content">
+            <strong>Gestão de mudanças (Change Management)</strong>
+            <span>Qualquer mudança significativa ao software (novo algoritmo, nova indicação, novo input de dados, nova versão de modelo ML) deve ser avaliada para determinar se requer nova conformity assessment ou apenas notificação ao NB. Para modelos de IA que "aprendem" em produção: definir e documentar os limites de aprendizagem aceitável sem nova avaliação regulatória.</span>
+          </div>
+        </li>
+        <li>
+          <div class="cert-step-num">5</div>
+          <div class="cert-step-content">
+            <strong>Preparação para AI Act (deadline Agosto 2027)</strong>
+            <span>Para dispositivos MDR Classe IIa+ com IA: implementar os requisitos adicionais do AI Act antes de Agosto 2027. Prioritários: data governance documentation, human oversight mechanisms, transparency disclosures, e registo no EU AI Database. O MDCG 2025-6/AIB 2025-1 guidance clarifica como harmonizar os dois regimes para minimizar duplicação de esforço.</span>
+            <span class="cert-deliverable">Milestone: AI Act compliance package (antes de Ago 2027)</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Standards obrigatórios e recomendados</h3>
+  <div class="standards-grid">
+    <div class="sg-head">Standard</div>
+    <div class="sg-head">Descrição</div>
+    <div class="sg-head">Status</div>
+
+    <div class="sg-row">
+      <div class="sg-code">ISO 13485:2016</div>
+      <div class="sg-req">QMS para dispositivos médicos — gestão de qualidade completa</div>
+      <div class="sg-mandatory">Obrigatório</div>
+    </div>
+    <div class="sg-row">
+      <div class="sg-code">IEC 62304:2006+A1</div>
+      <div class="sg-req">Software lifecycle para medical devices — desenvolvimento, manutenção, problema resolution</div>
+      <div class="sg-mandatory">Obrigatório</div>
+    </div>
+    <div class="sg-row">
+      <div class="sg-code">ISO 14971:2019</div>
+      <div class="sg-req">Risk management para medical devices — identificação, avaliação e controlo de riscos</div>
+      <div class="sg-mandatory">Obrigatório</div>
+    </div>
+    <div class="sg-row">
+      <div class="sg-code">IEC 62366-1:2015</div>
+      <div class="sg-req">Usability engineering — análise de use errors e consequências de segurança</div>
+      <div class="sg-mandatory">Obrigatório</div>
+    </div>
+    <div class="sg-row">
+      <div class="sg-code">IEC 81001-5-1:2021</div>
+      <div class="sg-req">Cybersecurity para health software e health IT systems</div>
+      <div class="sg-mandatory">Obrigatório (GSPR 17)</div>
+    </div>
+    <div class="sg-row">
+      <div class="sg-code">ISO/IEC 27001</div>
+      <div class="sg-req">Information security management — protecção de dados de saúde</div>
+      <div class="sg-recommended">Fortemente recomendado</div>
+    </div>
+    <div class="sg-row">
+      <div class="sg-code">ISO/IEC 42001:2023</div>
+      <div class="sg-req">AI Management System — específico para sistemas de IA (harmonizado com AI Act)</div>
+      <div class="sg-recommended">Recomendado (AI Act)</div>
+    </div>
+    <div class="sg-row">
+      <div class="sg-code">MEDDEV 2.7.1 rev.4</div>
+      <div class="sg-req">Guidance document para Clinical Evaluation de medical devices</div>
+      <div class="sg-mandatory">Referência obrigatória</div>
+    </div>
+    <div class="sg-row">
+      <div class="sg-code">MDCG 2019-11 Rev.1</div>
+      <div class="sg-req">Qualification e classification de Software no MDR/IVDR (2025 update)</div>
+      <div class="sg-mandatory">Referência obrigatória</div>
+    </div>
+    <div class="sg-row">
+      <div class="sg-code">MDCG 2025-6 / AIB 2025-1</div>
+      <div class="sg-req">Guidance sobre interplay entre AI Act e MDR/IVDR — harmonização de requisitos</div>
+      <div class="sg-mandatory">Referência obrigatória</div>
+    </div>
+    <div class="sg-row">
+      <div class="sg-code">ICH E6(R2) GCP</div>
+      <div class="sg-req">Good Clinical Practice — aplicável a clinical investigations para CE mark</div>
+      <div class="sg-mandatory">Obrigatório em estudos clínicos</div>
+    </div>
+    <div class="sg-row">
+      <div class="sg-code">ISO/IEC 27701</div>
+      <div class="sg-req">Privacy Information Management — extensão do 27001 para GDPR compliance</div>
+      <div class="sg-recommended">Recomendado (GDPR)</div>
+    </div>
+  </div>
+
+  <h3>Timeline consolidada</h3>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-phase">Meses 1–3</div>
+      <div class="tl-title">Fase de Preparação Estratégica <span class="tl-cost">€10–30k</span></div>
+      <div class="tl-duration">Intended Purpose · Classificação Rule 11 · AI Act assessment · Selecção de Notified Body · Pre-submission meeting</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-phase">Meses 3–10</div>
+      <div class="tl-title">QMS Implementation <span class="tl-cost">€50–120k</span></div>
+      <div class="tl-duration">ISO 13485 · IEC 62304 · ISO 14971 · IEC 62366 · Cybersecurity · AI Data Governance · Auditoria QMS</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-phase">Meses 4–18</div>
+      <div class="tl-title">Technical Documentation (em paralelo) <span class="tl-cost">€80–200k</span></div>
+      <div class="tl-duration">Device Description · GSPRs · Risk Management File · Clinical Evaluation Plan · Literatura · Clinical Study · CER</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-phase">Meses 15–30</div>
+      <div class="tl-title">Conformity Assessment pelo NB <span class="tl-cost">€30–80k</span></div>
+      <div class="tl-duration">Submissão Technical File · Technical Review · QMS Audit · NCR resolution · CE Certificate emitido</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-phase">Meses 24–36+</div>
+      <div class="tl-title">CE Mark + EUDAMED + Lançamento <span class="tl-cost">€20–50k/ano</span></div>
+      <div class="tl-duration">Colocação no mercado EU · EUDAMED registration · PMS activo · PSUR · Change management · AI Act prep (deadline Ago 2027)</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SECTION 5 -->
+<div class="section" id="s5">
+  <div class="section-num">Secção 05</div>
+  <h2>Modelos de Negócio</h2>
+
+  <h3>Matriz de modelos por viabilidade europeia</h3>
+
+  <table>
+    <tr>
+      <th>Modelo</th>
+      <th>Adequação ao produto</th>
+      <th>Viabilidade europeia</th>
+      <th>Time-to-revenue</th>
+      <th>Risco</th>
+    </tr>
+    <tr>
+      <td><strong>B2B — Sistemas de saúde públicos (SNS/NHS)</strong></td>
+      <td>Alta — produto clínico validado tem proposta de valor clara</td>
+      <td>Alta (UK, DE, FR) / Baixa (PT, ES)</td>
+      <td>24–48 meses</td>
+      <td>Ciclos de venda muito longos; dependência de procurement público</td>
+    </tr>
+    <tr>
+      <td><strong>B2B — Farmacêuticas (biomarkers para ensaios)</strong></td>
+      <td>Alta — dados de fenotipagem têm valor imediato como endpoints</td>
+      <td>Alta — mercado global, contratos mais rápidos</td>
+      <td>6–18 meses</td>
+      <td>Não constrói base de utilizadores clínicos; dependência de ciclos de trial</td>
+    </tr>
+    <tr>
+      <td><strong>B2B2C — Seguradoras / saúde ocupacional</strong></td>
+      <td>Média — produto mais adequado a gestão de risco de populações</td>
+      <td>Média — cresce em DE, UK; fraca em PT</td>
+      <td>12–24 meses</td>
+      <td>Requer adaptação do produto para métricas de ROI de seguradora</td>
+    </tr>
+    <tr>
+      <td><strong>Licenciamento a investigação/academia</strong></td>
+      <td>Alta — plataforma de fenotipagem é recurso de investigação natural</td>
+      <td>Alta — FCT, Horizon Europe como clientes</td>
+      <td>3–12 meses</td>
+      <td>Receita baixa; risco de académicos construírem em cima sem pagar</td>
+    </tr>
+    <tr>
+      <td><strong>B2C directo</strong></td>
+      <td>Baixa — produto clínico não é adequado para B2C puro</td>
+      <td>Muito baixa</td>
+      <td>6–12 meses mas CAC insustentável</td>
+      <td>Modelo economicamente inviável para produtos de fenotipagem clínica</td>
+    </tr>
+  </table>
+
+  <div class="callout callout-success">
+    <div class="callout-title">Estratégia de modelo de negócio recomendada</div>
+    <p>Para a fase inicial (0–24 meses): <strong>combinação pharma B2B + licenciamento a investigação</strong> para gerar receita enquanto se constrói evidência clínica. A partir do CE mark: <strong>B2B com sistemas de saúde na Alemanha (DiGA) ou UK (NHS pathway)</strong> como mercado primário de escala. Portugal como site de investigação com potencial de piloto SNS em fase posterior.</p>
+  </div>
+
+  <h3>DiGA — O pathway mais claro na Europa para reembolso de DTx</h3>
+  <p>O programa alemão DiGA (Digitale Gesundheitsanwendungen) é actualmente o único caminho europeu com <strong>reembolso automático por seguro de saúde público</strong> após aprovação. Uma DiGA aprovada pelo BfArM (autoridade regulatória alemã) é prescritível por médicos e reembolsada pelas Gesetzliche Krankenversicherungen (GKV). Actualmente existem 50+ DiGA aprovadas, com >11 especificamente em saúde mental (incluindo Deprexis para depressão). O processo DiGA é distinto do CE mark MDR — mas um CE mark Classe IIa é um pré-requisito. Custo de submissão DiGA: €20,000–€50,000 adicionais; prazo: 3 meses para aprovação provisional.</p>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section" id="s6">
+  <div class="section-num">Secção 06</div>
+  <h2>Financiamento</h2>
+
+  <h3>Stack de financiamento típico para startup europeia de healthtech clínico</h3>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-phase">Pre-seed</div>
+      <div class="tl-title">€50k–€500k <span class="tl-cost">FCT / EIT Health / Angels</span></div>
+      <div class="tl-duration">Prova de conceito técnica. Protocolo de investigação com hospital parceiro. Primeiros dados de fenotipagem. Equipa fundadora com credenciais académico-clínicas.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-phase">Seed</div>
+      <div class="tl-title">€500k–€3M <span class="tl-cost">EIC Pathfinder / EIC Accelerator / Angels / Seed VC</span></div>
+      <div class="tl-duration">Piloto clínico com dados de segurança e engagement. Início de processo regulatório. QMS implementado. Contrato pharma B2B ou grant Horizon Europe. ≥1 publicação peer-reviewed.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-phase">Series A</div>
+      <div class="tl-title">€3M–€15M <span class="tl-cost">VC especializado healthtech + EIC equity</span></div>
+      <div class="tl-duration">CE mark MDR Classe IIa. ≥1 sistema de saúde como cliente pagante ou contrato DiGA em curso. Evidência clínica publicada. Expansão de equipa comercial e clínica.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-phase">Series B+</div>
+      <div class="tl-title">€15M+ <span class="tl-cost">Growth VC + Strategic (pharma/insurer)</span></div>
+      <div class="tl-duration">Escala internacional. Múltiplos contratos com sistemas de saúde. Parceria estratégica com seguradora ou farmacêutica. Dados de outcome clínico em populações reais.</div>
+    </div>
+  </div>
+
+  <h3>Programas europeus prioritários</h3>
+  <table>
+    <tr>
+      <th>Programa</th>
+      <th>Valor</th>
+      <th>TRL adequado</th>
+      <th>Dificuldade</th>
+      <th>Nota estratégica</th>
+    </tr>
+    <tr>
+      <td><strong>EIC Accelerator (Horizon Europe)</strong></td>
+      <td>€2,5M grant + €0,5–15M equity</td>
+      <td>TRL 6–8</td>
+      <td>Muito alta (~5,9% taxa de sucesso)</td>
+      <td>O "Seal of Excellence" para recusados desbloqueia financiamento nacional em vários países</td>
+    </tr>
+    <tr>
+      <td><strong>EIC Pathfinder (Horizon Europe)</strong></td>
+      <td>€3–4M por projecto</td>
+      <td>TRL 1–4</td>
+      <td>Alta</td>
+      <td>Ideal para fase de investigação fundamental em JITAIs ou fenotipagem</td>
+    </tr>
+    <tr>
+      <td><strong>EIC Transition (Horizon Europe)</strong></td>
+      <td>€2,5M</td>
+      <td>TRL 3–5</td>
+      <td>Média</td>
+      <td>Ponte entre investigação e comercialização — relevante para validação clínica pré-CE mark</td>
+    </tr>
+    <tr>
+      <td><strong>EIT Health (Catapult, Bootcamps)</strong></td>
+      <td>Variável (programa + potencial EIC fast-track)</td>
+      <td>Early stage</td>
+      <td>Média</td>
+      <td>Requer ≥€500k investimento privado já levantado. Rede de parceiros hospitalares pan-europeia.</td>
+    </tr>
+    <tr>
+      <td><strong>FCT (Portugal — projecto de I&D)</strong></td>
+      <td>€50k–€500k</td>
+      <td>TRL 1–5</td>
+      <td>Média</td>
+      <td>Pode co-financiar investigação em parceria com universidade portuguesa</td>
+    </tr>
+    <tr>
+      <td><strong>PRR / COMPETE 2030 (Portugal)</strong></td>
+      <td>Variável — até €4M por projecto</td>
+      <td>TRL 3–7</td>
+      <td>Média</td>
+      <td>Disponível para projectos de inovação em saúde digital em regiões elegíveis</td>
+    </tr>
+    <tr>
+      <td><strong>EIB Advisory + Co-investment</strong></td>
+      <td>€70B comprometidos em tech 2025–27 (inclui saúde)</td>
+      <td>Series A+</td>
+      <td>Alta (requer track record)</td>
+      <td>Tipicamente entra após EIC Fund. Sinal de credibilidade importante para rounds subsequentes.</td>
+    </tr>
+  </table>
+
+  <h3>VCs europeus activos em digital health / mental health (2024–2025)</h3>
+  <table>
+    <tr>
+      <th>Fundo</th>
+      <th>Base</th>
+      <th>Estágio típico</th>
+      <th>Ticket</th>
+      <th>Relevância</th>
+    </tr>
+    <tr>
+      <td><strong>Nina Capital</strong></td>
+      <td>Barcelona</td>
+      <td>Pre-seed, Seed, Series A</td>
+      <td>€200k–€3M</td>
+      <td>Foco específico em healthcare + tech na Europa. Geograficamente mais próximo.</td>
+    </tr>
+    <tr>
+      <td><strong>Octopus Ventures</strong></td>
+      <td>Londres</td>
+      <td>Seed–Series B</td>
+      <td>£500k–£10M</td>
+      <td>Strong healthtech thesis, inclui femtech e digital care. NHS pathway experiência.</td>
+    </tr>
+    <tr>
+      <td><strong>Sofinnova Partners</strong></td>
+      <td>Paris</td>
+      <td>Series A+</td>
+      <td>€5–30M</td>
+      <td>Life sciences + healthtech. Exige CE mark ou advanced clinical stage.</td>
+    </tr>
+    <tr>
+      <td><strong>Ananda Impact Ventures</strong></td>
+      <td>Munique</td>
+      <td>Early–growth</td>
+      <td>€0,5–5M</td>
+      <td>Impact-driven fund; AI-driven care e social innovation — fit ideológico forte.</td>
+    </tr>
+    <tr>
+      <td><strong>EIC Fund</strong></td>
+      <td>Bruxelas</td>
+      <td>Post-grant (EIC Accelerator)</td>
+      <td>€0,5–15M equity</td>
+      <td>O maior investidor de deep tech early-stage na Europa. Atrai co-investidores.</td>
+    </tr>
+    <tr>
+      <td><strong>Portugal Ventures</strong></td>
+      <td>Lisboa</td>
+      <td>Pre-seed, Seed</td>
+      <td>€100k–€1,5M</td>
+      <td>Fundo público. Importante para primeiros rounds em Portugal. Não é lead investor.</td>
+    </tr>
+  </table>
+</div>
+
+<!-- SECTION 7 -->
+<div class="section" id="s7">
+  <div class="section-num">Secção 07</div>
+  <h2>Factores Críticos de Sucesso e Falha</h2>
+
+  <h3>O que distingue quem consegue translação clínica real</h3>
+
+  <table>
+    <tr>
+      <th>Factor</th>
+      <th>Empresas que acertaram</th>
+      <th>Empresas que falharam</th>
+      <th>Evidência</th>
+    </tr>
+    <tr>
+      <td><strong>Sequenciação ciência → produto → escala</strong></td>
+      <td>Limbic: UKCA antes de escalar NHS. Sleepio: NICE evidence antes de expansion.</td>
+      <td>Mindstrong: escala antes de validação clínica suficiente. Pear: FDA sem modelo de reembolso.</td>
+      <td><span class="tag tag-solid">Evidência forte</span></td>
+    </tr>
+    <tr>
+      <td><strong>Clínicos como co-criadores, não consultores</strong></td>
+      <td>Koa Health: investigadores King's College no core. Limbic: neurocientista clínico co-fundador.</td>
+      <td>Múltiplos casos de "clinical advisory board" simbólico sem integração real no produto.</td>
+      <td><span class="tag tag-solid">Evidência forte</span></td>
+    </tr>
+    <tr>
+      <td><strong>Indicação estreita e bem delimitada</strong></td>
+      <td>Sleepio → insónia apenas. Limbic → triagem NHS. Kintsugi → depressão/ansiedade por voz.</td>
+      <td>Mindstrong → "todas as condições de saúde mental" em simultâneo.</td>
+      <td><span class="tag tag-solid">Evidência forte</span></td>
+    </tr>
+    <tr>
+      <td><strong>Modelo de reembolso definido antes da certificação</strong></td>
+      <td>Startups DiGA (Alemanha) definem pagador antes de submeter. Limbic define NHS contract structure antecipadamente.</td>
+      <td>Pear Therapeutics: FDA clearance sem CMS coverage. Kintsugi: FDA submission sem payor commitment.</td>
+      <td><span class="tag tag-solid">Evidência forte</span></td>
+    </tr>
+    <tr>
+      <td><strong>Interoperabilidade com sistemas clínicos</strong></td>
+      <td>SilverCloud: integração com IAPT workflow. Limbic: integração no referral pathway NHS.</td>
+      <td>Soluções em silos que não integram no EHR ou pathway clínico existente.</td>
+      <td><span class="tag tag-solid">Evidência forte</span></td>
+    </tr>
+    <tr>
+      <td><strong>Timeline regulatória realista</strong></td>
+      <td>Startups que planeiam 24–36 meses para CE mark e capitalizam adequadamente.</td>
+      <td>Kintsugi: "muito perto do finish line" ao esgotar o capital após 4 anos de FDA work.</td>
+      <td><span class="tag tag-solid">Evidência forte</span></td>
+    </tr>
+  </table>
+
+  <h3>Razões documentadas de falha neste sector</h3>
+  <p><strong>1. Fosso entre engagement metrics e clinical outcomes.</strong> Muitas startups reportam DAU/MAU como proxies de eficácia. Os pagadores europeus (NHS, seguradoras, DiGA) exigem outcomes clínicos validados (PHQ-9, MADRS, taxa de hospitalização evitada). Este desalinhamento de métricas é a causa de morte mais documentada em digital mental health.</p>
+  <p><strong>2. "Pilot trap" — perpetual piloting sem escala.</strong> Estudos de piloto em 1–2 hospitais podem durar anos sem transição para contrato comercial. Causas: falta de champion interno no hospital, ausência de modelo de reembolso definido, evidência insuficiente para justificar procurement formal.</p>
+  <p><strong>3. Subestimação do custo regulatório.</strong> A Kintsugi gastou $16M em 4 anos de trabalho FDA antes de fechar. Uma startup europeia pode esperar €300,000–€700,000 para CE mark Classe IIa — um custo que deve ser orçamentado explicitamente e não absorvido implicitamente.</p>
+  <p><strong>4. Dependência de um único mercado/cliente.</strong> Startups que dependem de um único contrato NHS Trust, ou de um único contrato pharma, ficam vulneráveis a mudanças de prioridades do parceiro. Diversificação de revenue streams é crítica para resiliência.</p>
+  <p><strong>5. Ausência de expertise regulatório interno.</strong> Delegar completamente para consultores externos cria dependência e ausência de memória organizacional. Ter pelo menos uma pessoa interna com formação em regulatory affairs é fundamental a partir do Seed.</p>
+
+  <h3>Parcerias determinantes por tipo</h3>
+  <table>
+    <tr>
+      <th>Tipo de parceria</th>
+      <th>Exemplos concretos</th>
+      <th>O que fornece</th>
+      <th>Quando activar</th>
+    </tr>
+    <tr>
+      <td><strong>Académica (Universidade)</strong></td>
+      <td>FMUL, FMUP, Nova Medical School (PT); King's College, Imperial (UK)</td>
+      <td>Acesso a dados clínicos, co-autoria de publicações, credibilidade regulatória, acesso a grants académicos</td>
+      <td>Desde o início — é o fundamento da evidência clínica</td>
+    </tr>
+    <tr>
+      <td><strong>Clínica (Hospital/Serviço)</strong></td>
+      <td>CHUSJ, CHULN (PT); Maudsley NHS Foundation Trust (UK); Charité (DE)</td>
+      <td>Site de investigação, dados clínicos reais, clinical champion, validação de produto em contexto real</td>
+      <td>Pre-seed para piloto; antes do CE mark como clinical investigation site</td>
+    </tr>
+    <tr>
+      <td><strong>Farmacêutica (endpoint digital)</strong></td>
+      <td>Janssen, Lundbeck, Otsuka, Roche (programas de digital biomarkers)</td>
+      <td>Receita de contrato de I&D, co-financiamento de validação, acesso a populações de ensaio</td>
+      <td>Seed–Series A para gerar receita enquanto se aguarda CE mark</td>
+    </tr>
+    <tr>
+      <td><strong>Industrial/Tecnológica</strong></td>
+      <td>AWS (healthtech credits), Microsoft Azure (healthcare), Google Cloud</td>
+      <td>Infraestrutura cloud com compliance HIPAA/GDPR, créditos para startups, integração técnica</td>
+      <td>Desde o início — escolher plataforma cloud com configuração healthcare desde o design</td>
+    </tr>
+    <tr>
+      <td><strong>Regulatória (Notified Body)</strong></td>
+      <td>TÜV SÜD, BSI, DNV (para MDR)</td>
+      <td>Guidance informal antes de submissão formal, validação da abordagem regulatória, aceleração do processo</td>
+      <td>6–12 meses antes de submissão formal — não esperar pela submissão para primeiro contacto</td>
+    </tr>
+  </table>
+</div>
+
+<!-- SECTION 8 -->
+<div class="section" id="s8">
+  <div class="section-num">Secção 08</div>
+  <h2>Portugal e Mercado Ibérico</h2>
+
+  <h3>Portugal: análise honesta do ecossistema</h3>
+  <p>Portugal tem um ecossistema healthtech em crescimento mas imaduro no segmento clínico avançado. Os dados mais fiáveis: <strong>390 startups healthtech</strong>, das quais <strong>74 com financiamento</strong> e apenas <strong>13 com Series A+</strong>. O unicórnio SWORD Health (reabilitação física digital) é a referência de sucesso — mas seguiu o modelo de capital americano com mercado primário nos EUA, não o SNS.</p>
+
+  <div class="callout callout-warning">
+    <div class="callout-title">Aviso estratégico para fundadores portugueses</div>
+    <p>Portugal não tem escala para ser o mercado primário de uma startup de fenotipagem clínica com ambições de impacto real. O SNS tem orçamentos de inovação muito limitados, ciclos de procurement de 18–36 meses, e não tem pathway de reembolso para terapêuticas digitais. Usar Portugal como <strong>site de investigação de baixo custo</strong> e <strong>laboratório de validação</strong> é inteligente. Usar Portugal como <strong>mercado primário</strong> é arriscado.</p>
+  </div>
+
+  <h3>O que Portugal oferece genuinamente</h3>
+  <p><strong>Investigação clínica de qualidade a custo competitivo.</strong> Os serviços de psiquiatria do CHUSJ, CHULN e CHUC têm qualidade científica e custo de ensaio clínico significativamente mais baixo do que UK, Alemanha ou Suíça. Um estudo de validação que custa €300k no NHS pode ser possível por €80–150k em Portugal com parceiro universitário adequado.</p>
+  <p><strong>Talento técnico com relação custo-qualidade favorável.</strong> Portugal tem engenheiros de software e data scientists com formação de qualidade e salários competitivos — relevante para construir a plataforma técnica na fase inicial.</p>
+  <p><strong>Acesso a fundos europeus via COMPETE 2030 e PRR.</strong> O COMPETE 2030 tem dotação de €3,9 mil milhões para projectos em áreas incluindo saúde digital. O PRR financiou projectos de IA em saúde, incluindo o Centro para a IA Responsável. Estes fundos podem co-financiar R&D sem diluição de equity.</p>
+  <p><strong>Portugal Ventures como first institutional money.</strong> Para startups em estágio muito inicial, a Portugal Ventures pode ser o primeiro institutional check — não é o ideal mas reduz o risco de não ter nenhum institutional backing quando se vai a angels e VCs europeus.</p>
+
+  <h3>Estratégia ibérica recomendada</h3>
+  <p>A Espanha oferece oportunidades complementares — Nina Capital (Barcelona) é o único fundo ibérico especializado em healthcare+tech com visão de investimento europeu, e os hospitais universitários espanhóis (Hospital Clínic de Barcelona, Hospital La Paz) têm track record forte em investigação clínica em saúde mental. Uma estratégia que inclua site de investigação em Portugal + parceria comercial inicial em Espanha + mercado primário de escala na Alemanha/UK está bem fundamentada na análise deste relatório.</p>
+
+</div>
+
+</div><!-- fim .doc -->
+
+<div class="footer">
+  <p>Relatório produzido com base em dados de mercado, literatura clínica peer-reviewed, documentos regulatórios oficiais da UE, e análise competitiva de fontes verificáveis. Abril 2026.</p>
+  <p style="margin-top:8px">⚠ Este documento é para fins de análise estratégica. Para decisões regulatórias, consulte sempre um consultor regulatório certificado e o Notified Body relevante.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "table_slide": "Slide 1 — Tabela de Evidências",
+  "rows": [
+    {
+      "order": 1,
+      "aspect_pt": "Estudantes universitários PT (18–25) com sintomas de ansiedade",
+      "number": "75% ansiedade; 61,2% depressão (N=3.399)",
+      "source": "Amaro et al., 2024 — estudo nacional 3.399 estudantes",
+      "evidence_id": "EV-005",
+      "category": "segment_prevalence"
+    },
+    {
+      "order": 2,
+      "aspect_pt": "Capacidade SNS: psicólogos por habitante (vs objectivo legal)",
+      "number": "~1.100 psicólogos / 10,3M (rácio ~1:9.400; meta 1:5.000)",
+      "source": "SNS / Resolução AR n.º 158/2021",
+      "evidence_id": "EV-012",
+      "category": "access_gap"
+    },
+    {
+      "order": 3,
+      "aspect_pt": "Tempo de espera para 1.ª consulta de psicologia no SNS (2024)",
+      "number": ">300 dias (Santarém); 254 (Aveiro); 240 (Chaves)",
+      "source": "Dados SNS, 2024",
+      "evidence_id": "EV-013",
+      "category": "urgency"
+    },
+    {
+      "order": 4,
+      "aspect_pt": "Abandono no fluxo digital actual (baseline iNNOVSensing)",
+      "number": "52,7% falha de triagem (retenção ~47%)",
+      "source": "Relatório Estratégico PerSense / iNNOVSensing",
+      "evidence_id": "EV-042",
+      "category": "problem_magnitude"
+    },
+    {
+      "order": 5,
+      "aspect_pt": "Precedente clínico: mHealth reduz ansiedade/depressão",
+      "number": "SMD -0,68 ansiedade; -0,49 depressão (139 RCTs, N=19.233)",
+      "source": "Meta-análise mHealth, 2025",
+      "evidence_id": "EV-023",
+      "category": "outcome_precedent"
+    }
+  ],
+  "total_rows": 5,
+  "validation": {
+    "all_sources_verified": true,
+    "all_numbers_from_ledger": true,
+    "ready_for_rendering": true
+  }
+}

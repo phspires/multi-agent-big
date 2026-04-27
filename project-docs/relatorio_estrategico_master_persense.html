@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório Estratégico Master — PerSense Startup · CMS · 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --ink: #0e0e0e;
+  --ink2: #363636;
+  --ink3: #767676;
+  --bg: #f9f8f4;
+  --bg2: #f1efe8;
+  --bg3: #e8e5dc;
+  --rule: #dedad0;
+  --navy: #0a1d36;
+  --navy2: #163358;
+  --navylt: #d6e3f5;
+  --teal: #063c2e;
+  --teallt: #cce8e0;
+  --amber: #5a2e00;
+  --amberlt: #fcecd0;
+  --red: #5c0f0f;
+  --redlt: #fde3e3;
+  --purple: #32146a;
+  --purplelt: #ebe4f8;
+  --green: #0a3c1e;
+  --greenlt: #d2ecdc;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.82;
+}
+
+/* ── COVER ─────────────────────────────────────────── */
+.cover {
+  background: var(--navy);
+  color: #fff;
+  padding: 64px 72px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.cover::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: 60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.cover-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin-bottom: 20px;
+}
+.cover h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 46px;
+  font-weight: 300;
+  line-height: 1.1;
+  max-width: 700px;
+  margin-bottom: 12px;
+  position: relative;
+}
+.cover h1 em { font-style: italic; opacity: 0.7; }
+.cover-sub {
+  font-size: 14px;
+  opacity: 0.55;
+  max-width: 560px;
+  line-height: 1.65;
+  margin-bottom: 44px;
+  position: relative;
+}
+.cover-stats {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 26px;
+  flex-wrap: wrap;
+  position: relative;
+}
+.cs {
+  padding-right: 32px;
+  margin-right: 32px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.cs:last-child { border-right: none; }
+.cs-v {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.cs-l { font-size: 10.5px; opacity: 0.45; letter-spacing: 0.04em; }
+
+/* ── NAV ─────────────────────────────────────────── */
+.toc {
+  background: var(--navy2);
+  padding: 0 72px;
+}
+.toc-inner {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.toc-item {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  padding: 12px 20px 12px 0;
+  margin-right: 20px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  text-decoration: none;
+}
+.toc-item:hover { color: rgba(255,255,255,0.8); }
+.toc-item:last-child { border-right: none; }
+.toc-num { opacity: 0.4; margin-right: 5px; }
+
+/* ── LAYOUT ─────────────────────────────────────── */
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 60px 100px; }
+
+/* ── SECTION ─────────────────────────────────────── */
+.sec { margin-top: 72px; }
+.sec-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 6px;
+}
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--navy);
+  border-bottom: 2px solid var(--navy);
+  padding-bottom: 14px;
+  margin-bottom: 28px;
+  line-height: 1.2;
+}
+h3 {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 30px 0 9px;
+  letter-spacing: -0.01em;
+}
+h4 {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink3);
+  margin: 18px 0 6px;
+}
+p { color: var(--ink2); margin-bottom: 11px; }
+p strong { color: var(--ink); font-weight: 600; }
+ul, ol { padding-left: 18px; color: var(--ink2); margin-bottom: 11px; }
+li { margin-bottom: 4px; }
+
+/* ── BADGES ─────────────────────────────────────── */
+.b {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.b-solid   { background:var(--teallt);  color:var(--teal);   }
+.b-emerg   { background:var(--amberlt); color:var(--amber);  }
+.b-assume  { background:var(--redlt);   color:var(--red);    }
+.b-best    { background:var(--navylt);  color:var(--navy2);  }
+.b-oss     { background:var(--purplelt);color:var(--purple); }
+
+/* ── CALLOUT BOXES ──────────────────────────────── */
+.box {
+  border-radius: 9px;
+  padding: 17px 22px;
+  margin: 18px 0;
+  border-left: 3px solid;
+}
+.box p, .box ul { margin: 0; font-size: 13.5px; line-height: 1.65; }
+.box ul { margin-top: 6px; }
+.box-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+.box-ok     { background:var(--teallt);   border-color:var(--teal);   }
+.box-ok .box-title   { color:var(--teal);   }
+.box-warn   { background:var(--amberlt);  border-color:#c97b00;       }
+.box-warn .box-title { color:var(--amber); }
+.box-info   { background:var(--navylt);   border-color:var(--navy2);  }
+.box-info .box-title { color:var(--navy2); }
+.box-danger { background:var(--redlt);    border-color:var(--red);    }
+.box-danger .box-title { color:var(--red); }
+.box-oss    { background:var(--purplelt); border-color:var(--purple); }
+.box-oss .box-title  { color:var(--purple); }
+
+/* ── POPULATION / PRODUCT CARDS ─────────────────── */
+.pop-card {
+  border: 1px solid var(--rule);
+  border-radius: 11px;
+  overflow: hidden;
+  margin: 22px 0;
+  background: #fff;
+}
+.pop-head {
+  padding: 16px 22px 13px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+.pop-id {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 3px;
+}
+.pop-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.pop-sub { font-size: 12px; color: var(--ink3); margin-top: 2px; }
+.verdict {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.v-go     { background:var(--teallt);   color:var(--teal);   }
+.v-later  { background:var(--amberlt);  color:var(--amber);  }
+.v-lab    { background:var(--purplelt); color:var(--purple); }
+.v-bridge { background:var(--navylt);   color:var(--navy2);  }
+.v-no     { background:var(--redlt);    color:var(--red);    }
+
+.pop-body { padding: 18px 22px; }
+.pop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 28px;
+  margin-bottom: 14px;
+}
+.pg-l {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink3);
+  margin-bottom: 3px;
+}
+.pg-v { font-size: 13px; color: var(--ink2); line-height: 1.55; }
+.pg-v strong { color: var(--ink); font-weight: 600; }
+.inv-note {
+  background: var(--navy);
+  color: rgba(255,255,255,0.88);
+  border-radius: 7px;
+  padding: 13px 17px;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+.inv-note strong { color: #fff; font-weight: 600; }
+
+/* ── TABLE ──────────────────────────────────────── */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin: 18px 0;
+}
+.tbl th {
+  background: var(--navy);
+  color: #fff;
+  padding: 9px 12px;
+  text-align: left;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.tbl td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink2);
+  vertical-align: top;
+}
+.tbl tr:nth-child(even) td { background: var(--bg2); }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl td strong { color: var(--ink); font-weight: 600; }
+.tbl td code {
+  font-family: 'DM Mono', monospace;
+  font-size: 11.5px;
+  background: var(--bg3);
+  padding: 1px 4px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+
+/* ── ARCH BLOCK ─────────────────────────────────── */
+.arch {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 26px 30px;
+  margin: 20px 0;
+  color: rgba(255,255,255,0.88);
+}
+.arch-layer {
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 7px;
+  padding: 11px 15px;
+  margin: 7px 0;
+}
+.arch-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  margin-bottom: 7px;
+}
+.arch-items { display: flex; flex-wrap: wrap; gap: 7px; }
+.arch-item {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  padding: 3px 9px;
+  font-size: 11px;
+}
+.arch-item.hi { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.35); font-weight: 500; }
+.arch-arrow { text-align: center; opacity: 0.3; padding: 2px 0; font-size: 14px; }
+
+/* ── DECISION BOXES ─────────────────────────────── */
+.dec {
+  border: 2px solid var(--navy);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 26px 0;
+  position: relative;
+}
+.dec-tag {
+  position: absolute;
+  top: -11px; left: 16px;
+  background: var(--navy);
+  color: #fff;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  border-radius: 3px;
+}
+.dec p { margin: 0; font-size: 13.5px; }
+
+/* ── ANTI ───────────────────────────────────────── */
+.anti-item {
+  display: flex;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.anti-item:last-child { border-bottom: none; }
+.anti-x {
+  width: 22px; height: 22px;
+  background: var(--redlt);
+  color: var(--red);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700;
+  flex-shrink: 0; margin-top: 2px;
+}
+.anti-title { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+.anti-body  { font-size: 13px; color: var(--ink2); line-height: 1.55; }
+
+/* ── TIMELINE ───────────────────────────────────── */
+.tl { padding-left: 30px; position: relative; margin: 18px 0; }
+.tl::before { content:''; position:absolute; left:8px; top:8px; bottom:8px; width:1.5px; background:var(--rule); }
+.tl-item { position: relative; margin-bottom: 17px; }
+.tl-item::before { content:''; position:absolute; left:-24px; top:5px; width:11px; height:11px; border-radius:50%; background:var(--navy2); border:2.5px solid var(--bg); }
+.tl-ph { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--navy2); margin-bottom:2px; }
+.tl-title { font-weight:600; font-size:14.5px; margin-bottom:4px; }
+.tl-body { font-size:13px; color:var(--ink2); line-height:1.55; }
+
+hr { border:none; border-top:1px solid var(--rule); margin:60px 0; }
+
+.footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--rule);
+  padding: 24px 60px;
+  font-size: 11.5px;
+  color: var(--ink3);
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-kicker">Relatório Estratégico Master — Versão Integrada · Perspectiva Senior Investor · Abril 2026</div>
+  <h1>Decisão cirúrgica:<br><em>produto, população,<br>modelo de desenvolvimento</em></h1>
+  <p class="cover-sub">Análise comparativa exaustiva de todas as dimensões estratégicas — populações, produtos, modelos de desenvolvimento inovadores (hospital, farmacêutica, João de Deus, spin-off académico), stack open-source integrada, e barreiras de translação clínica. Baseada nos dados reais do iNNOVSensing e no portefólio verificado da CMS.</p>
+  <div class="cover-stats">
+    <div class="cs"><div class="cs-v">8</div><div class="cs-l">Secções analíticas</div></div>
+    <div class="cs"><div class="cs-v">5</div><div class="cs-l">Populações comparadas</div></div>
+    <div class="cs"><div class="cs-v">5</div><div class="cs-v" style="font-size:14px; margin-top:2px;">Produtos avaliados</div></div>
+    <div class="cs"><div class="cs-v">7</div><div class="cs-l">Modelos de desenvolvimento</div></div>
+    <div class="cs"><div class="cs-v">6</div><div class="cs-l">Plataformas OSS integradas</div></div>
+    <div class="cs"><div class="cs-v">N=45</div><div class="cs-l">ML AUC 0.73–0.78 (BCS)</div></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="toc">
+  <div class="toc-inner">
+    <a class="toc-item" href="#s1"><span class="toc-num">01</span>Populações</a>
+    <a class="toc-item" href="#s2"><span class="toc-num">02</span>Produtos</a>
+    <a class="toc-item" href="#s3"><span class="toc-num">03</span>Modelos Desenvolvimento</a>
+    <a class="toc-item" href="#s4"><span class="toc-num">04</span>Go-to-Market</a>
+    <a class="toc-item" href="#s5"><span class="toc-num">05</span>Barreiras Translação</a>
+    <a class="toc-item" href="#s6"><span class="toc-num">06</span>Stack Open-Source</a>
+    <a class="toc-item" href="#s7"><span class="toc-num">07</span>Financiamento</a>
+    <a class="toc-item" href="#s8"><span class="toc-num">08</span>Decisão</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECÇÃO 1: POPULAÇÕES                           -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="sec" id="s1">
+  <div class="sec-kicker">Secção 01</div>
+  <h2>Matriz de Populações e Indicações</h2>
+
+  <p>Cada população acarreta um conjunto diferente de vantagens competitivas, barreiras regulatórias, e pagadores. A análise que se segue é feita com base nos activos reais da CMS — não em hipóteses genéricas de mercado.</p>
+
+  <!-- POP A: BCS -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">População A</div>
+        <div class="pop-name">Sobreviventes de Cancro da Mama (BCS)</div>
+        <div class="pop-sub">Ansiedade e depressão na sobrevivência oncológica · indicação âncora</div>
+      </div>
+      <div class="verdict v-go">Indicação principal</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">Prevalência PT/EU</div>
+          <div class="pg-v"><span class="b b-solid">Sólido</span> 5-year prevalence BCS em Portugal: 36.117 (2022). EU-27: ~750.000. Maior grupo de sobreviventes oncológicos. 30–40% desenvolvem ansiedade/depressão clinicamente significativas.</div>
+        </div>
+        <div>
+          <div class="pg-l">Treatment gap</div>
+          <div class="pg-v"><span class="b b-solid">Documentado</span> Acesso a apoio psicossocial especializado: &lt;20% das BCS em Portugal recebe intervenção psicológica formal. Barreiras: distância, custo, falta de profissionais especializados em psicooncologia.</div>
+        </div>
+        <div>
+          <div class="pg-l">Activos CMS nesta população</div>
+          <div class="pg-v"><strong>Máximos.</strong> iNNOVSensing concluído (N=126 ICF, N=35 RCT, N=45 ML). iNNOVBC intervention content (9 módulos CBT/ACT) — IP próprio. IPO-Porto + CHUSJ como centros clínicos activos. PerSense proposta FCT em curso.</div>
+        </div>
+        <div>
+          <div class="pg-l">Competidores directos</div>
+          <div class="pg-v"><span class="b b-emerg">Poucos</span> Koa Health (Barcelona — DP geral, sem RCT em BCS). Ksana Health (EUA — BCS pediátrico). Nenhum produto europeu com DP + CBT adaptativo em BCS com dados publicados. Janela de 2–3 anos.</div>
+        </div>
+        <div>
+          <div class="pg-l">Regulação MDR</div>
+          <div class="pg-v">SaMD <strong>Classe IIa</strong> provável (Rule 11 — diagnóstico/monitorização de condição crónica). Intended purpose: "apoiar decisão clínica na personalização de intervenção psicológica". 24–36 meses + €350–600K total (incluindo evidence generation).</div>
+        </div>
+        <div>
+          <div class="pg-l">Pagador (quem paga)</div>
+          <div class="pg-v"><span class="b b-emerg">Emergente</span> Seguradoras privadas (Fidelidade, Multicare, AdvanceCare) como alvo realista em PT. SNS: possível mas lento (5+ anos). DiGA na Alemanha: único pathway UE com reembolso automático pós-aprovação. Farmacêuticas: pagam por endpoints digitais em ensaios, não por produto.</div>
+        </div>
+      </div>
+      <div class="inv-note"><strong>Vista de investidor:</strong> A única indicação onde a CMS tem dados reais, parceiros operacionais, e uma intervenção validada. Diferenciação genuína no curto prazo. O risco principal é o TAM limitado (€50–200M para BCS isoladamente) — por isso a estratégia de expansão para outras populações oncológicas (colorectal, pulmão) com o mesmo motor técnico é crítica para justificar uma Series A. PerSense FCT gera os dados de eficácia necessários — se aprovado.</div>
+    </div>
+  </div>
+
+  <!-- POP B: PSICOSE -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">População B</div>
+        <div class="pop-name">UHR/CHR/FEP — Prevenção de Psicose</div>
+        <div class="pop-sub">Indivíduos em ultra-alto risco, alto risco clínico, ou primeiro episódio psicótico</div>
+      </div>
+      <div class="verdict v-later">I&D paralela — produto em 5–7 anos</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">Prevalência / incidência</div>
+          <div class="pg-v"><span class="b b-solid">Sólido</span> Incidência global perturbações psicóticas: 26.6/100.000 person-years. Em Portugal: duração média de psicose não tratada superior a 2 anos. UHR/CHR identificados tardio — maioria não referenciada em fase prodrómica.</div>
+        </div>
+        <div>
+          <div class="pg-l">Pagador e reembolso</div>
+          <div class="pg-v"><span class="b b-assume">Problema crítico</span> Nenhum pathway de reembolso europeu identificado para DTx de prevenção de psicose. Nem DiGA, nem NHS, nem seguradoras têm cobertura activa para esta indicação. Pagador mais realista: SNS como partner de investigação, não como cliente.</div>
+        </div>
+        <div>
+          <div class="pg-l">Regulação MDR</div>
+          <div class="pg-v">Classe <strong>IIb ou III</strong> provável dado o risco clínico (25% probabilidade de transição para psicose em 3 anos). Clinical investigation extensa obrigatória para IIb/III. Timeline realista: 5–7 anos para CE mark.</div>
+        </div>
+        <div>
+          <div class="pg-l">Activos CMS nesta população</div>
+          <div class="pg-v">PRODROMUS (€300K FLAD, activo). Co-PI Torous (Harvard). Consórcio CHUSJ + Hospital Escola UFP + potencial João de Deus. Dados: nenhum ainda — projecto em fase inicial.</div>
+        </div>
+      </div>
+      <div class="inv-note"><strong>Vista de investidor:</strong> Alta diferenciação, longo prazo. Manter como linha de I&D financiada por grants (FLAD paga). Posicionar como "second indication pipeline" num pitch deck — demonstra extensibilidade da plataforma e relação Harvard. <strong>Não como produto comercial nos próximos 5 anos.</strong></div>
+    </div>
+  </div>
+
+  <!-- POP C: ESTUDANTES UMAIA -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">População C</div>
+        <div class="pop-name">Estudantes universitários — UMAIA</div>
+        <div class="pop-sub">Ansiedade e depressão em jovens adultos não-oncológicos — população DIFERENTE de BCS</div>
+      </div>
+      <div class="verdict v-lab">Laboratório de produto — não mercado primário</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">Vantagem real</div>
+          <div class="pg-v">Clínica UMAIA = população captiva com acesso sem friction. Permite testar MVP técnico, onboarding, e engagement antes de ir para IPO-Porto. Consentimento institucional simples. Custo quase zero.</div>
+        </div>
+        <div>
+          <div class="pg-l">Problema de mercado</div>
+          <div class="pg-v"><span class="b b-assume">Saturado</span> Koa Health, SilverCloud (agora Amwell Harmony), Wysa, Woebot, Headspace Health, Intellect, Mindsum — decenas de players. Diferenciação via DP em populações sub-clínicas universitárias é fraca — evidência de valor acrescentado vs CBT standard é escassa.</div>
+        </div>
+      </div>
+      <p><strong>Função estratégica correcta:</strong> Usar UMAIA para validar usabilidade do produto e gerar dados de aceitabilidade de DP em população diferente de BCS (útil para demonstrar extensibilidade). Publicar resultados. Não tentar monetizar directamente.</p>
+    </div>
+  </div>
+
+  <!-- POP D: SMI -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">População D</div>
+        <div class="pop-name">Doença Mental Grave (SMI) — Psiquiatria ambulatória</div>
+        <div class="pop-sub">Via parceria Instituto João de Deus (Lisboa)</div>
+      </div>
+      <div class="verdict v-later">PRODROMUS — 3–5 anos via João de Deus</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">Instituto João de Deus</div>
+          <div class="pg-v">Hospital psiquiátrico especializado em Lisboa, afiliado à Santa Casa da Misericórdia. Foco em SMI, psicose, reabilitação psiquiátrica. Infraestrutura clínica robusta para recrutamento de UHR/CHR/FEP — exactamente a população do PRODROMUS. Acesso a SNS via Misericórdia.</div>
+        </div>
+        <div>
+          <div class="pg-l">O que a parceria João de Deus resolve</div>
+          <div class="pg-v">O PRODROMUS tem como locais de recrutamento CHUSJ + Hospital Escola UFP — centros com capacidade de psiquiatria mas não especializados em SMI. João de Deus adiciona: (1) volume de pacientes UHR/CHR, (2) expertise clínica em psicose, (3) rota de acesso a SNS para futura implementação.</div>
+        </div>
+        <div>
+          <div class="pg-l">Pagador SMI em Portugal</div>
+          <div class="pg-v">SNS via Misericórdia (Santa Casa tem financiamento directo do Estado). Programas de saúde mental comunitária. Potencial integração com ACES (Agrupamentos de Centros de Saúde). Não é reembolso de produto — é contrato de serviço ou financiamento de implementação.</div>
+        </div>
+        <div>
+          <div class="pg-l">Timeline realista</div>
+          <div class="pg-v">PRODROMUS conclusão: 2027. Dados de DP para UHR/CHR: 2026–2027. Produto regulado para SMI: 5–7 anos mínimo dado complexidade de Classe IIb. <strong>Parceria João de Deus activa agora para PRODROMUS recruitment</strong>, não para produto comercial imediato.</div>
+        </div>
+      </div>
+      <div class="inv-note"><strong>Acção táctica:</strong> Abordar João de Deus ainda este ano como potencial site de recrutamento para PRODROMUS — o alinhamento é natural e o custo é baixo. Não como co-fundador nem como parceiro comercial agora.</div>
+    </div>
+  </div>
+
+  <!-- POP E: GERAL -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">População E</div>
+        <div class="pop-name">Ansiedade/Depressão Geral — Cuidados Primários</div>
+        <div class="pop-sub">Adultos com ansiedade/depressão ligeira-moderada fora de contexto especializado</div>
+      </div>
+      <div class="verdict v-no">Evitar — mercado saturado sem vantagem clara</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">Problema central</div>
+          <div class="pg-v">Competidores directos bem financiados: Limbic AI (Londres, £70M+, 33% NHS Talking Therapies), SilverCloud/Amwell Harmony, Koa Health (Barcelona, Series A), Ieso Digital Health, Doctolib Mental Health. Sem DP ou em fase inicial.</div>
+        </div>
+        <div>
+          <div class="pg-l">Vantagem CMS nesta população</div>
+          <div class="pg-v">Nenhuma diferenciação clara. Os dados do iNNOVSensing são em BCS — não generalizam directamente. Andersson (Linköping) domina internet interventions para ansiedade/depressão geral e já tem parceiros comerciais.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECÇÃO 2: PRODUTOS                             -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="sec" id="s2">
+  <div class="sec-kicker">Secção 02</div>
+  <h2>Matriz de Produtos e Soluções</h2>
+
+  <!-- PRODUTO 1 -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">Produto 1</div>
+        <div class="pop-name">JITAI + DP completo — intervenção adaptativa autónoma</div>
+        <div class="pop-sub">SaMD com sensing passivo + modelos ML + adaptação automática de conteúdo terapêutico</div>
+      </div>
+      <div class="verdict v-later">Fase 2 — requer evidência RCT</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">O que existe hoje</div>
+          <div class="pg-v">Protótipo fragmentado: AWARE (sensing) + iNNOVBC (intervenção) testados em paralelo no iNNOVSensing. Loop JITAI <strong>não fechado</strong> — adaptação em tempo real não implementada. Modelos ML binários apenas.</div>
+        </div>
+        <div>
+          <div class="pg-l">O que precisa ser construído</div>
+          <div class="pg-v">JITAI engine (regras de decisão adaptativas — IP proprietary), modelos de regressão contínua (PHQ-9 score → trigger), integração real-time entre ML output e module selector, frontend unificado, dashboard clínico. Stack: mindLAMP ou AWARE + pipeline Python custom.</div>
+        </div>
+        <div>
+          <div class="pg-l">MDR class</div>
+          <div class="pg-v">SaMD Classe <strong>IIa</strong> (Rule 11, Annex VIII MDR). Intended purpose: "diagnóstico, monitorização e suporte à personalização de intervenção psicológica em BCS". 24–36 meses para CE mark com evidência adequada.</div>
+        </div>
+        <div>
+          <div class="pg-l">Competidores directos</div>
+          <div class="pg-v">Koa Health (Barcelona — DP, sem CE mark), Feel Therapeutics (EUA — wearable+DP, sem produto comercial EU), Ksana Health (EUA — BCS pediatric). <strong>Nenhum com RCT publicado em BCS adultas europeias.</strong></div>
+        </div>
+        <div>
+          <div class="pg-l">Revenue model</div>
+          <div class="pg-v">B2B2C: €5–15/paciente/mês para hospitais/clínicas + licença anual por instituição (€20–80K). DiGA: reembolso directo pelas seguradoras alemãs pós-aprovação (€200–600 por paciente/ano). NHS Talking Therapies: por-sessão-equivalente.</div>
+        </div>
+        <div>
+          <div class="pg-l">Fundabilidade</div>
+          <div class="pg-v">Alta para VCs de healthtech com tese em precision mental health. Requer dados de eficácia (PerSense RCT) antes de Series A. Seed possível com iNNOVSensing + MVP técnico + primeiro cliente.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUTO 2 -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">Produto 2</div>
+        <div class="pop-name">Ferramenta de suporte à decisão clínica — dashboard DP para terapeutas</div>
+        <div class="pop-sub">O terapeuta usa dados de fenotipagem digital na sessão; intervenção mantém-se presencial/síncrona</div>
+      </div>
+      <div class="verdict v-go">Produto de entrada — menor barreira regulatória</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">Diferença vs Produto 1</div>
+          <div class="pg-v">O DP não adapta a intervenção automaticamente — informa o terapeuta. Modelo: "medição baseada em resultados" (measurement-based care, MBC) com dados objectivos passivos. <strong>Abordagem diferente à translação</strong> — terapeuta permanece no loop.</div>
+        </div>
+        <div>
+          <div class="pg-l">Vantagem de translação</div>
+          <div class="pg-v">Resolve directamente a barreira de "preferência por suporte presencial" identificada no iNNOVSensing. O terapeuta usa dados passivos como complemento — não substitui o contacto humano. Potencial para aumentar adoption rate muito acima dos 34%.</div>
+        </div>
+        <div>
+          <div class="pg-l">MDR class</div>
+          <div class="pg-v">Potencialmente <strong>Classe I</strong> se apenas "fornece informação ao profissional" sem automação de decisão clínica. Classe IIa se inclui alertas automáticos ou recomendações directas. Requer legal opinion cuidadosa no design dos features.</div>
+        </div>
+        <div>
+          <div class="pg-l">Competidores</div>
+          <div class="pg-v">Blueprint (EUA, MBC platform), Greenspace Health (CA/UK), Ieso Digital Health (EUA/UK). Nenhum com DP passivo integrado em contexto oncológico europeu.</div>
+        </div>
+        <div>
+          <div class="pg-l">Revenue model</div>
+          <div class="pg-v">SaaS para hospitais/clínicas: €500–2.000/mês por departamento. Subscription per-terapeuta: €50–200/mês. Pode gerar receita <strong>antes de CE mark</strong> se posicionado como research/wellness tool (18–24 meses mais cedo).</div>
+        </div>
+        <div>
+          <div class="pg-l">Estratégia de entrada</div>
+          <div class="pg-v">IPO-Porto Psycho-oncology department como primeiro cliente. Modelo: "ferramenta de investigação clínica com funcionalidade de monitorização contínua". Sem CE mark nos primeiros 18 meses. Gera dados reais de uso clínico que alimentam o processo MDR posterior.</div>
+        </div>
+      </div>
+      <div class="inv-note"><strong>Vista de investidor:</strong> Este é o produto de entrada mais inteligente. Resolve a barreira de adoption portuguesa (preferência por presencial), pode gerar receita antes de MDR, e posiciona a empresa em hospitais antes de ter produto regulado. O dashboard informativo evolui naturalmente para Produto 1 (JITAI autónomo) à medida que a evidência é gerada. É uma estratégia de beachhead, não de produto final.</div>
+    </div>
+  </div>
+
+  <!-- PRODUTO 3 -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">Produto 3</div>
+        <div class="pop-name">Internet intervention apenas — CBT sem fenotipagem digital</div>
+        <div class="pop-sub">iNNOVBC content como produto standalone, sem componente de sensing passivo</div>
+      </div>
+      <div class="verdict v-no">Evitar — sem diferenciação sustentável</div>
+    </div>
+    <div class="pop-body">
+      <p>Os módulos iNNOVBC são IP próprio da CMS. Uma internet intervention "pura" é regulatoriamente mais simples (Classe I ou IIa sem DP). Mas sem o componente de fenotipagem digital, não existe diferenciação competitiva — SilverCloud, Ieso, Limbic fazem exactamente isto, com mais recursos, mais dados, e mais distribuição. O valor da investigação da CMS está precisamente na combinação DP+adaptação. Separar estes componentes destrói a proposta de valor única.</p>
+    </div>
+  </div>
+
+  <!-- PRODUTO 4 -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">Produto 4</div>
+        <div class="pop-name">Serviços de investigação clínica — B2B endpoints digitais para pharma</div>
+        <div class="pop-sub">Fornecer cohorts de BCS com dados de passive sensing como endpoint em ensaios de terceiros</div>
+      </div>
+      <div class="verdict v-bridge">Revenue bridge — €40–80K/ensaio</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">O que a CMS tem para oferecer</div>
+          <div class="pg-v">Rede de centros clínicos (IPO-Porto, CHUSJ). Pipeline de recrutamento validado para BCS. Experiência de 4 anos em coordenação de ensaios clínicos. Pipeline de passive sensing operacional. Paper iNNOVSensing como credencial.</div>
+        </div>
+        <div>
+          <div class="pg-l">Farmacêuticas alvo</div>
+          <div class="pg-v">Roche Oncology (pertuzumab/trastuzumab — BCS activadas): digital companions como endpoint de QoL. Pfizer Oncology (ibrance — BCS hormonais): PROs digitais. Lundbeck (depressão — BCS comorbilidade): endpoints de depressão passivos em trials. Novartis Oncology: similar.</div>
+        </div>
+        <div>
+          <div class="pg-l">Revenue e timing</div>
+          <div class="pg-v">€20–60K por contrato de research services. Ciclo de venda: 3–6 meses. <strong>Não requer CE mark.</strong> Pode gerar €40–80K em Ano 1. Financia desenvolvimento técnico enquanto produto principal está a ser construído.</div>
+        </div>
+        <div>
+          <div class="pg-l">Risco principal</div>
+          <div class="pg-v">Farmacêuticas têm decisões lentas (6–12 meses entre contacto e contrato). Não é escalável como modelo de negócio standalone — é uma fonte de revenue de bridge, não o produto principal.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUTO 5 -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">Produto 5</div>
+        <div class="pop-name">Híbrido: ferramenta de investigação que evolui para produto regulado</div>
+        <div class="pop-sub">Dashboard DP (Produto 2) + research services (Produto 4) → JITAI regulado (Produto 1)</div>
+      </div>
+      <div class="verdict v-go">Estratégia recomendada — sequência inteligente</div>
+    </div>
+    <div class="pop-body">
+      <p>Esta não é um produto isolado — é a sequência estratégica óptima. Começa como ferramenta de suporte clínico (sem CE mark, receita imediata), gera dados reais de uso que alimentam o processo MDR, e evolui para SaMD Classe IIa quando a evidência existe. Simultaneamente, os contratos de research services com pharma financiam o desenvolvimento técnico. O PerSense RCT (se aprovado) gera os dados de eficácia que desbloqueiam o CE mark. Cada fase financia a seguinte.</p>
+      <div class="box box-ok">
+        <div class="box-title">Sequência de valor</div>
+        <p>Dashboard DP (research tool) → receita de serviços pharma + primeiro contrato hospital → PerSense RCT dados → processo MDR → CE mark Classe IIa → DiGA Germany → Series A</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECÇÃO 3: MODELOS DE DESENVOLVIMENTO           -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="sec" id="s3">
+  <div class="sec-kicker">Secção 03 — A mais crítica</div>
+  <h2>Modelos de Desenvolvimento — Inovação e Translação</h2>
+
+  <p>A questão central não é só <em>o que construir</em>, mas <em>como construir de modo a superar as barreiras de translação clínica</em>. Os modelos abaixo são ordenados por grau de inovação vs risco de execução, com análise específica de como cada um aborda os 3 bloqueadores documentados: taxa de consentimento de 34%, falha de triagem de 52.7%, e preferência por suporte presencial.</p>
+
+  <!-- A: PURE STARTUP -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">Modelo A</div>
+        <div class="pop-name">Startup independente — modelo puro VC-backed</div>
+        <div class="pop-sub">Empresa privada, financiamento externo, IP totalmente controlado pela fundadora</div>
+      </div>
+      <div class="verdict v-bridge">Estrutura base — combinar com outros</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">Vantagens</div>
+          <div class="pg-v">Controlo total de IP e decisões. Velocidade de execução vs governance académica. Alinhamento de incentivos com fundadora. Fundável com VCs europeus (Nina Capital, Heal Capital). Sem conflito de interesses com parceiros hospitalares.</div>
+        </div>
+        <div>
+          <div class="pg-l">Desvantagens</div>
+          <div class="pg-v">Capital bridge necessário antes de revenue (€300–600K para MVP + primeiros 18 meses). Sem acesso privilegiado a pacientes — precisa de acordos formais com hospitais. Credibilidade clínica depende exclusivamente de publicações e advisors.</div>
+        </div>
+        <div>
+          <div class="pg-l">Impacto nas barreiras de translação</div>
+          <div class="pg-v">Neutro a negativo. Não resolve por si só a preferência por presencial nem a baixa taxa de consentimento. Precisa de ser combinado com parceria hospitalar para ter acesso a pacientes e credibilidade institucional.</div>
+        </div>
+        <div>
+          <div class="pg-l">Estrutura jurídica PT</div>
+          <div class="pg-v">Lda. ou S.A. Custo de incorporação: €300–500 (Empresa Na Hora). Regime fiscal para startups (SIFIDE II — 32.5% de crédito fiscal em I&D). Elegível para PME Líder e Portugal Ventures após incorporação.</div>
+        </div>
+      </div>
+      <div class="box box-info">
+        <div class="box-title">Recomendação</div>
+        <p>Incorporar como modelo base mas combinar com Modelo B (hospital) ou Modelo C (pharma) para acesso a pacientes e revenue. A startup pura sem parcerias clínicas formais é vulnerável no acesso a dados e ao mercado.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- B: HOSPITAL CO-OWNERSHIP -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">Modelo B</div>
+        <div class="pop-name">Co-propriedade hospitalar / Spin-off institucional</div>
+        <div class="pop-sub">IPO-Porto ou CHUSJ como co-fundadores ou accionistas minoritários da startup</div>
+      </div>
+      <div class="verdict v-go">Alta alavancagem — o modelo mais subestimado</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">Precedentes em Portugal</div>
+          <div class="pg-v"><span class="b b-emerg">Emergente</span> Biocant (Coimbra): spin-offs de institutos de investigação. SpinPark (IPATIMUP/i3S): spin-offs académicos biomédicos. IPO-Porto tem CI-IPOP (Centro de Investigação) com precedente de participação em consórcios comerciais — mas não spin-offs com equity hospitalar. No EU: Karolinska Development (Suécia), KU Leuven Research&amp;Development (Bélgica) são modelos mais maduros.</div>
+        </div>
+        <div>
+          <div class="pg-l">O que o hospital ganha</div>
+          <div class="pg-v">Equity e royalties futuros (upside financeiro). IP partilhado em resultados clínicos gerados no hospital. Acesso prioritário ao produto para os seus pacientes. Reputação e publicações. Alinhamento com missão de inovação em cuidados oncológicos.</div>
+        </div>
+        <div>
+          <div class="pg-l">O que a startup ganha</div>
+          <div class="pg-v"><strong>Crítico:</strong> acesso privilegiado e contínuo a pacientes (resolve o problema de recrutamento). Credibilidade institucional (elimina barreiras de adoption). Potential procurement preference no SNS. Real-world data em condições clínicas reais. Infraestrutura clínica partilhada (reduz custos).</div>
+        </div>
+        <div>
+          <div class="pg-l">Impacto nas barreiras de translação</div>
+          <div class="pg-v"><strong>Forte.</strong> A taxa de consentimento de 34% e screening failure de 52.7% reflectem em parte a natureza externa da equipa de investigação. Um hospital co-proprietário integra o protocolo nos workflows clínicos — os médicos apresentam o produto como parte do cuidado standard, não como investigação externa. Mudança qualitativa no modelo de recrutamento.</div>
+        </div>
+        <div>
+          <div class="pg-l">Estrutura legal típica</div>
+          <div class="pg-v">Spinout agreement: hospital recebe 10–20% equity em troca de licença de IP gerado nos seus instalações + acesso privilegiado a pacientes. Revenue-sharing: 2–5% de royalties sobre receita de produto. Requer aprovação do Conselho de Administração do IPO-Porto e do Ministério da Saúde (EPE são hospitais públicos-empresarializados).</div>
+        </div>
+        <div>
+          <div class="pg-l">Riscos</div>
+          <div class="pg-v">Governance lenta — decisões por comissão. Cultura hospitalar vs ritmo de startup. Conflito de interesses potencial (hospital pode querer usar o produto gratuitamente). Processo de negociação: 6–12 meses mínimo. <strong>Gestão de expectativas crítica desde o início.</strong></div>
+        </div>
+      </div>
+      <div class="inv-note"><strong>Vista de investidor sénior:</strong> Este é o modelo mais subestimado e potencialmente mais valioso. Um hospital oncológico de referência como co-accionista é um sinal de qualidade clínica que nenhum RCT substitui. Para VCs europeus de healthtech, "IPO-Porto co-fundador" transforma o argumento de due diligence — significa acesso contínuo a pacientes, dados reais, e uma rota de procurement SNS que uma startup pura nunca teria. O custo (10–20% equity, 6–12 meses de negociação) é baixo relativamente ao valor criado. Prioridade máxima para a CMS iniciar conversa formal com a Direcção de Inovação do IPO-Porto.</div>
+    </div>
+  </div>
+
+  <!-- C: PHARMA -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">Modelo C</div>
+        <div class="pop-name">Parceria farmacêutica — co-desenvolvimento ou licensing</div>
+        <div class="pop-sub">Roche, Janssen, Lundbeck, Otsuka, Pfizer como parceiros estratégicos</div>
+      </div>
+      <div class="verdict v-later">Revenue bridge agora; co-desenvolvimento em 2–3 anos</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">O que a pharma precisa (e não tem)</div>
+          <div class="pg-v"><span class="b b-solid">Documentado</span> Digital endpoints para ensaios — PROs e DP passivos que substituam escalas clínicas subjectivas. Companion diagnostics — prever quem responde ao tratamento farmacológico. Adherence monitoring. <strong>Roche Oncology</strong>: BCS exactamente a população dos seus estudos pós-tratamento. <strong>Lundbeck</strong>: depressão em cancro como comorbilidade relevante para os seus compostos.</div>
+        </div>
+        <div>
+          <div class="pg-l">Como os activos CMS mapeiam</div>
+          <div class="pg-v">iNNOVSensing N=64 BCS com passive sensing + dados de ansiedade/depressão = exactamente o tipo de dataset que Roche/Pfizer precisam para validar endpoints digitais nos seus trials. AUC 0.78 para depressão é um argumento inicial sólido para uma conversa exploratória.</div>
+        </div>
+        <div>
+          <div class="pg-l">Deal structures típicos</div>
+          <div class="pg-v">Fase 1 (6–18 meses): Research Collaboration Agreement — pharma paga €20–80K para acesso a cohort e dados de validação. Fase 2 (18–48 meses): Strategic investment ou milestone-based licensing — pharma investe no produto em troca de direitos de uso como endpoint nos seus trials. Fase 3: aquisição ou licença exclusiva por indicação.</div>
+        </div>
+        <div>
+          <div class="pg-l">Riscos específicos</div>
+          <div class="pg-v">Dependência de calendários farmacêuticos (ciclos de 12–18 meses para decisões). IP assimétrico — pharma tem equipas jurídicas agressivas. Risco de captura: startup torna-se fornecedor de endpoints sem conseguir construir produto independente. <strong>Solução: manter IP core (JITAI engine) completamente separado de qualquer acordo pharma.</strong></div>
+        </div>
+        <div>
+          <div class="pg-l">Primeiro passo concreto</div>
+          <div class="pg-v">Contacto com Medical Affairs ou Digital Health leads de Roche Portugal e Lundbeck Portugal com o paper iNNOVSensing. Proposta: "validação de endpoints digitais para depressão/ansiedade em BCS como sub-estudo de um ensaio existente". Revenue: €20–40K, 6 meses, sem produto.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D: JOÃO DE DEUS -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">Modelo D</div>
+        <div class="pop-name">Instituto João de Deus — Parceria para PRODROMUS e SMI</div>
+        <div class="pop-sub">Hospital psiquiátrico especializado Lisboa · Santa Casa da Misericórdia · UHR/CHR/FEP</div>
+      </div>
+      <div class="verdict v-later">PRODROMUS recruitment agora — produto em 5+ anos</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">O que é o Instituto João de Deus</div>
+          <div class="pg-v">Hospital psiquiátrico privado-social em Lisboa, fundado em 1894, gerido pela Irmandade de Nossa Senhora do Sameiro. Afiliado com serviços sociais da Santa Casa da Misericórdia de Lisboa. <span class="b b-emerg">Atenção:</span> não confundir com a Sociedade João de Deus (educação). Foco: psiquiatria adulta, SMI, reabilitação psiquiátrica, internamento voluntário e compulsório.</div>
+        </div>
+        <div>
+          <div class="pg-l">Valor para PRODROMUS</div>
+          <div class="pg-v">Os actuais sites PRODROMUS (CHUSJ + Hospital Escola UFP) têm psiquiatria mas não são especializados em psicose de primeiro episódio ou alto risco. João de Deus adiciona um terceiro site Lisboa com maior volume de UHR/CHR/FEP — crítico para atingir o N=168 do trial. A Misericórdia facilita potencialmente acesso a SNS para implementação futura.</div>
+        </div>
+        <div>
+          <div class="pg-l">Modelo de parceria realista</div>
+          <div class="pg-v">Acordo de colaboração clínica para PRODROMUS (site de recrutamento). Sem equity, sem co-fundação nesta fase. Estrutura: Protocol de Colaboração entre UMAIA (PI PRODROMUS) e João de Deus (site clínico). Próximo passo: reunião exploratória com director clínico antes de submeter revisão de protocolo para incluir novo site.</div>
+        </div>
+        <div>
+          <div class="pg-l">Implicações a longo prazo</div>
+          <div class="pg-v">Se PRODROMUS gerar dados positivos com João de Deus, o hospital torna-se o parceiro natural para um produto de prevenção de psicose. A relação estabelecida agora (site de investigação) prepara o terreno para uma futura parceria comercial sem ter de negociar de novo de raiz.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- E: SPIN-OFF UMAIA -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">Modelo E</div>
+        <div class="pop-name">Spin-off académico da UMAIA</div>
+        <div class="pop-sub">Empresa derivada formalmente associada à Universidade da Maia</div>
+      </div>
+      <div class="verdict v-bridge">Estrutura para grants EIC — não modelo operacional</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">O que UMAIA ganha</div>
+          <div class="pg-v">Royalties sobre IP (tipicamente 2–5% de receita). Equity minoritária (5–15%). Reputação e impacto da investigação. Acesso a financiamento de inovação via empresa spin-off. Empregabilidade de alunos/investigadores.</div>
+        </div>
+        <div>
+          <div class="pg-l">O que a startup ganha</div>
+          <div class="pg-v">Acesso à clínica UMAIA como primeiro site de deployment. Eligibilidade para grants EIC/FCT com componente académica-empresarial. Potencial financiamento SIAC/P2020 para startups académicas. Credibilidade institucional sem o peso de um hospital.</div>
+        </div>
+        <div>
+          <div class="pg-l">Precedentes em Portugal</div>
+          <div class="pg-v">Comparável a spin-offs do IST, UPorto, e Universidade do Minho. A UMAIA especificamente tem o CPUP como unidade de investigação — spin-off pode ser formalizada através do CPUP-UMAIA hub com precedente para gestão de IP académico.</div>
+        </div>
+        <div>
+          <div class="pg-l">Limitação principal</div>
+          <div class="pg-v">Governance académica mais lenta. Negociação de IP pode demorar 3–6 meses. UMAIA não é um hospital — não resolve o problema de acesso a pacientes clínicos. Útil para grants, limitada para produto comercial.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F: SNS -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">Modelo F</div>
+        <div class="pop-name">Parceria público-privada com SNS / SPMS</div>
+        <div class="pop-sub">Serviço Nacional de Saúde como parceiro tecnológico e potencial cliente</div>
+      </div>
+      <div class="verdict v-no">Evitar como prioridade — timeline irrealista</div>
+    </div>
+    <div class="pop-body">
+      <p>A SPMS (Serviços Partilhados do Ministério da Saúde) gere a infraestrutura tecnológica do SNS — desde o sistema SONHO até ao Portal do Utente. Tem experiência com parceiros privados em soluções digitais. Porém, o ciclo de procurement SNS é de 18–36 meses mínimo, requer CE mark para qualquer SaMD, e o SNS tipicamente não paga por produtos digitais de saúde mental a preços sustentáveis para uma startup. A excepção: um ensaio-piloto co-financiado com SPMS pode ser uma porta de entrada — mas é um projecto de investigação, não uma rota comercial. Não priorizar nos próximos 3 anos.</p>
+    </div>
+  </div>
+
+  <!-- G: DIGA FIRST -->
+  <div class="pop-card">
+    <div class="pop-head">
+      <div>
+        <div class="pop-id">Modelo G</div>
+        <div class="pop-name">Germany-first (DiGA) ou UK-first (NHS Talking Therapies)</div>
+        <div class="pop-sub">Construir evidência e primeiro contrato comercial fora de Portugal antes do mercado doméstico</div>
+      </div>
+      <div class="verdict v-later">DiGA: 2–3 anos com dados adequados — objectivo de médio prazo</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-grid">
+        <div>
+          <div class="pg-l">DiGA — o que é e o que requer</div>
+          <div class="pg-v"><span class="b b-solid">Único pathway EU com reembolso automático</span> DiGA (Digitale Gesundheitsanwendungen) = aplicações digitais de saúde certificadas pelo BfArM (equivalente alemão da FDA para DTx). <strong>DiGA provisório</strong> (1 ano renovável): aprovado com evidência preliminar, pago pelas seguradoras alemãs (AOK, TK — 73M pessoas). Requer: comprovação de benefício para saúde (não necessariamente RCT completo), CE mark Classe IIa, conformidade com Lei de Cuidados do Paciente Digital (DVG). Reembolso: €200–600/paciente/ano directo das seguradoras.</div>
+        </div>
+        <div>
+          <div class="pg-l">Os dados do iNNOVSensing são suficientes para DiGA provisório?</div>
+          <div class="pg-v"><span class="b b-emerg">Possivelmente sim, com cuidado.</span> DiGA provisório aceita evidência de estudos piloto para o componente de "benefício para saúde" durante o primeiro ano — mas requer demonstração de um benefício médico (redução de sintomas ou melhoria de QoL), não apenas de aceitabilidade. O RCT piloto com N=35 (tendência positiva em ansiedade/depressão) pode ser suficiente para uma aplicação provisória — mas requer opinião legal e regulatória especializada do BfArM antes de decidir.</div>
+        </div>
+        <div>
+          <div class="pg-l">Competidores DiGA em saúde mental</div>
+          <div class="pg-v">Selfapy (depressão/ansiedade CBT, DiGA aprovado), HelloBetter (múltiplas indicações CBT, DiGA aprovado), Invirto (perturbações de pânico, DiGA aprovado), Novego (depressão, DiGA aprovado), Velibra (DPTS, DiGA aprovado). <strong>Nenhum com fenotipagem digital passiva em oncologia.</strong></div>
+        </div>
+        <div>
+          <div class="pg-l">UK — NHS Talking Therapies</div>
+          <div class="pg-v">Programa NHS de CBT stepped-care (antigo IAPT). Limbic AI (UKCA Classe IIa, £14M 2024) fornece 33% de todos os referenciamentos NHS Talking Therapies com IA — concorrente directo forte. Para entrar no NHS: NICE Evidence Standards Framework (mínimo Tier 2 = Proof of Concept, Tier 4 = RCT para full recomendação). A relação com Andersson (Linköping) não abre directamente o NHS — os pathways UK são independentes.</div>
+        </div>
+        <div>
+          <div class="pg-l">Por que Germany-first pode ser mais rápido que Portugal</div>
+          <div class="pg-v">DiGA tem um processo claro, um regulador (BfArM) que publica guias detalhados, e reembolso garantido pós-aprovação. Portugal não tem equivalente — o SNS não tem pathway definido para reembolso de DTx. Germany-first não é abandono de Portugal — é gerar receita e evidência regulatória europeia mais rapidamente.</div>
+        </div>
+      </div>
+      <div class="inv-note"><strong>Vista de investidor:</strong> DiGA é o pathway mais estruturado e fundável da Europa para DTx de saúde mental. Selfapy e HelloBetter demonstraram que CBT digital sem DP consegue DiGA — DP adaptativo seria uma proposta de valor superior. O problema é o CE mark prévio (24–36 meses) e a necessidade de tradução para alemão + parceiro clínico alemão. Objectivo realista: candidatura DiGA em 2028–2029 com dados PerSense RCT. Mencionar como "Germany expansion strategy" no pitch deck — não como plano imediato.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECÇÃO 4: GO-TO-MARKET TOP 3                   -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="sec" id="s4">
+  <div class="sec-kicker">Secção 04</div>
+  <h2>Go-to-Market — Top 3 Combinações Estratégicas</h2>
+
+  <h3>Combinação 1 — Recomendada: BCS × Dashboard DP × Hospital Co-ownership (IPO-Porto)</h3>
+  <div class="box box-ok">
+    <div class="box-title">Tese central</div>
+    <p>Produto de entrada como ferramenta de suporte clínico (sem CE mark imediato) integrada no workflow de psicooncologia do IPO-Porto. Hospital como co-accionista garante acesso contínuo a pacientes. Revenue de pharma research services financia desenvolvimento enquanto PerSense RCT gera evidence para MDR.</p>
+  </div>
+  <table class="tbl">
+    <tr><th>Dimensão</th><th>Detalhe</th></tr>
+    <tr><td><strong>Quem paga</strong></td><td>Fase 1 (0–18 meses): Contratos pharma (Roche, Lundbeck) por research services — €20–60K/contrato. IPO-Porto absorve custo de deployment como "investigação clínica" co-financiada. Fase 2 (18–36 meses): Subscrição hospitalar do produto (€500–2K/mês). DiGA em 36–48 meses como receita de produto regulado.</td></tr>
+    <tr><td><strong>Evidência mínima para 1º contrato</strong></td><td>Paper iNNOVSensing publicado + MVP técnico funcional (mindLAMP + JITAI engine básico) + acordo formal de colaboração com IPO-Porto. Nenhum CE mark necessário para este primeiro contrato.</td></tr>
+    <tr><td><strong>Sequência regulatória</strong></td><td>0–12 meses: Research/wellness tool sem MDR. 12–24 meses: Preparação dossier MDR Classe IIa com dados RCT piloto. 24–36 meses: Processo formal MDR com NB (Notified Body) — DEKRA ou TÜV SÜD. 36–48 meses: CE mark + candidatura DiGA.</td></tr>
+    <tr><td><strong>Competidores directos</strong></td><td>Koa Health: parceria com Roche mas sem RCT em BCS europeias. Ksana Health: BCS pediátricas (EUA). Nenhum com CE mark e dados portugueses.</td></tr>
+    <tr><td><strong>Milestones para seed VC</strong></td><td>MVP técnico + IPO-Porto como cliente/parceiro + 1 contrato pharma + PerSense FCT aprovado. Timeline: 9–15 meses.</td></tr>
+  </table>
+
+  <h3>Combinação 2: BCS × JITAI completo × Pure startup + Pharma partnership</h3>
+  <p>Versão mais ambiciosa: produto regulado de classe IIa com pharma como co-financiador do desenvolvimento. Requer: PerSense RCT dados (2027–2028), CE mark process iniciado, acordo formal com Roche ou Lundbeck. Mais capital, mais risco, maior upside. Adequada para Series A quando evidência existir.</p>
+
+  <h3>Combinação 3: Psicose × PRODROMUS × João de Deus + Academic spin-off</h3>
+  <p>Estratégia de segundo produto. PRODROMUS financiado pela FLAD corre em paralelo. João de Deus como terceiro site de recrutamento. Dados de 2027. Produto regulado em 2030 no melhor cenário. Válida como "pipeline story" mas não como produto principal nos próximos 3 anos.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECÇÃO 5: BARREIRAS DE TRANSLAÇÃO              -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="sec" id="s5">
+  <div class="sec-kicker">Secção 05</div>
+  <h2>Análise das Barreiras de Translação Clínica</h2>
+
+  <h3>Barreira 1: Taxa de consentimento de 34%</h3>
+  <p>Das 291 BCS convidadas para o iNNOVSensing, apenas 99 consentiram (34%). As razões documentadas incluem: falta de motivação e interesse (razão mais frequente), preferência por apoio presencial, receio de intromissão tecnológica, e falta de literacia digital. <span class="b b-solid">Documentado</span></p>
+
+  <p><strong>O que muda no produto:</strong> A aceitabilidade é significativamente mais alta quando mediada por profissionais de saúde — a abordagem directa ao paciente via redes sociais tem conversion muito inferior à apresentação pelo oncologista ou psicólogo que já acompanha a paciente. <strong>O modelo co-propriedade hospitalar resolve exactamente isto</strong>: o produto é apresentado como parte do cuidado standard, não como investigação externa. Em contexto de cuidado standard, taxas de adoption de 60–70% são documentadas para ferramentas digitais integradas (Limbic AI atingiu 33% de referenciamentos NHS — e cresce).</p>
+
+  <p><strong>Design implication:</strong> O onboarding deve ser mediado pelo terapeuta (não self-service). O app não deve ser descarregado por iniciativa própria — deve ser "prescrito" pelo clínico. Isto é o modelo que os dados qualitativos (N=29 BCS) confirmam como preferência dominante.</p>
+
+  <h3>Barreira 2: Taxa de falha de triagem de 52.7%</h3>
+  <p>39 de 74 participantes que completaram baseline foram excluídos: 15 por condições graves (critério de exclusão de segurança), 10 sem sintomas clinicamente significativos, os restantes por medicação em mudança, tratamento activo, ou outro suporte psicológico. <span class="b b-solid">Documentado</span></p>
+
+  <p><strong>Implicação estratégica:</strong> Este dado não é um problema do produto — é um dado de mercado. Significa que o produto não é adequado para BCS com depressão severa (critério de exclusão de segurança justificado) nem para BCS assintomáticas. O target real é BCS com sintomas ligeiros-moderados sem suporte psicológico activo — que é exactamente a proposta do iNNOVBC. A questão é <em>como identificar este subgrupo eficientemente</em> sem ter de fazer triagem extensa.</p>
+
+  <p><strong>Solução de produto:</strong> O dashboard DP (Produto 2) resolve este problema — ao monitorizar passivamente, identifica BCS que estão a deteriorar e que ainda não procuraram apoio. O modelo de cuidado muda de "esperar que a paciente se candidate" para "identificar proactivamente quem precisa de intervenção". Isto é exactamente o valor clínico do DP que nenhuma internet intervention standard fornece.</p>
+
+  <h3>Barreira 3: Preferência por suporte presencial</h3>
+  <p>Múltiplos participantes referiram preferência por contacto presencial, percebido como mais pessoal e eficaz. Esta é uma característica cultural portuguesa documentada na literatura e confirmada nos estudos da CMS sobre atitudes de psicólogos portugueses relativamente a internet interventions (JMIR Mental Health 2020, 68 citações). <span class="b b-solid">Documentado</span></p>
+
+  <p><strong>Design para o contexto português:</strong> O modelo "terapeuta usa dados DP na sessão presencial" (Produto 2, dashboard clínico) é culturalmente muito mais adequado do que o JITAI autónomo como produto de entrada. Não substitui o terapeuta — augmenta-o. A sessão presencial permanece o centro do cuidado; o DP fornece dados que tornam essa sessão mais eficaz. Este é o modelo que a literatura de "measurement-based care" (MBC) suporta como o mais adoptado por clínicos resistentes à digitalização.</p>
+
+  <h3>Modelo "clinician-mediated" vs "autonomous JITAI" — implicações de adoption</h3>
+  <table class="tbl">
+    <tr><th>Dimensão</th><th>Clinician-mediated (Produto 2)</th><th>Autonomous JITAI (Produto 1)</th></tr>
+    <tr><td>Consent rate esperada</td><td>60–70% (contexto de cuidado padrão)</td><td>30–40% (auto-referenciamento)</td></tr>
+    <tr><td>Adequação cultural PT</td><td>Alta — terapeuta no centro</td><td>Baixa — resistência cultural documentada</td></tr>
+    <tr><td>Tempo para primeiro utilizador</td><td>3–6 meses (após acordo hospitalar)</td><td>12–18 meses (após MVP + recrutamento)</td></tr>
+    <tr><td>MDR class</td><td>Possivelmente Classe I ou IIa (lower risk)</td><td>Classe IIa certa</td></tr>
+    <tr><td>Argumento de investimento</td><td>"Saúde mental aumentada por IA para clínicos"</td><td>"DTx autónomo de precisão"</td></tr>
+    <tr><td>Escalabilidade</td><td>Limitada pelo número de terapeutas</td><td>Alta — sem limite de escala humana</td></tr>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECÇÃO 6: STACK OPEN-SOURCE INTEGRADA          -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="sec" id="s6">
+  <div class="sec-kicker">Secção 06</div>
+  <h2>Stack Open-Source Integrada na Estratégia de Produto</h2>
+
+  <div class="box box-warn">
+    <div class="box-title">Correcção crítica</div>
+    <p>AWARE e mindLAMP <strong>não são equivalentes</strong> — servem propósitos diferentes em camadas distintas. AWARE é exclusivamente sensing (Camada 1). mindLAMP é uma plataforma integrada (Camadas 1+2+3). Usar ambos em simultâneo cria redundância e conflito de dados. A escolha entre eles é uma decisão de arquitectura, não de preferência.</p>
+  </div>
+
+  <h3>Por fase estratégica</h3>
+
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-ph">Fase MVP — 0–6 meses</div>
+      <div class="tl-title">Stack: mindLAMP only</div>
+      <div class="tl-body">Uma única plataforma para Camadas 1+2+3. mindLAMP cobre: sensing (GPS, screen, BT, calls — summaries não raw), EMA (PHQ-9, GAD-7, diários), entrega de conteúdo CBT (Learn/Assess tabs = iNNOVBC modules adaptados), dashboard clínico, e analytics via Cortex. Self-hosted em Hetzner Cloud (Alemanha, GDPR). Custo de infraestrutura: €30–50/mês. John Torous (co-PI PRODROMUS) é o maintainer — suporte técnico directo. <strong>JITAI engine custom em Python sobre a Cortex library = o único componente que tem de ser construído de raiz.</strong> Tempo para MVP funcional: 8–14 semanas com um developer sénior.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-ph">Fase 2 — 6–18 meses (se raw sensor data necessário)</div>
+      <div class="tl-title">Stack: AWARE + Medplum</div>
+      <div class="tl-body">Se o re-treino dos modelos ML (com mais dados) revelar que features granulares (raw accelerometer, raw GPS trajectories) são críticos para performance acima de AUC 0.78, adicionar AWARE para Camada 1 (mantendo mindLAMP para Camadas 2+3) cria redundância. Melhor opção: AWARE para sensing bruto + Medplum (FHIR-native) como clinical backend para entrega de intervenção e documentação MDR. Beiwe Forest library para feature engineering dos dados AWARE. Esta stack é tecnicamente superior mas requer CTO dedicado para gestão de dois sistemas.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-ph">Fase RCT (se PerSense FCT aprovado) — 18–36 meses</div>
+      <div class="tl-title">Stack: RADAR-base + mindLAMP + Medplum</div>
+      <div class="tl-body">RADAR-base (King's College London, Apache 2.0) foi construída para ensaios clínicos europeus de larga escala. Diferenciador único: JITAI triggering nativo via Apache Kafka Streams — permite triggers em tempo real sem custom development adicional. GDPR by design. Testada em estudos com 623+ participantes, 24 meses. Integra com mindLAMP para entrega de intervenção e Medplum para documentação FHIR. <strong>Alta complexidade de deployment (Kafka + Kubernetes) — requer DevOps dedicado. Não adequada para MVP mas é a escolha certa para um RCT multicentro.</strong></div>
+    </div>
+  </div>
+
+  <h3>O JITAI engine — o único componente sem alternativa open-source</h3>
+  <div class="arch">
+    <div class="arch-layer">
+      <div class="arch-lbl">O que nenhuma plataforma fornece — IP proprietary obrigatório</div>
+      <div class="arch-items">
+        <span class="arch-item hi">Regras de decisão adaptativas (quando trigger e qual módulo)</span>
+        <span class="arch-item hi">Ligação entre ML output (score contínuo) e selector de módulo CBT</span>
+        <span class="arch-item">Lógica de contexto (hora do dia, carga cognitiva, adherence histórica)</span>
+        <span class="arch-item">Feedback loop (resposta ao módulo → actualização da próxima trigger rule)</span>
+        <span class="arch-item hi">Este é o verdadeiro diferenciador competitivo — não o sensing</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>Impacto da escolha de stack na estratégia MDR</h3>
+  <p>mindLAMP é FHIR-compatible — os dados são exportáveis em formato FHIR R4, o que facilita a documentação técnica MDR. Medplum é FHIR-native — todos os dados clínicos (PHQ-9, GAD-7, outcomes) ficam em FHIR desde o início, o que é a escolha mais defensável para um processo de certificação. <strong>Para a documentação MDR Classe IIa, ter os dados clínicos em FHIR desde o MVP poupa 6–12 meses de retroactive data conversion</strong> quando o processo MDR começar.</p>
+
+  <h3>Custo técnico estimado por fase</h3>
+  <table class="tbl">
+    <tr><th>Fase</th><th>Stack</th><th>Developer time</th><th>Custo estimado</th><th>Output</th></tr>
+    <tr><td>MVP (0–6 meses)</td><td>mindLAMP self-hosted</td><td>1 developer sénior, 20h/semana</td><td>€20–40K (dev) + €300 infra/semestre</td><td>App funcional com sensing + iNNOVBC modules + JITAI basic</td></tr>
+    <tr><td>Fase 2 (6–18 meses)</td><td>mindLAMP + Medplum</td><td>1 developer full-time</td><td>€60–100K/ano</td><td>FHIR clinical backend + MDR documentation ready</td></tr>
+    <tr><td>RCT (18–36 meses)</td><td>RADAR-base + mindLAMP + Medplum</td><td>1 CTO + 1 backend developer</td><td>€150–200K/ano</td><td>Full clinical trial infrastructure + JITAI real-time</td></tr>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECÇÃO 7: FINANCIAMENTO                        -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="sec" id="s7">
+  <div class="sec-kicker">Secção 07</div>
+  <h2>Mapa de Financiamento</h2>
+
+  <h3>Não-dilutivo (grants e contratos) — prioritário</h3>
+  <table class="tbl">
+    <tr><th>Fonte</th><th>Valor</th><th>Requisitos</th><th>Timeline</th><th>Compatibilidade com modelos</th></tr>
+    <tr><td><strong>PerSense FCT</strong></td><td>€300K</td><td>Proposta já submetida. Se aprovado: financia RCT de eficácia — o activo mais crítico para MDR e Series A.</td><td>Resultado: meados 2026. Arranque: Jan 2027</td><td>Compatível com todos os modelos. Empresa pode ser subcontratada.</td></tr>
+    <tr><td><strong>EIC Pathfinder</strong></td><td>até €3M (consórcio TRL 1–4)</td><td>Consórcio europeu (mín. 3 países). Foco em ciência de fronteira. Ideal: UMAIA + IPO-Porto + KCL (RADAR-base) + parceiro industrial. Tema: "digital biomarkers for precision oncology mental health".</td><td>Calls abertas 2x/ano. 6 meses do início ao resultado.</td><td>Compatible com Modelo E (spin-off). UMAIA como entidade académica.</td></tr>
+    <tr><td><strong>EIC Transition</strong></td><td>€100K–2.5M</td><td>Proof of concept → mercado. Para resultados de EIC Pathfinder ou ERC. Requer TRL 3→6 demonstrável.</td><td>3–4 meses processo</td><td>Compatível com Modelo A (startup independente).</td></tr>
+    <tr><td><strong>IHI (Innovative Health Initiative)</strong></td><td>€3–50M (consórcio)</td><td>Sucedeu ao IMI. Foco em prevenção, diagnóstico, tratamento digital. Consórcios incluem indústria farmacêutica. Tema relevante: "digital endpoints for mental health in oncology".</td><td>Calls anuais. 9–12 meses processo.</td><td>Ideal para Modelo C (pharma partnership) — pharma entra como parceiro IHI.</td></tr>
+    <tr><td><strong>Contratos pharma</strong></td><td>€20–60K/estudo</td><td>Roche, Lundbeck, Pfizer Oncology. Research Collaboration Agreement. Paper iNNOVSensing como credencial.</td><td>3–6 meses negociação</td><td>Revenue bridge para todos os modelos.</td></tr>
+    <tr><td><strong>FLAD</strong></td><td>€50–300K</td><td>Fundação Luso-Americana. Programas de saúde mental e inovação. PRODROMUS já aprovado — segundo projecto possível.</td><td>Call anual</td><td>Compatível com academic/hospital models.</td></tr>
+    <tr><td><strong>Wellcome Trust Digital Health</strong></td><td>£50–500K</td><td>UK-based. Foco em health innovation com evidência sólida. Preferência por ensaios clínicos. Relação com Andersson (Linköping) pode abrir porta.</td><td>Rolling applications (algumas calls)</td><td>Compatível com todos.</td></tr>
+    <tr><td><strong>DiGA provisional revenue</strong></td><td>€200–600/paciente/ano</td><td>Aprovação BfArM (Alemanha). Requer CE mark + dados preliminares de benefício. Timeline: 36–48 meses.</td><td>Receita a partir de aprovação</td><td>Modelo G (Germany-first). Não depende de SNS ou VCs.</td></tr>
+  </table>
+
+  <h3>VC / Capital de risco — timing e targets</h3>
+  <table class="tbl">
+    <tr><th>Fundo</th><th>Sede</th><th>Tese</th><th>Ticket seed</th><th>Quando abordar</th></tr>
+    <tr><td><strong>Nina Capital</strong></td><td>Barcelona</td><td>Healthcare + tech ibérico e europeu. Foco em digital health com evidência.</td><td>€200K–2M seed</td><td>9–15 meses — após MVP + primeiro cliente pagante + PerSense submetido/aprovado</td></tr>
+    <tr><td><strong>Heal Capital</strong></td><td>Berlim</td><td>Digital health Europa. Precision medicine e DTx com evidência clínica.</td><td>€500K–5M seed/Series A</td><td>Após CE mark iniciado ou DiGA em processo</td></tr>
+    <tr><td><strong>Vsquared Ventures</strong></td><td>Munique</td><td>Deep tech saúde, AI em cuidados clínicos.</td><td>€1–10M Series A</td><td>Com dados RCT de eficácia (PerSense)</td></tr>
+    <tr><td><strong>Portugal Ventures</strong></td><td>Lisboa</td><td>Early-stage PT. Healthtech e biotech elegíveis.</td><td>€250K–1M</td><td>Após incorporação e MVP técnico</td></tr>
+    <tr><td><strong>Armilar Venture Partners</strong></td><td>Lisboa</td><td>Deeptech e healthtech PT/EU. Series A típico.</td><td>€1–10M Series A</td><td>Com evidência clínica + primeiro cliente hospitalar</td></tr>
+  </table>
+
+  <h3>Modelo financeiro a 36 meses</h3>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-ph">Meses 0–6 — Bootstrap</div>
+      <div class="tl-title">Custos mínimos, preparação</div>
+      <div class="tl-body">Incorporação empresa (€500). Primeiro developer (part-time, €2–4K/mês). Infraestrutura (€50/mês). Total: €15–25K. Financiado por poupanças próprias ou pequena consultoria académica.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-ph">Meses 6–18 — Revenue bridge</div>
+      <div class="tl-title">Primeiras receitas + seed</div>
+      <div class="tl-body">1–2 contratos pharma: €40–80K. Acordo IPO-Porto (research services): €15–25K. Portugal Ventures seed (se incorporada e MVP demonstrado): €250–500K. Total potencial: €300–600K. Cobre: 1 CTO + 1 developer full-time + infra + processo MDR iniciado.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-ph">Meses 18–36 — Evidence generation + MDR</div>
+      <div class="tl-title">PerSense RCT + CE mark process</div>
+      <div class="tl-body">PerSense FCT: €300K (se aprovado) financia o RCT — não entra no balanço da empresa mas gera os dados necessários. EIC Pathfinder/Transition: €500K–2M. Subscrições hospitalares (3–5 clientes a €500–2K/mês): €18–120K/ano. Nina Capital Series A quando evidência disponível.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECÇÃO 8: FRAMEWORK DE DECISÃO                 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="sec" id="s8">
+  <div class="sec-kicker">Secção 08 — A decisão cirúrgica</div>
+  <h2>Framework de Decisão Final</h2>
+
+  <h3>Top 3 combinações recomendadas — por ordem</h3>
+
+  <div class="dec">
+    <div class="dec-tag">Combinação 1 — Recomendada Principal</div>
+    <p><strong>Populacão:</strong> BCS (indicação âncora) → expansão para outros sobreviventes oncológicos.<br>
+    <strong>Produto:</strong> Dashboard DP clínico (Produto 2) como entrada → JITAI autónomo (Produto 1) como produto final.<br>
+    <strong>Modelo:</strong> Hospital co-ownership com IPO-Porto (Modelo B) + revenue bridge pharma (Modelo C) + empresa base como startup independente (Modelo A).<br>
+    <strong>Stack:</strong> mindLAMP MVP → RADAR-base para RCT.<br>
+    <strong>Mercado de entrada:</strong> Portugal (IPO-Porto) → Alemanha (DiGA) como objectivo a 36–48 meses.<br>
+    <strong>Argumento central:</strong> "O único produto europeu de DP adaptativo para saúde mental oncológica, co-desenvolvido com o maior centro oncológico português, com dados clínicos reais e parceiros Harvard+CMU."</p>
+  </div>
+
+  <div class="dec">
+    <div class="dec-tag">Combinação 2 — Alternativa se IPO-Porto co-ownership não avançar</div>
+    <p><strong>Populacão:</strong> BCS + Psicose (pipeline dual).<br>
+    <strong>Produto:</strong> JITAI autónomo completo desde o início.<br>
+    <strong>Modelo:</strong> Academic spin-off UMAIA (Modelo E) para grants EIC + pharma co-development para BCS (Modelo C) + João de Deus para PRODROMUS (Modelo D).<br>
+    <strong>Risco adicional:</strong> Mais lento para revenue, mais dependente de grants.</p>
+  </div>
+
+  <div class="dec">
+    <div class="dec-tag">Combinação 3 — Para maximizar impacto académico e reduzir risco comercial</div>
+    <p><strong>Estrutura:</strong> Manter papel académico full-time. Construir produto como investigação aplicada financiada por grants. Monetizar via contratos pharma (research services) e consultoria clínica digital. Adiar produto regulado para 2028–2030.<br>
+    <strong>Custo:</strong> Menor upside comercial, maior estabilidade, menor risco pessoal e financeiro. Válida se o objectivo é impacto clínico mais do que criação de empresa de alto crescimento.</p>
+  </div>
+
+  <h3>As 5 questões que definem a escolha</h3>
+  <ol style="padding-left:20px; color:var(--ink2); margin-bottom:20px;">
+    <li style="margin-bottom:10px; font-size:14px;"><strong>IPO-Porto está disposto a ser co-accionista?</strong> Esta é a questão mais importante. A resposta muda o modelo completamente. Acção: reunião formal com a Direcção de Inovação do IPO-Porto nos próximos 60 dias — não para negociar, mas para perceber o appetite e o processo.</li>
+    <li style="margin-bottom:10px; font-size:14px;"><strong>O código ML da CMU pode ser usado comercialmente ou tem de ser re-implementado?</strong> Resposta determina o calendário técnico. Acção: email para Mayank Goel + research office CMU nos próximos 30 dias.</li>
+    <li style="margin-bottom:10px; font-size:14px;"><strong>PerSense FCT vai ser aprovado?</strong> Se sim: estratégia de evidência está garantida e a Combinação 1 é clara. Se não: é necessário plano B para financiar o RCT de eficácia (EIC Pathfinder, pharma co-development). Resultado esperado: meados 2026.</li>
+    <li style="margin-bottom:10px; font-size:14px;"><strong>Há um co-fundador técnico disponível?</strong> Sem CTO/developer sénior, nenhuma das opções técnicas avança. Identificar até 60 dias — candidatos: Ricardo Graça (Fraunhofer AICOS, trabalhou em iNNOVSensing), ou developer da rede CMU/Linköping.</li>
+    <li style="margin-bottom:10px; font-size:14px;"><strong>Qual é a disposição pessoal para risco?</strong> Combinação 1 requer: dedicação significativa à empresa (20–30h/semana nos primeiros 18 meses enquanto mantém academia), capital pessoal ou de amigos/família para bootstrap (€15–30K), e tolerância para 12–18 meses sem receita garantida. Se a resposta for "baixo risco pessoal", Combinação 3 é mais adequada.</li>
+  </ol>
+
+  <h3>Triggers de decisão — o que observar nos próximos 12 meses</h3>
+  <table class="tbl">
+    <tr><th>Evento</th><th>Se acontece</th><th>Implicação estratégica</th></tr>
+    <tr><td>PerSense FCT aprovado (meados 2026)</td><td>Alta probabilidade</td><td>Evidência de eficácia garantida. Acelerar incorporação empresa e MVP técnico imediatamente. Combinação 1 confirmada.</td></tr>
+    <tr><td>PerSense FCT rejeitado</td><td>Possível</td><td>Activar EIC Pathfinder como substituto. Negociar pharma co-development para financiar RCT. Combinação 1 ainda possível mas com 12–18 meses de atraso.</td></tr>
+    <tr><td>IPO-Porto expressa interest em co-ownership</td><td>Incerto — depende de reunião</td><td>Muda o modelo inteiro — hospital como co-fundador é o activo mais valioso possível. Prioridade máxima de negociação.</td></tr>
+    <tr><td>PRODROMUS primeiros dados (2026–2027)</td><td>Alta probabilidade (financiado)</td><td>Se positivos: João de Deus + terceiro site activados. Psicose torna-se segunda indicação credível. Pitch deck actualizável.</td></tr>
+    <tr><td>Koa Health anuncia produto BCS com CE mark</td><td>Possível (2–3 anos)</td><td>Janela de diferenciação fecha. Necessário acelerar CE mark ou diferenciar por nicho (oncologia específica vs geral). Atenção ao mercado.</td></tr>
+  </table>
+
+  <h3>Anti-portfólio — o que NÃO fazer</h3>
+  <div class="anti-item">
+    <div class="anti-x">✕</div>
+    <div>
+      <div class="anti-title">Construir plataforma horizontal de precision digital therapeutics antes de ter produto vertical</div>
+      <div class="anti-body">Com €120K de investigação e N=45 para ML, "plataforma de DP para toda a saúde mental" é uma tese de research group, não de startup. Plataformas sem produto vertical validado precisam de €5M+ para chegar a product-market fit. mindLAMP, RADAR-base, e m-Path já existem — não há espaço para mais uma plataforma de investigação.</div>
+    </div>
+  </div>
+  <div class="anti-item">
+    <div class="anti-x">✕</div>
+    <div>
+      <div class="anti-title">Iniciar processo MDR antes de ter N≥150 e dados de eficácia</div>
+      <div class="anti-body">O processo MDR Classe IIa para um SaMD de predição e adaptação clínica requer evidência de eficácia que o iNNOVSensing piloto (N=35, tendência positiva sem significância estatística) não fornece. Gastar €100–200K num processo MDR agora sem essa evidência é capital destruído. A excepção: contratar um regulatory consultant para preparar o dossier técnico (sem submeter) — isso faz sentido agora.</div>
+    </div>
+  </div>
+  <div class="anti-item">
+    <div class="anti-x">✕</div>
+    <div>
+      <div class="anti-title">Assumir que o SNS português é um cliente a curto prazo</div>
+      <div class="anti-body">O SNS pode ser um site de investigação excelente (é o que já é). Como cliente pagante, o ciclo de procurement é de 18–36+ meses, requer CE mark, e os valores de reembolso para DTx de saúde mental não estão definidos em Portugal. Qualquer modelo de negócio que depende do SNS como cliente primário nos primeiros 3 anos vai falhar por falta de receita.</div>
+    </div>
+  </div>
+  <div class="anti-item">
+    <div class="anti-x">✕</div>
+    <div>
+      <div class="anti-title">Esperar pelo PerSense FCT para começar a construir o MVP técnico</div>
+      <div class="anti-body">O resultado FCT pode demorar 6–12 meses e pode não ser aprovado. A janela de diferenciação competitiva em BCS + DP é real mas temporária. Os dados e a metodologia do iNNOVSensing existem agora. Começar o MVP com mindLAMP agora não prejudica a candidatura FCT — pelo contrário, demonstra execução e aumenta a credibilidade.</div>
+    </div>
+  </div>
+  <div class="anti-item">
+    <div class="anti-x">✕</div>
+    <div>
+      <div class="anti-title">Lançar PRODROMUS como produto comercial antes de 2030</div>
+      <div class="anti-body">PRODROMUS é investigação excelente, financiada pela FLAD, com co-PI de Harvard. Misturá-lo numa narrativa de produto comercial antes de ter dados, sem CE mark possível para Classe IIb/III em menos de 5–7 anos, dilui o foco, confunde investidores, e não resolve nenhum problema de translação. Manter como I&D paralela, mencionar como "second indication pipeline" — não como produto actual.</div>
+    </div>
+  </div>
+  <div class="anti-item">
+    <div class="anti-x">✕</div>
+    <div>
+      <div class="anti-title">Negociar com pharma sem separar IP do JITAI engine de qualquer acordo</div>
+      <div class="anti-body">Farmacêuticas têm equipas jurídicas que tentarão incluir IP de produto nos acordos de research collaboration. O JITAI engine (regras de decisão adaptativas) e os modelos ML proprietary devem estar explicitamente excluídos de qualquer Research Collaboration Agreement com pharma. O que se licencia à pharma: acesso a cohort e dados de validação. Nunca: o produto em si.</div>
+    </div>
+  </div>
+
+  <h3>Síntese final — o argumento de investimento em 5 frases</h3>
+  <div class="box box-ok">
+    <div class="box-title">Pitch condensado</div>
+    <p>
+    1. "O único produto europeu de DP adaptativo para saúde mental em BCS, com dados reais de N=126 pacientes e ML validado em dois hospitais (AUC 0.78 depressão)."<br><br>
+    2. "Construído pela única investigadora portuguesa com RCTs em DP + CBT digital em oncologia, co-investigadores em Harvard e CMU, e 4 anos de relação operacional com o IPO-Porto."<br><br>
+    3. "A barreira de entrada real não é tecnológica — é o acesso a populações clínicas e a credibilidade para obter consentimento informado. O nosso modelo de co-propriedade hospitalar resolve isto de forma estrutural."<br><br>
+    4. "Stack open-source sem dependências críticas (mindLAMP → RADAR-base). O único IP proprietário — o JITAI engine — é o componente que os nossos concorrentes não têm dados clínicos suficientes para construir."<br><br>
+    5. "Com este seed round, financiamos o MVP, os primeiros contratos com hospitais e pharma, e preparamos o dossier MDR — chegando ao CE mark em 2028 com um pipeline de evidência, um cliente pagante, e a única indicação oncológica validada no espaço de DP mental health europeu."
+    </p>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  Relatório estratégico master — análise integrada de populações, produtos, modelos de desenvolvimento, stack open-source, barreiras de translação, financiamento, e framework de decisão. Baseado em dados verificados do iNNOVSensing (€120K CMU-Portugal/FCT, 2024–2025), PRODROMUS (€300K FLAD, 2024–2027), e contexto de mercado e regulatório actualizado. Abril 2026.<br><br>
+  ⚠ Para decisões de IP, incorporação empresarial, e parceria hospitalar: consultar advogado especializado em IP académico e healthtech. Para processo MDR: consultar regulatory affairs specialist (DEKRA, TÜV SÜD, ou BSI) antes de iniciar qualquer processo formal.
+</div>
+
+</body>
+</html>

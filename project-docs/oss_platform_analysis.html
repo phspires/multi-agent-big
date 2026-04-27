@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise de Plataformas Open-Source — Digital Phenotyping + JITAI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #0d0d0d;
+    --ink2: #383838;
+    --ink3: #717171;
+    --bg: #fbfaf6;
+    --bg2: #f3f1ea;
+    --bg3: #e9e6dc;
+    --rule: #dbd8ce;
+    --navy: #0b1f3a;
+    --navy2: #1a3a6e;
+    --navylt: #d8e5f5;
+    --teal: #083d30;
+    --teallt: #cfe8e2;
+    --amber: #5c3200;
+    --amberlt: #fdecd0;
+    --red: #5c1010;
+    --redlt: #fde5e5;
+    --purple: #35156b;
+    --purplelt: #ece5f8;
+    --green: #0b3d22;
+    --greenlt: #d5eedd;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* COVER */
+  .cover {
+    background: var(--navy);
+    color: #fff;
+    padding: 52px 68px 48px;
+  }
+  .cover-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    margin-bottom: 18px;
+  }
+  .cover h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 34px;
+    font-weight: 300;
+    line-height: 1.2;
+    max-width: 620px;
+    margin-bottom: 14px;
+  }
+  .cover h1 em { font-style: italic; opacity: 0.75; }
+  .cover-sub { font-size: 14px; opacity: 0.6; max-width: 520px; line-height: 1.6; margin-bottom: 36px; }
+  .cover-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+  }
+  .cover-stat { }
+  .cover-stat-v {
+    font-family: 'Source Serif 4', serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .cover-stat-l { font-size: 10.5px; opacity: 0.5; line-height: 1.4; }
+
+  /* LAYOUT */
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 56px 80px; }
+
+  /* SECTION */
+  .sec { margin-top: 64px; }
+  .sec-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink3);
+    margin-bottom: 5px;
+  }
+  h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 23px;
+    font-weight: 400;
+    color: var(--navy);
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    line-height: 1.3;
+  }
+  h3 { font-size: 15px; font-weight: 600; margin: 26px 0 8px; }
+  h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink3);
+    margin: 16px 0 5px;
+  }
+  p { color: var(--ink2); margin-bottom: 11px; }
+  p strong { color: var(--ink); font-weight: 600; }
+
+  /* BADGE */
+  .b {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+  .b-yes  { background:var(--greenlt); color:var(--green); }
+  .b-part { background:var(--amberlt); color:var(--amber); }
+  .b-no   { background:var(--redlt);   color:var(--red);   }
+  .b-best { background:var(--navylt);  color:var(--navy2); }
+  .b-oss  { background:var(--purplelt);color:var(--purple);}
+
+  /* PLATFORM CARD */
+  .platform {
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 20px 0 32px;
+    background: #fff;
+  }
+  .plat-head {
+    padding: 18px 24px 15px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .plat-id {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink3);
+    margin-bottom: 3px;
+  }
+  .plat-name {
+    font-family: 'Source Serif 4', serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .plat-tagline { font-size: 12px; color: var(--ink3); }
+  .plat-verdict {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .v-core    { background: var(--teallt); color: var(--teal); }
+  .v-strong  { background: var(--greenlt); color: var(--green); }
+  .v-useful  { background: var(--navylt); color: var(--navy2); }
+  .v-niche   { background: var(--amberlt); color: var(--amber); }
+  .v-avoid   { background: var(--redlt); color: var(--red); }
+
+  .plat-body { padding: 20px 24px; }
+  .plat-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .pm-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink3);
+    margin-bottom: 3px;
+  }
+  .pm-val { font-size: 12.5px; color: var(--ink2); line-height: 1.4; }
+  .pm-val code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    background: var(--bg2);
+    padding: 1px 4px;
+    border-radius: 2px;
+  }
+  .pm-val strong { color: var(--ink); font-weight: 600; }
+
+  /* CAPABILITY TABLE */
+  .cap-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    margin: 14px 0;
+  }
+  .cap-table th {
+    background: var(--bg2);
+    padding: 7px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 10.5px;
+    color: var(--ink2);
+    border-bottom: 1px solid var(--rule);
+  }
+  .cap-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    color: var(--ink2);
+  }
+  .cap-table tr:last-child td { border-bottom: none; }
+  .cap-table td:first-child { font-weight: 500; color: var(--ink); width: 22%; }
+
+  /* COMPARISON MATRIX */
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 20px 0;
+    overflow-x: auto;
+  }
+  .matrix th {
+    background: var(--navy);
+    color: #fff;
+    padding: 9px 10px;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .matrix th:first-child { text-align: left; width: 18%; }
+  .matrix td {
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+    vertical-align: middle;
+    color: var(--ink2);
+  }
+  .matrix td:first-child { text-align: left; font-weight: 600; color: var(--ink); }
+  .matrix tr:nth-child(even) td { background: var(--bg2); }
+  .matrix tr:last-child td { border-bottom: none; }
+  .tick { color: var(--green); font-weight: 700; }
+  .cross { color: var(--red); font-weight: 700; }
+  .partial { color: var(--amber); font-weight: 700; }
+
+  /* ARCH DIAGRAM */
+  .arch-diagram {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin: 24px 0;
+    color: rgba(255,255,255,0.9);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    line-height: 2;
+  }
+  .arch-layer {
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 7px;
+    padding: 12px 16px;
+    margin: 8px 0;
+  }
+  .arch-layer-title {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 6px;
+  }
+  .arch-components {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .arch-comp {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+  .arch-comp.highlight { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.4); }
+  .arch-arrow {
+    text-align: center;
+    opacity: 0.4;
+    font-size: 16px;
+    margin: 2px 0;
+  }
+
+  /* RECOMMENDATION BOX */
+  .rec {
+    border-radius: 9px;
+    padding: 18px 22px;
+    margin: 18px 0;
+    border-left: 3px solid;
+  }
+  .rec p { margin: 0; font-size: 13.5px; line-height: 1.6; }
+  .rec-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .rec-winner  { background: var(--teallt);   border-color: var(--teal);   }
+  .rec-winner .rec-title  { color: var(--teal);   }
+  .rec-warn    { background: var(--amberlt);  border-color: #c97d00;       }
+  .rec-warn .rec-title    { color: var(--amber);  }
+  .rec-danger  { background: var(--redlt);    border-color: var(--red);    }
+  .rec-danger .rec-title  { color: var(--red);    }
+  .rec-info    { background: var(--navylt);   border-color: var(--navy2);  }
+  .rec-info .rec-title    { color: var(--navy2);  }
+
+  /* FOOTNOTE */
+  .fn { font-size: 11.5px; color: var(--ink3); font-style: italic; margin-top: 6px; }
+
+  hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .footer {
+    background: var(--bg2);
+    border-top: 1px solid var(--rule);
+    padding: 24px 56px;
+    font-size: 11.5px;
+    color: var(--ink3);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-kicker">Análise Técnica · Open-Source Stack · Digital Phenotyping + JITAI · Abril 2026</div>
+  <h1>Plataformas open-source para<br><em>fenotipagem digital e JITAIs</em></h1>
+  <p class="cover-sub">Análise técnica exaustiva e comparativa de todas as opções open-source relevantes — distinguindo funções sobrepostas, lacunas, e a stack óptima para construir um produto de precision digital therapeutics sem dependências críticas de terceiros.</p>
+  <div class="cover-grid">
+    <div class="cover-stat"><div class="cover-stat-v">6</div><div class="cover-stat-l">Plataformas analisadas em detalhe</div></div>
+    <div class="cover-stat"><div class="cover-stat-v">3</div><div class="cover-stat-l">Dimensões funcionais distintas</div></div>
+    <div class="cover-stat"><div class="cover-stat-v">AWARE</div><div class="cover-stat-l">Usada no iNNOVSensing</div></div>
+    <div class="cover-stat"><div class="cover-stat-v">mindLAMP</div><div class="cover-stat-l">Usada/planeada no PRODROMUS</div></div>
+    <div class="cover-stat"><div class="cover-stat-v">RADAR-base</div><div class="cover-stat-l">Mais próxima de produto clínico</div></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- INTRO -->
+<div class="sec">
+  <div class="sec-kicker">Enquadramento</div>
+  <h2>Porque AWARE e mindLAMP não são equivalentes — e porque isso importa</h2>
+
+  <p>A confusão entre AWARE e mindLAMP é compreensível — ambos recolhem dados passivos de smartphone, ambos são open-source, e ambos foram usados em estudos de fenotipagem mental. Mas servem propósitos fundamentalmente diferentes e estão em camadas distintas da arquitectura de um produto.</p>
+
+  <p>A distinção central: <strong>AWARE é uma framework de recolha de dados brutos</strong> (sensing layer), enquanto <strong>mindLAMP é uma plataforma de investigação e cuidado clínico completa</strong> que inclui sensing, EMA, entrega de intervenção, e dashboard clínico. Usar ambos em simultâneo seria redundante e criaria conflito de dados. A escolha entre eles — ou entre qualquer das alternativas — depende do que se quer construir.</p>
+
+  <p>O campo tem pelo menos <strong>seis plataformas open-source relevantes</strong>, cada uma com uma filosofia técnica e um caso de uso óptimo distintos: AWARE, mindLAMP, Beiwe, RADAR-base, m-Path Sense, e a combinação Medplum+custom. A análise que se segue compara-as rigorosamente em todas as dimensões relevantes para a decisão de arquitectura de produto.</p>
+</div>
+
+<!-- TRÊS CAMADAS FUNCIONAIS -->
+<div class="sec">
+  <div class="sec-kicker">Framework Analítica</div>
+  <h2>As três camadas funcionais de um produto PerSense</h2>
+
+  <p>Antes de comparar plataformas, é essencial entender que um produto de fenotipagem digital + JITAI precisa de cobrir <strong>três camadas funcionais distintas</strong>. Nenhuma plataforma cobre as três igualmente bem — a decisão de arquitectura é escolher que combinação minimiza complexidade e dependências.</p>
+
+  <div class="arch-diagram">
+    <div class="arch-layer">
+      <div class="arch-layer-title">Camada 1 — Sensing & Data Collection</div>
+      <div class="arch-components">
+        <span class="arch-comp">Passive smartphone sensors (GPS, calls, BT, screen)</span>
+        <span class="arch-comp">Wearable data (Fitbit/Garmin/Apple Watch)</span>
+        <span class="arch-comp">Active EMA (ecological momentary assessment)</span>
+        <span class="arch-comp">Clinical questionnaires (PHQ-9, GAD-7, ISI…)</span>
+        <span class="arch-comp">GDPR-compliant storage (EU server)</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-layer">
+      <div class="arch-layer-title">Camada 2 — ML / Analytics / JITAI Engine</div>
+      <div class="arch-components">
+        <span class="arch-comp">Feature engineering (biweekly windows, circadian)</span>
+        <span class="arch-comp">Binary/continuous prediction models (PHQ-9/GAD-7)</span>
+        <span class="arch-comp">Phenotype discovery (clustering)</span>
+        <span class="arch-comp highlight">JITAI decision rules (timing + content triggers)</span>
+        <span class="arch-comp">Model monitoring + drift detection</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-layer">
+      <div class="arch-layer-title">Camada 3 — Intervention Delivery & Clinical Interface</div>
+      <div class="arch-components">
+        <span class="arch-comp">CBT/ACT module delivery (iNNOVBC content)</span>
+        <span class="arch-comp highlight">Adaptive module selection (JITAI output)</span>
+        <span class="arch-comp">Therapist dashboard (progress, alerts, comms)</span>
+        <span class="arch-comp">Patient-facing app (progress visualisation)</span>
+        <span class="arch-comp">Secure therapist-patient messaging</span>
+        <span class="arch-comp">Clinical data for MDR documentation</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="fn">Os componentes em destaque (JITAI engine + adaptive module selection) são o IP diferenciador que nenhuma plataforma open-source fornece — têm de ser construídos de raiz independentemente do stack escolhido.</p>
+</div>
+
+<!-- ========== PLATAFORMAS ========== -->
+<div class="sec">
+  <div class="sec-kicker">Análise Detalhada</div>
+  <h2>As seis plataformas open-source — análise exaustiva</h2>
+
+  <!-- AWARE -->
+  <div class="platform">
+    <div class="plat-head">
+      <div>
+        <div class="plat-id">Plataforma 01</div>
+        <div class="plat-name">AWARE Framework</div>
+        <div class="plat-tagline">Ubiquitous Computing Lab, Univ. Helsinki/Oulu · desde 2012 · MIT License</div>
+      </div>
+      <div class="plat-verdict v-useful">Camada 1 — usado no iNNOVSensing</div>
+    </div>
+    <div class="plat-body">
+      <div class="plat-meta">
+        <div><div class="pm-label">Repositório</div><div class="pm-val"><code>github.com/denzilferreira/aware-client</code></div></div>
+        <div><div class="pm-label">Licença</div><div class="pm-val">MIT — uso comercial livre, sem restrições</div></div>
+        <div><div class="pm-label">Plataformas</div><div class="pm-val">Android nativo (Java/Kotlin) + iOS (versão mais limitada). AWARE-Light = versão simplificada.</div></div>
+        <div><div class="pm-label">Utilização actual CMS</div><div class="pm-val"><strong>Já usado no iNNOVSensing</strong> — app custom para BCS, servidor europeu, integração Fitbit</div></div>
+      </div>
+
+      <table class="cap-table">
+        <tr><th>Capacidade</th><th>Detalhe</th><th>Nível</th></tr>
+        <tr><td>Passive sensing</td><td>GPS, accelerometer, gyroscope, Bluetooth, calls/SMS metadata, screen state, app usage, ambient light, notifications, network. Configurável por sensor e frequência.</td><td><span class="b b-yes">Excelente</span></td></tr>
+        <tr><td>Wearables</td><td>Integração nativa com Fitbit, Samsung Health, Polar, Garmin via plugins. A CMS já testou Fitbit + AWARE em conjunto.</td><td><span class="b b-yes">Bom</span></td></tr>
+        <tr><td>EMA / questionários activos</td><td>Suporte básico a surveys via plugin. Funcionalidade limitada comparando com Beiwe ou mindLAMP. Sem skip logic avançada.</td><td><span class="b b-part">Limitado</span></td></tr>
+        <tr><td>Entrega de intervenção</td><td><strong>Não existe.</strong> AWARE é exclusivamente data collection — não entrega conteúdo terapêutico.</td><td><span class="b b-no">Ausente</span></td></tr>
+        <tr><td>Dashboard clínico</td><td>AWARE Dashboard (web) existe mas é orientado a research ops — não a clínicos. Sem visualizações clínicas, sem comunicação terapeuta-paciente.</td><td><span class="b b-part">Research only</span></td></tr>
+        <tr><td>Backend / servidor</td><td>AWARE Server em Java (Spring). Pode ser auto-hospedado em qualquer VM europeia. Armazenamento em MySQL. GDPR-compatível se configurado correctamente.</td><td><span class="b b-yes">Flexível</span></td></tr>
+        <tr><td>GDPR/segurança</td><td>Encriptação em trânsito (TLS). Pseudonimização de identificadores (phone numbers → hash). Self-hosted = controlo total dos dados. Sem transferência para EUA por defeito.</td><td><span class="b b-yes">Adequado</span></td></tr>
+        <tr><td>Maturidade / comunidade</td><td>12+ anos de desenvolvimento, 200+ publicações científicas, activamente mantido. Muito usado em investigação académica europeia.</td><td><span class="b b-yes">Maduro</span></td></tr>
+        <tr><td>Complexidade de deployment</td><td>Moderada. Requer servidor Java + MySQL + Android build environment. A CMS já tem o setup do iNNOVSensing — reutilizável directamente.</td><td><span class="b b-part">Médio</span></td></tr>
+        <tr><td>iOS suporte</td><td>Limitado vs Android. iOS restringe background sensing — cobertura de sensores 40-50% do que Android fornece. AWARE-Light melhora mas não resolve.</td><td><span class="b b-part">Parcial</span></td></tr>
+      </table>
+
+      <h4>Papel na arquitectura PerSense</h4>
+      <p>AWARE é <strong>apenas Camada 1</strong>. É a melhor escolha para passive sensing de smartphone (especialmente Android) e a CMS já tem experiência operacional com ela. <strong>Não deve ser combinada com mindLAMP</strong> — criariam conflito de dados e duplicação de sensores. Escolher AWARE significa construir Camada 2 (ML) e Camada 3 (intervenção) separadamente.</p>
+
+      <div class="rec rec-info">
+        <div class="rec-title">Recomendação de uso</div>
+        <p><strong>Manter AWARE para Camada 1 se se construir arquitectura modular.</strong> A reutilização da app e do pipeline do iNNOVSensing poupa 4–6 semanas de desenvolvimento. Custo zero em licenças. Mas requer solução separada para entrega de intervenção e dashboard clínico.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- mindLAMP -->
+  <div class="platform">
+    <div class="plat-head">
+      <div>
+        <div class="plat-id">Plataforma 02</div>
+        <div class="plat-name">mindLAMP (LAMP Platform)</div>
+        <div class="plat-tagline">Division of Digital Psychiatry, Beth-Israel Deaconess Medical Center / Harvard · desde 2019 · Apache 2.0</div>
+      </div>
+      <div class="plat-verdict v-core">Plataforma mais completa — usada no PRODROMUS</div>
+    </div>
+    <div class="plat-body">
+      <div class="plat-meta">
+        <div><div class="pm-label">Repositório</div><div class="pm-val"><code>github.com/BIDMCDigitalPsychiatry/LAMP-platform</code></div></div>
+        <div><div class="pm-label">Licença</div><div class="pm-val">Apache 2.0 — uso comercial livre, modificação livre, sem copyleft</div></div>
+        <div><div class="pm-label">Stack técnico</div><div class="pm-val">React Native (app), Node.js (API), CouchDB/MongoDB (storage), Cortex (Python analytics). FHIR-compatible.</div></div>
+        <div><div class="pm-label">Ligação estratégica</div><div class="pm-val"><strong>John Torous</strong> é director da divisão que mantém o projecto e co-PI do PRODROMUS da CMS</div></div>
+      </div>
+
+      <table class="cap-table">
+        <tr><th>Capacidade</th><th>Detalhe</th><th>Nível</th></tr>
+        <tr><td>Passive sensing</td><td>GPS, calls/SMS metadata, Bluetooth, screen state, accelerometer, steps. Menos granular que AWARE em sensores brutos — recolhe summaries não raw data. Suficiente para a maioria dos features do iNNOVSensing.</td><td><span class="b b-part">Bom (não raw)</span></td></tr>
+        <tr><td>Wearables</td><td>Integração com Apple HealthKit, Google Fit, Fitbit (via API). Cobertura decent para HR, sleep, steps.</td><td><span class="b b-yes">Bom</span></td></tr>
+        <tr><td>EMA / questionários</td><td><strong>Excelente.</strong> Survey builder com skip logic, multiple question types, scheduling flexível, notificações push. Usado em 100+ estudos clínicos mundialmente.</td><td><span class="b b-yes">Excelente</span></td></tr>
+        <tr><td>Entrega de intervenção</td><td><strong>Sim — diferenciador chave.</strong> Learn/Assess/Manage/Prevent (LAMP) tabs. Suporta: artigos psicoeducativos, exercícios terapêuticos, meditações guiadas, journaling, tips, breathing exercises. Conteúdo configurável por clínico/investigador.</td><td><span class="b b-yes">Bom — configurável</span></td></tr>
+        <tr><td>Dashboard clínico</td><td>Portal web para investigadores e clínicos. Visualizações de dados do paciente, gestão de schedules, acesso a dados passivos e activos. Não é um EHR mas adequado para research+clinical use.</td><td><span class="b b-yes">Adequado</span></td></tr>
+        <tr><td>Comunicação terapeuta-paciente</td><td>Mensagens assíncronas via plataforma — funcionalidade presente mas basic. Sem videochamada integrada.</td><td><span class="b b-part">Básico</span></td></tr>
+        <tr><td>Analytics pipeline</td><td><strong>Cortex</strong> — biblioteca Python open-source para processamento de dados mindLAMP. Feature extraction, quality assessment em tempo real, visualizações. Directamente útil para o pipeline ML.</td><td><span class="b b-yes">Excelente</span></td></tr>
+        <tr><td>FHIR / EHR integration</td><td>FHIR-native — dados exportáveis em formato FHIR R4. Facilita integração com sistemas hospitalares. Relevante para MDR technical documentation.</td><td><span class="b b-yes">Forte</span></td></tr>
+        <tr><td>Deployment</div><td>Docker-based. Auto-hospedável em qualquer cloud EU (Hetzner, OVH). Documentação adequada. Menos de 1 dia para ter instância funcional para alguém com experiência em Docker.</td><td><span class="b b-yes">Razoavelmente simples</span></td></tr>
+        <tr><td>Comunidade e suporte</td><td>~100 research teams worldwide. Activamente mantido pela BIDMC. Torous (co-PI do PRODROMUS) é directamente acessível para suporte técnico. Community Slack activo.</td><td><span class="b b-yes">Forte</span></td></tr>
+        <tr><td>Limitação crítica</td><td><strong>Não recolhe dados brutos de sensores</strong> (raw accelerometer, raw GPS trajectories) — recolhe summaries. Para modelos ML que precisam de features muito granulares (ex: typing patterns), pode ser insuficiente. Para o perfil de features do iNNOVSensing (location entropy, call patterns, sleep), é adequado.</td><td><span class="b b-part">Ver contexto</span></td></tr>
+      </table>
+
+      <h4>Papel na arquitectura PerSense</h4>
+      <p>mindLAMP cobre <strong>Camadas 1 e 3 de forma integrada</strong>, com suporte parcial à Camada 2 via Cortex. É a única plataforma que combina sensing + EMA + entrega de intervenção + dashboard clínico numa solução coesa. O facto de John Torous ser simultaneamente co-PI do PRODROMUS e o maintainer do projecto é uma vantagem estratégica única — acesso directo a suporte técnico e potencial de co-desenvolvimento.</p>
+
+      <div class="rec rec-winner">
+        <div class="rec-title">Recomendação de uso</div>
+        <p><strong>mindLAMP é a escolha central para PerSense/PRODROMUS.</strong> Substitui iTerapi para Camada 1+3, é o backbone do PRODROMUS por decisão do co-PI, e tem Cortex para analytics. A única razão para não usar mindLAMP seria se se precisar de raw sensor data para features muito granulares — nesse caso, complementar com AWARE apenas para sensing bruto, mas manter mindLAMP para intervenção e dashboard.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEIWE -->
+  <div class="platform">
+    <div class="plat-head">
+      <div>
+        <div class="plat-id">Plataforma 03</div>
+        <div class="plat-name">Beiwe Research Platform</div>
+        <div class="plat-tagline">Onnela Lab, Harvard T.H. Chan School of Public Health · desde 2014 · BSD-3 License</div>
+      </div>
+      <div class="plat-verdict v-useful">Melhor para raw data research — não para produto clínico</div>
+    </div>
+    <div class="plat-body">
+      <div class="plat-meta">
+        <div><div class="pm-label">Repositório</div><div class="pm-val"><code>github.com/onnela-lab/beiwe-backend</code></div></div>
+        <div><div class="pm-label">Licença</div><div class="pm-val">BSD-3 — uso comercial livre</div></div>
+        <div><div class="pm-label">Stack técnico</div><div class="pm-val">Python/Django backend, AWS-based, iOS + Android apps. Forest = analytics library separada.</div></div>
+        <div><div class="pm-label">Filosofia</div><div class="pm-val">Raw sensor data, máxima configurabilidade, reproducibilidade científica</div></div>
+      </div>
+
+      <table class="cap-table">
+        <tr><th>Capacidade</th><th>Detalhe</th><th>Nível</th></tr>
+        <tr><td>Passive sensing</td><td><strong>O melhor da categoria em raw data.</strong> GPS, accelerometer, gyroscope, magnetometer, calls, SMS, Bluetooth, WiFi — tudo em formato bruto (raw). Configurável ao milissegundo. ~1 bilião de datapoints por estudo típico.</td><td><span class="b b-yes">Excecional</span></td></tr>
+        <tr><td>EMA / surveys</td><td>Suporte básico a surveys com scheduling. Mais limitado que mindLAMP em termos de tipos de questão e skip logic. Audio diary feature disponível (microfone).</td><td><span class="b b-part">Básico</span></td></tr>
+        <tr><td>Entrega de intervenção</td><td><strong>Nenhuma.</strong> Beiwe é exclusivamente uma plataforma de recolha de dados — não entrega intervenções terapêuticas.</td><td><span class="b b-no">Ausente</span></td></tr>
+        <tr><td>Dashboard clínico</td><td>Study management portal (web). Orientado a research ops, não a clínicos. Sem funcionalidades de cuidado clínico.</td><td><span class="b b-no">Research only</span></td></tr>
+        <tr><td>Analytics</td><td><strong>Forest library</strong> (Python, BSD-3) — análise de dados Beiwe, features pré-computadas, summaries. Bem documentada. Directamente utilizável para o pipeline ML do PerSense.</td><td><span class="b b-yes">Forte (research)</span></td></tr>
+        <tr><td>Infraestrutura</td><td>AWS-native (S3, EC2, Elastic Beanstalk, RDS). Deployment não trivial — requer conta AWS, configuração detalhada. Custo mensal: $3.50/participante-mês em estudos grandes, $80/participante-mês em estudos pequenos.</td><td><span class="b b-part">Complexo + custo AWS</span></td></tr>
+        <tr><td>iOS suporte</td><td>iOS nativo (Swift) com cobertura equivalente a Android — melhor que AWARE neste aspecto.</td><td><span class="b b-yes">Bom</span></td></tr>
+        <tr><td>GDPR</td><td>AWS-based por defeito — requer configuração cuidadosa para GDPR (AWS EU regions). Identificadores anonimizados por hash. Encriptação E2E.</td><td><span class="b b-part">Configuração requerida</span></td></tr>
+      </table>
+
+      <h4>Papel na arquitectura PerSense</h4>
+      <p>Beiwe é óptimo para investigação que precisa de raw sensor data de alta qualidade e reproducibilidade científica máxima. Para o PerSense como produto, tem dois problemas: (1) não entrega intervenções, (2) infraestrutura AWS complexa e cara. A sua maior vantagem — raw data — pode ser relevante se os modelos ML precisarem de features mais granulares do que mindLAMP fornece. A Forest library é um activo útil para feature engineering.</p>
+
+      <div class="rec rec-warn">
+        <div class="rec-title">Recomendação de uso</div>
+        <p><strong>Não usar como plataforma principal.</strong> A complexity de deployment AWS + ausência de funcionalidades clínicas não justifica vs mindLAMP. <strong>Considerar usar a Forest library</strong> (open-source, Python) para feature engineering mesmo que não se use o resto da plataforma.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RADAR-base -->
+  <div class="platform">
+    <div class="plat-head">
+      <div>
+        <div class="plat-id">Plataforma 04</div>
+        <div class="plat-name">RADAR-base</div>
+        <div class="plat-tagline">King's College London / NIHR Maudsley BRC · desde 2018 · Apache 2.0 License</div>
+      </div>
+      <div class="plat-verdict v-strong">Mais próxima de produto clínico — forte para ensaios EU</div>
+    </div>
+    <div class="plat-body">
+      <div class="plat-meta">
+        <div><div class="pm-label">Repositório</div><div class="pm-val"><code>github.com/RADAR-base/radar-helm-chart</code></div></div>
+        <div><div class="pm-label">Licença</div><div class="pm-val">Apache 2.0 — uso comercial e modificação livres</div></div>
+        <div><div class="pm-label">Stack técnico</div><div class="pm-val">Apache Kafka (streaming), Docker/Kubernetes, REST API, Avro schemas. Android + iOS apps.</div></div>
+        <div><div class="pm-label">Origem</div><div class="pm-val">EU IMI RADAR-CNS programme (€22M) — construída especificamente para ensaios clínicos europeus de larga escala</div></div>
+      </div>
+
+      <table class="cap-table">
+        <tr><th>Capacidade</th><th>Detalhe</th><th>Nível</th></tr>
+        <tr><td>Passive sensing</td><td>Android + iOS. GPS, accelerometer, calls, messages, Bluetooth, phone usage. Passive Remote Monitoring (pRMT) app + Active Remote Monitoring (aRMT) app separadas.</td><td><span class="b b-yes">Bom</span></td></tr>
+        <tr><td>Wearables</td><td>Integração nativa: Fitbit, Empatica E4, Garmin, Biovotion, Faros. O mais amplo em termos de wearables suportados entre todas as plataformas.</td><td><span class="b b-yes">Melhor da categoria</span></td></tr>
+        <tr><td>EMA / surveys</td><td>aRMT app com surveys estruturadas. Scheduling flexível, notificações push, múltiplos tipos de questão. Comparável a mindLAMP.</td><td><span class="b b-yes">Bom</span></td></tr>
+        <tr><td>JITAI support</td><td><strong>Diferenciador único:</strong> RADAR-base tem suporte nativo a real-time intervention triggering via Kafka Streams. Estudos publicados (DynaMORE, ART-transition) implementaram JITAIs sobre RADAR-base. Compliance de 43% EMA + 43% JITAI reportada.</td><td><span class="b b-yes">Melhor da categoria</span></td></tr>
+        <tr><td>Entrega de intervenção</td><td>aRMT suporta entrega de conteúdo (questionnaires, activities). Menos rico em tipos de conteúdo que mindLAMP para CBT delivery — sem módulos terapêuticos estruturados nativos.</td><td><span class="b b-part">Básico para CBT</span></td></tr>
+        <tr><td>Dashboard clínico</td><td>RADAR-dashboard para gestão de participantes e monitorização. Management portal com visualizações. Orientado a research ops e ensaios clínicos — não a uso clínico rotineiro.</td><td><span class="b b-part">Research/trials</span></td></tr>
+        <tr><td>Escalabilidade</td><td><strong>A mais escalável.</strong> Kafka + Kubernetes = distribuída, tolerante a falhas, testada com 623+ participantes em estudos longitudinais de 24 meses. Built for large-scale trials.</td><td><span class="b b-yes">Excecional</span></td></tr>
+        <tr><td>GDPR / compliance</td><td>Construída para ensaios clínicos europeus — GDPR by design. Pseudonimização forte, controlo de acesso granular, audit trails. Utilizada em estudos IMI com supervisão regulatória europeia.</td><td><span class="b b-yes">Excecional</span></td></tr>
+        <tr><td>Complexidade de deployment</td><td><strong>Alta.</strong> Kafka + Kubernetes = stack de infraestrutura empresarial. Requer devops com experiência em sistemas distribuídos. Não adequada para um MVP de startup sem CTO com experiência específica.</td><td><span class="b b-no">Alta complexidade</span></td></tr>
+        <tr><td>Comunidade / suporte</td><td>King's College London (IoPPN/Maudsley BRC) mantém activamente. Documentação razoável. Menos comunidade académica que AWARE ou mindLAMP, mais foco em ensaios clínicos.</td><td><span class="b b-part">Médio</span></td></tr>
+      </table>
+
+      <h4>Papel na arquitectura PerSense</h4>
+      <p>RADAR-base é a plataforma mais alinhada com os requisitos de um ensaio clínico europeu de larga escala (exactamente o que o PerSense FCT propõe). O suporte nativo a JITAI triggering é um diferenciador real — nenhuma outra plataforma tem isto out-of-the-box. A sua fraqueza é a complexidade de deployment: não é adequada para um MVP, mas pode ser a escolha certa para a fase de RCT quando se tiver um CTO e infraestrutura estabilizada.</p>
+
+      <div class="rec rec-info">
+        <div class="rec-title">Recomendação de uso</div>
+        <p><strong>Considerar para Fase 2 (RCT PerSense/FCT), não para MVP.</strong> A complexidade técnica é demasiada para a fase inicial. Quando o projecto tiver um CTO dedicado e o RCT estiver a ser planeado, RADAR-base é a escolha mais sólida para um ensaio clínico multicentro europeu com JITAIs reais. Contactar KCL/Maudsley BRC para colaboração técnica — há precedentes de colaborações académicas sobre RADAR-base.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- m-Path Sense -->
+  <div class="platform">
+    <div class="plat-head">
+      <div>
+        <div class="plat-id">Plataforma 05</div>
+        <div class="plat-name">m-Path Sense</div>
+        <div class="plat-tagline">KU Leuven (Centre for Research on Experience Sampling) · 2023 · Licença académica</div>
+      </div>
+      <div class="plat-verdict v-niche">ESM especialista — não open-source completo</div>
+    </div>
+    <div class="plat-body">
+      <div class="plat-meta">
+        <div><div class="pm-label">Acesso</div><div class="pm-val">m-path.io — plataforma web + app. Licença académica gratuita para investigação.</div></div>
+        <div><div class="pm-label">Licença</div><div class="pm-val"><strong>Não é open-source.</strong> Gratuita para investigação académica, comercial requer negociação com KU Leuven.</div></div>
+        <div><div class="pm-label">Foco</div><div class="pm-val">Experience Sampling Methodology (ESM) de alta qualidade + mobile sensing combinados</div></div>
+        <div><div class="pm-label">Relevância</div><div class="pm-val">Usada em estudos de EMA intensiva — não adequada para produto comercial sem licença explícita</div></div>
+      </div>
+
+      <table class="cap-table">
+        <tr><th>Capacidade</th><th>Detalhe</th><th>Nível</th></tr>
+        <tr><td>ESM/EMA</td><td><strong>O melhor da categoria.</strong> Construída especificamente para ESM de alta qualidade — o gold standard em investigação de experience sampling. Skip logic avançada, múltiplos tipos de questão, scheduling sofisticado.</td><td><span class="b b-yes">Excecional</span></td></tr>
+        <tr><td>Mobile sensing</td><td>m-Path Sense combina ESM com sensing passivo (accelerometer, GPS, Bluetooth, screen). Mais limitado em sensores que AWARE ou RADAR-base.</td><td><span class="b b-part">Adequado</span></td></tr>
+        <tr><td>Entrega de intervenção</td><td>Limitada — focus em measurement, não em treatment delivery.</td><td><span class="b b-no">Não adequado</span></td></tr>
+        <tr><td>Uso comercial</td><td><strong>Problema crítico:</strong> não é open-source. Uso comercial requer licença paga negociada com KU Leuven. Dependência de terceiros.</td><td><span class="b b-no">Bloqueante</span></td></tr>
+      </table>
+
+      <div class="rec rec-danger">
+        <div class="rec-title">Recomendação de uso</div>
+        <p><strong>Não usar para produto comercial.</strong> Não é open-source, uso comercial requer negociação com KU Leuven criando dependência de terceiros — exactamente o problema que se quer evitar. Excelente para investigação académica (incluindo para geração de dados de treino), mas não para a arquitectura de produto.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Medplum -->
+  <div class="platform">
+    <div class="plat-head">
+      <div>
+        <div class="plat-id">Plataforma 06</div>
+        <div class="plat-name">Medplum</div>
+        <div class="plat-tagline">Medplum Inc. · 2021 · Apache 2.0 · FHIR-native backend para healthcare software</div>
+      </div>
+      <div class="plat-verdict v-useful">Backend FHIR para entrega de intervenção — Camada 3</div>
+    </div>
+    <div class="plat-body">
+      <div class="plat-meta">
+        <div><div class="pm-label">Repositório</div><div class="pm-val"><code>github.com/medplum/medplum</code></div></div>
+        <div><div class="pm-label">Licença</div><div class="pm-val">Apache 2.0 — uso comercial livre</div></div>
+        <div><div class="pm-label">Stack técnico</div><div class="pm-val">TypeScript/Node.js, PostgreSQL, React UI kit, FHIR R4 nativo</div></div>
+        <div><div class="pm-label">Contexto</div><div class="pm-val">Não é plataforma de sensing — é um EHR/clinical backend open-source FHIR-native para healthcare apps</div></div>
+      </div>
+
+      <table class="cap-table">
+        <tr><th>Capacidade</th><th>Detalhe</th><th>Nível</th></tr>
+        <tr><td>FHIR R4 compliance</td><td>Nativo — todos os dados em formato FHIR. Relevante para documentação técnica MDR e eventual integração com EHRs hospitalares (CHUSJ, IPO-Porto).</td><td><span class="b b-yes">Excecional</span></td></tr>
+        <tr><td>Patient management</td><td>Gestão de pacientes, practitioners, appointments, questionnaires (FHIR Questionnaire resource). Adequado para gerir cohort de participantes de um ensaio.</td><td><span class="b b-yes">Bom</span></td></tr>
+        <tr><td>Forms / questionários</td><td>FHIR Questionnaire + QuestionnaireResponse. Suporta PHQ-9, GAD-7, ISI como recursos FHIR standard — importante para documentação clínica.</td><td><span class="b b-yes">Bom</span></td></tr>
+        <tr><td>Passive sensing</td><td><strong>Não existe.</strong> Medplum é um healthcare backend, não uma plataforma de sensing. Requer integração com AWARE/mindLAMP para dados passivos.</td><td><span class="b b-no">Ausente</span></td></tr>
+        <tr><td>Entrega de intervenção CBT</td><td>Através de custom React UI sobre Medplum API — os módulos iNNOVBC podem ser implementados como FHIR CarePlan + resources custom. Mais trabalho de desenvolvimento mas resultado mais robusto para MDR.</td><td><span class="b b-part">Requer custom dev</span></td></tr>
+        <tr><td>MDR documentation</td><td>FHIR-native + audit trails + version control são exactamente o que o MDR requer para SaMD technical documentation. A escolha mais defensável do ponto de vista regulatório.</td><td><span class="b b-yes">Excecional para MDR</span></td></tr>
+        <tr><td>Deployment</td><td>Docker-based. Documentação excelente. Self-hosted em EU (Hetzner/OVH). ~1-2 dias para instância funcional.</td><td><span class="b b-yes">Simples</span></td></tr>
+      </table>
+
+      <h4>Papel na arquitectura PerSense</h4>
+      <p>Medplum não é uma alternativa às outras plataformas — é uma camada complementar para a Camada 3 (entrega de intervenção e clinical backend). A vantagem principal: <strong>FHIR-native facilita enormemente a documentação técnica MDR</strong> e a eventual integração com EHRs hospitalares. Se o objectivo é construir algo que passe num processo de certificação MDR, ter os dados de outcomes clínicos em FHIR desde o início é um investimento que se paga.</p>
+
+      <div class="rec rec-info">
+        <div class="rec-title">Recomendação de uso</div>
+        <p><strong>Usar como clinical backend (Camada 3) em combinação com mindLAMP (Camadas 1+2).</strong> mindLAMP para sensing + EMA + analytics, Medplum para gestão de pacientes, outcomes clínicos, e entrega de módulos CBT. Esta combinação é tecnicamente mais complexa mas regulatoriamente mais robusta para MDR.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MATRIZ COMPARATIVA -->
+<div class="sec">
+  <div class="sec-kicker">Comparação</div>
+  <h2>Matriz comparativa consolidada</h2>
+
+  <div style="overflow-x:auto;">
+  <table class="matrix">
+    <tr>
+      <th>Dimensão</th>
+      <th>AWARE</th>
+      <th>mindLAMP</th>
+      <th>Beiwe</th>
+      <th>RADAR-base</th>
+      <th>m-Path</th>
+      <th>Medplum</th>
+    </tr>
+    <tr>
+      <td>Passive sensing</td>
+      <td><span class="tick">★★★★★</span></td>
+      <td><span class="tick">★★★☆</span></td>
+      <td><span class="tick">★★★★★</span></td>
+      <td><span class="tick">★★★★</span></td>
+      <td><span class="partial">★★★</span></td>
+      <td><span class="cross">✗</span></td>
+    </tr>
+    <tr>
+      <td>EMA / surveys activas</td>
+      <td><span class="partial">★★</span></td>
+      <td><span class="tick">★★★★★</span></td>
+      <td><span class="partial">★★★</span></td>
+      <td><span class="tick">★★★★</span></td>
+      <td><span class="tick">★★★★★</span></td>
+      <td><span class="tick">★★★★</span></td>
+    </tr>
+    <tr>
+      <td>Entrega de intervenção CBT</td>
+      <td><span class="cross">✗</span></td>
+      <td><span class="tick">★★★★</span></td>
+      <td><span class="cross">✗</span></td>
+      <td><span class="partial">★★</span></td>
+      <td><span class="partial">★</span></td>
+      <td><span class="partial">★★★ (custom)</span></td>
+    </tr>
+    <tr>
+      <td>JITAI triggering nativo</td>
+      <td><span class="cross">✗</span></td>
+      <td><span class="partial">Parcial</span></td>
+      <td><span class="cross">✗</span></td>
+      <td><span class="tick">★★★★★</span></td>
+      <td><span class="cross">✗</span></td>
+      <td><span class="cross">✗</span></td>
+    </tr>
+    <tr>
+      <td>Dashboard clínico</td>
+      <td><span class="cross">Research only</span></td>
+      <td><span class="tick">★★★★</span></td>
+      <td><span class="cross">Research only</span></td>
+      <td><span class="partial">★★★ (trials)</span></td>
+      <td><span class="cross">Research only</span></td>
+      <td><span class="tick">★★★★</span></td>
+    </tr>
+    <tr>
+      <td>Analytics / ML pipeline</td>
+      <td><span class="partial">Via custom</span></td>
+      <td><span class="tick">Cortex (★★★★)</span></td>
+      <td><span class="tick">Forest (★★★★)</span></td>
+      <td><span class="tick">★★★★</span></td>
+      <td><span class="partial">Básico</span></td>
+      <td><span class="cross">✗</span></td>
+    </tr>
+    <tr>
+      <td>FHIR / EHR ready</td>
+      <td><span class="cross">✗</span></td>
+      <td><span class="tick">★★★★</span></td>
+      <td><span class="cross">✗</span></td>
+      <td><span class="partial">Parcial</span></td>
+      <td><span class="cross">✗</span></td>
+      <td><span class="tick">★★★★★</span></td>
+    </tr>
+    <tr>
+      <td>GDPR / EU compliance</td>
+      <td><span class="tick">★★★★</span></td>
+      <td><span class="tick">★★★★</span></td>
+      <td><span class="partial">★★★ (AWS config)</span></td>
+      <td><span class="tick">★★★★★</span></td>
+      <td><span class="partial">Académico</span></td>
+      <td><span class="tick">★★★★★</span></td>
+    </tr>
+    <tr>
+      <td>Facilidade de deployment</td>
+      <td><span class="tick">★★★★</span></td>
+      <td><span class="tick">★★★★</span></td>
+      <td><span class="partial">★★ (AWS)</span></td>
+      <td><span class="partial">★★ (Kafka/K8s)</span></td>
+      <td><span class="tick">★★★★★</span></td>
+      <td><span class="tick">★★★★</span></td>
+    </tr>
+    <tr>
+      <td>iOS suporte</td>
+      <td><span class="partial">Parcial</span></td>
+      <td><span class="tick">★★★★</span></td>
+      <td><span class="tick">★★★★★</span></td>
+      <td><span class="tick">★★★★</span></td>
+      <td><span class="tick">★★★★</span></td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>Open-source comercial</td>
+      <td><span class="b b-yes">MIT — livre</span></td>
+      <td><span class="b b-yes">Apache 2.0 — livre</span></td>
+      <td><span class="b b-yes">BSD-3 — livre</span></td>
+      <td><span class="b b-yes">Apache 2.0 — livre</span></td>
+      <td><span class="b b-no">Não OSS</span></td>
+      <td><span class="b b-yes">Apache 2.0 — livre</span></td>
+    </tr>
+    <tr>
+      <td>Experiência CMS</td>
+      <td><span class="b b-best">iNNOVSensing</span></td>
+      <td><span class="b b-best">PRODROMUS</span></td>
+      <td><span class="cross">Nenhuma</span></td>
+      <td><span class="cross">Nenhuma</span></td>
+      <td><span class="cross">Nenhuma</span></td>
+      <td><span class="cross">Nenhuma</span></td>
+    </tr>
+    <tr>
+      <td>Ligação estratégica</td>
+      <td>Utilizada</td>
+      <td><span class="b b-best">Torous = co-PI + maintainer</span></td>
+      <td>Onnela Lab Harvard</td>
+      <td>KCL/Maudsley</td>
+      <td>KU Leuven</td>
+      <td>Startup US</td>
+    </tr>
+    <tr>
+      <td><strong>Recomendação</strong></td>
+      <td><strong>Sensing layer (Camada 1) se raw data crítico</strong></td>
+      <td><strong>Plataforma principal — Camadas 1+2+3</strong></td>
+      <td><strong>Forest library apenas</strong></td>
+      <td><strong>Fase RCT (Fase 2)</strong></td>
+      <td><strong>Não usar para produto</strong></td>
+      <td><strong>Clinical backend MDR (opcional)</strong></td>
+    </tr>
+  </table>
+  </div>
+</div>
+
+<!-- STACKS RECOMENDADAS -->
+<div class="sec">
+  <div class="sec-kicker">Decisão de Arquitectura</div>
+  <h2>Três stacks recomendadas — por fase e contexto</h2>
+
+  <h3>Stack A — MVP rápido (0–6 meses) — Para validar o produto antes de regulação</h3>
+  <div class="arch-diagram">
+    <div class="arch-layer">
+      <div class="arch-layer-title">Camada 1 — Sensing</div>
+      <div class="arch-components">
+        <span class="arch-comp highlight">mindLAMP app</span>
+        <span class="arch-comp">GPS, calls, screen, BT, steps</span>
+        <span class="arch-comp">Fitbit via API</span>
+        <span class="arch-comp">EMA diária (PHQ-2, GAD-2)</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-layer">
+      <div class="arch-layer-title">Camada 2 — ML + JITAI</div>
+      <div class="arch-components">
+        <span class="arch-comp highlight">Cortex (mindLAMP analytics)</span>
+        <span class="arch-comp">scikit-learn + XGBoost</span>
+        <span class="arch-comp highlight">JITAI engine custom (Python)</span>
+        <span class="arch-comp">Regras baseadas em PHQ-9/GAD-7 thresholds</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-layer">
+      <div class="arch-layer-title">Camada 3 — Intervenção + Clínico</div>
+      <div class="arch-components">
+        <span class="arch-comp highlight">mindLAMP LAMP tabs (Learn/Assess/Manage/Prevent)</span>
+        <span class="arch-comp">iNNOVBC modules como LAMP activities</span>
+        <span class="arch-comp">mindLAMP clinician dashboard</span>
+        <span class="arch-comp">Mensagens via mindLAMP</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-layer">
+      <div class="arch-layer-title">Infraestrutura</div>
+      <div class="arch-components">
+        <span class="arch-comp highlight">Hetzner Cloud (Alemanha, GDPR)</span>
+        <span class="arch-comp">Docker Compose</span>
+        <span class="arch-comp">mindLAMP self-hosted</span>
+        <span class="arch-comp">€30–50/mês infra</span>
+      </div>
+    </div>
+  </div>
+  <p><strong>Vantagens:</strong> Uma única plataforma (mindLAMP) para tudo. Torous é co-PI e maintainer → suporte directo. PRODROMUS já usa este stack → código reutilizável. Deployment em &lt;1 semana por um developer com experiência em Docker. O IP próprio é apenas o JITAI engine e os módulos iNNOVBC adaptados.</p>
+  <p><strong>Limitações:</strong> mindLAMP não dá raw sensor data para todos os features do iNNOVSensing (ex: typing patterns detalhados). Se esses features forem críticos para o modelo, esta stack precisa de ser complementada.</p>
+
+  <h3>Stack B — Fidelidade máxima ao iNNOVSensing (6–18 meses) — Para continuar exactamente o que foi construído</h3>
+  <div class="arch-diagram">
+    <div class="arch-layer">
+      <div class="arch-layer-title">Camada 1 — Sensing (raw data)</div>
+      <div class="arch-components">
+        <span class="arch-comp highlight">AWARE Framework (rebuild da app iNNOVSensing)</span>
+        <span class="arch-comp">GPS, calls, messages, BT, screen — raw</span>
+        <span class="arch-comp">Fitbit API</span>
+        <span class="arch-comp">AWARE Server (self-hosted, Hetzner)</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-layer">
+      <div class="arch-layer-title">Camada 2 — ML pipeline (re-implementado)</div>
+      <div class="arch-components">
+        <span class="arch-comp highlight">Pipeline Python re-escrito (método iNNOVSensing)</span>
+        <span class="arch-comp">Feature engineering biweekly (AWARE raw → features)</span>
+        <span class="arch-comp">scikit-learn + XGBoost (binary + regression)</span>
+        <span class="arch-comp highlight">JITAI engine custom</span>
+        <span class="arch-comp">Beiwe Forest library (feature templates)</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-layer">
+      <div class="arch-layer-title">Camada 3 — Intervenção + EMA (separada do sensing)</div>
+      <div class="arch-components">
+        <span class="arch-comp highlight">Medplum (FHIR backend)</span>
+        <span class="arch-comp">iNNOVBC como FHIR CarePlan + custom PWA</span>
+        <span class="arch-comp">EMA via Medplum Questionnaire resource</span>
+        <span class="arch-comp">Dashboard clínico custom (React)</span>
+      </div>
+    </div>
+  </div>
+  <p><strong>Vantagens:</strong> Continuidade exacta com iNNOVSensing (mesmos sensores, mesmas features, modelos comparáveis). Raw sensor data permite features mais granulares e reprodutibilidade científica. Medplum + FHIR é a escolha mais defensável para MDR.</p>
+  <p><strong>Limitações:</strong> Mais componentes = mais complexidade de desenvolvimento e manutenção. Requer developer com experiência em AWARE + Medplum + Python ML. Não há uma única plataforma que unifique tudo — gestão de dois stacks separados (sensing vs intervenção).</p>
+
+  <h3>Stack C — Fase RCT / MDR (18–36 meses) — Para ensaio clínico multicentro e certificação</h3>
+  <div class="arch-diagram">
+    <div class="arch-layer">
+      <div class="arch-layer-title">Stack completa para PerSense RCT + MDR</div>
+      <div class="arch-components">
+        <span class="arch-comp highlight">RADAR-base (sensing + JITAI triggering nativo + GDPR)</span>
+        <span class="arch-comp">mindLAMP integrado para content delivery</span>
+        <span class="arch-comp">Medplum para gestão clínica e FHIR documentation</span>
+        <span class="arch-comp">Pipeline ML custom (scikit-learn)</span>
+        <span class="arch-comp highlight">JITAI engine integrado com Kafka Streams</span>
+      </div>
+    </div>
+  </div>
+  <p><strong>Vantagens:</strong> RADAR-base foi construída para ensaios clínicos europeus de larga escala — exactamente o que o PerSense FCT propõe. JITAI triggering nativo via Kafka. Máxima GDPR compliance. Precedentes de uso em estudos IMI/EU com supervisão regulatória.</p>
+  <p><strong>Limitações:</strong> Alta complexidade técnica (Kafka + Kubernetes). Só faz sentido quando há um CTO dedicado e o ensaio está planeado em detalhe.</p>
+
+  <div class="rec rec-winner">
+    <div class="rec-title">Recomendação Final</div>
+    <p><strong>Começar com Stack A (mindLAMP only) para o MVP — é a mais rápida, mais simples, e tem a ligação estratégica mais forte (Torous).</strong> Quando o PerSense FCT estiver aprovado e o CTO contratado, migrar para Stack C (RADAR-base) para o RCT formal. A Stack B é um caminho intermédio válido se houver razão técnica específica para precisar de raw sensor data (ex: querer replicar exactamente o pipeline do iNNOVSensing antes de re-escrever o modelo ML).</p>
+  </div>
+</div>
+
+<hr>
+
+<div class="sec">
+  <div class="sec-kicker">Síntese</div>
+  <h2>Resposta directa à questão AWARE vs mindLAMP</h2>
+
+  <p>São complementares, não concorrentes — mas para um produto comercial, <strong>mindLAMP substitui AWARE</strong> por ser mais completo (sensing + EMA + intervenção + dashboard num único sistema). AWARE é superior em raw sensor data, o que pode ser relevante para features muito granulares, mas para o perfil de features do iNNOVSensing (location entropy, call patterns, sleep, HR) mindLAMP é suficiente.</p>
+
+  <p>O argumento decisivo para mindLAMP como plataforma principal não é técnico — é estratégico: <strong>John Torous é simultaneamente co-PI do PRODROMUS da CMS e o maintainer do projecto mindLAMP</strong>. Isto é uma relação de suporte técnico e co-desenvolvimento que nenhuma outra plataforma pode oferecer, e que tem valor económico real (evita contratar um backend developer para manter infraestrutura customizada nos primeiros 12 meses).</p>
+
+  <p>O <strong>JITAI engine</strong> — a componente que adapta a intervenção em tempo real com base nos modelos ML — é o único elemento que <em>nenhuma</em> plataforma fornece de forma completa e que tem de ser construído como IP próprio. É aqui que o verdadeiro trabalho de desenvolvimento da startup está, e é aqui que reside a diferenciação competitiva real.</p>
+</div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  Análise baseada em documentação oficial, publicações académicas (JMIR, PMC, ResearchGate), e repositórios GitHub das plataformas analisadas. Última actualização: Abril 2026.<br>
+  Plataformas analisadas: AWARE Framework, mindLAMP, Beiwe, RADAR-base, m-Path Sense, Medplum.
+</div>
+
+</body>
+</html>
