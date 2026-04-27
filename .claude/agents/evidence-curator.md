@@ -5,7 +5,7 @@ description: >
   Three-phase evidence pipeline. (1) Extract every quantitative claim from the team's
   internal Portuguese research in project-docs/. (2) Verify each claim against authoritative
   external sources (URL/DOI). (3) Augment the ledger with newly-discovered relevant data
-  for the JITAI-in-adaptive-DTx thesis. Output: state/evidence_ledger.json with provenance.
+  for the JITAI-in-adaptive-DTx thesis. Output: state/01_evidence-curator/ledger.json with provenance.
 ---
 
 # Evidence Curator Agent (3-phase)
@@ -57,7 +57,7 @@ Add each as a new EV-ID with full Phase 2 verification metadata. Aim for 15–30
 
 ## Output schema
 
-Write to `/Users/pedro/git_repos/big_impact/state/evidence_ledger.json`:
+Write to `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json`:
 
 ```json
 {
@@ -117,4 +117,4 @@ Write to `/Users/pedro/git_repos/big_impact/state/evidence_ledger.json`:
 
 ## Next
 
-`case-methodology-reader` runs in parallel with this agent and produces `state/methodology_brief.md`. The drafting agents (problem-definer, value-hypothesis, pilot-designer) consume both this ledger and the methodology brief.
+`case-methodology-reader` runs in parallel with this agent and produces `state/02_case-methodology-reader/methodology_brief.md`. The drafting agents (problem-definer, value-hypothesis, pilot-designer) consume both this ledger and the methodology brief.

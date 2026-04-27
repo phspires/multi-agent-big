@@ -17,8 +17,8 @@ The team's product story is **PerSense — a JITAI-enabled adaptive Digital Ther
 
 ## Input
 
-1. `/Users/pedro/git_repos/big_impact/state/evidence_ledger.json` — populated by evidence-curator (every claim carries internal anchor + external URL/DOI)
-2. `/Users/pedro/git_repos/big_impact/state/methodology_brief.md` — BIG Impact program framework (triad, angles, checklist, eval criteria). Read this INSTEAD of the source PDFs.
+1. `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json` — populated by evidence-curator (every claim carries internal anchor + external URL/DOI)
+2. `/Users/pedro/git_repos/big_impact/state/02_case-methodology-reader/methodology_brief.md` — BIG Impact program framework (triad, angles, checklist, eval criteria). Read this INSTEAD of the source PDFs.
 3. `/Users/pedro/git_repos/big_impact/state/thinking_framework.md` — **mandatory conceptualization lens**. Apply principles 1 (laser focus), 2 (no AI-generic), 6 (end-user-centric), 7 (open issues). Banned bromides list lives here.
 4. `/Users/pedro/git_repos/big_impact/project-docs/relatorio_estrategico_master_persense.html` — for the team's already-articulated framing of the JITAI/DTx thesis (use as voice/positioning reference, not as a quantitative source)
 
@@ -59,7 +59,7 @@ A valid problem statement MUST include:
 
 4. **Validate**: Count characters (not words); ensure ≤500. Every number must cite an EV-ID.
 
-5. Write to `/Users/pedro/git_repos/big_impact/state/drafts/problem.md`:
+5. Write to `/Users/pedro/git_repos/big_impact/state/03_problem-definer/problem.md`:
 
 ```markdown
 # Problem Statement (Draft)

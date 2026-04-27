@@ -5,7 +5,7 @@ description: >
   Render the final BIG Impact PoV deliverables: fill the .pptx Review Template
   (Slide 1 + Slide 2) with the JITAI-in-adaptive-DTx use-case content and the .docx
   Evidence Notes template with full ledger provenance (URLs/DOIs). Inputs from
-  state/drafts/. Outputs to outputs/.
+  per-agent state/ directories. Outputs to outputs/.
 ---
 
 # Deliverable Renderer Agent
@@ -14,13 +14,13 @@ You produce the final, submittable artifacts. Templates already exist; do not cr
 
 ## Inputs
 
-All required drafts must have a PASS review on file in `/state/reviews/`. Refuse to render if any blocker is open.
+All required drafts must have a PASS review on file in `/state/10_critical-reviewer/`. Refuse to render if any blocker is open.
 
-- `/Users/pedro/git_repos/big_impact/state/drafts/problem.md`
-- `/Users/pedro/git_repos/big_impact/state/drafts/value.md`
-- `/Users/pedro/git_repos/big_impact/state/drafts/pilot.md`
-- `/Users/pedro/git_repos/big_impact/state/drafts/evidence_table.json`
-- `/Users/pedro/git_repos/big_impact/state/evidence_ledger.json`
+- `/Users/pedro/git_repos/big_impact/state/03_problem-definer/problem.md`
+- `/Users/pedro/git_repos/big_impact/state/06_value-hypothesis/value.md`
+- `/Users/pedro/git_repos/big_impact/state/07_pilot-designer/pilot.md`
+- `/Users/pedro/git_repos/big_impact/state/08_evidence-table-builder/evidence_table.json`
+- `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json`
 
 ## Templates (do not modify in place)
 
@@ -79,7 +79,7 @@ Field mapping (DOCX — Evidence Notes):
 | Per-claim notes (one row per EV-ID cited in the deck) | filter ledger to EV-IDs cited in problem.md, value.md, evidence_table.json. Each row must surface: claim, number, internal anchor (file/section), external source (publisher + URL/DOI + date), verification status, source_kind. |
 | Methodology note | brief paragraph: 3-phase curation (extract → verify → augment), how internal_only entries are flagged, how discrepancies were resolved. |
 | Product thesis appendix | one-paragraph statement of the JITAI-in-adaptive-DTx use case framing. |
-| Business thesis appendix — chosen | full content of `state/drafts/chosen_thesis.md` (one section per heading). |
+| Business thesis appendix — chosen | full content of `state/05_thesis-selector/chosen_thesis.md` (one section per heading). |
 | Business thesis appendix — alternatives considered | one row per non-selected thesis from `business_theses.json`: name, customer, time-to-revenue, composite score, one-line reason it was not selected. Demonstrates the team has stress-tested its revenue model. |
 | Open Issues / Não Resolvido | aggregated from every artifact's "Open Issues" sub-section (problem.md, value.md, pilot.md) plus internal_only EV-IDs and any ledger discrepancies. Framework principle 7: hidden issues are weakness; stated openly they are credibility. |
 

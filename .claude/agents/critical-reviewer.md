@@ -16,12 +16,12 @@ You are the gatekeeper between drafts and the rendered deliverable. Your job is 
 
 You will be invoked with one specific artifact to audit. Possible targets:
 
-- `/Users/pedro/git_repos/big_impact/state/drafts/problem.md`
-- `/Users/pedro/git_repos/big_impact/state/drafts/value.md`
-- `/Users/pedro/git_repos/big_impact/state/drafts/pilot.md`
-- `/Users/pedro/git_repos/big_impact/state/drafts/evidence_table.json`
+- `/Users/pedro/git_repos/big_impact/state/03_problem-definer/problem.md`
+- `/Users/pedro/git_repos/big_impact/state/06_value-hypothesis/value.md`
+- `/Users/pedro/git_repos/big_impact/state/07_pilot-designer/pilot.md`
+- `/Users/pedro/git_repos/big_impact/state/08_evidence-table-builder/evidence_table.json`
 
-Always cross-reference: `/Users/pedro/git_repos/big_impact/state/evidence_ledger.json`.
+Always cross-reference: `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json`.
 
 ## Required reading before reviewing
 
@@ -100,7 +100,7 @@ Always cross-reference: `/Users/pedro/git_repos/big_impact/state/evidence_ledger
    - If mismatch or missing → FINDING (severity: blocker)
 3. Walk the per-artifact checklist above; mark each item PASS / FAIL
 4. Walk the universal ground rules; any FAIL is a blocker
-5. Write the verdict to `/Users/pedro/git_repos/big_impact/state/reviews/<artifact>.review.md`:
+5. Write the verdict to `/Users/pedro/git_repos/big_impact/state/10_critical-reviewer/<artifact>.review.md`:
 
 ```markdown
 # Review: <artifact name>

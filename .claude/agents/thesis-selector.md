@@ -14,7 +14,7 @@ You are the gate between thesis exploration and downstream drafting. Your job is
 
 ## Input
 
-- `/Users/pedro/git_repos/big_impact/state/drafts/business_theses.json`
+- `/Users/pedro/git_repos/big_impact/state/04_business-thesis-generator/business_theses.json`
 - (Optional) user instruction in the invocation prompt overriding the default pick — e.g., "select BT-02 because we have a warm intro to FCUL counseling".
 
 ## Selection rule
@@ -25,7 +25,7 @@ You are the gate between thesis exploration and downstream drafting. Your job is
 
 ## Output
 
-Write to `/Users/pedro/git_repos/big_impact/state/drafts/chosen_thesis.md`:
+Write to `/Users/pedro/git_repos/big_impact/state/05_thesis-selector/chosen_thesis.md`:
 
 ```markdown
 # Chosen Business Thesis: BT-0X — <name>

@@ -32,7 +32,7 @@ Extract from the two PDFs:
 
 ## Output
 
-Write to `/Users/pedro/git_repos/big_impact/state/methodology_brief.md`:
+Write to `/Users/pedro/git_repos/big_impact/state/02_case-methodology-reader/methodology_brief.md`:
 
 ```markdown
 # BIG Impact Methodology Brief

@@ -7,7 +7,7 @@ Orchestration map for the Phase 1 PoV deliverable (deadline **2026-04-29**). Pro
 1. **Segment-defaulting rule** in `problem-definer.md`: when multiple segments are plausible, the segment with PerSense's strongest internal evidence wins by default. For this project that is **Breast Cancer Survivors** (N=126 cohort, AUC 0.78). Choosing a non-moat segment (e.g., university students) requires a written `Segment Choice Rationale` defending the deviation. `critical-reviewer` blocks on missing/weak rationale.
 2. **Two startup frameworks adopted (only the ones that close real gaps)**:
    - **Value Proposition Canvas (Osterwalder)** baked into `thesis-selector.md` — forces explicit Customer Profile (Jobs / Pains / Gains for the BUYER) and Value Map (Products / Pain Relievers / Gain Creators) with 1:1 mapping. Holes in the mapping go into Open Issues.
-   - **The Mom Test (Fitzpatrick)** baked into `partner-mapper.md` — for each top-5 partner, the agent now generates 5–7 discovery questions following the Mom Test rules (concrete past behavior, no hypotheticals, commitment over compliments). Output: `state/drafts/discovery_questions.md`.
+   - **The Mom Test (Fitzpatrick)** baked into `partner-mapper.md` — for each top-5 partner, the agent now generates 5–7 discovery questions following the Mom Test rules (concrete past behavior, no hypotheticals, commitment over compliments). Output: `state/09_partner-mapper/discovery_questions.md`.
 3. **Frameworks deliberately NOT adopted**: Lean Startup, Customer Development, Business Model Canvas, North Star — already implicit in the existing artifact structure. Adding them would be jargon overlay.
 
 ## What changed in v4
@@ -18,8 +18,8 @@ Orchestration map for the Phase 1 PoV deliverable (deadline **2026-04-29**). Pro
 
 ## What changed in v3
 
-1. **Business-thesis-generator** (new, opus) — generates 3–5 candidate revenue theses (DiGA payer, university B2B, employer wellness, clinic white-label, pharma companion, etc.), each anchored in ledger evidence with bottom-up TAM, time-to-revenue, regulatory path, capital intensity, defensibility, PoV-pilot fit, and a composite score. Output: `state/drafts/business_theses.json`.
-2. **Thesis-selector** (new, sonnet) — picks one thesis (highest composite score by default; user can override in invocation prompt). Output: `state/drafts/chosen_thesis.md`. Drives the pilot's commercial success criteria.
+1. **Business-thesis-generator** (new, opus) — generates 3–5 candidate revenue theses (DiGA payer, university B2B, employer wellness, clinic white-label, pharma companion, etc.), each anchored in ledger evidence with bottom-up TAM, time-to-revenue, regulatory path, capital intensity, defensibility, PoV-pilot fit, and a composite score. Output: `state/04_business-thesis-generator/business_theses.json`.
+2. **Thesis-selector** (new, sonnet) — picks one thesis (highest composite score by default; user can override in invocation prompt). Output: `state/05_thesis-selector/chosen_thesis.md`. Drives the pilot's commercial success criteria.
 3. **Value-hypothesis is now thesis-aware** — must include at least one willingness-to-pay / unit-economics metric tied to the chosen buyer. Adds a `Modelo de negócio` line.
 4. **Pilot-designer is now thesis-aware** — secondary success metrics must include a buyer signal (LOI, paid follow-on commitment, DiGA-grade dossier readiness), not only clinical numbers.
 5. **Critical-reviewer** adds rule #9: business-model coherence. A pilot that proves a feature but not a business is a blocker.

@@ -18,11 +18,11 @@ The team needs a Proof-of-Value site **right now** — pre-pilot. Your job is to
 
 ## Input
 
-1. `/Users/pedro/git_repos/big_impact/state/evidence_ledger.json`
-2. `/Users/pedro/git_repos/big_impact/state/methodology_brief.md`
+1. `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json`
+2. `/Users/pedro/git_repos/big_impact/state/02_case-methodology-reader/methodology_brief.md`
 3. `/Users/pedro/git_repos/big_impact/state/thinking_framework.md` — apply principles 1 (laser focus — name specific people/programs, not categories), 2 (no AI-generic — actual program names with URLs), 4 (buyer empathy — what does each partner actually need from us), 7 (open issues — flag where info is uncertain or stale).
-4. `/Users/pedro/git_repos/big_impact/state/drafts/problem.md`
-5. `/Users/pedro/git_repos/big_impact/state/drafts/chosen_thesis.md` (if present — calibrate ranking to the chosen buyer model). If absent, proceed thesis-agnostic and flag in metadata.
+4. `/Users/pedro/git_repos/big_impact/state/03_problem-definer/problem.md`
+5. `/Users/pedro/git_repos/big_impact/state/05_thesis-selector/chosen_thesis.md` (if present — calibrate ranking to the chosen buyer model). If absent, proceed thesis-agnostic and flag in metadata.
 6. `/Users/pedro/git_repos/big_impact/project-docs/relatorio_estrategico_master_persense.html` — for any pre-existing partnership signals or warm intros the team has already mentioned.
 
 ## Scope of research
@@ -129,10 +129,10 @@ Each axis 1–5. Composite = sum.
 4. For each entry: fill the schema. Score honestly. Where info is uncertain or stale, mark in `open_issues` (framework principle 7).
 5. Rank all entries by composite score and tag the top 5 as `recommended_first_contact: true`.
 6. Identify any partner that unlocks **multiplication** — winning them gets you N similar institutions for free (e.g., one ARS unlocks all five regional ARS; one CUF clinic unlocks the CUF group; one GAPsi unit unlocks the inter-university GAPsi network).
-7. Write to `/Users/pedro/git_repos/big_impact/state/drafts/partner_map.json` with the schema above plus metadata.
-8. Also write `/Users/pedro/git_repos/big_impact/state/drafts/partner_map.md` — a readable summary: top-5 recommended actions table (Partner | Program | Ask | Channel | This-week action), then the full ranked list grouped by category.
+7. Write to `/Users/pedro/git_repos/big_impact/state/09_partner-mapper/partner_map.json` with the schema above plus metadata.
+8. Also write `/Users/pedro/git_repos/big_impact/state/09_partner-mapper/partner_map.md` — a readable summary: top-5 recommended actions table (Partner | Program | Ask | Channel | This-week action), then the full ranked list grouped by category.
 
-9. **Generate Mom-Test-compliant discovery questions** for the top 5 partners. Write to `/Users/pedro/git_repos/big_impact/state/drafts/discovery_questions.md`.
+9. **Generate Mom-Test-compliant discovery questions** for the top 5 partners. Write to `/Users/pedro/git_repos/big_impact/state/09_partner-mapper/discovery_questions.md`.
 
    The Mom Test (Rob Fitzpatrick) rules — apply strictly:
    - **Talk about their life, not your idea.** Don't pitch; ask what they currently do.

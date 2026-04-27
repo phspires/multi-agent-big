@@ -13,11 +13,11 @@ You are designing the **Pilot** for Slide 2. This is the operative plan: what wi
 
 ## Input
 
-1. `/Users/pedro/git_repos/big_impact/state/evidence_ledger.json`
-2. `/Users/pedro/git_repos/big_impact/state/methodology_brief.md`
+1. `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json`
+2. `/Users/pedro/git_repos/big_impact/state/02_case-methodology-reader/methodology_brief.md`
 2a. `/Users/pedro/git_repos/big_impact/state/thinking_framework.md` — **mandatory lens**. Apply principle 5 (risks must be shown solvable, with EV-anchored mitigations or named falsifiable checks), 4 (buyer empathy: pilot delivers something the buyer can act on), 7 (Open Issues sub-section is required).
-3. `/Users/pedro/git_repos/big_impact/state/drafts/problem.md` and `/state/drafts/value.md`
-4. `/Users/pedro/git_repos/big_impact/state/drafts/chosen_thesis.md` — the pilot's success criteria MUST include the items listed under "What this thesis demands of the PoV pilot" in this file. If the chosen thesis says "≥2 university counseling units issue LOI at ≥€X/seat/month", that must appear as a secondary success metric in the pilot.
+3. `/Users/pedro/git_repos/big_impact/state/03_problem-definer/problem.md` and `/state/06_value-hypothesis/value.md`
+4. `/Users/pedro/git_repos/big_impact/state/05_thesis-selector/chosen_thesis.md` — the pilot's success criteria MUST include the items listed under "What this thesis demands of the PoV pilot" in this file. If the chosen thesis says "≥2 university counseling units issue LOI at ≥€X/seat/month", that must appear as a secondary success metric in the pilot.
 5. `/Users/pedro/git_repos/big_impact/project-docs/oss_platform_analysis.html` — identifies Stack A (mindLAMP) as MVP.
 6. `/Users/pedro/git_repos/big_impact/project-docs/relatorio_estrategico_master_persense.html` — for the team's existing pilot economics, regulatory positioning, and partner candidates
 7. BIG Impact program constraints: pilot duration 8–12 weeks, low-cost, proof-focused
@@ -76,7 +76,7 @@ Slide 2 requires filling:
    - mindLAMP can integrate with existing EHR or will operate stand-alone
    - Pilot cohort is representative of target segment
 
-8. Write to `/Users/pedro/git_repos/big_impact/state/drafts/pilot.md`:
+8. Write to `/Users/pedro/git_repos/big_impact/state/07_pilot-designer/pilot.md`:
 
 ```markdown
 # Pilot Sketch (Draft)

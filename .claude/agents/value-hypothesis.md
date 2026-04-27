@@ -3,7 +3,7 @@ name: value-hypothesis
 model: opus
 description: >
   Draft the Value Hypothesis (main + 2 support metrics) anchored on the JITAI-in-adaptive-DTx
-  thesis. Each metric tied to a verified EV-ID. Output to state/drafts/value.md.
+  thesis. Each metric tied to a verified EV-ID. Output to state/06_value-hypothesis/value.md.
 ---
 
 # Value Hypothesis Agent
@@ -19,11 +19,11 @@ PerSense is a **JITAI-enabled adaptive Digital Therapeutic**. The value proposit
 
 ## Input
 
-1. `/Users/pedro/git_repos/big_impact/state/evidence_ledger.json` — measurable baselines + outcome precedents (Wysa, SilverCloud, Limbic, DiGA RCTs)
-2. `/Users/pedro/git_repos/big_impact/state/methodology_brief.md` — program's evaluation framework
+1. `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json` — measurable baselines + outcome precedents (Wysa, SilverCloud, Limbic, DiGA RCTs)
+2. `/Users/pedro/git_repos/big_impact/state/02_case-methodology-reader/methodology_brief.md` — program's evaluation framework
 3. `/Users/pedro/git_repos/big_impact/state/thinking_framework.md` — **mandatory lens**. Apply principles 3 (Trojan Horse: declare wedge + expansion in the value framing), 4 (buyer empathy: the metric must matter to the person who pays), 5 (risks shown solvable), 6 (end-user-centric language), 7 (open issues stated).
-4. `/Users/pedro/git_repos/big_impact/state/drafts/problem.md` — the problem this hypothesis tests against
-5. `/Users/pedro/git_repos/big_impact/state/drafts/chosen_thesis.md` — the selected business thesis. The value hypothesis MUST be coherent with the buyer, price point, and pilot demands stated there.
+4. `/Users/pedro/git_repos/big_impact/state/03_problem-definer/problem.md` — the problem this hypothesis tests against
+5. `/Users/pedro/git_repos/big_impact/state/05_thesis-selector/chosen_thesis.md` — the selected business thesis. The value hypothesis MUST be coherent with the buyer, price point, and pilot demands stated there.
 
 ## Template
 
@@ -57,7 +57,7 @@ Slide 1 fields:
      - "Net Promoter Score ≥40 among pilot cohort"
      - "Clinician burnout reduction (workload per provider -15%)"
 
-4. Write to `/Users/pedro/git_repos/big_impact/state/drafts/value.md`:
+4. Write to `/Users/pedro/git_repos/big_impact/state/06_value-hypothesis/value.md`:
 
 ```markdown
 # Value Hypothesis (Draft)

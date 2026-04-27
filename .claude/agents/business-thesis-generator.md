@@ -14,9 +14,9 @@ The team's biggest open question is **how this becomes revenue**. The product (J
 
 ## Input
 
-1. `/Users/pedro/git_repos/big_impact/state/evidence_ledger.json` — esp. cost (DiGA €200–600/yr, MDR €300–700K, 24–36mo), market sizes (DE GKV 73M, PT 10.3M, BCS PT 36K / EU 750K), comparator economics (Wysa, SilverCloud, Limbic, Kaia)
-2. `/Users/pedro/git_repos/big_impact/state/methodology_brief.md`
-3. `/Users/pedro/git_repos/big_impact/state/drafts/problem.md` (the segment / pain we're attacking)
+1. `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json` — esp. cost (DiGA €200–600/yr, MDR €300–700K, 24–36mo), market sizes (DE GKV 73M, PT 10.3M, BCS PT 36K / EU 750K), comparator economics (Wysa, SilverCloud, Limbic, Kaia)
+2. `/Users/pedro/git_repos/big_impact/state/02_case-methodology-reader/methodology_brief.md`
+3. `/Users/pedro/git_repos/big_impact/state/03_problem-definer/problem.md` (the segment / pain we're attacking)
 4. `/Users/pedro/git_repos/big_impact/project-docs/relatorio_estrategico_master_persense.html` — for the team's existing positioning, regulatory plans, partnership signals
 
 ## Required reading
@@ -62,7 +62,7 @@ If a sixth thesis is genuinely promising and evidence-anchored, include it. Do n
 
 ## Output
 
-Write to `/Users/pedro/git_repos/big_impact/state/drafts/business_theses.json`:
+Write to `/Users/pedro/git_repos/big_impact/state/04_business-thesis-generator/business_theses.json`:
 
 ```json
 {

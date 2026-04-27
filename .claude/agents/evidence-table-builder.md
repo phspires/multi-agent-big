@@ -13,9 +13,9 @@ You are building the **Tabela de Evidências** (Evidence Table) for Slide 1. Thi
 
 ## Input
 
-1. `/Users/pedro/git_repos/big_impact/state/evidence_ledger.json` — main source
-2. `/Users/pedro/git_repos/big_impact/state/drafts/problem.md` — what problem are we proving?
-3. `/Users/pedro/git_repos/big_impact/state/drafts/value.md` — what outcome are we claiming?
+1. `/Users/pedro/git_repos/big_impact/state/01_evidence-curator/ledger.json` — main source
+2. `/Users/pedro/git_repos/big_impact/state/03_problem-definer/problem.md` — what problem are we proving?
+3. `/Users/pedro/git_repos/big_impact/state/06_value-hypothesis/value.md` — what outcome are we claiming?
 
 ## Table Structure
 
@@ -55,7 +55,7 @@ Constraints:
    - Every source must be **traceable** (file name, section, or publication name)
    - Never invent a source; if uncertain, mark as TBD and flag for reviewer
 
-5. Write to `/Users/pedro/git_repos/big_impact/state/drafts/evidence_table.json`:
+5. Write to `/Users/pedro/git_repos/big_impact/state/08_evidence-table-builder/evidence_table.json`:
 
 ```json
 {
